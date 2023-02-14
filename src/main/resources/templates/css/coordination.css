@@ -1,0 +1,68 @@
+a {
+    text-decoration-line: none;
+    color : black;
+}
+
+.card-text-viewcount {
+    margin-top: 0.5rem;
+    font-size: small;
+}
+
+.card-image {
+    width: 10rem;
+    height: 10rem;
+    /* 이미지 조절 */
+    object-fit: cover;
+}
+
+h3 {
+  font-weight: 1000;
+  margin-bottom: 8rem;
+}
+
+.model-image-box {
+  width: 40rem;
+  height: 50rem;
+}
+
+.model-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.coordination_content {
+  width: 60rem;
+}
+
+.content_text {
+  width: 100%;
+  height: 30rem;
+  border: none;
+  background-color: white;
+  border-bottom: 1px solid rgba(253, 185, 185, 0.15);
+  
+}
+
+.coordination {
+  width: 1500px;
+  /* height: 50rem; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.coordination_text {
+  height: 100%;
+}
+
+.productlist_title {
+  margin-bottom: 1rem;
+}
+
+.commentarea {
+  margin-bottom: 2rem;
+}
+
+.comment{
+  margin-top: 1rem;
+}
