@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
   </head>
   <body>
     <%@ include file="header.jsp" %>
@@ -22,21 +22,21 @@
       <!-- <img src="./refer/main3.jpg" style="width: 100%; height: 100%;" alt=""> -->
       <div class="d-flex">
         <a href="" class="mainImg_parent main1_width me-1">
-          <img src="./refer/mainImg/model1.jpg" class="mainImg1 main1-lg" alt="">
+          <img src="/refer/mainImg/model1.jpg" class="mainImg1 main1-lg" alt="">
           <div class="mainImg1_text">
             <div style="font-size: 6rem;" >TEST OFF</div>
             <div class="text-center" style="font-size: 3rem;" >-86%</div>
           </div>
         </a>
         <a href="" class="mainImg_parent main2_width me-1">
-          <img src="./refer/mainImg/model3.jpg" class="mainImg2 me-1" alt="">
+          <img src="/refer/mainImg/model3.jpg" class="mainImg2 me-1" alt="">
           <div class="mainImg1_text">
             <h1>TEST OFF</h1>
             <h3 class="text-center">-86%</h3>
           </div>
         </a>
         <a href="" class="mainImg_parent main2_width">
-          <img src="./refer/mainImg/model2.jpg" class="mainImg2" alt="">
+          <img src="/refer/mainImg/model2.jpg" class="mainImg2" alt="">
           <div class="mainImg1_text">
             <h1>TEST OFF</h1>
             <h3 class="text-center">-86%</h3>
