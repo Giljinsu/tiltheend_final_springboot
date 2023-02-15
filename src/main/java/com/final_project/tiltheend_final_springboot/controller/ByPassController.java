@@ -66,4 +66,9 @@ public class ByPassController {
     @RequestMapping(value = {"/admin/admin_list"})
     public void admin_list() {
     }
+
+    @RequestMapping(value = {"/announcement/announcement"})
+    public void announcement() {
+    }
+    
 }
