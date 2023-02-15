@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/list.css" />
+    <link rel="stylesheet" href="/css/list.css" />
   </head>
   <body>
     <%@ include file="../header.jsp" %>
@@ -38,7 +38,7 @@
     </div>
     <!-- 헤더 여기까지 복사해야함 -->
     <main style="margin-top: 160px" class="container">
-      <div id="head"><a href="./qna.html" class="me-4">Q&A</a> <a href="" class="fw-bold">FAQ</a></div>
+      <div id="head"><a href="/qna/qna" class="me-4">Q&A</a> <a href="" class="fw-bold">FAQ</a></div>
       <div id="category" class="mt-2 mb-2 d-flex" style="justify-content: space-between">
         <div>
           <a href="">전체</a>

@@ -13,16 +13,16 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-   <link rel="stylesheet" href="./css/coordinationBoard.css">
+   <link rel="stylesheet" href="/css/coordinationBoard.css">
 </head>
 <body>
    <%@ include file="../header.jsp" %>
     
     <main style="margin-top:8rem;" class="container">
         <div class="row row-cols-1 row-cols-md-4">
-            <a href="./coordination.html" class="col mb-3">
+            <a href="/coordination/coordination" class="col mb-3">
                 <div class="card border-light h-100">
-                    <img src="./refer/coordination/model1.jpg" class="card-image" alt="">
+                    <img src="/refer/coordination/model1.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">제목(링크연결됨)</div>
                         <div class="card-text">등록자</div>
@@ -32,7 +32,7 @@
             </a>
             <a href="" class="col mb-3">
                 <div class="card border-light h-100">
-                    <img src="./refer/coordination/model2.jpg" class="card-image" alt="">
+                    <img src="/refer/coordination/model2.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">제목</div>
                         <div class="card-text">등록자</div>
@@ -42,7 +42,7 @@
             </a>
             <a href="" class="col mb-3">
                 <div class="card border-light h-100">
-                    <img src="./refer/coordination/model3.jpg" class="card-image" alt="">
+                    <img src="/refer/coordination/model3.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">제목</div>
                         <div class="card-text">등록자</div>
@@ -52,7 +52,7 @@
             </a>
             <a href="" class="col mb-3">
                 <div class="card border-light h-100">
-                    <img src="./refer/coordination/model2.jpg" class="card-image" alt="">
+                    <img src="/refer/coordination/model2.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">제목</div>
                         <div class="card-text">등록자</div>
@@ -62,7 +62,7 @@
             </a>
             <a href="" class="col mb-3">
                 <div class="card border-light h-100">
-                    <img src="./refer/coordination/model2.jpg" class="card-image" alt="">
+                    <img src="/refer/coordination/model2.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">제목</div>
                         <div class="card-text">등록자</div>

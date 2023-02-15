@@ -1,6 +1,6 @@
 a {
-    text-decoration-line: none;
-    color : black;
+    text-decoration-line: none !important;
+    color : black !important;
 }
 
 .card-image-top {

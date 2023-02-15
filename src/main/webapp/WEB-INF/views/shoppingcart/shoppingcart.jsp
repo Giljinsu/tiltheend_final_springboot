@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/shoppingcart.css" />
+    <link rel="stylesheet" href="/css/shoppingcart.css" />
   </head>
   <body>
     <%@ include file="../header.jsp" %>
@@ -59,7 +59,7 @@
             <td>1</td>
             <td><input type="checkbox" name="" id=""></td>
             <td>
-              <img class="cart_image" src="./refer/clothes/top1.jpg" alt="">
+              <img class="cart_image" src="/refer/clothes/top1.jpg" alt="">
               상품명
             </td>
             <td>1000</td>
