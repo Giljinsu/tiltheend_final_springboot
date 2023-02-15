@@ -17,7 +17,7 @@
     <header class="fixed-top bg-white border-bottom">
       <nav class="navbar navbar-expand">
         <div class="d-flex align-items-center">
-          <a href="/index" style="font-weight: 1000" class="navbar-brand fs-4 ms-2">브랜드명</a>
+          <a href="/" style="font-weight: 1000" class="navbar-brand fs-4 ms-2">브랜드명</a>
         </div>
         <div class="w-100">
           <div class="short-div">

@@ -13,7 +13,7 @@
     crossorigin="anonymous"
   />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link rel="stylesheet" href="./css/coordination.css">
+  <link rel="stylesheet" href="/css/coordination.css">
 </head>
 <body>
 <%@ include file="../header.jsp" %>
@@ -23,7 +23,7 @@
         <div class="row">
           <div class="col d-flex justify-content-">
             <div class="model-image-box">
-              <img class="model-image" src="./refer/coordination/model1.jpg" alt="">
+              <img class="model-image" src="/refer/coordination/model1.jpg" alt="">
             </div>
           </div>
           <div class="col">
@@ -64,7 +64,7 @@
             <div class="d-flex g-4">
               <a href="" class="">
                 <div class="card border-light h-100 me-2">
-                    <img src="./refer/clothes/top1.jpg" class="card-image" alt="">
+                    <img src="/refer/clothes/top1.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">브랜드명</div>
                         <div class="card-text">의류명</div>
@@ -74,7 +74,7 @@
               </a>
               <a href="" class="">
                 <div class="card border-light h-100">
-                    <img src="./refer/clothes/top1.jpg" class="card-image" alt="">
+                    <img src="/refer/clothes/top1.jpg" class="card-image" alt="">
                     <div class="card-body">
                         <div class="card-title">브랜드명</div>
                         <div class="card-text">의류명</div>
