@@ -1,0 +1,17 @@
+SELECT * FROM coordination_info
+WHERE COORDINATION_ID = ''
+;
+
+INSERT INTO coordination_info
+(`COORDINATION_ID`, `BULLETIN_NO`, `PICTURE`, `USERNAME`, `HEIGHT`, `WEIGHT`, `JOB`, `PRODUCT_ID`, `FILE_ID`)
+VALUES
+('CORD_1', '1', 'SDKSDKM2324LMSD', '김다미', '170', '50', '배우', 'PROD_1', 'FILE_1');
+
+DELETE FROM coordination_info
+WHERE COORDINATION_ID='CORD_1'
+;
+
+UPDATE coordination_info
+SET USERNAME='홍길동'
+WHERE COORDINATION_ID='CORD_1'
+;
