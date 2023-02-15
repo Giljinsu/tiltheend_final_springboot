@@ -73,9 +73,11 @@
         </div>
         <hr />
         <div class="text-end">
+        <form action="/coordination/write_coordination">
           <button class="btn btn-dark">
             게시글 작성
           </button>
+        </form>
         </div>
         <!-- pagination -->
         <div class="container d-flex justify-content-center">

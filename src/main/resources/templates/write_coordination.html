@@ -86,6 +86,7 @@
     </div>
     
     <main style="margin-top: 8rem">
+      <form action="">
       <div class="coordination">
         <div class="row">
           <div class="col d-flex justify-content-">
@@ -104,7 +105,7 @@
               <table class="table">
                 <tr>
                   <th class="col-4">이름</th>
-                  <td class="col-8">
+                  <td class="col-8 row">
                     <input type="text" name="" id="">
                   </td>
                 </tr>
@@ -118,12 +119,16 @@
                 </tr>
                 <tr>
                   <th class="col-4">직책(직무)</th>
-                  <td class="col-8">배우</td>
+                  <td class="col-8 row">
+                    <input type="text" name="" id="">
+                  </td>
                 </tr>
               </table>
               <!-- 게시글이 초과되면 스크롤 추가 -->
               <div class="" style="overflow:auto; height: 20rem;">
-                <div> 게시글 내용</div>
+                <div> 
+                  <textarea class="form-control" name="" id="" rows="10" placeholder="내용 작성"></textarea>
+                </div>
               </div>
           </div>
           </div>
@@ -131,7 +136,13 @@
         <!-- 사용된 제품  -->
         <hr>
         <div class="productlist">
-          <h5 class="productlist_title">사용된 제품</h5>
+          <div class="d-flex justify-content-between
+          ">
+            <h5 class="productlist_title">사용된 제품</h5>
+            <div>
+              <button class="btn btn-secondary">제품 업로드</button>
+            </div>
+          </div>
             <div class="d-flex g-4">
               <a href="" class="">
                 <div class="card border-light h-100 me-2">
@@ -154,7 +165,14 @@
                 </div>
               </a>
             </div>
+          </div>
+          <hr />
+          <div class="text-center mb-4">
+            <button class="btn btn-secondary">게시글 작성</button>
+          </div>
+        </form>
         </div>
+      </main>
 
     <footer class="border-top p-5 text-secondary bg-light" style="font-size: 0.8rem">
       <div class="">
