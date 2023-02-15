@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/item_info.css" />
+    <link rel="stylesheet" href="/css/item_info.css" />
   </head>
   <body>
     <%@ include file="../header.jsp" %>
@@ -41,7 +41,7 @@
     <div class="modal fade" id="modal-img-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="./refer/review/review1.jpg" alt="" />
+          <img src="/refer/review/review1.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
     <div class="modal fade" id="modal-img-2">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="./refer/review/review2.jpg" alt="" />
+          <img src="/refer/review/review2.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@
     <div class="modal fade" id="modal-img-3">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="./refer/review/review3.jpg" alt="" />
+          <img src="/refer/review/review3.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -65,7 +65,7 @@
     <div class="modal fade" id="modal-img-4">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="./refer/review/review4.jpg" alt="" />
+          <img src="/refer/review/review4.jpg" alt="" />
         </div>
       </div>
     </div>
@@ -93,16 +93,16 @@
                 <div id="carouselControlId" class="carousel slide" data-bs-ride="carousel" style="width: 550px; text-align: center">
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img class="image" src="./refer/item_info/item1.jpg" alt="" />
+                      <img class="image" src="/refer/item_info/item1.jpg" alt="" />
                     </div>
                     <div class="carousel-item">
-                      <img class="image" src="./refer/item_info/item2.jpg" alt="" />
+                      <img class="image" src="/refer/item_info/item2.jpg" alt="" />
                     </div>
                     <div class="carousel-item">
-                      <img class="image" src="./refer/item_info/item3.jpg" alt="" />
+                      <img class="image" src="/refer/item_info/item3.jpg" alt="" />
                     </div>
                     <div class="carousel-item">
-                      <img class="image" src="./refer/item_info/item4.jpg" alt="" />
+                      <img class="image" src="/refer/item_info/item4.jpg" alt="" />
                     </div>
                   </div>
                   <button class="carousel-control-prev" data-bs-target="#carouselControlId" data-bs-slide="prev">
@@ -175,7 +175,7 @@
               <div class="row row-cols-2">
                 <div style="text-align: center">
                   <div>
-                    <img src="./refer/review/star.png" alt="" id="star" />
+                    <img src="/refer/review/star.png" alt="" id="star" />
                     <span style="font-size: 40px">4.5</span>
                   </div>
                   <div style="font-weight: 700"><span>2</span>명의 고객님이 리뷰를 남겼습니다.</div>
@@ -211,12 +211,12 @@
                 <div style="justify-items: start" class="mt-3">
                   <a href="#modal-img-1" data-bs-toggle="modal" style="display: inline-flex">
                     <div class="card border-bold" style="width: 100px">
-                      <img src="./refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
                     </div>
                   </a>
                   <a href="#modal-img-2" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
                     <div class="card border-bold" style="width: 100px">
-                      <img src="./refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      <img src="/refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
                     </div>
                   </a>
                 </div>
@@ -236,12 +236,12 @@
                 <div style="justify-items: start" class="mt-3">
                   <a href="#modal-img-3" data-bs-toggle="modal" style="display: inline-flex">
                     <div class="card border-bold" style="width: 100px">
-                      <img src="./refer/review/review3.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      <img src="/refer/review/review3.jpg" class="card-image-top" style="height: 100px; width: 100px" />
                     </div>
                   </a>
                   <a href="#modal-img-4" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
                     <div class="card border-bold" style="width: 100px">
-                      <img src="./refer/review/review4.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      <img src="/refer/review/review4.jpg" class="card-image-top" style="height: 100px; width: 100px" />
                     </div>
                   </a>
                 </div>

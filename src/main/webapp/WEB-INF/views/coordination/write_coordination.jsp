@@ -39,28 +39,28 @@
                 <tr>
                   <th class="col-4">이름</th>
                   <td class="col-8 row">
-                    <input type="text" name="" id="">
+                    <input type="text" name="username" id="">
                   </td>
                 </tr>
                 <tr>
                   <th class="col-4">키/몸무게</th>
                   <td class="col-8 row">
-                    <input class="col" type="text" name="" id="">
+                    <input class="col" type="text" name="height" id="">
                     <div class="col-1 text">/</div>
-                    <input class="col" type="text" name="" id="">
+                    <input class="col" type="text" name="weight" id="">
                   </td>
                 </tr>
                 <tr>
                   <th class="col-4">직책(직무)</th>
                   <td class="col-8 row">
-                    <input type="text" name="" id="">
+                    <input type="text" name="job" id="">
                   </td>
                 </tr>
               </table>
               <!-- 게시글이 초과되면 스크롤 추가 -->
               <div class="" style="overflow:auto; height: 20rem;">
                 <div> 
-                  <textarea class="form-control" name="" id="" rows="10" placeholder="내용 작성"></textarea>
+                  <textarea class="form-control" name="coordination_content" id="" rows="10" placeholder="내용 작성"></textarea>
                 </div>
               </div>
           </div>
