@@ -13,7 +13,7 @@
 		  crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-		<link rel="stylesheet" href="./css/main.css">
+		<link rel="stylesheet" href="../css/main.css">
 		<style>
       * {
         /* border: 1px solid gray; */
@@ -75,7 +75,7 @@
 					<!-- 베스트 상품 리스트 -->
 					<div class="fs-5 mb-3">베스트 상품 리스트</div>
 					<div class="row">
-						<a href="item_info.html" class="col-3 mb-3">
+						<a href="item_info" class="col-3 mb-3">
 							<div class="card" style="">
 								<img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap">
 								<div class="card-body">

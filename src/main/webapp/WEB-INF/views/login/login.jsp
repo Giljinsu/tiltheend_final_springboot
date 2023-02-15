@@ -46,7 +46,7 @@
     <main style="height:500px;margin-top:320px;">
       <div class="container" style="margin-top:100px"></div>
       <div class="container">
-        <form action="./mypage.html">
+        <form action="/login/mypage" method="POST">
           <div class="d-flex justify-content-center">
             <input name="id" class="w-25 p-2" type="text" placeholder="ID">
           </div>
@@ -62,7 +62,7 @@
             <form action="">
               <button class="btn">아이디/비밀번호 찾기</button>
             </form>
-            <form action="./signup.html">
+            <form action="/login/signup">
               <button class="btn">회원가입</button>
             </form>
           </div>
