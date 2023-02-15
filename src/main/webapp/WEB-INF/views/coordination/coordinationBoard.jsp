@@ -71,6 +71,7 @@
                 </div>
             </a>
         </div>
+        <hr />
         <div class="text-end">
           <button class="btn btn-dark">
             게시글 작성
