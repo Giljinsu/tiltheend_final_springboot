@@ -17,13 +17,13 @@
     <header class="fixed-top bg-white border-bottom">
       <nav class="navbar navbar-expand">
         <div class="d-flex align-items-center">
-          <a href="./index.html" style="font-weight: 1000" class="navbar-brand fs-4 ms-2">브랜드명</a>
+          <a href="/index" style="font-weight: 1000" class="navbar-brand fs-4 ms-2">브랜드명</a>
         </div>
         <div class="w-100">
           <div class="short-div">
             <div style="width: 100%" class="d-flex justify-content-between align-items-center">
               <div class="navbar-nav">
-                <a class="nav-link ms-4 fs-5 text-dark"  href="shop.html">상품</a>
+                <a class="nav-link ms-4 fs-5 text-dark"  href="/shop/shop">상품</a>
                 <!-- <div class="d-flex nav-item">
                   <a href="" class="nav-link fs-5 dropdown-toggle text-dark" data-bs-toggle="dropdown">게시판</a>
                   <div class="dropdown-menu">
@@ -32,15 +32,15 @@
                     <a href="./announcement.html" class="dropdown-item">공지사항</a>
                   </div>
                 </div> -->
-                <a href="./coordinationBoard.html" class="nav-link fs-5 text-dark">코디게시판</a>
-                <a href="./qna.html" class="nav-link fs-5 text-dark">Q&A</a>
-                <a href="./announcement.html" class="nav-link fs-5 text-dark">공지사항</a>
+                <a href="/coordination/coordinationBoard" class="nav-link fs-5 text-dark">코디게시판</a>
+                <a href="/qna/qna" class="nav-link fs-5 text-dark">Q&A</a>
+                <a href="/announcement/announcement" class="nav-link fs-5 text-dark">공지사항</a>
               </div>
               <div class="navbar-nav">
-                <a href="login.html" class="nav-link me-4 fs-5 d-flex align-items-center">
+                <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">person</span>
                 </a>
-                <a href="shoppingcart.html" class="nav-link me-4 fs-5 d-flex align-items-center">
+                <a href="/shoppingcart/shoppingcart" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">shopping_cart_checkout</span>
                 </a>
                 <a href="#modalTarget" data-bs-toggle="modal" class="nav-link d-flex align-items-center me-4 fs-5" style="text-align: c">

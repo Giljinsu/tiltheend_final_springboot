@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,7 +29,7 @@
     </style>
   </head>
   <body>
-    <%@ include file="header.jsp" %>
+    <%@ include file="../header.jsp" %>
     <!-- modal -->
     <div class="modal fade" id="modalTarget">
       <div class="modal-dialog modal-dialog-centered">
@@ -117,7 +118,7 @@
       </div>
       </main>
 
-    <%@ include file="footer.jsp" %>
+    <%@ include file="../footer.jsp" %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
