@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +15,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
   <body>
     <%@ include file="header.jsp" %>
@@ -22,21 +24,21 @@
       <!-- <img src="./refer/main3.jpg" style="width: 100%; height: 100%;" alt=""> -->
       <div class="d-flex">
         <a href="" class="mainImg_parent main1_width me-1">
-          <img src="./refer/mainImg/model1.jpg" class="mainImg1 main1-lg" alt="">
+          <img src="/refer/mainImg/model1.jpg" class="mainImg1 main1-lg" alt="">
           <div class="mainImg1_text">
             <div style="font-size: 6rem;" >TEST OFF</div>
             <div class="text-center" style="font-size: 3rem;" >-86%</div>
           </div>
         </a>
         <a href="" class="mainImg_parent main2_width me-1">
-          <img src="./refer/mainImg/model3.jpg" class="mainImg2 me-1" alt="">
+          <img src="/refer/mainImg/model3.jpg" class="mainImg2 me-1" alt="">
           <div class="mainImg1_text">
             <h1>TEST OFF</h1>
             <h3 class="text-center">-86%</h3>
           </div>
         </a>
         <a href="" class="mainImg_parent main2_width">
-          <img src="./refer/mainImg/model2.jpg" class="mainImg2" alt="">
+          <img src="/refer/mainImg/model2.jpg" class="mainImg2" alt="">
           <div class="mainImg1_text">
             <h1>TEST OFF</h1>
             <h3 class="text-center">-86%</h3>
@@ -48,7 +50,7 @@
       <!-- TOP Ranking -->
       <div class="fs-3 mt-5 mb-3">
         Top Ranking
-        <a href="" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
+        <a href="/shop/shop" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
       </div>
       <!--<div class="row row-cols-2 row-cols-md-5 g-4">
         <a href="./item_info.html" class="col-2">
@@ -116,7 +118,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="8000">
                         <div class="row row-cols-2 row-cols-md-5 g-4">
-                            <a href="./item_info.html" class="col-2">
+                            <a href="/shop/item_info" class="col-2">
                                 <div class="card border-light h-100">
                                     <img src="./refer/clothes/top1.jpg" class="card-image-top" alt="">
                                     <div class="card-body">
@@ -235,10 +237,10 @@
       <!-- 코디 게시판 -->
       <div class="fs-3 mt-5 mb-3">
         코디
-        <a href="coordinationBoard.html" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
+        <a href="/coordination/coordinationBoard" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
       </div>
       <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
-        <a href="./coordination.html" class="col">
+        <a href="/coordination/coordination" class="col">
           <div class="card border-light h-100">
             <img src="./refer/coordination/model1.jpg" class="card-image" alt="" />
             <div class="card-body">

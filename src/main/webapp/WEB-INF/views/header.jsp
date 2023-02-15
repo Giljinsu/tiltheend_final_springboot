@@ -12,14 +12,12 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <header class="fixed-top bg-white border-bottom">
       <nav class="navbar navbar-expand">
         <div class="d-flex align-items-center">
-          <a href="./index.html" style="font-weight: 1000" class="navbar-brand fs-4 ms-2">브랜드명</a>
+          <a href="/index" style="font-weight: 1000" class="navbar-brand fs-4 ms-2">브랜드명</a>
         </div>
         <div class="w-100">
           <div class="short-div">
@@ -34,15 +32,15 @@
                     <a href="./announcement.html" class="dropdown-item">공지사항</a>
                   </div>
                 </div> -->
-                <a href="./coordinationBoard.html" class="nav-link fs-5 text-dark">코디게시판</a>
-                <a href="./qna.html" class="nav-link fs-5 text-dark">Q&A</a>
-                <a href="./announcement.html" class="nav-link fs-5 text-dark">공지사항</a>
+                <a href="/coordination/coordinationBoard" class="nav-link fs-5 text-dark">코디게시판</a>
+                <a href="/qna/qna" class="nav-link fs-5 text-dark">Q&A</a>
+                <a href="/announcement/announcement" class="nav-link fs-5 text-dark">공지사항</a>
               </div>
               <div class="navbar-nav">
-                <a href="login.html" class="nav-link me-4 fs-5 d-flex align-items-center">
+                <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">person</span>
                 </a>
-                <a href="shoppingcart.html" class="nav-link me-4 fs-5 d-flex align-items-center">
+                <a href="/shoppingcart/shoppingcart" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">shopping_cart_checkout</span>
                 </a>
                 <a href="#modalTarget" data-bs-toggle="modal" class="nav-link d-flex align-items-center me-4 fs-5" style="text-align: c">
@@ -87,10 +85,10 @@
       </div>
     </div>
     <!-- 헤더 여기까지 복사해야함 -->
-    </body>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    </body>
 </html>
