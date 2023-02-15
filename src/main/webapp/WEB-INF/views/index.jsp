@@ -24,7 +24,7 @@
       <!-- <img src="./refer/main3.jpg" style="width: 100%; height: 100%;" alt=""> -->
       <div class="d-flex">
         <a href="" class="mainImg_parent main1_width me-1">
-          <img src="/refer/mainImg/bear.jpg" class="mainImg1 main1-lg" alt="">
+          <img src="/refer/mainImg/model1.jpg" class="mainImg1 main1-lg" alt="">
           <div class="mainImg1_text">
             <div style="font-size: 6rem;" >TEST OFF</div>
             <div class="text-center" style="font-size: 3rem;" >-86%</div>
