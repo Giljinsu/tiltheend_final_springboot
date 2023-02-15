@@ -12,10 +12,10 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/header.csssds" />
+    <link rel="stylesheet" href="/css/header.csss" />
   </head>
   <body>
-    <div>yongbeom</div>
+    <div>yongbeomasdsdweqw</div>
     <header class="fixed-top bg-white border-bottom">
       <nav class="navbar navbar-expand">
         <div class="d-flex align-items-center">
