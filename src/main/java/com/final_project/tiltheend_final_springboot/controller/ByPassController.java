@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ByPassController {
-<<<<<<< HEAD
     @RequestMapping(value = {"/index"})
     public void main() {
         int i = 1;
