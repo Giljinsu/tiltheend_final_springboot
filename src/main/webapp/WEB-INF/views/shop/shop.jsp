@@ -87,7 +87,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop3.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop3.jpg" alt="Card image cap">
 								<div class="card-body">
 									<div class="card-title">브랜드명</div>
 									<div class="card-text">의류명</div>
@@ -97,7 +97,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop5.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop5.jpg" alt="Card image cap">
 								<div class="card-body">
 									<div class="card-title">브랜드명</div>
 									<div class="card-text">의류명</div>
@@ -107,7 +107,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop7.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop7.jpg" alt="Card image cap">
 								<div class="card-body">
 									<div class="card-title">브랜드명</div>
 									<div class="card-text">의류명</div>
@@ -121,7 +121,7 @@
 					<div class="row">
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop1.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap">
 								<div class="card-body">
 									<div class="card-title">브랜드명</div>
 									<div class="card-text">의류명</div>
@@ -131,7 +131,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop2.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop2.jpg" alt="Card image cap">
 								<div class="card-body">
 									<div class="card-title">브랜드명</div>
 									<div class="card-text">의류명</div>
@@ -141,7 +141,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop3.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop3.jpg" alt="Card image cap">
 								<div class="card-body">
 								<div class="card-title">브랜드명</div>
 								<div class="card-text">의류명</div>
@@ -151,7 +151,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop4.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop4.jpg" alt="Card image cap">
 								<div class="card-body">
 								<div class="card-title">브랜드명</div>
 								<div class="card-text">의류명</div>
@@ -161,7 +161,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop5.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop5.jpg" alt="Card image cap">
 								<div class="card-body">
 								<div class="card-title">브랜드명</div>
 								<div class="card-text">의류명</div>
@@ -171,7 +171,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop6.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop6.jpg" alt="Card image cap">
 								<div class="card-body">
 								<div class="card-title">브랜드명</div>
 								<div class="card-text">의류명</div>
@@ -181,7 +181,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop7.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop7.jpg" alt="Card image cap">
 								<div class="card-body">
 								<div class="card-title">브랜드명</div>
 								<div class="card-text">의류명</div>
@@ -191,7 +191,7 @@
 						</a>
 						<a href="item_info.html" class="col-3 mb-3">
 							<div class="card" style="">
-								<img class="card-img-top" src="./refer/shop_img/shop8.jpg" alt="Card image cap">
+								<img class="card-img-top" src="../refer/shop_img/shop8.jpg" alt="Card image cap">
 								<div class="card-body">
 								<div class="card-title">브랜드명</div>
 								<div class="card-text">의류명</div>

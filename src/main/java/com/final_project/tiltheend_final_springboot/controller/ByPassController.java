@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ByPassController {
-    @RequestMapping(value = {"/index"})
+    @RequestMapping(value = { "/index", "/shop/shop" })
     public void bypass() {
         int i = 1;
     }
