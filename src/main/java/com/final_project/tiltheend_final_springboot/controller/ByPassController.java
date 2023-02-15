@@ -27,6 +27,11 @@ public class ByPassController {
         int i = 1;
     }
 
+    @RequestMapping(value = { "/coordination/write_coordination" })
+    public void write_coordination() {
+        int i = 1;
+    }
+
     @RequestMapping(value = { "/shoppingcart/shoppingcart" })
     public void shoppincart() {
         int i = 1;
