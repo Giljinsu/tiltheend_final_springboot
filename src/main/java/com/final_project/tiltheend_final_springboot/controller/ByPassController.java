@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ByPassController {
 
-    @RequestMapping(value = { "/shop/shop", "/shop/item_info", "/login/login", "/login/signup",
+    @RequestMapping(value = { "/shop/shop", "/login/login", "/login/signup",
             "/login/mypage" })
     public void bypass() {
         int i = 1;
@@ -49,6 +49,11 @@ public class ByPassController {
 
     @RequestMapping(value = { "/login/wishListPage" })
     public void wishListPage() {
+        int i = 1;
+    }
+
+    @RequestMapping(value = { "/announcement/announcement" })
+    public void announcement() {
         int i = 1;
     }
 }
