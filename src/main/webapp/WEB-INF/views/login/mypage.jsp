@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="/css/main.css" />
     <style>
       * {
         /* border: 1px solid gray; */
@@ -57,7 +57,7 @@
         <div id="left-column" class="me-3 pe-3 border-end">
           <div><a href="#">구매내역</a></div>
           <div><a href="#">개인정보수정</a></div>
-          <div><a href="wishListPage.html">위시리스트</a></div>
+          <div><a href="/login/wishListPage">위시리스트</a></div>
         </div>
         <div id="right-column" class="">
           <div class="fs-5 mb-3">구매내역</div>
@@ -66,7 +66,7 @@
             <div class="mb-3 fs-5">2023.1.23. 주문</div>
             <div class="d-flex"> 
               <div class="w-25 me-3">
-                <img src="./refer/mypage/shop1.jpg" alt="" class="w-100">
+                <img src="../refer/mypage/shop1.jpg" alt="" class="w-100">
               </div>
               <div>
                 <div>브랜드: 리바이스</div>
@@ -81,7 +81,7 @@
             <div class="mb-3 fs-5">2023.1.27. 주문</div>
             <div class="d-flex"> 
               <div class="w-25 me-3">
-                <img src="./refer/mypage/shop2.jpg" alt="" class="w-100">
+                <img src="../refer/mypage/shop2.jpg" alt="" class="w-100">
               </div>
               <div>
                 <div>브랜드: 지오다노</div>
@@ -95,7 +95,7 @@
             <div class="mb-3 fs-5">2023.2.4. 주문</div>
             <div class="d-flex"> 
               <div class="w-25 me-3">
-                <img src="./refer/mypage/shop3.jpg" alt="" class="w-100">
+                <img src="../refer/mypage/shop3.jpg" alt="" class="w-100">
               </div>
               <div>
                 <div>브랜드: 탑탠</div>

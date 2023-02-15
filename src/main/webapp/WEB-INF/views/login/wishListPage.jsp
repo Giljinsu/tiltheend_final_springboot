@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <style>
       * {
         /* border: 1px solid gray; */
@@ -65,7 +65,7 @@
               <div class="border rounded p-3 mb-3">
                 <div class="d-flex"> 
                   <div class="w-25 me-3">
-                    <img src="./refer/mypage/shop1.jpg" alt="" class="w-100">
+                    <img src="../refer/mypage/shop1.jpg" alt="" class="w-100">
                   </div>
                   <div>
                     <div>브랜드: 리바이스</div>
@@ -81,7 +81,7 @@
               <div class="border rounded p-3  mb-3">
                 <div class="d-flex"> 
                   <div class="w-25 me-3">
-                    <img src="./refer/mypage/shop2.jpg" alt="" class="w-100">
+                    <img src="../refer/mypage/shop2.jpg" alt="" class="w-100">
                   </div>
                   <div>
                     <div>브랜드: 지오다노</div>
@@ -97,7 +97,7 @@
               <div class="border rounded p-3  mb-3">
                 <div class="d-flex"> 
                   <div class="w-25 me-3">
-                    <img src="./refer/mypage/shop3.jpg" alt="" class="w-100">
+                    <img src="../refer/mypage/shop3.jpg" alt="" class="w-100">
                   </div>
                   <div>
                     <div>브랜드: 탑탠</div>
