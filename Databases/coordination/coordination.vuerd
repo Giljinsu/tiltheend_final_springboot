@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -1,
-    "scrollLeft": -1,
+    "scrollTop": -9,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -231,8 +231,8 @@
             "id": "67b39381-20b2-4fdc-9dba-4bde52fc8df5"
           },
           {
-            "name": "FILE_ID",
-            "comment": "파일ID",
+            "name": "VIEWS",
+            "comment": "조회수",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
@@ -251,14 +251,83 @@
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "d1423c48-683d-4831-b936-bac1008b41d4"
+            "id": "867e842f-a3fd-40ed-a897-633487d10775"
+          },
+          {
+            "name": "DATE",
+            "comment": "작성날짜",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "91527538-cf0f-47f2-8e3d-0ce460c982ad"
+          },
+          {
+            "name": "MODIFICATION_DATE",
+            "comment": "수정날짜",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 136.57666015625,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "84569727-a5c6-4a1a-bb9a-873683a2026b"
+          },
+          {
+            "name": "LIKES",
+            "comment": "좋아요수",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "7b6cc9c0-9341-4a19-bef2-101a5b512e8a"
           }
         ],
         "ui": {
           "active": false,
           "left": 65,
-          "top": 59,
-          "zIndex": 145,
+          "top": 54,
+          "zIndex": 65,
           "widthName": 140.4296875,
           "widthComment": 60
         },
