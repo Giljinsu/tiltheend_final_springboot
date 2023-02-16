@@ -121,9 +121,22 @@
 
         <h4 class="mt-5">결제 정보</h4>
         <div>
-          <div class="row border">
-            <div class="col-2" style="font-weight: 600;">결제 안내</div>
-            <div class="col">카드</div>
+          <div class="row border ">
+            <div class="col-2 pt-2" style="font-weight: 600;">결제 안내</div>
+            <div class="col p-2">
+            <span>
+            <label class="form-check-label" for="cardCheck">카드</label>
+            <input class="form-check-input" type="radio" value="card" name="payment" id="cardCheck">
+            </span>
+            <span>
+            <label class="form-check-label" for="accountCheck">계좌이체</label>
+            <input class="form-check-input" type="radio" value="account" name="payment" id="accountCheck">
+            </span>
+            <span>
+            <label class="form-check-label" for="kakaoCheck">카카오페이</label>
+            <input class="form-check-input" type="radio" value="kakao" name="payment" id="kakaoCheck">
+            </span>
+            </div>
           </div>
           <div class="row border">
             <div class="col-2" style="font-weight: 600;">품절시 환불 안내</div>
