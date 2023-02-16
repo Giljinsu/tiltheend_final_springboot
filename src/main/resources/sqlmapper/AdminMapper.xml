@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin">
+    <!-- admin.select -->
+    <select id="select" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM ADMIN;
+    </select>
+    <!-- admin.update -->
+    <update id="update" 
+        parameterType="Map" resultType="Map">
+        UPDATE coordination_info
+        SET DELIVERY_READY=#{DELIVERY_READY}-#{DELIVERY},DELIVERY_COMPLETE=#{DELIVERY_COMPLETE}+#{DELIVERY}
+        WHERE PRODUCT_CODE=#{PRODUCT_CODE}
+        ;
+    </update>
+</mapper>

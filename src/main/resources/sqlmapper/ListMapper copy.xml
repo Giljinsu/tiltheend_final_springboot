@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="List">
+    <!-- List.selectAnnouncement -->
+    <select id="selectAnnouncement" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM ANNOUNCEMENT;
+    </select>
+    <!-- List.selectQNA -->
+    <select id="selectQNA" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM QNA;
+    </select>
+    <!-- List.selectFAQ -->
+    <select id="selectFAQ" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM FAQ;
+    </select>
+
+    <!-- admin.updateAnnouncement -->
+    <update id="updateAnnouncement" 
+        parameterType="Map" resultType="Map">
+        UPDATE ANNOUNCEMENT
+        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
+        ;
+    </update>
+    <!-- admin.updateQNA -->
+    <update id="updateQNA" 
+        parameterType="Map" resultType="Map">
+        UPDATE QNA
+        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
+        ;
+    </update>
+    <!-- admin.updateFAQ -->
+    <update id="updateFAQ" 
+        parameterType="Map" resultType="Map">
+        UPDATE FAQ
+        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
+        ;
+    </update>
+</mapper>
