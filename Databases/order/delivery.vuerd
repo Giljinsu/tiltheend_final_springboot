@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": 0,
-    "scrollLeft": -4,
+    "scrollTop": -9,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -43,12 +43,12 @@
   "table": {
     "tables": [
       {
-        "name": "SHOPPINGCART",
-        "comment": "쇼핑카트 리스트",
+        "name": "DELIVERY",
+        "comment": "배송정보",
         "columns": [
           {
-            "name": "SHOPPINGCART_ID",
-            "comment": "쇼핑카트리스트ID",
+            "name": "DELIVERY_ID",
+            "comment": "배송ID",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
@@ -62,16 +62,16 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 126.0078125,
-              "widthComment": 106,
+              "widthName": 86.296875,
+              "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "49a4140b-65c6-4e73-8bc2-fa4ea4207fff"
+            "id": "99af5142-8f94-47e0-96da-5d507aaea7a4"
           },
           {
-            "name": "SHOPPINGCART_ORDER",
-            "comment": "쇼핑카트리스트순서",
+            "name": "DELIVERY_COMPANY",
+            "comment": "택배사",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
@@ -85,16 +85,16 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 159.955078125,
-              "widthComment": 119,
+              "widthName": 138.06201171875,
+              "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "f82978a1-970b-474e-8ff1-86bda3299739"
+            "id": "a811c158-01b5-41cf-b1ce-174c7172dde9"
           },
           {
-            "name": "PRODUCT_ID",
-            "comment": "상품ID",
+            "name": "SHIPMENT_TIME",
+            "comment": "제품출고시간",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
@@ -108,47 +108,70 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 86.50634765625,
-              "widthComment": 60,
+              "widthName": 107.45361328125,
+              "widthComment": 80,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "d94d33f4-d4b6-4131-8a96-e5bec83c0e7e"
+            "id": "e7da0e13-f06b-4b62-9988-ab776f938104"
           },
           {
-            "name": "PRODUCT_COUNT",
-            "comment": "상품개수",
+            "name": "DELIVERY_STATUS",
+            "comment": "배송상태",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
               "autoIncrement": false,
               "primaryKey": false,
               "unique": false,
-              "notNull": true
+              "notNull": false
             },
             "ui": {
               "active": false,
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 119.7236328125,
+              "widthName": 122.64990234375,
               "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "62660b59-84ee-4a1d-951a-b11c5143c83c"
+            "id": "2efa69f7-b232-438c-a85e-4040fd321748"
+          },
+          {
+            "name": "DELIVERY_ADDRESS",
+            "comment": "배송지",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 136.14501953125,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "53007b58-2db2-4ab9-9538-d442244c55ab"
           }
         ],
         "ui": {
-          "active": false,
-          "left": 145,
-          "top": 58,
-          "zIndex": 148,
-          "widthName": 105.77783203125,
-          "widthComment": 96.61181640625
+          "active": true,
+          "left": 125,
+          "top": 119,
+          "zIndex": 112,
+          "widthName": 66.06689453125,
+          "widthComment": 60
         },
         "visible": true,
-        "id": "b8ddf9c0-c4c2-4923-acc6-a964e5f3bbe0"
+        "id": "fc16be00-7e13-40b5-af05-7c0b4797529e"
       }
     ],
     "indexes": []
