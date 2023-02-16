@@ -45,7 +45,7 @@
         parameterType="Map" resultType="Map">
         DELETE FROM ANNOUNCEMENT
                     INNER JOIN ADMIN_LIST
-                                
+                                ON ADMIN_LIST.POST_NO
         WHERE POST_NO=#{COORDINATION_ID}
         ;
     </select>
