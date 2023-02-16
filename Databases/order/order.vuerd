@@ -3,7 +3,7 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": 0,
+    "scrollTop": -1,
     "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
@@ -43,7 +43,7 @@
   "table": {
     "tables": [
       {
-        "name": "ORDER",
+        "name": "ORDERLIST",
         "comment": "주문",
         "columns": [
           {
@@ -258,8 +258,8 @@
           "active": false,
           "left": 50,
           "top": 50,
-          "zIndex": 1,
-          "widthName": 60,
+          "zIndex": 6,
+          "widthName": 76.40087890625,
           "widthComment": 60
         },
         "visible": true,
