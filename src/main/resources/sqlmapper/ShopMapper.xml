@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shop">
+    <!-- shop.selectAll -->
+    <select id="selectAll" parameterType="Map" resultType="Map">
+        SELECT * FROM PRODUCT;
+    </select>
+    <!-- shop.selectBestsellingProductList -->
+    <select id="selectBestsellingProductList" parameterType="Map" resultType="Map">
+        SELECT * FROM PRODUCT
+        WHERE IS_BESTSELLING_PRODUCT = 'TRUE';
+    </select>
+    <!-- shop.insertProduct -->
+    <insert id="insertProduct" parameterType="Map" resultType="Map">
+        INSERT INTO PRODUCT
+        (PRODUCT_ID, PICTURE, BRAND, CLOTHES_NAME, PRICE, IS_BESTSELLING_PRODUCT)
+        VALUES(#{PRODUCT_ID},#{PICTURE},#{BRAND},#{CLOTHES_NAME},#{PRICE},#{IS_BESTSELLING_PRODUCT});
+    </insert>
+    <!-- shop.updateProduct -->
+    <update id="updateProduct" parameterType="Map" resultType="Map">
+        INSERT INTO PRODUCT
+        (PRODUCT_ID, PICTURE, BRAND, CLOTHES_NAME, PRICE, IS_BESTSELLING_PRODUCT)
+        VALUES(#{PRODUCT_ID},#{PICTURE},#{BRAND},#{CLOTHES_NAME},#{PRICE},#{IS_BESTSELLING_PRODUCT});
+    </update>
+
+    
+</mapper>
