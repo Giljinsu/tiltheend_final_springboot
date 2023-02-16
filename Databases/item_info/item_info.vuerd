@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -85,
-    "scrollLeft": -79,
+    "scrollTop": -91,
+    "scrollLeft": -82,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -118,7 +118,7 @@
           {
             "name": "SIZE",
             "comment": "사이즈",
-            "dataType": "INTEGER",
+            "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -133,7 +133,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
-              "widthDataType": 60,
+              "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
             "id": "ea29eb73-63f3-4dce-9017-edd34979117d"
@@ -160,11 +160,27 @@
               "widthDefault": 60
             },
             "id": "787c45af-2889-452c-92c0-2d598254a120"
-          },
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 279,
+          "top": 183.8889,
+          "zIndex": 36,
+          "widthName": 71.33544921875,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "ed0283f8-b11e-4d6b-b618-2f3a3aee7f31"
+      },
+      {
+        "name": "REVIEW",
+        "comment": "",
+        "columns": [
           {
-            "name": "REVIEW_COUNT",
-            "comment": "리뷰 수",
-            "dataType": "INTEGER",
+            "name": "PRODUCT_CODE",
+            "comment": "상품코드",
+            "dataType": "VARCHAR(200)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -175,14 +191,14 @@
             "ui": {
               "active": false,
               "pk": false,
-              "fk": false,
+              "fk": true,
               "pfk": false,
-              "widthName": 106.72998046875,
+              "widthName": 111.0654296875,
               "widthComment": 60,
-              "widthDataType": 60,
+              "widthDataType": 94.94873046875,
               "widthDefault": 60
             },
-            "id": "e1b6e378-0b2f-4442-a4a5-fa69a19638fb"
+            "id": "bd6a4219-c7cc-4c63-a393-ba4496a94f33"
           },
           {
             "name": "REVIEW_CONTENT",
@@ -205,7 +221,7 @@
               "widthDataType": 64.6005859375,
               "widthDefault": 60
             },
-            "id": "a6270ca7-b3b4-4399-a426-415317c19125"
+            "id": "87554156-52ba-4c69-99cf-eaefffd71640"
           },
           {
             "name": "RATE",
@@ -228,19 +244,19 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "29283c10-03fd-479f-8c41-33a749a518e2"
+            "id": "8c1dfd32-c141-49db-9f88-17ec367b8a33"
           }
         ],
         "ui": {
           "active": false,
-          "left": 279,
-          "top": 183.8889,
-          "zIndex": 72,
-          "widthName": 71.33544921875,
+          "left": 290.111,
+          "top": 486.1113,
+          "zIndex": 33,
+          "widthName": 60,
           "widthComment": 60
         },
         "visible": true,
-        "id": "ed0283f8-b11e-4d6b-b618-2f3a3aee7f31"
+        "id": "81989ad8-c052-4c76-aea0-c3a82a920cb3"
       }
     ],
     "indexes": []
@@ -249,6 +265,33 @@
     "memos": []
   },
   "relationship": {
-    "relationships": []
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "ed0283f8-b11e-4d6b-b618-2f3a3aee7f31",
+          "columnIds": [
+            "5e8e1d52-7324-4742-8506-2364d9fdd172"
+          ],
+          "x": 495.507080078125,
+          "y": 355.38890000000004,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "81989ad8-c052-4c76-aea0-c3a82a920cb3",
+          "columnIds": [
+            "bd6a4219-c7cc-4c63-a393-ba4496a94f33"
+          ],
+          "x": 512.756263671875,
+          "y": 486.1113,
+          "direction": "top"
+        },
+        "constraintName": "fk_item_info_to_review",
+        "visible": true,
+        "id": "bceb3538-5772-4518-aba6-db6104665fc1"
+      }
+    ]
   }
 }

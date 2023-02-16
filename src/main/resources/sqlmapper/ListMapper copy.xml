@@ -19,6 +19,7 @@
     </select>
 
     <!-- admin.updateAnnouncement -->
+    <!-- DATE가 2023-01-01 형식으로 저장 -->
     <update id="updateAnnouncement" 
         parameterType="Map" resultType="Map">
         UPDATE ANNOUNCEMENT
@@ -39,4 +40,13 @@
         SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
         ;
     </update>
+    <!-- admin.delete -->
+    <select id="deleteAnnouncement" 
+        parameterType="Map" resultType="Map">
+        DELETE FROM ANNOUNCEMENT
+                    INNER JOIN ADMIN_LIST
+                                ON ADMIN_LIST.POST_NO
+        WHERE POST_NO=#{COORDINATION_ID}
+        ;
+    </select>
 </mapper>

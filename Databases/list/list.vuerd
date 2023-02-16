@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -94,
-    "scrollLeft": -86,
-    "zoomLevel": 0.8,
+    "scrollTop": -221,
+    "scrollLeft": -181,
+    "zoomLevel": 1,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -47,7 +47,7 @@
         "comment": "",
         "columns": [
           {
-            "name": "POST_NO",
+            "name": "POST_NO_ANNO",
             "comment": "번호",
             "dataType": "INTEGER",
             "default": "",
@@ -62,7 +62,7 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 64.12451171875,
+              "widthName": 108.91357421875,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
@@ -189,7 +189,7 @@
           "active": false,
           "left": 607.5,
           "top": 79.5,
-          "zIndex": 3,
+          "zIndex": 15,
           "widthName": 113.2236328125,
           "widthComment": 60
         },
@@ -201,7 +201,7 @@
         "comment": "",
         "columns": [
           {
-            "name": "POST_NO",
+            "name": "POST_NO_QNA",
             "comment": "",
             "dataType": "INTEGER",
             "default": "",
@@ -216,7 +216,7 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 64.12451171875,
+              "widthName": 99.525390625,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
@@ -343,7 +343,7 @@
           "active": false,
           "left": 78,
           "top": 369,
-          "zIndex": 1,
+          "zIndex": 17,
           "widthName": 60,
           "widthComment": 60
         },
@@ -355,7 +355,7 @@
         "comment": "",
         "columns": [
           {
-            "name": "POST_NO",
+            "name": "POST_NO_FAQ",
             "comment": "",
             "dataType": "INTEGER",
             "default": "",
@@ -370,7 +370,7 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 64.12451171875,
+              "widthName": 97.36083984375,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
@@ -497,7 +497,7 @@
           "active": false,
           "left": 598,
           "top": 755,
-          "zIndex": 4,
+          "zIndex": 19,
           "widthName": 60,
           "widthComment": 60
         },
@@ -509,7 +509,7 @@
         "comment": "",
         "columns": [
           {
-            "name": "POST_NO",
+            "name": "POST_NO_ANNO",
             "comment": "번호",
             "dataType": "INTEGER",
             "default": "",
@@ -524,15 +524,15 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 64.12451171875,
+              "widthName": 108.91357421875,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "846277d1-2713-489f-a28f-bc9881d71b44"
+            "id": "40a73e72-91f8-49b9-aa2f-393c5ad3df90"
           },
           {
-            "name": "POST_NO",
+            "name": "POST_NO_QNA",
             "comment": "",
             "dataType": "INTEGER",
             "default": "",
@@ -547,15 +547,15 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 64.12451171875,
+              "widthName": 99.525390625,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "91fa049b-e191-4afa-bafc-2e65673fcb4c"
+            "id": "7dbcd69e-8e88-42fe-ac16-976a6b6f885e"
           },
           {
-            "name": "POST_NO",
+            "name": "POST_NO_FAQ",
             "comment": "",
             "dataType": "INTEGER",
             "default": "",
@@ -570,19 +570,19 @@
               "pk": false,
               "fk": true,
               "pfk": false,
-              "widthName": 64.12451171875,
+              "widthName": 97.36083984375,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "a3a23bf8-71b0-4a66-9161-18c2562b60b8"
+            "id": "582298af-4e0e-48c4-8710-1e66e44abdf8"
           }
         ],
         "ui": {
           "active": false,
           "left": 632.25,
           "top": 390,
-          "zIndex": 2,
+          "zIndex": 20,
           "widthName": 78.57177734375,
           "widthComment": 60
         },
@@ -606,22 +606,22 @@
           "columnIds": [
             "14ecd0e7-e549-4463-afc7-c5f957ff0284"
           ],
-          "x": 805.351318359375,
+          "x": 822.93115234375,
           "y": 271.5,
           "direction": "bottom"
         },
         "end": {
           "tableId": "3a0ec25d-2511-458c-be5e-66fcb49286ea",
           "columnIds": [
-            "846277d1-2713-489f-a28f-bc9881d71b44"
+            "40a73e72-91f8-49b9-aa2f-393c5ad3df90"
           ],
-          "x": 807.812255859375,
+          "x": 830.206787109375,
           "y": 390,
           "direction": "top"
         },
         "constraintName": "fk_announcement_to_admin_list",
         "visible": true,
-        "id": "d2566c09-96d3-4e5e-a896-e731909b062b"
+        "id": "60c0fd31-635b-40ee-a59d-4ba5351b9848"
       },
       {
         "identification": false,
@@ -632,14 +632,14 @@
           "columnIds": [
             "81986a6a-9f84-437e-bae8-ca5fffc8fca2"
           ],
-          "x": 473.70263671875,
+          "x": 499.47412109375,
           "y": 465,
           "direction": "right"
         },
         "end": {
           "tableId": "3a0ec25d-2511-458c-be5e-66fcb49286ea",
           "columnIds": [
-            "91fa049b-e191-4afa-bafc-2e65673fcb4c"
+            "7dbcd69e-8e88-42fe-ac16-976a6b6f885e"
           ],
           "x": 632.25,
           "y": 455.25,
@@ -647,7 +647,7 @@
         },
         "constraintName": "fk_qna_to_admin_list",
         "visible": true,
-        "id": "db36b934-5e3f-4b63-b492-1b08b2eeb315"
+        "id": "76c5e1a3-6c00-41e3-8b16-8a48ba3f1e27"
       },
       {
         "identification": false,
@@ -658,22 +658,22 @@
           "columnIds": [
             "51d2e51b-1ff3-45ca-bf44-4512f1ef133e"
           ],
-          "x": 795.851318359375,
+          "x": 807.65478515625,
           "y": 755,
           "direction": "top"
         },
         "end": {
           "tableId": "3a0ec25d-2511-458c-be5e-66fcb49286ea",
           "columnIds": [
-            "a3a23bf8-71b0-4a66-9161-18c2562b60b8"
+            "582298af-4e0e-48c4-8710-1e66e44abdf8"
           ],
-          "x": 807.812255859375,
+          "x": 830.206787109375,
           "y": 520.5,
           "direction": "bottom"
         },
         "constraintName": "fk_faq_to_admin_list",
         "visible": true,
-        "id": "1b976532-9cd4-412c-a097-cd16d1333ff9"
+        "id": "91099dab-64a3-42c6-83a8-fb4dc6c03022"
       }
     ]
   }
