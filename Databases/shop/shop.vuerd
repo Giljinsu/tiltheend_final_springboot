@@ -43,8 +43,8 @@
   "table": {
     "tables": [
       {
-        "name": "PRODUCT_LIST",
-        "comment": "상품리스트",
+        "name": "PRODUCT",
+        "comment": "상품",
         "columns": [
           {
             "name": "PRODUCT_ID",
@@ -53,13 +53,13 @@
             "default": "",
             "option": {
               "autoIncrement": false,
-              "primaryKey": false,
+              "primaryKey": true,
               "unique": false,
               "notNull": true
             },
             "ui": {
               "active": false,
-              "pk": false,
+              "pk": true,
               "fk": false,
               "pfk": false,
               "widthName": 86.50634765625,
@@ -141,7 +141,7 @@
           {
             "name": "PRICE",
             "comment": "가격",
-            "dataType": "INT",
+            "dataType": "INTEGER",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -183,15 +183,61 @@
               "widthDefault": 60
             },
             "id": "843b39eb-cef1-4549-b1d0-8f166f173b66"
+          },
+          {
+            "name": "CATEGORY",
+            "comment": "카테고리",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 73.75390625,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "38b4d465-c730-47c6-a8ba-7f44154a5853"
+          },
+          {
+            "name": "DISCOUNT_RATE",
+            "comment": "할인율",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 110.82421875,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "869a84fc-1c6c-450a-9721-afdc9dbc753e"
           }
         ],
         "ui": {
           "active": false,
-          "left": 53.2406,
-          "top": 68.0553,
-          "zIndex": 47,
-          "widthName": 100.9599609375,
-          "widthComment": 67
+          "left": 60.1852,
+          "top": 86.1107,
+          "zIndex": 26,
+          "widthName": 66.2763671875,
+          "widthComment": 60
         },
         "visible": true,
         "id": "202387c8-718d-4760-962e-ddeb05e79414"
