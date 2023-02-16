@@ -35,4 +35,10 @@ public class ShopService {
     return result;
   }
 
+  public Object deleteProduct(Object dataMap) {
+    String sqlMapId = "shop.deleteProduct";
+    Object result = commonDao.delete(sqlMapId, dataMap);
+    return result;
+  }
+
 }

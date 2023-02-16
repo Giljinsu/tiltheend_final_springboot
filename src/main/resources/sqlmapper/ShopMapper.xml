@@ -19,10 +19,13 @@
     </insert>
     <!-- shop.updateProduct -->
     <update id="updateProduct" parameterType="Map" resultType="Map">
-        INSERT INTO PRODUCT
-        (PRODUCT_ID, PICTURE, BRAND, CLOTHES_NAME, PRICE, IS_BESTSELLING_PRODUCT)
-        VALUES(#{PRODUCT_ID},#{PICTURE},#{BRAND},#{CLOTHES_NAME},#{PRICE},#{IS_BESTSELLING_PRODUCT});
+        UPDATE PRODUCT
+        SET PRICE = #{PRICE}
+        WHERE PRODUCT_ID=#{PRODUCT_ID};
     </update>
-
-    
+    <!-- shop.deleteProduct -->
+    <delete id="deleteProduct" parameterType="Map" resultType="Map">
+        DELETE FROM PRODUCT
+        WHERE PRODUCT_ID=#{PRODUCT_ID};
+    </delete>
 </mapper>
