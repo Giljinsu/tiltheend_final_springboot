@@ -52,7 +52,6 @@
            <th>할인</th>
            <th>수량</th>
            <th>주문관리</th>
-           <th>배송상태</th>
          </thead>
          <tbody>
           <tr>
@@ -67,9 +66,6 @@
             <td>1개</td>
             <td>
               <button class="btn border-dark">삭제하기</button>
-            </td>
-            <td>
-              택배배송입니다
             </td>
           </tr>
          </tbody>
@@ -126,7 +122,9 @@
         상품 금액 <b>1000원</b> - 할인 합계 <b>0원</b> = 최종 결제 금액 <b>1000원</b>
       </div>
       <div style="text-align: center;">
+      <form action="/shoppingcart/purchasePage">
         <button class="btn btn-dark" style="width: 8rem; height: 4rem; margin-bottom: 3rem;">주문하기</button>
+      </form>
       </div>
     </main>
 

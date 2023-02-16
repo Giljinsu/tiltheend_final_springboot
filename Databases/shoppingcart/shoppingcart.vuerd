@@ -1,0 +1,162 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -4,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "SHOPPINGCART",
+        "comment": "쇼핑카트 리스트",
+        "columns": [
+          {
+            "name": "SHOPPINGCART_ID",
+            "comment": "쇼핑카트리스트ID",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 126.0078125,
+              "widthComment": 106,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "49a4140b-65c6-4e73-8bc2-fa4ea4207fff"
+          },
+          {
+            "name": "SHOPPINGCART_ORDER",
+            "comment": "쇼핑카트리스트순서",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 159.955078125,
+              "widthComment": 119,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "f82978a1-970b-474e-8ff1-86bda3299739"
+          },
+          {
+            "name": "PRODUCT_ID",
+            "comment": "상품ID",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 86.50634765625,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "d94d33f4-d4b6-4131-8a96-e5bec83c0e7e"
+          },
+          {
+            "name": "PRODUCT_COUNT",
+            "comment": "상품개수",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 119.7236328125,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "62660b59-84ee-4a1d-951a-b11c5143c83c"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 230,
+          "top": 37,
+          "zIndex": 138,
+          "widthName": 105.77783203125,
+          "widthComment": 96.61181640625
+        },
+        "visible": true,
+        "id": "b8ddf9c0-c4c2-4923-acc6-a964e5f3bbe0"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": []
+  }
+}

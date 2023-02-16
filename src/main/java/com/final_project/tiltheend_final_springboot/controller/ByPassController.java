@@ -37,6 +37,11 @@ public class ByPassController {
         int i = 1;
     }
 
+    @RequestMapping(value = { "/shoppingcart/purchasePage" })
+    public void purchasePage() {
+        int i = 1;
+    }
+
     @RequestMapping(value = { "/shop/item_info" })
     public void item_info() {
         int i = 1;
