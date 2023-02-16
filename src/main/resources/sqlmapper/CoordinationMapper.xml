@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="coordination">
+    <!-- call CommonCode.selectCommon_Code_idNameOrder_Number -->
+    <!-- coordination.select -->
+    <select id="select" 
+        parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM coordination_info
+        WHERE COORDINATION_ID = #{COORDINATION_ID}
+        ;
+    </select>
+    <update id="update" 
+        parameterType="Map" resultType="Map">
+        UPDATE coordination_info
+        SET USERNAME='홍길동'
+        WHERE COORDINATION_ID=${COORDINATION_ID}
+        ;
+    </update>
+    <insert id="insert" 
+        parameterType="Map" resultType="Map">
+        INSERT INTO coordination_info
+        (`COORDINATION_ID`, `BULLETIN_NO`, `PICTURE`, `USERNAME`, `HEIGHT`, `WEIGHT`, `JOB`, `PRODUCT_ID`, `FILE_ID`)
+        VALUES
+        (${COORDINATION_ID}, ${BULLETIN_NO}, ${PICTURE}, ${USERNAME}, ${HEIGHT}, ${WEIGHT}, ${JOB}, ${PRODUCT_ID}, ${FILE_ID})
+        ;
+    </insert>
+    <select id="delete" 
+        parameterType="Map" resultType="Map">
+        DELETE FROM coordination_info
+        WHERE COORDINATION_ID=#{COORDINATION_ID}
+        ;
+    </select>
+</mapper>
