@@ -6,7 +6,7 @@ CREATE TABLE COORDINATION_INFO
   PICTURE           VARCHAR(100) NULL     COMMENT '사진',
   USERNAME          VARCHAR(100) NULL     COMMENT '이름',
   HEIGHT            VARCHAR(100) NULL     COMMENT '키',
-  WEIGHT            VARCHAR(100) NULL     COMMENT '나이',
+  WEIGHT            VARCHAR(100) NULL     COMMENT '무게',
   JOB               VARCHAR(100) NULL     COMMENT '게시글 내용',
   PRODUCT_ID        VARCHAR(100) NULL     COMMENT '참조제품ID',
   VIEWS             VARCHAR(100) NULL     COMMENT '조회수',
