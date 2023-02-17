@@ -54,8 +54,17 @@
             <tr>
               <th class="align-middle">배송지</th>
               <td>
-                배송지를 등록해주세요
-                <button class="btn border ms-3">배송지 추가</button>
+                <span>배송지를 등록해주세요</span>
+                <button class="btn border" onclick="new_window()">배송지 추가</button>
+                <script>
+                function new_window() {
+                  window.open(
+                    "/shoppingcart/delivery_address",
+                    "배송지추가",
+                    "width=500, height=400, top=50, left=50"
+                  );
+                }
+                </script>
               </td>
             </tr>
           </table>
@@ -76,7 +85,7 @@
               <td>1</td>
               <td>
                 <img class="cart_image" style="width: 3rem; width: 3rem; object-fit: cover;"
-                src="./refer/clothes/top1.jpg" alt="">
+                src="/refer/clothes/top1.jpg" alt="">
                 상품명
               </td>
               <td>1000</td>
