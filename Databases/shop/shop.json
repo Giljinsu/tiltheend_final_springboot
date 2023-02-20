@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -3.7037035565317473,
-    "scrollLeft": -38.88888734358335,
+    "scrollTop": 0,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -47,6 +47,7 @@
         "comment": "상품",
         "columns": [
           {
+            "id": "2b1c1eb6-dae9-402e-a1e8-3e8f6cfe933c",
             "name": "PRODUCT_ID",
             "comment": "상품아이디",
             "dataType": "VARCHAR(100)",
@@ -66,10 +67,10 @@
               "widthComment": 67,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "d20814c2-ccb6-4609-9d41-26fd65d241d7"
+            }
           },
           {
+            "id": "6689d63d-ea48-4334-b75b-a7193e85d470",
             "name": "PICTURE",
             "comment": "사진",
             "dataType": "VARCHAR(100)",
@@ -89,10 +90,10 @@
               "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "ab0ed032-e716-46bb-beeb-6605d183510f"
+            }
           },
           {
+            "id": "8a968e6a-975d-402d-8eac-849986a228f2",
             "name": "BRAND",
             "comment": "브랜드",
             "dataType": "VARCHAR(100)",
@@ -112,10 +113,10 @@
               "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "12f0be61-f7f5-46dc-8c9c-890021cecb7d"
+            }
           },
           {
+            "id": "2d8d9db0-b172-44cf-b265-d36877bdf6d6",
             "name": "CLOTHES_NAME",
             "comment": "의류명",
             "dataType": "VARCHAR(100)",
@@ -135,10 +136,10 @@
               "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "fbdccd97-2337-47c0-8b5d-7f4ed73fb2f1"
+            }
           },
           {
+            "id": "b3e247c7-d717-4bc8-ad58-be23ca8c3c6a",
             "name": "PRICE",
             "comment": "가격",
             "dataType": "INTEGER",
@@ -158,10 +159,10 @@
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
-            },
-            "id": "2766bf14-3809-4316-99b5-b3061f4014f9"
+            }
           },
           {
+            "id": "bbbc5965-8283-4aca-8b05-30f05c5d2f80",
             "name": "IS_BESTSELLING_PRODUCT",
             "comment": "베스트상품여부",
             "dataType": "VARCHAR(100)",
@@ -181,10 +182,10 @@
               "widthComment": 93,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "843b39eb-cef1-4549-b1d0-8f166f173b66"
+            }
           },
           {
+            "id": "1c974052-0aba-4a86-87a8-d108eef506f4",
             "name": "CATEGORY",
             "comment": "카테고리",
             "dataType": "VARCHAR(100)",
@@ -204,10 +205,10 @@
               "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "38b4d465-c730-47c6-a8ba-7f44154a5853"
+            }
           },
           {
+            "id": "76a24cc3-23f4-45d7-a3f5-00a8d8b0790a",
             "name": "DISCOUNT_RATE",
             "comment": "할인율",
             "dataType": "VARCHAR(100)",
@@ -227,20 +228,19 @@
               "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            },
-            "id": "869a84fc-1c6c-450a-9721-afdc9dbc753e"
+            }
           }
         ],
         "ui": {
           "active": false,
-          "left": 124.074,
-          "top": 99.0739,
-          "zIndex": 3,
+          "left": 50,
+          "top": 50,
+          "zIndex": 1,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
         "visible": true,
-        "id": "202387c8-718d-4760-962e-ddeb05e79414"
+        "id": "b18ff0e6-38dd-47f7-b4ce-6d8278d19ac8"
       }
     ],
     "indexes": []
