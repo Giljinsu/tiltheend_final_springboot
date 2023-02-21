@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1368.3332789606566,
-    "scrollLeft": -1065.8332909809235,
-    "zoomLevel": 0.8,
+    "scrollTop": -606.1666160358377,
+    "scrollLeft": -1809,
+    "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -142,7 +142,7 @@
             "id": "87e50505-7738-4e3b-aac2-ef62215b8cf0",
             "name": "REVIEW_CONTENT",
             "comment": "리뷰 내용",
-            "dataType": "VARCHAR",
+            "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -157,7 +157,7 @@
               "pfk": false,
               "widthName": 123.341796875,
               "widthComment": 60,
-              "widthDataType": 64.6005859375,
+              "widthDataType": 94.94873046875,
               "widthDefault": 60
             }
           }
@@ -166,7 +166,7 @@
           "active": false,
           "left": 2207.479,
           "top": 1273.4984,
-          "zIndex": 58,
+          "zIndex": 14,
           "widthName": 60,
           "widthComment": 60
         },
@@ -251,7 +251,7 @@
           "active": false,
           "left": 1516.7687,
           "top": 2281.2735,
-          "zIndex": 47,
+          "zIndex": 4,
           "widthName": 78.57177734375,
           "widthComment": 60
         },
@@ -382,7 +382,7 @@
           "active": false,
           "left": 685.8467,
           "top": 1295.1728,
-          "zIndex": 55,
+          "zIndex": 6,
           "widthName": 105.77783203125,
           "widthComment": 96.61181640625
         },
@@ -559,7 +559,7 @@
           "active": false,
           "left": 110.981,
           "top": 496.8349,
-          "zIndex": 17,
+          "zIndex": 2,
           "widthName": 66.06689453125,
           "widthComment": 60
         },
@@ -690,7 +690,7 @@
           "active": false,
           "left": 114.5607,
           "top": 921.56,
-          "zIndex": 50,
+          "zIndex": 5,
           "widthName": 106.50146484375,
           "widthComment": 119
         },
@@ -844,7 +844,7 @@
           "active": false,
           "left": 1980.8798,
           "top": 1789.2138,
-          "zIndex": 59,
+          "zIndex": 7,
           "widthName": 113.2236328125,
           "widthComment": 60
         },
@@ -998,7 +998,7 @@
           "active": false,
           "left": 1484.7771,
           "top": 1857.963,
-          "zIndex": 63,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1128,7 +1128,7 @@
             "id": "9999a055-6939-49d5-8fc6-f57571368326",
             "name": "CONTENT",
             "comment": "",
-            "dataType": "VARCHAR",
+            "dataType": "VARCHAR(200)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -1143,7 +1143,7 @@
               "pfk": false,
               "widthName": 64.8291015625,
               "widthComment": 60,
-              "widthDataType": 64.6005859375,
+              "widthDataType": 94.94873046875,
               "widthDefault": 60
             }
           }
@@ -1152,7 +1152,7 @@
           "active": false,
           "left": 934.8222,
           "top": 1725.5551,
-          "zIndex": 57,
+          "zIndex": 13,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1375,7 +1375,7 @@
           "active": false,
           "left": 704.2855,
           "top": 912.1332,
-          "zIndex": 3,
+          "zIndex": 1,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1575,7 +1575,7 @@
           "active": false,
           "left": 897.3305,
           "top": 486.1936,
-          "zIndex": 68,
+          "zIndex": 12,
           "widthName": 76.40087890625,
           "widthComment": 60
         },
@@ -1798,7 +1798,7 @@
           "active": false,
           "left": 1322.1017,
           "top": 1322.0944,
-          "zIndex": 65,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 67
         },
@@ -2136,7 +2136,7 @@
           "active": false,
           "left": 1625.9625,
           "top": 697.7963,
-          "zIndex": 23,
+          "zIndex": 3,
           "widthName": 140.4296875,
           "widthComment": 60
         },
@@ -2263,121 +2263,6 @@
             }
           },
           {
-            "id": "6ee1c133-710e-4a87-93e3-59359aefb238",
-            "name": "THUMBNAIL_NAME",
-            "comment": "썸네일 첨부파일명",
-            "dataType": "varchar(500)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 121.9072265625,
-              "widthComment": 109.61181640625,
-              "widthDataType": 75.6962890625,
-              "widthDefault": 60
-            }
-          },
-          {
-            "id": "4e7fccbb-6c21-45cf-bb3e-c557ed95e2c4",
-            "name": "ATTACHFILE_PATH",
-            "comment": "첨부파일 저장경로",
-            "dataType": "varchar(500)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 119.4951171875,
-              "widthComment": 109.61181640625,
-              "widthDataType": 75.6962890625,
-              "widthDefault": 60
-            }
-          },
-          {
-            "id": "b254cbc9-2c89-4196-bfa3-0e6d63c9727a",
-            "name": "ATTACHFILE_SIZE",
-            "comment": "첨부파일 크기",
-            "dataType": "decimal",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 115.6484375,
-              "widthComment": 83.61181640625,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
-          },
-          {
-            "id": "ae46ab28-5fc0-46b0-855d-e65c880c7046",
-            "name": "ATTACHFILE_HEIGHT",
-            "comment": "파일 높이",
-            "dataType": "decimal",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 135.86572265625,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
-          },
-          {
-            "id": "8e6851af-4a42-4067-9329-8e5eb6c185f7",
-            "name": "ATTACHFILE_WIDTH",
-            "comment": "파일 폭",
-            "dataType": "decimal",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 129.35302734375,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            }
-          },
-          {
             "id": "31a7e0c3-4e99-4439-a7d8-a8c94abd9575",
             "name": "REGISTER_SEQ",
             "comment": "등록자SEQ",
@@ -2472,9 +2357,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 2246.125,
-          "top": 658.498,
-          "zIndex": 66,
+          "left": 2239.4584,
+          "top": 699.6089,
+          "zIndex": 20,
           "widthName": 108.4248046875,
           "widthComment": 60
         },
@@ -2536,7 +2421,7 @@
           "active": false,
           "left": 91.6668,
           "top": 1444.0638,
-          "zIndex": 61,
+          "zIndex": 8,
           "widthName": 63.39453125,
           "widthComment": 67
         },
@@ -2690,8 +2575,8 @@
           "columnIds": [
             "8e91684d-f3c0-4a66-b091-b84842633d63"
           ],
-          "x": 2246.125,
-          "y": 836.498,
+          "x": 2239.4584,
+          "y": 826.3589,
           "direction": "left"
         },
         "end": {
@@ -2872,8 +2757,8 @@
           "columnIds": [
             "8e91684d-f3c0-4a66-b091-b84842633d63"
           ],
-          "x": 2502.5185546875,
-          "y": 1014.498,
+          "x": 2495.8519546875,
+          "y": 953.1089,
           "direction": "bottom"
         },
         "end": {
