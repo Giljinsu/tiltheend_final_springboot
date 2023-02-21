@@ -14,17 +14,24 @@
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/css/coordination.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   </head>
   <body>
   <%@ include file="../header.jsp" %>
     
     <main style="margin-top: 8rem">
-      <form action="">
+      <form action="/coordination/save" method="post" enctype="multipart/form-data">
       <div class="coordination">
         <div class="row">
           <div class="col d-flex justify-content-">
             <div class="model-image-box border d-flex justify-content-center align-items-center">
-              <button class="btn btn-secondary">이미지 업로드</button>
+              <div>
+              <label for="input_image" class="btn btn-secondary">이미지 업로드</label>
+              <input type="file" style="display:none"  name="file_0"
+                accept="image/gif, image/jpg, image/png" class="form-control" id="input_image">
+              <%-- 이미지만 사용가능하게 accept사용 --%>
+              </div>
               <!-- <img class="model-image" src="./refer/coordination/model1.jpg" alt=""> -->
             </div>
           </div>
@@ -59,8 +66,9 @@
               </table>
               <!-- 게시글이 초과되면 스크롤 추가 -->
               <div class="" style="overflow:auto; height: 20rem;">
-                <div> 
-                  <textarea class="form-control" name="coordination_content" id="" rows="10" placeholder="내용 작성"></textarea>
+                <div style="height:85%"> 
+                  <div id="editor"  class="form-control"></div>
+                  <%-- <textarea class="form-control" name="coordination_content" id="" rows="10" placeholder="내용 작성"></textarea> --%>
                 </div>
               </div>
           </div>
@@ -113,5 +121,26 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script>
+    var editor = new Quill('#editor', {
+			theme: 'snow'
+		});
+		// add content in quill editor
+		editor.setContents(${resultMap.DESCRIPTION});
+		// editor.disable(); // 변경못하게함
+		// editor.root.style.backgroundColor= "#f2f2f2";
+
+		let submitButton = document.querySelector("#submit-button");
+		submitButton.addEventListener("click", function (event) {
+			let content =editor.getContents();
+			// Quill function
+			let description = document.querySelector("#description");
+			description.value = JSON.stringify(content);
+			// 이렇게 안해도되는데 확실하게 함
+			let form = document.querySelector("#action-form");
+			form.submit();
+			// 이것이 submit한거랑 똑같음
+		});
+    </script>
   </body>
 </html>

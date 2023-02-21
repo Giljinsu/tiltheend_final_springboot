@@ -20,7 +20,7 @@
     
     <main style="margin-top:8rem;" class="container">
         <div class="row row-cols-1 row-cols-md-4">
-            <a href="/coordination/coordination" class="col mb-3">
+            <a href="/coordination/view" class="col mb-3">
                 <div class="card border-light h-100">
                     <img src="/refer/coordination/model1.jpg" class="card-image" alt="">
                     <div class="card-body">
