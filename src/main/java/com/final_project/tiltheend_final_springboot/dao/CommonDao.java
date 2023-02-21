@@ -17,6 +17,11 @@ public class CommonDao {
         return result;
     }
 
+    public Object selectList(String sqlMapId) {
+        Object result = sessionTemplate.selectList(sqlMapId);
+        return result;
+    }
+
     public Object update(String sqlMapId, Object dataMap) {
         Object result = sessionTemplate.update(sqlMapId, dataMap);
         return result;

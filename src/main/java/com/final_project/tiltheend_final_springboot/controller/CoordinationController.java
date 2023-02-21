@@ -2,16 +2,21 @@ package com.final_project.tiltheend_final_springboot.controller;
 
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.final_project.tiltheend_final_springboot.service.CoordinationService;
+
 @Controller
 @RequestMapping(value = "/coordination")
 public class CoordinationController {
 
+    @Autowired
+    CoordinationService coordinationService;
     // @RequestMapping(value = "/list", method=RequestMethod.GET)
     // public ModelAndView list(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
 
@@ -33,7 +38,7 @@ public class CoordinationController {
 
     @RequestMapping(value = "/save", method=RequestMethod.POST)
     public ModelAndView save(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
-
+        Object result = coordinationService.insertCord(params);
         modelAndView.setViewName("/coordination/coordination");
         return modelAndView;
     }
@@ -45,7 +50,8 @@ public class CoordinationController {
 
     @RequestMapping(value = {"/view"})
     public ModelAndView view(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
-
+        Object resultMap = coordinationService.getList();
+        modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("/coordination/coordination");
         return modelAndView;
     }

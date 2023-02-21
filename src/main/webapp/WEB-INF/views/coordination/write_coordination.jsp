@@ -21,7 +21,14 @@
   <%@ include file="../header.jsp" %>
     
     <main style="margin-top: 8rem">
-      <form action="/coordination/save" method="post" enctype="multipart/form-data">
+      <form action="/coordination/save" id="action-form" method="post" enctype="multipart/form-data">
+      <%-- 하드코딩 --%>
+      <input type="hidden" name="COORDINATION_ID" value="cord_001">
+      <input type="hidden" name="PRODUCT_ID" value="PROD_1">
+      <input type="hidden" name="UID" value="U0001">
+      <input type="hidden" name="VIEWS" value="1">
+      <input type="hidden" name="LIKES" value="2">
+      <%-- ===== --%>
       <div class="coordination">
         <div class="row">
           <div class="col d-flex justify-content-">
@@ -46,21 +53,21 @@
                 <tr>
                   <th class="col-4">이름</th>
                   <td class="col-8 row">
-                    <input type="text" name="username" id="">
+                    <input type="text" name="USERNAME" value="김영철" id="">
                   </td>
                 </tr>
                 <tr>
                   <th class="col-4">키/몸무게</th>
                   <td class="col-8 row">
-                    <input class="col" type="text" name="height" id="">
+                    <input class="col" type="text" value="178" name="HEIGHT" id="">
                     <div class="col-1 text">/</div>
-                    <input class="col" type="text" name="weight" id="">
+                    <input class="col" type="text" value="76" name="WEIGHT" id="">
                   </td>
                 </tr>
                 <tr>
                   <th class="col-4">직책(직무)</th>
                   <td class="col-8 row">
-                    <input type="text" name="job" id="">
+                    <input type="text" name="JOB" value="개그맨" id="">
                   </td>
                 </tr>
               </table>
@@ -68,6 +75,7 @@
               <div class="" style="overflow:auto; height: 20rem;">
                 <div style="height:85%"> 
                   <div id="editor"  class="form-control"></div>
+                  <input type="hidden" name="CORD_CONTENT" id="cord_content" />
                   <%-- <textarea class="form-control" name="coordination_content" id="" rows="10" placeholder="내용 작성"></textarea> --%>
                 </div>
               </div>
@@ -82,6 +90,7 @@
             <h5 class="productlist_title">사용된 제품</h5>
             <div>
               <button class="btn btn-secondary">제품 업로드</button>
+              <%-- <input type="hidden" name="PRODUCT_ID" value="PROD_1"> --%>
             </div>
           </div>
             <div class="d-flex g-4">
@@ -109,7 +118,7 @@
           </div>
           <hr />
           <div class="text-center mb-4">
-            <button class="btn btn-secondary">게시글 작성</button>
+            <button class="btn btn-secondary" id="submit-button">게시글 작성</button>
           </div>
         </form>
         </div>
@@ -134,8 +143,8 @@
 		submitButton.addEventListener("click", function (event) {
 			let content =editor.getContents();
 			// Quill function
-			let description = document.querySelector("#description");
-			description.value = JSON.stringify(content);
+			let cord_content = document.querySelector("#cord_content");
+			cord_content.value = JSON.stringify(content);
 			// 이렇게 안해도되는데 확실하게 함
 			let form = document.querySelector("#action-form");
 			form.submit();

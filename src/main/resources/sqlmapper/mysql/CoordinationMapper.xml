@@ -11,25 +11,32 @@
         WHERE COORDINATION_ID = #{COORDINATION_ID}
         ;
     </select>
-    <update id="update" 
+    <select id="getlist" 
         parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM coordination_info
+        ;
+    </select>
+    <update id="update" 
+        parameterType="Map">
         UPDATE coordination_info
         SET USERNAME='홍길동'
         WHERE COORDINATION_ID=${COORDINATION_ID}
         ;
     </update>
     <insert id="insert" 
-        parameterType="Map" resultType="Map">
-        INSERT INTO coordination_info
-        (`COORDINATION_ID`, `BULLETIN_NO`, `PICTURE`, `USERNAME`, `HEIGHT`, `WEIGHT`, `JOB`, `PRODUCT_ID`, `FILE_ID`)
+        parameterType="Map">
+        INSERT INTO COORDINATION_INFO
+        (COORDINATION_ID, UID, PRODUCT_ID, BULLETIN_NO, USERNAME, HEIGHT, WEIGHT, CORD_CONTENT, VIEWS, WRITE_DATE, MODIFICATION_DATE, LIKES, JOB)
         VALUES
-        (${COORDINATION_ID}, ${BULLETIN_NO}, ${PICTURE}, ${USERNAME}, ${HEIGHT}, ${WEIGHT}, ${JOB}, ${PRODUCT_ID}, ${FILE_ID})
+        (#{COORDINATION_ID},#{UID},#{PRODUCT_ID}, #{BULLETIN_NO}, #{USERNAME}, 
+        #{HEIGHT}, #{WEIGHT},#{CORD_CONTENT}, #{VIEWS}, SYSDATE(), SYSDATE(), #{LIKES}, #{JOB})
         ;
     </insert>
-    <select id="delete" 
-        parameterType="Map" resultType="Map">
+    <delete id="delete" 
+        parameterType="Map">
         DELETE FROM coordination_info
         WHERE COORDINATION_ID=#{COORDINATION_ID}
         ;
-    </select>
+    </delete>
 </mapper>

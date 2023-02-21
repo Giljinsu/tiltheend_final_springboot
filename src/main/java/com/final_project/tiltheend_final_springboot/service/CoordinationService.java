@@ -30,4 +30,9 @@ public class CoordinationService {
         Object result = commonDao.delete(sqlMapId, dataMap);
         return result;
     }
+    public Object getList() {
+        String sqlMapId = "coordination.getlist";
+        Object result = commonDao.selectList(sqlMapId);
+        return result;
+    }
 }
