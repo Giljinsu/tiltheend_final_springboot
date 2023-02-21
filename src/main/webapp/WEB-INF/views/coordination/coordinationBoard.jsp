@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,7 @@
     
     <main style="margin-top:8rem;" class="container">
         <div class="row row-cols-1 row-cols-md-4">
+        <c:foreach items="${resultMap}" var="item">
             <a href="/coordination/view" class="col mb-3">
                 <div class="card border-light h-100">
                     <img src="/refer/coordination/model1.jpg" class="card-image" alt="">
@@ -30,46 +32,7 @@
                     </div>
                 </div>
             </a>
-            <a href="" class="col mb-3">
-                <div class="card border-light h-100">
-                    <img src="/refer/coordination/model2.jpg" class="card-image" alt="">
-                    <div class="card-body">
-                        <div class="card-title">제목</div>
-                        <div class="card-text">등록자</div>
-                        <div class="card-text-viewcount">조회수 : </div>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="col mb-3">
-                <div class="card border-light h-100">
-                    <img src="/refer/coordination/model3.jpg" class="card-image" alt="">
-                    <div class="card-body">
-                        <div class="card-title">제목</div>
-                        <div class="card-text">등록자</div>
-                        <div class="card-text-viewcount">조회수 : </div>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="col mb-3">
-                <div class="card border-light h-100">
-                    <img src="/refer/coordination/model2.jpg" class="card-image" alt="">
-                    <div class="card-body">
-                        <div class="card-title">제목</div>
-                        <div class="card-text">등록자</div>
-                        <div class="card-text-viewcount">조회수 : </div>
-                    </div>
-                </div>
-            </a>
-            <a href="" class="col mb-3">
-                <div class="card border-light h-100">
-                    <img src="/refer/coordination/model2.jpg" class="card-image" alt="">
-                    <div class="card-body">
-                        <div class="card-title">제목</div>
-                        <div class="card-text">등록자</div>
-                        <div class="card-text-viewcount">조회수 : </div>
-                    </div>
-                </div>
-            </a>
+        </c:foreach>
         </div>
         <hr />
         <div class="text-end">
