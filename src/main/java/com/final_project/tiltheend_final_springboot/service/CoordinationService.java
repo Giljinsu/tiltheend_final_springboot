@@ -10,9 +10,9 @@ public class CoordinationService {
 
     @Autowired
     CommonDao commonDao;
-    public Object getCordBoard(Object dataMap) {
+    public Object selectCordOne(Object dataMap) {
         String sqlMapId = "coordination.select";
-        Object result = commonDao.select(sqlMapId, dataMap);
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
     public Object insertCord(Object dataMap) {
@@ -33,6 +33,13 @@ public class CoordinationService {
     public Object getList() {
         String sqlMapId = "coordination.getlist";
         Object result = commonDao.selectList(sqlMapId);
+        return result;
+    }
+
+    public Object insertCordAndGetList(Object dataMap) {
+        String sqlMapId = "coordination.insert";
+        Object result = commonDao.insert(sqlMapId, dataMap);
+        result = this.getList();
         return result;
     }
 }

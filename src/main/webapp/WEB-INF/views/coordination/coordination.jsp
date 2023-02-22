@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,12 @@
   />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="/css/coordination.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 </head>
 <body>
 <%@ include file="../header.jsp" %>
-
+    <c:set  var="item" value="${resultMap}"/>
     <main style="margin-top: 8rem">
       <div class="coordination">
         <div class="row">
@@ -39,20 +42,22 @@
               <table class="table">
                 <tr>
                   <th class="col-4">이름</th>
-                  <td class="col-8">김다미</td>
+                  <td class="col-8">${item.USERNAME}</td>
                 </tr>
                 <tr>
                   <th class="col-4">키/몸무게</th>
-                  <td class="col-8">/</td>
+                  <td class="col-8">${item.HEIGHT}/${item.WEIGHT}</td>
                 </tr>
                 <tr>
                   <th class="col-4">직책(직무)</th>
-                  <td class="col-8">배우</td>
+                  <td class="col-8">${item.JOB}</td>
                 </tr>
               </table>
               <!-- 게시글이 초과되면 스크롤 추가 -->
               <div class="" style="overflow:auto; height: 20rem;">
-                <div> 게시글 내용</div>
+                <div style="height:100%"> 
+                <div id="cord_content"  class="form-control"></div>
+                </div>
               </div>
           </div>
           </div>
@@ -122,5 +127,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
     crossorigin="anonymous"></script>
+    <script>
+    var cord_content = new Quill('#cord_content', {
+       modules: {
+        toolbar: false
+        // 툴바 없애기
+      },
+			theme: 'snow'
+		});
+      cord_content.disable(); // 변경못하게함
+      cord_content.setContents(${item.CORD_CONTENT});
+    </script>
 </body>
 </html>

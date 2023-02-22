@@ -17,10 +17,10 @@ public class ByPassController {
         int i = 1;
     }
 
-    @RequestMapping(value = { "/coordination/coordinationBoard" })
-    public void coordinationBoard() {
-        int i = 1;
-    }
+    // @RequestMapping(value = { "/coordination/coordinationBoard" })
+    // public void coordinationBoard() {
+    //     int i = 1;
+    // }
 
     // @RequestMapping(value = { "/coordination/coordination" })
     // public void coordination() {
