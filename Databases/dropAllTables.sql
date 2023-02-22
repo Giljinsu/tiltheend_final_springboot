@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS `orderlist`;
+DROP TABLE IF EXISTS `admin_list`;
+DROP TABLE IF EXISTS `faq`;
+DROP TABLE IF EXISTS `adminpagelist`;
+DROP TABLE IF EXISTS `delivery`;
+DROP TABLE IF EXISTS `coordination_picture`;
+DROP TABLE IF EXISTS `coordination_info`;
+DROP TABLE IF EXISTS `review_picture`;
+DROP TABLE IF EXISTS `review`;
+DROP TABLE IF EXISTS `product_picture`;
+DROP TABLE IF EXISTS `cip_attachfile`;
+DROP TABLE IF EXISTS `announcement`;
+DROP TABLE IF EXISTS `qna`;
+DROP TABLE IF EXISTS `shoppingcart`;
+DROP TABLE IF EXISTS `wishlist`;
+DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `product`;
