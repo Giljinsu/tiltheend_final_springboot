@@ -118,7 +118,7 @@ SET LISTID = 2
 WHERE SALES = 650000
 ;
 
--- user, product, delevery는 delete문 수정해야함
+-- user, product, delevery는 delete문 수정해야함 (연결된 테이블 삭제 안했음)
 
 -- USER
 select * from user;
