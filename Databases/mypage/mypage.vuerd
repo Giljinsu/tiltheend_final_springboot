@@ -1,0 +1,228 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "PURCHASES",
+        "comment": "구매내역",
+        "columns": [
+          {
+            "name": "UID",
+            "comment": "유니크아이디",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 80,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "dc72a643-c06e-42c6-98f5-eda28686226a"
+          },
+          {
+            "name": "USER_ID",
+            "comment": "유저아이디",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "15812cfe-0de6-46b6-b136-8bb25ca7fac6"
+          },
+          {
+            "name": "ORDER_DATE",
+            "comment": "주문날짜",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 89.88330078125,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "fb5ecff2-e7d5-4258-bd49-fd904a9533e6"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 70.3698,
+          "top": 193.9813,
+          "zIndex": 101,
+          "widthName": 82.9072265625,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "770ccf61-6188-433a-973b-1628c88efadf"
+      },
+      {
+        "name": "PURCHASED_PRODUCTS",
+        "comment": "",
+        "columns": [
+          {
+            "name": "UID",
+            "comment": "유니크아이디",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 80,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "e9a98778-b4f1-4a3e-9527-be2219f2983e"
+          },
+          {
+            "name": "PRODUCT_ID",
+            "comment": "제품아이디",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 86.50634765625,
+              "widthComment": 67,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "75f10eb7-4eac-49d7-b185-a0ba3a5c2d77"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 103.2419,
+          "top": 422.6852,
+          "zIndex": 111,
+          "widthName": 163.8017578125,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "3f1862e3-7404-4697-a5c5-3943f781fa57"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "770ccf61-6188-433a-973b-1628c88efadf",
+          "columnIds": [
+            "dc72a643-c06e-42c6-98f5-eda28686226a"
+          ],
+          "x": 286.285815625,
+          "y": 324.48130000000003,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "3f1862e3-7404-4697-a5c5-3943f781fa57",
+          "columnIds": [
+            "e9a98778-b4f1-4a3e-9527-be2219f2983e"
+          ],
+          "x": 317.4694390625,
+          "y": 422.6852,
+          "direction": "top"
+        },
+        "constraintName": "fk_purchases_to_purchases_product",
+        "visible": true,
+        "id": "c501844e-1b3c-421b-b759-325537ae0fe6"
+      }
+    ]
+  }
+}
