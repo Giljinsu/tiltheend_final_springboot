@@ -44,8 +44,6 @@
     <select id="deleteAnnouncement" 
         parameterType="Map" resultType="Map">
         DELETE FROM ANNOUNCEMENT
-                    INNER JOIN ADMIN_LIST
-                                ON ADMIN_LIST.POST_NO_ANNO = ANNOUNCEMENT.POST_NO_ANNO
         WHERE POST_NO_ANNO=#{POST_NO}
         ;
     </select>
@@ -53,8 +51,6 @@
     <select id="deleteQNA" 
         parameterType="Map" resultType="Map">
         DELETE FROM QNA
-                    INNER JOIN ADMIN_LIST
-                                ON ADMIN_LIST.POST_NO_ANNO = QNA.POST_NO_QNA
         WHERE POST_NO_QNA=#{POST_NO}
         ;
     </select>
@@ -62,8 +58,6 @@
     <select id="deleteFAQ" 
         parameterType="Map" resultType="Map">
         DELETE FROM FAQ
-                    INNER JOIN ADMIN_LIST
-                                ON ADMIN_LIST.POST_NO_ANNO = FAQ.POST_NO_FAQ
         WHERE POST_NO_FAQ=#{POST_NO}
         ;
     </select>
