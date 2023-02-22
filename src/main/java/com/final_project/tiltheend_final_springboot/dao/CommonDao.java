@@ -12,7 +12,7 @@ public class CommonDao {
     @Autowired
     private SqlSessionTemplate sessionTemplate;
     
-    public Object select(String sqlMapId, Object dataMap) {
+    public Object selectOne(String sqlMapId, Object dataMap) {
         Object result = sessionTemplate.selectOne(sqlMapId, dataMap);
         return result;
     }

@@ -13,13 +13,13 @@ public class ShopService {
 
   public Object getProductList(Object dataMap) {
     String sqlMapId = "shop.selectAll";
-    Object result = commonDao.select(sqlMapId, dataMap);
+    Object result = commonDao.selectOne(sqlMapId, dataMap);
     return result;
   }
 
   public Object getBestsellingProductList(Object dataMap) {
     String sqlMapId = "shop.selectBestsellingProductList";
-    Object result = commonDao.select(sqlMapId, dataMap);
+    Object result = commonDao.selectOne(sqlMapId, dataMap);
     return result;
   }
 

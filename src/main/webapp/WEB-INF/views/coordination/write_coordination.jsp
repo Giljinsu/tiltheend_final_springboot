@@ -51,6 +51,12 @@
               </div>
               <table class="table">
                 <tr>
+                  <th class="col-4">제목</th>
+                  <td class="col-8 row">
+                    <input type="text" name="TITLE" value="Test" id="">
+                  </td>
+                </tr>
+                <tr>
                   <th class="col-4">이름</th>
                   <td class="col-8 row">
                     <input type="text" name="USERNAME" value="김영철" id="">
@@ -145,7 +151,7 @@
 			// Quill function
 			let cord_content = document.querySelector("#cord_content");
 			cord_content.value = JSON.stringify(content);
-			// 이렇게 안해도되는데 확실하게 함
+      // cord_content.value = content;
 			let form = document.querySelector("#action-form");
 			form.submit();
 			// 이것이 submit한거랑 똑같음
