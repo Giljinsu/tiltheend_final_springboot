@@ -40,13 +40,31 @@
         SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
         ;
     </update>
-    <!-- admin.delete -->
+    <!-- admin.deleteAnnouncement -->
     <select id="deleteAnnouncement" 
         parameterType="Map" resultType="Map">
         DELETE FROM ANNOUNCEMENT
                     INNER JOIN ADMIN_LIST
-                                ON ADMIN_LIST.POST_NO
-        WHERE POST_NO=#{COORDINATION_ID}
+                                ON ADMIN_LIST.POST_NO_ANNO = ANNOUNCEMENT.POST_NO_ANNO
+        WHERE POST_NO_ANNO=#{POST_NO}
+        ;
+    </select>
+    <!-- admin.deleteQNA -->
+    <select id="deleteQNA" 
+        parameterType="Map" resultType="Map">
+        DELETE FROM QNA
+                    INNER JOIN ADMIN_LIST
+                                ON ADMIN_LIST.POST_NO_ANNO = QNA.POST_NO_QNA
+        WHERE POST_NO_QNA=#{POST_NO}
+        ;
+    </select>
+    <!-- admin.deleteFAQ -->
+    <select id="deleteFAQ" 
+        parameterType="Map" resultType="Map">
+        DELETE FROM FAQ
+                    INNER JOIN ADMIN_LIST
+                                ON ADMIN_LIST.POST_NO_ANNO = FAQ.POST_NO_FAQ
+        WHERE POST_NO_FAQ=#{POST_NO}
         ;
     </select>
 </mapper>
