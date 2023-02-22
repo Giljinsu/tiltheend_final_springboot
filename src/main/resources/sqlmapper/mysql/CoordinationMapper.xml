@@ -11,11 +11,17 @@
         WHERE COORDINATION_ID = #{COORDINATION_ID}
         ;
     </select>
-    <select id="getlist" 
+    <select id="getlistnotjoin" 
         parameterType="Map" resultType="Map">
         SELECT * 
         FROM coordination_info
         ;
+    </select>
+     <select id="getlistwithjoin" 
+        parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM COORDINATION_INFO A JOIN CIP_ATTACHFILE B
+        WHERE A.COORDINATION_ID = B.SOURCE_UNIQUE_SEQ;
     </select>
     <update id="update" 
         parameterType="Map">

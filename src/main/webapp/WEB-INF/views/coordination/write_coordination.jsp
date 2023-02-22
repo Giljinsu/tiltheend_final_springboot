@@ -23,11 +23,14 @@
     <main style="margin-top: 8rem">
       <form action="/coordination/save" id="action-form" method="post" enctype="multipart/form-data">
       <%-- 하드코딩 --%>
-      <input type="hidden" name="COORDINATION_ID" value="cord_001">
+      <%-- <input type="hidden" name="COORDINATION_ID" value="cord_001"> --%>
       <input type="hidden" name="PRODUCT_ID" value="PROD_1">
       <input type="hidden" name="UID" value="U0001">
       <input type="hidden" name="VIEWS" value="1">
       <input type="hidden" name="LIKES" value="2">
+      <%-- 파일을 업로드시 --%>
+      <input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111">
+      <input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111">
       <%-- ===== --%>
       <div class="coordination">
         <div class="row">
