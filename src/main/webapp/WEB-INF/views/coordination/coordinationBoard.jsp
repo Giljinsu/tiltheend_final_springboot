@@ -18,20 +18,27 @@
 </head>
 <body>
    <%@ include file="../header.jsp" %>
-    
+    <c:set  var="item" value="${resultMap}"/>
     <main style="margin-top:8rem;" class="container">
         <div class="row row-cols-1 row-cols-md-4">
-        <c:forEach items="${resultMap}" var="item">
-            <a href="/coordination/view/${item.COORDINATION_ID}" class="col mb-3">
+        
+        <c:forEach items="${resultMap}" var="item" varStatus="loop">
+        <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
+        <form id="" action="/coordination/view" method="post">
+            <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
+            <button class="btn btn_link col mb-3">
+            <%-- <a href="" onclick="document.getElementById('form_${loop.index}').submit();" class="col mb-3"> --%>
                 <div class="card border-light h-100">
-                    <img src="/refer/coordination/model1.jpg" class="card-image" alt="">
-                    <div class="card-body">
+                    <img src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" class="card-image" alt="">
+                    <div class="card-body text-start">
                         <div class="card-title">${item.TITLE}</div>
                         <div class="card-text">${item.USERNAME}</div>
                         <div class="card-text-viewcount">조회수 : ${item.VIEWS} </div>
                     </div>
                 </div>
-            </a>
+            <%-- </a> --%>
+            </button>
+        </form>
         </c:forEach>
         </div>
         <hr />

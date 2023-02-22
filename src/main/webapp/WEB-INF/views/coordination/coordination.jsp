@@ -21,12 +21,13 @@
 <body>
 <%@ include file="../header.jsp" %>
     <c:set  var="item" value="${resultMap}"/>
+    <c:set  var="file" value="${fileInfo}"/>
     <main style="margin-top: 8rem">
       <div class="coordination">
         <div class="row">
           <div class="col d-flex justify-content-">
             <div class="model-image-box">
-              <img class="model-image" src="/refer/coordination/model1.jpg" alt="">
+              <img class="model-image" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}" alt="">
             </div>
           </div>
           <div class="col">
@@ -58,6 +59,17 @@
                 <div style="height:100%"> 
                 <div id="cord_content"  class="form-control"></div>
                 </div>
+              </div>
+              <%-- 수정 삭제 --%>
+              <div class="d-flex justify-content-end mt-3">
+                <form action="/coordination/modify">
+                  <button class="btn border">수정</button>
+                </form>
+                <form action="/coordination/delete" method="post">
+                  <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
+                  <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}">
+                  <button class="btn border">삭제</button>
+                </form>
               </div>
           </div>
           </div>
