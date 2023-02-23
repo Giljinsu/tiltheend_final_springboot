@@ -75,15 +75,16 @@ public class CommonUtils {
         String absolutePath = getAbsolutePath();
         String physicalfile_name = (String)path;
         String storePath = absolutePath+physicalfile_name+File.separator;
-        File file = new File(storePath);
+        File file = new File(storePath); //폴더
+        // 파일이 존재하면
         if(file.exists()) {
-            if(file.isDirectory()) {
-                File[] files= file.listFiles();
+            if(file.isDirectory()) { //폴더이면
+                File[] files= file.listFiles(); //안에 내용물 리스트로저장
                 for(int i=0; i<files.length ; i++) {
-                    files[i].delete();
+                    files[i].delete(); //하나씩 지움
                 }
             }
-            file.delete();
+            file.delete(); //마지막으로 폴더 지우
         }
     }
 }

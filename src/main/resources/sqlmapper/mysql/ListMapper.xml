@@ -21,21 +21,21 @@
     <!-- admin.updateAnnouncement -->
     <!-- DATE가 2023-01-01 형식으로 저장 -->
     <update id="updateAnnouncement" 
-        parameterType="Map" resultType="Map">
+        parameterType="Map">
         UPDATE ANNOUNCEMENT
         SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
         ;
     </update>
     <!-- admin.updateQNA -->
     <update id="updateQNA" 
-        parameterType="Map" resultType="Map">
+        parameterType="Map">
         UPDATE QNA
         SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
         ;
     </update>
     <!-- admin.updateFAQ -->
     <update id="updateFAQ" 
-        parameterType="Map" resultType="Map">
+        parameterType="Map">
         UPDATE FAQ
         SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
         ;
