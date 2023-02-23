@@ -9,7 +9,7 @@
     </select>
     <!-- admin.update -->
     <update id="update" 
-        parameterType="Map" resultType="Map">
+        parameterType="Map">
         UPDATE coordination_info
         SET DELIVERY_READY=#{DELIVERY_READY}-#{DELIVERY},DELIVERY_COMPLETE=#{DELIVERY_COMPLETE}+#{DELIVERY}
         WHERE PRODUCT_CODE=#{PRODUCT_CODE}
