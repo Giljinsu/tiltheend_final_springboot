@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,35 +17,16 @@
     <link rel="stylesheet" href="/css/list.css" />
   </head>
   <body>
-    <%@ include file="../header.jsp" %>
-    <!-- modal -->
-    <div class="modal fade" id="modalTarget">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.7)">
-          <div class="modal-header" style="color: white">
-            Search
-            <button class="btn btn-secondary close_button" data-bs-dismiss="modal" style="border: 0; background-color: rgba(0, 0, 0, 0)">
-              <span class="material-symbols-outlined"> close </span>
-            </button>
-          </div>
-          <div class="modal-body d-flex align-items-center">
-            <input type="text" class="form-control me-3" />
-            <a href="" style="color: white">
-              <span class="material-symbols-outlined">search</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- 헤더 여기까지 복사해야함 -->
     <main style="margin-top: 160px" class="container">
-      <div id="head"><a href="/qna/qna" class="me-4">Q&A</a> <a href="" class="fw-bold">FAQ</a></div>
+      <div id="head"><a href="/list/qna" class="me-4">Q&A</a> <a href="/list/faq" class="fw-bold">FAQ</a></div>
+
       <div id="category" class="mt-2 mb-2 d-flex" style="justify-content: space-between">
         <div>
-          <a href="">전체</a>
-          <a href="">교환/반품/수선</a>
-          <a href="">주문/취소</a>
-          <a href="">기타</a>
+          <a href="/list/faq">전체</a>
+          <a href="/list/faq/repair">교환/반품/수선</a>
+          <a href="/list/faq/delivery">출고/배송</a>
+          <a href="/list/faq/cancle">주문/취소</a>
+          <a href="/list/faq/ect">기타</a>
         </div>
         <!-- search -->
         <div id="search">
@@ -54,36 +36,40 @@
           </a>
         </div>
       </div>
+      <!-- table -->
       <table class="table table-hover text-center mt-2">
         <tbody>
           <tr>
             <td class="col-md-1" id="number">번호</td>
             <td class="col-md-2" id="cate">구분</td>
-            <td class="" id="title"><a href="./board.html">제목</a></td>
+            <td class="" id="title">제목</td>
             <td class="col-md-1" id="id">작성자</td>
             <td class="col-md-1" id="date">날짜</td>
           </tr>
-          <tr>
-            <td class="col-md-1" id="number">3</td>
-            <td class="col-md-2" id="cate">교환/반품/수선</td>
-            <td class="" id="title"><a href="./board.html">testTitle</a></td>
-            <td class="col-md-1" id="id">testID</td>
-            <td class="col-md-1" id="date">2023.01.05</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>기타</td>
-            <td><a href="./board.html">testTitle</a></td>
-            <td>testID</td>
-            <td>2023.01.05</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>주문/취소</td>
-            <td><a href="./board.html">testTitle</a></td>
-            <td>testID</td>
-            <td>2023.01.05</td>
-          </tr>
+          <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
+            <tr>
+              <td class="col-md-1" id="number">${resultData.POST_NO_FAQ}</td>
+              <td class="col-md-2" id="cate">
+                <c:choose>
+                  <c:when test="${resultData.CATEGORY eq 'repair'}">
+                    교환/반품/수선
+                  </c:when>
+                  <c:when test="${resultData.CATEGORY eq 'delivery'}">
+                    출고/배송
+                  </c:when>
+                  <c:when test="${resultData.CATEGORY eq 'cancle'}">
+                    주문/취소
+                  </c:when>
+                  <c:when test="${resultData.CATEGORY eq 'ect'}">
+                    기타
+                  </c:when>
+                </c:choose>
+              </td>
+              <td class="" id="title"><a href="/board/${resultData.POST_NO_FAQ}">${resultData.TITLE}</a></td>
+              <td class="col-md-1" id="id">${resultData.USERNAME}</td>
+              <td class="col-md-2" id="date">${resultData.DATE}</td>
+            </tr>
+          </c:forEach>
         </tbody>
       </table>
       <!-- pagination -->
@@ -107,8 +93,6 @@
         </nav>
       </div>
     </main>
-
-    <%@ include file="../footer.jsp" %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
