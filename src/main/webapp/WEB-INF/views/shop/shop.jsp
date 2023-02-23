@@ -123,7 +123,8 @@
 						<c:forEach items="${resultMap}" var="item" varStatus="loop">
 							<a href="item_info.html" class="col-3 mb-3">
 								<div class="card" style="">
-									<img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap">
+									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
+									<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
 									<div class="card-body">
 										<div class="card-title">${item.BRAND}</div>
 										<div class="card-text">${item.CLOTHES_NAME}</div>

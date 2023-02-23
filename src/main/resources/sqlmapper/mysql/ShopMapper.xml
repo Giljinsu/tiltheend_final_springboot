@@ -4,7 +4,10 @@
 <mapper namespace="shop">
     <!-- shop.selectAll -->
     <select id="selectAll" parameterType="Map" resultType="Map">
-        SELECT * FROM PRODUCT;
+        SELECT * FROM PRODUCT
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ;
     </select>
     <!-- shop.selectBestsellingProductList -->
     <select id="selectBestsellingProductList" parameterType="Map" resultType="Map">
