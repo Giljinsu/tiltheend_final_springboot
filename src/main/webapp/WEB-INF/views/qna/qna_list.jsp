@@ -17,17 +17,16 @@
     <link rel="stylesheet" href="/css/list.css" />
   </head>
   <body>
-    <%@ include file="../header.jsp" %>
     <main style="margin-top: 160px" class="container">
-      <div id="head"><a href="/list/qna" class="me-4">Q&A</a> <a href="/list/faq" class="fw-bold">FAQ</a></div>
+      <div id="head"><a href="/list/qna" class="fw-bold me-4">Q&A</a> <a href="/list/faq">FAQ</a></div>
 
       <div id="category" class="mt-2 mb-2 d-flex" style="justify-content: space-between">
         <div>
-          <a href="/list/faq">전체</a>
-          <a href="/list/faq/repair">교환/반품/수선</a>
-          <a href="/list/faq/delivery">출고/배송</a>
-          <a href="/list/faq/cancle">주문/취소</a>
-          <a href="/list/faq/ect">기타</a>
+          <a href="/list/qna">전체</a>
+          <a href="/list/qna/repair">교환/반품/수선</a>
+          <a href="/list/qna/delivery">출고/배송</a>
+          <a href="/list/qna/cancle">주문/취소</a>
+          <a href="/list/qna/ect">기타</a>
         </div>
         <!-- search -->
         <div id="search">
@@ -49,7 +48,7 @@
           </tr>
           <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
             <tr>
-              <td class="col-md-1" id="number">${resultData.POST_NO_FAQ}</td>
+              <td class="col-md-1" id="number">${resultData.POST_NO_QNA}</td>
               <td class="col-md-2" id="cate">
                 <c:choose>
                   <c:when test="${resultData.CATEGORY eq 'repair'}">
@@ -66,7 +65,7 @@
                   </c:when>
                 </c:choose>
               </td>
-              <td class="" id="title"><a href="/board/${resultData.POST_NO_FAQ}">${resultData.TITLE}</a></td>
+              <td class="" id="title"><a href="/board/${resultData.POST_NO_QNA}">${resultData.TITLE}</a></td>
               <td class="col-md-1" id="id">${resultData.USERNAME}</td>
               <td class="col-md-2" id="date">${resultData.DATE}</td>
             </tr>
@@ -95,7 +94,6 @@
       </div>
     </main>
 
-    <%@ include file="../footer.jsp" %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
