@@ -62,7 +62,18 @@ public class ListController {
     // announcement
     @RequestMapping(value = "/announcement", method = RequestMethod.GET)
     public ModelAndView listAnnouncement(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        Object resultMap = listService.selectAnnouncement(params);
+        Object resultMap = listService.selectAnnouncementWithJoin(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("announcement/announcement");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/announcement/{category}", method = RequestMethod.GET)
+    public ModelAndView listAnnouncementCategory(@RequestParam Map<String, Object> params,
+            @PathVariable String category,
+            ModelAndView modelAndView) {
+        params.put("CATEGORY", category);
+        Object resultMap = listService.selectAnnouncementCategory(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("announcement/announcement");
         return modelAndView;

@@ -5,13 +5,6 @@
 
     <!-- QNA -->
 
-    <!-- List.selectQNA -->
-    <select id="selectQNA" 
-        parameterType="Map" resultType="Map">
-        SELECT * FROM QNA
-        ORDER BY POST_NO_QNA DESC;
-    </select>
-
     <!-- List.selectQNAwithjoin -->
     <select id="selectQNAwithjoin" 
         parameterType="Map" resultType="Map">
@@ -65,13 +58,6 @@
 
     <!-- FAQ -->
 
-    <!-- List.selectFAQ -->
-    <select id="selectFAQ" 
-        parameterType="Map" resultType="Map">
-        SELECT * FROM FAQ
-        ORDER BY POST_NO_FAQ DESC;
-    </select>
-
     <!-- List.selectFAQwithjoin -->
     <select id="selectFAQwithjoin" 
         parameterType="Map" resultType="Map">
@@ -109,18 +95,19 @@
 
     <!-- Announcement -->
 
-    <!-- List.selectAnnouncement -->
-    <select id="selectAnnouncement" 
-        parameterType="Map" resultType="Map">
-        SELECT * FROM ANNOUNCEMENT
-        ORDER BY POST_NO_ANNO DESC;
-    </select>
-
     <!-- List.selectAnnouncementwithjoin -->
     <select id="selectAnnouncementwithjoin" 
-        parameterType="Map" resultType="String">
+        parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
         WHERE A.UID = B.UID;
+    </select>
+
+    <!-- List.selectFAQCategory -->
+    <select id="selectAnnouncementCategory" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
+        WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
+        ORDER BY POST_NO_ANNO DESC
     </select>
 
     <!-- admin.updateAnnouncement -->

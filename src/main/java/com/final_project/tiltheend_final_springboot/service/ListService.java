@@ -12,12 +12,6 @@ public class ListService {
     CommonDao commonDao;
 
     // QNA
-    public Object selectQNA(Object dataMap) {
-
-        String sqlMapId = "List.selectQNA";
-        Object result = commonDao.getList(sqlMapId, dataMap);
-        return result;
-    }
 
     public Object selectQNAWithJoin(Object dataMap) {
         String sqlMapId = "List.selectQNAwithjoin";
@@ -38,11 +32,6 @@ public class ListService {
     }
 
     // FAQ
-    public Object selectFAQ(Object dataMap) {
-        String sqlMapId = "List.selectFAQ";
-        Object result = commonDao.getList(sqlMapId, dataMap);
-        return result;
-    }
 
     public Object selectFAQWithJoin(Object dataMap) {
         String sqlMapId = "List.selectFAQwithjoin";
@@ -63,14 +52,15 @@ public class ListService {
     }
 
     // Announcement
-    public Object selectAnnouncement(Object dataMap) {
-        String sqlMapId = "List.selectAnnouncement";
+
+    public Object selectAnnouncementWithJoin(Object dataMap) {
+        String sqlMapId = "List.selectAnnouncementwithjoin";
         Object result = commonDao.getList(sqlMapId, dataMap);
         return result;
     }
 
-    public Object selectAnnouncementWithJoin(Object dataMap) {
-        String sqlMapId = "List.selectAnnouncementwithjoin";
+    public Object selectAnnouncementCategory(Object dataMap) {
+        String sqlMapId = "List.selectAnnouncementCategory";
         Object result = commonDao.getList(sqlMapId, dataMap);
         return result;
     }
