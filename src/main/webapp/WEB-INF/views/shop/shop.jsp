@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -119,86 +120,19 @@
 					<!-- 일반 상품 리스트 -->
 					<div class="fs-5 mt-5 mb-3">상품 리스트</div>
 					<div class="row">
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap">
-								<div class="card-body">
-									<div class="card-title">브랜드명</div>
-									<div class="card-text">의류명</div>
-									<div class="card-text">가격</div>
+						<c:forEach items="${resultMap}" var="item" varStatus="loop">
+							<a href="item_info.html" class="col-3 mb-3">
+								<div class="card" style="">
+									<img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap">
+									<div class="card-body">
+										<div class="card-title">${item.BRAND}</div>
+										<div class="card-text">${item.CLOTHES_NAME}</div>
+										<div class="card-text">${item.PRICE}</div>
+									</div>
 								</div>
-							</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop2.jpg" alt="Card image cap">
-								<div class="card-body">
-									<div class="card-title">브랜드명</div>
-									<div class="card-text">의류명</div>
-									<div class="card-text">가격</div>
-								</div>
-							</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop3.jpg" alt="Card image cap">
-								<div class="card-body">
-								<div class="card-title">브랜드명</div>
-								<div class="card-text">의류명</div>
-								<div class="card-text">가격</div>
-								</div>
-								</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop4.jpg" alt="Card image cap">
-								<div class="card-body">
-								<div class="card-title">브랜드명</div>
-								<div class="card-text">의류명</div>
-								<div class="card-text">가격</div>
-								</div>
-								</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop5.jpg" alt="Card image cap">
-								<div class="card-body">
-								<div class="card-title">브랜드명</div>
-								<div class="card-text">의류명</div>
-								<div class="card-text">가격</div>
-								</div>
-								</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop6.jpg" alt="Card image cap">
-								<div class="card-body">
-								<div class="card-title">브랜드명</div>
-								<div class="card-text">의류명</div>
-								<div class="card-text">가격</div>
-								</div>
-								</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop7.jpg" alt="Card image cap">
-								<div class="card-body">
-								<div class="card-title">브랜드명</div>
-								<div class="card-text">의류명</div>
-								<div class="card-text">가격</div>
-								</div>
-								</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop8.jpg" alt="Card image cap">
-								<div class="card-body">
-								<div class="card-title">브랜드명</div>
-								<div class="card-text">의류명</div>
-								<div class="card-text">가격</div>
-								</div>
-								</div>
-						</a>
+							</a>
+						</c:forEach>
+						
 					</div>
 					<!-- pagination -->
 					<div class="container d-flex justify-content-center mt-4">

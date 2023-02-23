@@ -11,9 +11,9 @@ public class ShopService {
   @Autowired
   CommonDao commonDao;
 
-  public Object getProductList(Object dataMap) {
+  public Object getProductList() {
     String sqlMapId = "shop.selectAll";
-    Object result = commonDao.selectOne(sqlMapId, dataMap);
+    Object result = commonDao.selectList(sqlMapId);
     return result;
   }
 
