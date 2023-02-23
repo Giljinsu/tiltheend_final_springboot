@@ -34,8 +34,8 @@
                   </div>
                 </div> -->
                 <a href="/coordination/list" class="nav-link fs-5 text-dark">코디게시판</a>
-                <a href="/qna/qna" class="nav-link fs-5 text-dark">Q&A</a>
-                <a href="/announcement/announcement" class="nav-link fs-5 text-dark">공지사항</a>
+                <a href="/list/qna" class="nav-link fs-5 text-dark">Q&A</a>
+                <a href="/list/announcement" class="nav-link fs-5 text-dark">공지사항</a>
               </div>
               <div class="navbar-nav">
                 <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
