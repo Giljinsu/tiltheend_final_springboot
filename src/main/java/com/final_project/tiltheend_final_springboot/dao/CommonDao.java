@@ -42,7 +42,7 @@ public class CommonDao {
     }
 
     public Object getList(String sqlMapId, Object dataMap) {
-        Object result = sessionTemplate.selectList(sqlMapId);
+        Object result = sessionTemplate.selectList(sqlMapId, dataMap);
         return result;
     }
 

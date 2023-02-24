@@ -2,20 +2,112 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="List">
-    <!-- List.selectAnnouncement -->
-    <select id="selectAnnouncement" 
+
+    <!-- QNA -->
+
+    <!-- List.selectQNAwithjoin -->
+    <select id="selectQNAwithjoin" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM ANNOUNCEMENT;
+        SELECT * FROM USER A INNER JOIN QNA B
+        WHERE A.UID = B.UID
+        <!-- <choose>
+            <when test="">
+
+            </when>
+            <when test="">
+                
+            </when>
+            <when test="">
+                
+            </when>
+            <when test="">
+                
+            </when>
+            <otherwise>
+            </otherwise>
+        </choose> -->
+        ORDER BY POST_NO_QNA DESC;
     </select>
-    <!-- List.selectQNA -->
-    <select id="selectQNA" 
+
+    <!-- List.selectQNACategory -->
+    <select id="selectQNACategory" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM QNA;
+        SELECT * FROM USER A INNER JOIN QNA B
+        WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
+        ORDER BY POST_NO_QNA DESC
     </select>
-    <!-- List.selectFAQ -->
-    <select id="selectFAQ" 
+
+    <!-- List.updateQNA -->
+    <!-- DATE가 2023-01-01 형식으로 저장 -->
+    <update id="updateQNA" 
+        parameterType="Map">
+        UPDATE QNA
+        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
+        ;
+    </update>
+
+    <!-- List.deleteQNA -->
+    <select id="deleteQNA" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM FAQ;
+        DELETE FROM QNA
+        WHERE POST_NO_QNA=#{POST_NO}
+        ;
+    </select>
+
+
+
+    <!-- FAQ -->
+
+    <!-- List.selectFAQwithjoin -->
+    <select id="selectFAQwithjoin" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A INNER JOIN FAQ B
+        WHERE A.UID = B.UID
+        ORDER BY POST_NO_FAQ DESC;
+    </select>
+
+    <!-- List.selectFAQCategory -->
+    <select id="selectFAQCategory" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A INNER JOIN FAQ B
+        WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
+        ORDER BY POST_NO_FAQ DESC
+    </select>
+
+    <!-- List.updateFAQ -->
+    <!-- DATE가 2023-01-01 형식으로 저장 -->
+    <update id="updateFAQ" 
+        parameterType="Map">
+        UPDATE FAQ
+        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
+        ;
+    </update>
+
+    <!-- List.deleteFAQ -->
+    <select id="deleteFAQ" 
+        parameterType="Map" resultType="Map">
+        DELETE FROM FAQ
+        WHERE POST_NO_FAQ=#{POST_NO}
+        ;
+    </select>
+
+
+
+    <!-- Announcement -->
+
+    <!-- List.selectAnnouncementwithjoin -->
+    <select id="selectAnnouncementwithjoin" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
+        WHERE A.UID = B.UID;
+    </select>
+
+    <!-- List.selectFAQCategory -->
+    <select id="selectAnnouncementCategory" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
+        WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
+        ORDER BY POST_NO_ANNO DESC
     </select>
 
     <!-- admin.updateAnnouncement -->
@@ -26,39 +118,12 @@
         SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
         ;
     </update>
-    <!-- admin.updateQNA -->
-    <update id="updateQNA" 
-        parameterType="Map">
-        UPDATE QNA
-        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
-        ;
-    </update>
-    <!-- admin.updateFAQ -->
-    <update id="updateFAQ" 
-        parameterType="Map">
-        UPDATE FAQ
-        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
-        ;
-    </update>
+
     <!-- admin.deleteAnnouncement -->
     <select id="deleteAnnouncement" 
         parameterType="Map" resultType="Map">
         DELETE FROM ANNOUNCEMENT
         WHERE POST_NO_ANNO=#{POST_NO}
-        ;
-    </select>
-    <!-- admin.deleteQNA -->
-    <select id="deleteQNA" 
-        parameterType="Map" resultType="Map">
-        DELETE FROM QNA
-        WHERE POST_NO_QNA=#{POST_NO}
-        ;
-    </select>
-    <!-- admin.deleteFAQ -->
-    <select id="deleteFAQ" 
-        parameterType="Map" resultType="Map">
-        DELETE FROM FAQ
-        WHERE POST_NO_FAQ=#{POST_NO}
         ;
     </select>
 </mapper>
