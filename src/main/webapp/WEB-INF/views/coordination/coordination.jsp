@@ -48,7 +48,7 @@
               <%-- <img class="model-image" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt=""> --%>
             </div>
           </div>
-          <div class="col">
+          <div class="col ms-3">
             <div class="coordination_text">
               <div>
                 <h3>Information</h3>
@@ -84,8 +84,9 @@
               </div>
               <%-- 수정 삭제 --%>
               <div class="d-flex justify-content-end mt-3">
-                <form action="/coordination/edit">
+                <form action="/coordination/edit" method="post">
                 <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
+                <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}">
                   <button class="btn border">수정</button>
                 </form>
                 <form action="/coordination/delete" method="post">
