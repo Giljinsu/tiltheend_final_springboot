@@ -58,9 +58,9 @@
 				
 				<!-- 사이드바 -->
 				<div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
+					<div><a href="">전체</a></div>
 					<div><a href="">여성</a></div>
 					<div><a href="">남성</a></div>
-					<div><a href="">전체</a></div>
 					<div><a href="">신상품</a></div>
 					<div><a href="">세일중</a></div>
 					<div><a href="">상의</a></div>
@@ -71,7 +71,7 @@
 					<div><a href="">가방</a></div>
 				</div> 
 				<div id="right-column">
-					<div class="pt-4 pb-4">shop > 남성</div>
+					<div class="pt-4 pb-4">상품 > 전체</div>
 
 					<div class="fs-5 mb-3">베스트 상품 리스트</div>
 					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -92,7 +92,8 @@
 										<div class="card" style="">
 											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
 											<div class="card-body">
-												<div class="card-title">Ranking #${loop.count}</div>
+												<div class="card-title">Ranking #${loop.index+1}</div>
+												<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
 												<div class="card-text">${item.BRAND}</div>
 												<div class="card-text">${item.CLOTHES_NAME}</div>
 												<div class="card-text">${item.PRICE}</div>
@@ -110,7 +111,27 @@
 										<div class="card" style="">
 											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
 											<div class="card-body">
-												<div class="card-title">Ranking #${loop.count+4}</div>
+												<div class="card-title">Ranking #${loop.index+1}</div>
+												<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
+												<div class="card-text">${item.BRAND}</div>
+												<div class="card-text">${item.CLOTHES_NAME}</div>
+												<div class="card-text">${item.PRICE}</div>
+											</div>
+										</div>
+									</a>
+									</c:forEach>
+								</div>
+							</div>
+							<div class="carousel-item">
+								<div class="row">
+									<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
+															begin="8" end="11">
+									<a href="item_info" class="col-3 mb-3">
+										<div class="card" style="">
+											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+											<div class="card-body">
+												<div class="card-title">Ranking #${loop.index+1}</div>
+												<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
 												<div class="card-text">${item.BRAND}</div>
 												<div class="card-text">${item.CLOTHES_NAME}</div>
 												<div class="card-text">${item.PRICE}</div>

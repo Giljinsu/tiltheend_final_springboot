@@ -16,7 +16,7 @@
 		GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
         ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
         ORDER BY SALES_VOLUME DESC
-        LIMIT 8;
+        LIMIT 12;
     </select>
     <!-- shop.insertProduct -->
     <insert id="insertProduct" parameterType="Map">

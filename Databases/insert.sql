@@ -17,42 +17,43 @@ VALUES
 -- shop
 INSERT INTO PRODUCT
 (PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_1','Giordano','셔츠', 50000,'남자상의','50%',10);
-
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_2','LaCoste','블라우스', 80000,'여자상의','20%',5);
-
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_3','루이비통','바지', 120000,'남자하의','30%',20);
-
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_4','마담포라','스커트', 280000,'여자하의','30%',20);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_5','캐빈클라인','청바지',120000,'남자하의','15%',120);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_6','아디다스','후드티', 80000,'여자상의','10%',220);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_7','아디다스','테니스스커트', 70000,'여자하의','10%',100);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_8','카라트','재킷', 280000,'남자하의','20%',500);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_9','행탠','스웨터', 30000,'여자상의','30%',50);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_10','랄프로렌','셔츠', 80000,'남자하의','30%',70);
-INSERT INTO PRODUCT
-(PRODUCT_ID, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE, SALES_VOLUME)
-VALUES('PROD_11','로가디스','재킷', 230000,'남자상의','30%',30);
-
-
+VALUES
+('PROD_1','Giordano','셔츠', 50000,'남자상의','50%',10),
+('PROD_2','LaCoste','블라우스', 80000,'여자상의','20%',5),
+('PROD_3','루이비통','바지', 120000,'남자하의','30%',20),
+('PROD_4','마담포라','스커트', 280000,'여자하의','30%',20),
+('PROD_5','캐빈클라인','청바지',120000,'남자하의','15%',50),
+('PROD_6','아디다스','후드티', 80000,'여자상의','10%',30),
+('PROD_7','아디다스','테니스스커트', 70000,'여자하의','10%',10),
+('PROD_8','카라트','재킷', 280000,'남자하의','20%',50),
+('PROD_9','행탠','스웨터', 30000,'여자상의','30%',50),
+('PROD_10','랄프로렌','셔츠', 80000,'남자하의','30%',70),
+('PROD_11','로가디스','재킷', 230000,'남자상의','30%',30),
+('PROD_12','generic','브이넥 크롭 니트 라이트 그레이', 124100,'여자상의','10%',45),
+('PROD_13','generic','플랙 크롭 카라 스웨트 셔츠 멜란지 그레이', 89100,'여자상의','10%',50),
+('PROD_14','generic','베이직 크롭 셔츠 라이트 옐로우', 89100,'여자상의','10%',25),
+('PROD_15','generic','베이직 크롭 셔츠 라이트 퍼플', 80100,'여자상의','10%',30),
+('PROD_16','generic','후디 하프 집업 크롭 티셔츠 블루', 89000,'여자상의','0%',34),
+('PROD_17','generic','자켓 M35 로우', 179100,'여자상의','10%',99),
+('PROD_18','generic','브이넥 크롭 니트 라이트 블루', 125100,'여자상의','10%',45),
+('PROD_19','generic','자켓 T64 미드 블루', 159200,'여자상의','20%',55),
+('PROD_20','generic','라운드 넥 크롭 가디건 아이보리', 116100,'여자상의','10%',110),
+('PROD_21','generic','투웨이 브이넥 울 가디건 베이지', 62300,'여자상의','30%',80),
+('PROD_22','generic','[김나영 PICK★]스커트 051B 블랙', 79200,'여자하의','20%',65),
+('PROD_23','generic','하트 M71 로우', 95200,'여자하의','20%',45),
+('PROD_24','generic','★다예 PICKS★ 라운드 넥 크롭 가디건 블랙', 116100,'여자상의','10%',20),
+('PROD_25','generic','[★김나영 PICK★]퍼 크롭 자켓 베이지', 191200,'여자상의','20%',60),
+('PROD_26','generic','자켓 M62 미드 블루', 159200,'여자상의','20%',10),
+('PROD_27','generic','하프 집업 크롭 후디 핑크', 89000,'여자상의','0%',70),
+('PROD_28','generic','[김나영 PICK★]부클 크롭 니트 베이지', 63200,'여자상의','10%',80),
+('PROD_29','generic','플랙 로고 크롭 후디 그린', 63200,'여자상의','20%',15),
+('PROD_30','generic','스티즈 051B 블랙 로우', 149000,'남자하의','0%',130),
+('PROD_31','generic','셋업 스텝 051C 핑크', 143100,'남자상의','10%',55),
+('PROD_32','generic','카라 니트 가디건 브라운', 99000,'남자상의','23%',80),
+('PROD_33','generic','드롭 숄더 MA-1 항공 점퍼 카키', 109000,'남자상의','36%',105),
+('PROD_34','generic','오버사이즈 셔츠 화이트', 98100,'남자상의','10%',80),
+('PROD_35','generic','언어펙티드 X 플랙 롱 슬리브 오렌지', 55200,'남자상의','20%',135),
+('PROD_36','generic','그래픽 후디 스카이 블루', 79200,'남자상의','20%',105);
 
 -- file CIP_ATTACHFILE
 INSERT INTO CIP_ATTACHFILE
@@ -92,8 +93,42 @@ VALUES
 ('UU22', 'PROD_8', 'shop5.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU23', 'PROD_9', 'shop6.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU24', 'PROD_10', 'shop7.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU25', 'PROD_11', 'shop8.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE())
-;
+('UU25', 'PROD_11', 'shop8.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU26', 'PROD_12', 'shop12.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU27', 'PROD_13', 'shop13.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU28', 'PROD_14', 'shop14.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU29', 'PROD_15', 'shop15.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU30', 'PROD_16', 'shop16.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU31', 'PROD_17', 'shop17.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU32', 'PROD_18', 'shop18.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU33', 'PROD_19', 'shop19.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU34', 'PROD_20', 'shop20.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU35', 'PROD_21', 'shop21.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU36', 'PROD_22', 'shop22.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU37', 'PROD_23', 'shop23.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU38', 'PROD_24', 'shop24.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU39', 'PROD_25', 'shop25.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU40', 'PROD_26', 'shop26.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU41', 'PROD_27', 'shop27.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU42', 'PROD_28', 'shop28.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU43', 'PROD_29', 'shop29.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU44', 'PROD_30', 'shop30.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU45', 'PROD_31', 'shop31.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU46', 'PROD_32', 'shop32.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU47', 'PROD_33', 'shop33.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU48', 'PROD_34', 'shop34.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU49', 'PROD_35', 'shop35.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU50', 'PROD_36', 'shop36.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU51', 'PROD_37', 'shop37.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU52', 'PROD_38', 'shop38.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU53', 'PROD_39', 'shop39.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU54', 'PROD_40', 'shop40.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU55', 'PROD_41', 'shop41.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU56', 'PROD_42', 'shop42.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU57', 'PROD_43', 'shop43.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU58', 'PROD_44', 'shop44.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU59', 'PROD_45', 'shop45.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE());
+
 -- coordination
 INSERT INTO COORDINATION_INFO
 (COORDINATION_ID, UID, PRODUCT_ID, ATTACHFILE_SEQ, BULLETIN_NO, USERNAME, HEIGHT, WEIGHT, CORD_CONTENT, VIEWS, WRITE_DATE, MODIFICATION_DATE, LIKES, JOB)
