@@ -66,3 +66,18 @@ h3 {
 .comment{
   margin-top: 1rem;
 }
+
+/* 업로드시 썸네일 */
+.img_parent {
+  position: relative;
+}
+
+.img_upload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translate( -50%, -50% );
+  color: white;
+}

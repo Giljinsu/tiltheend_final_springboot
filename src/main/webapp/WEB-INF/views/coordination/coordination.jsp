@@ -21,13 +21,31 @@
 <body>
 <%@ include file="../header.jsp" %>
     <c:set  var="item" value="${resultMap}"/>
-    <c:set  var="file" value="${fileInfo}"/>
+  
     <main style="margin-top: 8rem">
       <div class="coordination">
         <div class="row">
           <div class="col d-flex justify-content-">
             <div class="model-image-box">
-              <img class="model-image" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}" alt="">
+              <div class="model-image-box border d-flex justify-content-center align-items-center img_parent">
+              <div id="carouselId" class="carousel slide" style="width:100%; height:100%;" >
+                <div class="carousel-inner w-100 h-100">
+              <c:forEach items="${files}" var="file" varStatus="loop">
+                    <div class="carousel-item ${loop.index == 0 ? 'active' : ''} w-100 h-100" id="carousel_id_0">
+                        <div class="w-100 h-100">
+                            <img class="model-image" id="modelimg_0" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}">
+                        </div>
+                    </div>
+              </c:forEach>
+                  <button class="carousel-control-prev" data-bs-target="#carouselId" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button class="carousel-control-next" data-bs-target="#carouselId" data-bs-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                  </button>
+                </div>
+            </div>
+              <%-- <img class="model-image" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt=""> --%>
             </div>
           </div>
           <div class="col">
@@ -41,6 +59,10 @@
                 </div>
               </div>
               <table class="table">
+               <tr>
+                  <th class="col-4">제목</th>
+                  <td class="col-8">${item.TITLE}</td>
+                </tr>
                 <tr>
                   <th class="col-4">이름</th>
                   <td class="col-8">${item.USERNAME}</td>
@@ -62,7 +84,8 @@
               </div>
               <%-- 수정 삭제 --%>
               <div class="d-flex justify-content-end mt-3">
-                <form action="/coordination/modify">
+                <form action="/coordination/edit">
+                <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
                   <button class="btn border">수정</button>
                 </form>
                 <form action="/coordination/delete" method="post">
@@ -103,34 +126,32 @@
         </div>
         <!-- 댓글 -->
         <hr>
-        <div class="commentarea">
-          <h5 style="">댓글 : 2개</h5>
+        <div class="commentarea" id="commentArea">
+          <h5 style="">댓글 : ${commentCount.COUNT}개</h5>
+          <c:forEach items="${comments}" var="comment">
           <div class="comment">
             <div style="margin-bottom: 0.5rem;">
-              작성자
-              <span style="font-size: 0.7rem;">(2023-02-03)</span>
+              ${comment.USERNAME}
+              <span style="font-size: 0.7rem;">(${comment.DATE})</span>
             </div>
             <div>
-              멋져요!!
+              ${comment.CONTENT}
             </div>
           </div>
           <hr style="border-color: rgba(0, 0, 0, 0.2);">
-          <!--  -->
-          <div class="comment">
-            <div style="margin-bottom: 0.5rem;">
-              작성자2
-              <span style="font-size: 0.7rem;">(2023-02-03)</span>
-            </div>
-            <div>
-              키가 어떻게 되시나요??
-            </div>
-          </div>
-          <hr style="border-color: rgba(0, 0, 0, 0.2);">
+          </c:forEach>
         </div>
         <!-- 댓글 작성 -->
-        <div class="d-flex" style="height: 3rem; margin-bottom: 2rem;">
-          <input class="form-control" style="" type="text" name="comment" id="">
-          <button class="btn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
+        <div class="" style="height: 3rem; margin-bottom: 2rem;">
+        <form class="w-100 d-flex" action="/coordination/comment" method="post">
+          <%-- 하드 코딩 --%>
+          <input type="hidden" name="UID" value="U0003"> 
+          <%-- ----- --%>
+          <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
+          <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}"> 
+          <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
+          <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
+        </form>
         </div>
       </div>
     </main>
@@ -149,6 +170,8 @@
 		});
       cord_content.disable(); // 변경못하게함
       cord_content.setContents(${item.CORD_CONTENT});
+
+
     </script>
 </body>
 </html>

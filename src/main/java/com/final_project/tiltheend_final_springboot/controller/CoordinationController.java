@@ -1,6 +1,6 @@
 package com.final_project.tiltheend_final_springboot.controller;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,18 +31,24 @@ public class CoordinationController {
     
     @RequestMapping(value = "/view", method=RequestMethod.POST)
     public ModelAndView view(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
-        params.put("SOURCE_UNIQUE_SEQ", params.get("COORDINATION_ID"));
-        Object fileInfo= filesService.selectFileOne(params);
-        Object resultMap = coordinationService.selectCordOne(params);
-        modelAndView.addObject("fileInfo", fileInfo);
-        modelAndView.addObject("resultMap", resultMap);
+        Object result = coordinationService.selectCordOne(params);
+        Object comments= coordinationService.getCommentList(params);
+        Object commentCount= coordinationService.getCommentCount(params);
+        Object files = filesService.selectFiles(params);
+        modelAndView.addObject("files", files);
+        modelAndView.addObject("commentCount", commentCount);
+        modelAndView.addObject("comments", comments);
+        modelAndView.addObject("resultMap", result);
         modelAndView.setViewName("/coordination/coordination");
         return modelAndView;
     }
 
     @RequestMapping(value = "/edit", method=RequestMethod.GET)
-    public void edit() {
-
+    public ModelAndView edit(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object result = coordinationService.selectCordFileOne(params);
+        modelAndView.addObject("resultMap", result);
+        modelAndView.setViewName("/coordination/write_coordination");
+        return modelAndView;
     }
     
     @RequestMapping(value = {"/write_coordination"})
@@ -62,6 +68,7 @@ public class CoordinationController {
         List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
         params.put("attachFiles", attachFiles);
         Object result = coordinationService.insertFilesAndCordAndGetList(params);
+        
         modelAndView.addObject("resultMap", result);
         modelAndView.setViewName("/coordination/coordinationBoard");
         return modelAndView;
@@ -69,8 +76,10 @@ public class CoordinationController {
 
     @RequestMapping(value = "/delete", method=RequestMethod.POST)
     public ModelAndView delete(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
-        Object fileinfo = filesService.selectFileOne(params);
-        Map file = (Map)fileinfo;
+        Object fileinfo = filesService.selectFiles(params);
+        List list = (ArrayList)fileinfo;
+        Map file = (Map) list.get(0);
+        // Map file = (Map)fileinfo;
         Object physicalfile_name = file.get("PHYSICALFILE_NAME");
 
         commonUtils.deleteFile(physicalfile_name);
@@ -86,6 +95,20 @@ public class CoordinationController {
         
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("/coordination/coordinationBoard");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/comment", method=RequestMethod.POST)
+    public ModelAndView comment(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
+        String COMMENT_UID = commonUtils.makeUuid();
+        params.put("COMMENT_UID", COMMENT_UID);
+        Object result = coordinationService.insertCommentAndGetCordFileOne(params);
+        Object comments= coordinationService.getCommentList(params);
+        Object commentCount= coordinationService.getCommentCount(params);
+        modelAndView.addObject("commentCount", commentCount);
+        modelAndView.addObject("comments", comments);
+        modelAndView.addObject("resultMap", result);
+        modelAndView.setViewName("/coordination/coordination");
         return modelAndView;
     }
 }

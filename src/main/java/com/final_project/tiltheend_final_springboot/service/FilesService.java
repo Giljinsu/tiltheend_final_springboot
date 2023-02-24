@@ -15,6 +15,11 @@ public class FilesService {
         Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
+    public Object selectFiles(Object dataMap) {
+        String sqlMapId = "files.select";
+        Object result = commonDao.selectList(sqlMapId, dataMap);
+        return result;
+    }
     public Object insertFile(Object dataMap) {
         String sqlMapId = "files.insert";
         Object result = commonDao.insert(sqlMapId, dataMap);

@@ -8,7 +8,7 @@
         parameterType="Map" resultType="Map">
         SELECT * 
         FROM CIP_ATTACHFILE
-        WHERE SOURCE_UNIQUE_SEQ = #{SOURCE_UNIQUE_SEQ}
+        WHERE SOURCE_UNIQUE_SEQ = #{COORDINATION_ID}
         ;
     </select>
     <update id="update" 

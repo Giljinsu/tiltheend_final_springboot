@@ -25,6 +25,9 @@
         <c:forEach items="${resultMap}" var="item" varStatus="loop">
         <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
         <form id="" action="/coordination/view" method="post">
+            <%-- 하드코딩 --%>
+            <input type="hidden" name="UID" value="U0003"> 
+
             <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
             <button class="btn btn_link col mb-3">
             <%-- <a href="" onclick="document.getElementById('form_${loop.index}').submit();" class="col mb-3"> --%>
