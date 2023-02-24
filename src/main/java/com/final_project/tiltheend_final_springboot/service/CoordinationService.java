@@ -1,5 +1,9 @@
 package com.final_project.tiltheend_final_springboot.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +22,38 @@ public class CoordinationService {
         Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
+    public Object selectCordFileOne(Object dataMap) {
+        // COORDINATION_ID가 들어가야함
+        String sqlMapId = "coordination.selectjoinfile";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+
+    }
+    public Object selectCordFileOneBoard(Object dataMap) {
+        // COORDINATION_ID가 들어가야함
+        String sqlMapId = "coordination.selectjoinfileBoard";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+
+    }
+    // 댓글
+    public Object getCommentCount(Object dataMapO) {
+        String sqlMapId = "comment.countcomments";
+        Object result = commonDao.selectOne(sqlMapId,dataMapO);
+        return result;
+    }
+    public Object getCommentList(Object dataMapO) {
+        String sqlMapId = "comment.selectcomments";
+        Object result = commonDao.selectList(sqlMapId,dataMapO);
+        return result;
+    }
+    public Object insertComment(Object dataMap) {
+        String sqlMapId = "comment.insertcomment";
+        Object result = commonDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+    //==
+
     public Object insertCord(Object dataMap) {
         String sqlMapId = "coordination.insert";
         Object result = commonDao.insert(sqlMapId, dataMap);
@@ -34,7 +70,7 @@ public class CoordinationService {
         return result;
     }
     public Object getList() {
-        String sqlMapId = "coordination.getlistwithjoin";
+        String sqlMapId = "coordination.getlistwithjoinfile";
         Object result = commonDao.selectList(sqlMapId);
         return result;
     }
@@ -57,6 +93,12 @@ public class CoordinationService {
         Object result = filesService.deleteFile(dataMap);
         result = this.deleteCord(dataMap);
         result = this.getList();
+        return result;
+    }
+
+    public Object insertCommentAndGetCordFileOne(Object dataMap) {
+        Object result = this.insertComment(dataMap);
+        result = this.selectCordFileOne(dataMap);
         return result;
     }
 }

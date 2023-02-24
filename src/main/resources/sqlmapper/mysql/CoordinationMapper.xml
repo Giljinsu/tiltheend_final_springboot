@@ -11,17 +11,31 @@
         WHERE COORDINATION_ID = #{COORDINATION_ID}
         ;
     </select>
+    <!-- 코디게시판 파일 조인 -->
+    <select id="selectjoinfile" 
+        parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM COORDINATION_INFO A JOIN CIP_ATTACHFILE B
+        WHERE A.COORDINATION_ID = B.SOURCE_UNIQUE_SEQ 
+        AND A.COORDINATION_ID=#{COORDINATION_ID};
+    </select>
+    <!-- 게시판 용 -->
+
+
     <select id="getlistnotjoin" 
         parameterType="Map" resultType="Map">
         SELECT * 
         FROM coordination_info
         ;
     </select>
-     <select id="getlistwithjoin" 
+     <select id="getlistwithjoinfile" 
         parameterType="Map" resultType="Map">
         SELECT * 
-        FROM COORDINATION_INFO A JOIN CIP_ATTACHFILE B
-        WHERE A.COORDINATION_ID = B.SOURCE_UNIQUE_SEQ;
+            FROM COORDINATION_INFO  
+            JOIN (SELECT * FROM CIP_ATTACHFILE
+            GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+            ON COORDINATION_ID = SOURCE_UNIQUE_SEQ 
+            ;
     </select>
     <update id="update" 
         parameterType="Map">

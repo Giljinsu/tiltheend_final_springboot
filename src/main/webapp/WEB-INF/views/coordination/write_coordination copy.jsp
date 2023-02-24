@@ -25,6 +25,7 @@
     <c:set var="form_action" value="insertForm"/>
     </c:if>
 
+
     <main style="margin-top: 8rem">
       <form action="/coordination/save" id="action-form" method="post" enctype="multipart/form-data">
       <%-- 하드코딩 --%>
@@ -40,37 +41,13 @@
       <div class="coordination">
         <div class="row">
           <div class="col d-flex justify-content-">
-
             <div class="model-image-box border d-flex justify-content-center align-items-center img_parent">
-              <%-- <label for="input_image" class="btn btn-secondary img_upload">이미지 업로드</label>
+              <label for="input_image" class="btn btn-secondary img_upload">이미지 업로드</label>
               <input type="file" style="display:none" onchange="setThumbnail(event);"  name="file_0"
-                accept="image/gif, image/jpg, image/png" class="form-control" id="input_image"> --%>
-              <div id="carouselId" class="carousel slide" style="width:100%; height:100%;" >
-                <div class="carousel-inner w-100 h-100">
-                    <div class="carousel-item active w-100 h-100" id="carousel_id_0">
-                        <div class="w-100 h-100">
-                            <img class="model-image" id="modelimg_0" src="/files/brian/model3.jpg">
-                          <div class="carousel-caption">
-                            <label for="input_image_0" class="btn btn-secondary ">이미지 업로드</label>
-                            <input type="file" style="display:none" onchange="setThumbnail(0);"  name="file_0"
-                            accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_0" />
-                          </div>
-                        </div>
-                    </div>
-                    <%-- <div class="carousel-item" data-bs-interval="8000">
-                        <div class="">
-                            <img class="model-image" src="/files/${resultMap.PHYSICALFILE_NAME}/${resultMap.ORGINALFILE_NAME}" id="model_image">
-                        </div>
-                    </div> --%>
-                  <button class="carousel-control-prev" data-bs-target="#carouselId" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                  </button>
-                  <button class="carousel-control-next" data-bs-target="#carouselId" data-bs-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                  </button>
-                </div>
-            </div>
-
+                accept="image/gif, image/jpg, image/png" class="form-control" id="input_image">
+              <img class="model-image" src="/files/${resultMap.PHYSICALFILE_NAME}/${resultMap.ORGINALFILE_NAME}" id="model_image">
+              <%-- 이미지만 사용가능하게 accept사용 --%>
+              <!-- <img class="model-image" src="./refer/coordination/model1.jpg" alt=""> -->
             </div>
           </div>
           <div class="col">
@@ -188,45 +165,18 @@
 			// 이것이 submit한거랑 똑같음
 		});
 
-      let lastindex = null;
-    function setThumbnail(currentindex) {
+    function setThumbnail(event) {
         var reader = new FileReader();
 
         reader.onload = function(event) {
-          var img = document.querySelector("#modelimg_"+currentindex);
-          let carousel_id = document.querySelector("#carousel_id_"+currentindex+"")
-            img.setAttribute("src", event.target.result);
-          
-
-          if(currentindex<lastindex) {
-            return;
-          }
-          currentindex++;
-            lastindex=currentindex;
-          // if() {
-          //   return;
-          // }
-          var innercarousels = document.querySelector(".carousel-inner");
-          let temp="<div class='w-100 h-100 carousel-item' id='carousel_id_"+currentindex+"'>"+
-                        "<div class='w-100 h-100'>"+
-                            "<img class='model-image' src='/files/brian/model3.jpg' id='modelimg_"+currentindex+"'>"+
-                            "<div class='carousel-caption'>"+
-                            "<label for='input_image_"+currentindex+"' class='btn btn-secondary '>이미지 업로드</label>"+
-                            "<input type='file' style='display:none' onchange='setThumbnail("+currentindex+");'  name='file_"+currentindex+"'"+
-                            "accept='image/gif, image/jpg, image/png' class='form-control' id='input_image_"+currentindex+"' />"+
-                          "</div>"+
-                        "</div>" +
-                    "</div>";
-          innercarousels.insertAdjacentHTML('beforeend',temp);
-          
-          // var img = document.createElement("img");
-          // img.setAttribute("src", event.target.result);
+          var img = document.querySelector("#model_image");
+          img.setAttribute("src", event.target.result);
           // img.classList.add('model-image');
           // document.querySelector("#image-container").appendChild(img);
         };
 
         reader.readAsDataURL(event.target.files[0]);
-      };
+      }
     </script>
   </body>
 </html>

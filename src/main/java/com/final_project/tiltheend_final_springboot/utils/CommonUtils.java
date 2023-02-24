@@ -65,7 +65,6 @@ public class CommonUtils {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-            return attachfiles;
             }
         }
         return attachfiles;
