@@ -21,8 +21,9 @@ public class ShopController {
   @GetMapping("/shop")
   public ModelAndView productList(ModelAndView modelAndView) {
     Object resultMap = shopService.getProductList();
-
+    Object resultMapBestProduct = shopService.getBestsellingProductList();
     modelAndView.addObject("resultMap", resultMap);
+    modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
     modelAndView.setViewName("/shop/shop");
     return modelAndView;
   }

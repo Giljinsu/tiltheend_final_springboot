@@ -72,56 +72,72 @@
 				</div> 
 				<div id="right-column">
 					<div class="pt-4 pb-4">shop > 남성</div>
-					
-					<!-- 베스트 상품 리스트 -->
+
 					<div class="fs-5 mb-3">베스트 상품 리스트</div>
-					<div class="row">
-						<a href="item_info" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap">
-								<div class="card-body">
-									<div class="card-title">브랜드명</div>
-									<div class="card-text">의류명</div>
-									<div class="card-text">가격</div>
+					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+							<li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+							<li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+						</ol>
+
+						<!-- Slides -->
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<div class="row">
+									<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
+															begin="0" end="3">
+									<a href="item_info" class="col-3 mb-3">
+										<div class="card" style="">
+											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+											<div class="card-body">
+												<div class="card-title">Ranking #${loop.count}</div>
+												<div class="card-text">${item.BRAND}</div>
+												<div class="card-text">${item.CLOTHES_NAME}</div>
+												<div class="card-text">${item.PRICE}</div>
+											</div>
+										</div>
+									</a>
+									</c:forEach>
 								</div>
 							</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop3.jpg" alt="Card image cap">
-								<div class="card-body">
-									<div class="card-title">브랜드명</div>
-									<div class="card-text">의류명</div>
-									<div class="card-text">가격</div>
+							<div class="carousel-item">
+								<div class="row">
+									<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
+															begin="4" end="7">
+									<a href="item_info" class="col-3 mb-3">
+										<div class="card" style="">
+											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+											<div class="card-body">
+												<div class="card-title">Ranking #${loop.count+4}</div>
+												<div class="card-text">${item.BRAND}</div>
+												<div class="card-text">${item.CLOTHES_NAME}</div>
+												<div class="card-text">${item.PRICE}</div>
+											</div>
+										</div>
+									</a>
+									</c:forEach>
 								</div>
 							</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop5.jpg" alt="Card image cap">
-								<div class="card-body">
-									<div class="card-title">브랜드명</div>
-									<div class="card-text">의류명</div>
-									<div class="card-text">가격</div>
-								</div>
-							</div>
-						</a>
-						<a href="item_info.html" class="col-3 mb-3">
-							<div class="card" style="">
-								<img class="card-img-top" src="../refer/shop_img/shop7.jpg" alt="Card image cap">
-								<div class="card-body">
-									<div class="card-title">브랜드명</div>
-									<div class="card-text">의류명</div>
-									<div class="card-text">가격</div>
-								</div>
-							</div>
-						</a>
+						</div>
+
+						<!-- Controls -->
+						<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
 					</div>
+					
 					<!-- 일반 상품 리스트 -->
 					<div class="fs-5 mt-5 mb-3">상품 리스트</div>
 					<div class="row">
 						<c:forEach items="${resultMap}" var="item" varStatus="loop">
-							<a href="item_info.html" class="col-3 mb-3">
+							<a href="item_info" class="col-3 mb-3">
 								<div class="card" style="">
 									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
 									<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
@@ -160,9 +176,17 @@
 			</div>
 		</main>
 		<%@ include file="../footer.jsp" %>
+		<script>
+			var myCarousel = document.querySelector('#myCarousel')
+			var carousel = new bootstrap.Carousel(myCarousel, {
+				interval: 3000,
+				wrap: true
+			})
+		</script>
 		<script
 			src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
 			integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
 			crossorigin="anonymous"></script>
+	  
 	</body>
 </html>

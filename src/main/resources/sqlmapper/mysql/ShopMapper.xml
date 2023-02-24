@@ -12,7 +12,11 @@
     <!-- shop.selectBestsellingProductList -->
     <select id="selectBestsellingProductList" parameterType="Map" resultType="Map">
         SELECT * FROM PRODUCT
-        WHERE IS_BESTSELLING_PRODUCT = 'TRUE';
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
+        ORDER BY SALES_VOLUME DESC
+        LIMIT 8;
     </select>
     <!-- shop.insertProduct -->
     <insert id="insertProduct" parameterType="Map">
