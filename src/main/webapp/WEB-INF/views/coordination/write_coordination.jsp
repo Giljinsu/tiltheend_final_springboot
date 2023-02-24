@@ -20,15 +20,20 @@
   </head>
   <body>
   <%@ include file="../header.jsp" %>
-    <c:set var="form_action" value="editForm"/>
+    <c:set var="form_action" value="update"/>
     <c:if test="${empty resultMap}">
-    <c:set var="form_action" value="insertForm"/>
+    <c:set var="form_action" value="save"/>
     </c:if>
 
+    <c:set var="count" value="${filecount}"/>
+    <c:if test="${empty filecount}">
+    <c:set var="count" value="0"/>
+    </c:if>
     <main style="margin-top: 8rem">
-      <form action="/coordination/save" id="action-form" method="post" enctype="multipart/form-data">
+      <form action="/coordination/${form_action}" id="action-form" method="post" enctype="multipart/form-data">
       <%-- 하드코딩 --%>
-      <%-- <input type="hidden" name="COORDINATION_ID" value="cord_001"> --%>
+      <input type="hidden" name="COORDINATION_ID" value="${resultMap.COORDINATION_ID}">
+      <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${resultMap.COORDINATION_ID}">
       <input type="hidden" name="PRODUCT_ID" value="PROD_1">
       <input type="hidden" name="UID" value="U0001">
       <input type="hidden" name="VIEWS" value="1">
@@ -47,7 +52,8 @@
                 accept="image/gif, image/jpg, image/png" class="form-control" id="input_image"> --%>
               <div id="carouselId" class="carousel slide" style="width:100%; height:100%;" >
                 <div class="carousel-inner w-100 h-100">
-                    <div class="carousel-item active w-100 h-100" id="carousel_id_0">
+                <c:if test="${empty files}">
+                  <div class="carousel-item active w-100 h-100" id="carousel_id_0">
                         <div class="w-100 h-100">
                             <img class="model-image" id="modelimg_0" src="/files/brian/model3.jpg">
                           <div class="carousel-caption">
@@ -57,6 +63,42 @@
                           </div>
                         </div>
                     </div>
+                </c:if>
+                <c:forEach items="${files}" var="file" varStatus="loop">
+                    <div class="carousel-item ${loop.index == 0 ? 'active' : ''} w-100 h-100" id="carousel_id_${loop.index}">
+                        <div class="w-100 h-100">
+                            <img class="model-image" id="modelimg_${loop.index}" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}">
+                            <div class="carousel-caption">
+                              <label for="input_image_${loop.index}" class="btn btn-secondary ">이미지 업로드</label>
+                              <input type="file" style="display:none" onchange="setThumbnail(${loop.index});"  name="file_${loop.index}"
+                              accept="image/gif, image/jpg, image/png" value=" "class="form-control" id="input_image_${loop.index}" />
+                          </div>
+                        </div>
+                    </div>
+                    <c:if test="${loop.last}">
+                    <div class="carousel-item  w-100 h-100" id="carousel_id_${loop.index+1}">
+                        <div class="w-100 h-100">
+                            <img class="model-image" id="modelimg_${loop.index+1}" src="/files/">
+                            <div class="carousel-caption">
+                              <label for="input_image_${loop.index+1}" class="btn btn-secondary ">이미지 업로드</label>
+                              <input type="file" style="display:none" onchange="setThumbnail(${loop.index+1});"  name="file_${loop.index+1}"
+                              accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_${loop.index+1}" />
+                          </div>
+                        </div>
+                    </div>
+                    </c:if>
+                </c:forEach>
+                    <%-- <div class="carousel-item active w-100 h-100" id="carousel_id_0">
+                        <div class="w-100 h-100">
+                            <img class="model-image" id="modelimg_0" src="/files/brian/model3.jpg">
+                          <div class="carousel-caption">
+                            <label for="input_image_0" class="btn btn-secondary ">이미지 업로드</label>
+                            <input type="file" style="display:none" onchange="setThumbnail(0);"  name="file_0"
+                            accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_0" />
+                          </div>
+                        </div>
+                    </div> --%>
+                    
                     <%-- <div class="carousel-item" data-bs-interval="8000">
                         <div class="">
                             <img class="model-image" src="/files/${resultMap.PHYSICALFILE_NAME}/${resultMap.ORGINALFILE_NAME}" id="model_image">
@@ -188,7 +230,9 @@
 			// 이것이 submit한거랑 똑같음
 		});
 
-      let lastindex = null;
+      // 이미지 썸네일
+      let lastindex = ${count};
+
     function setThumbnail(currentindex) {
         var reader = new FileReader();
 
@@ -197,7 +241,6 @@
           let carousel_id = document.querySelector("#carousel_id_"+currentindex+"")
             img.setAttribute("src", event.target.result);
           
-
           if(currentindex<lastindex) {
             return;
           }

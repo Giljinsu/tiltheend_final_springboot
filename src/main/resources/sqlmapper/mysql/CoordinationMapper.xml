@@ -39,10 +39,16 @@
     </select>
     <update id="update" 
         parameterType="Map">
-        UPDATE coordination_info
-        SET USERNAME='홍길동'
-        WHERE COORDINATION_ID=${COORDINATION_ID}
-        ;
+        UPDATE COORDINATION_INFO
+        SET TITLE=#{TITLE},
+            USERNAME=#{USERNAME},
+            HEIGHT=#{HEIGHT},
+            WEIGHT=#{WEIGHT},
+            CORD_CONTENT=#{CORD_CONTENT},
+            MODIFICATION_DATE = SYSDATE(),
+            JOB=#{JOB}
+        WHERE COORDINATION_ID=#{COORDINATION_ID}
+;
     </update>
     <insert id="insert" 
         parameterType="Map">

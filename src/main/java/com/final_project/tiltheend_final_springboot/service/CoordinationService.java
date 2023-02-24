@@ -52,6 +52,11 @@ public class CoordinationService {
         Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }
+    public Object deleteComment(Object dataMap) {
+        String sqlMapId = "comment.delete";
+        Object result = commonDao.delete(sqlMapId, dataMap);
+        return result;
+    }
     //==
 
     public Object insertCord(Object dataMap) {
@@ -89,8 +94,9 @@ public class CoordinationService {
         return result;
     }
 
-    public Object deleteCordAndFileAndGetList(Object dataMap) {
+    public Object deleteCordAndFileAndCommentAndGetList(Object dataMap) {
         Object result = filesService.deleteFile(dataMap);
+        result = this.deleteComment(dataMap);
         result = this.deleteCord(dataMap);
         result = this.getList();
         return result;
@@ -98,7 +104,13 @@ public class CoordinationService {
 
     public Object insertCommentAndGetCordFileOne(Object dataMap) {
         Object result = this.insertComment(dataMap);
-        result = this.selectCordFileOne(dataMap);
+        result = this.selectCordOne(dataMap);
+        return result;
+    }
+
+    public Object updateCordAndGetList(Object dataMap) {
+        Object result = this.updateCord(dataMap);
+        result = this.selectCordOne(dataMap);
         return result;
     }
 }

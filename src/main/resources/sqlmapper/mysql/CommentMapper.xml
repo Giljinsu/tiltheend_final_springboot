@@ -6,7 +6,8 @@
         parameterType="Map" resultType="Map">
         SELECT * 
         FROM COMMENT A, USER B
-        WHERE A.SOURCE_UNIQUE_SEQ = #{COORDINATION_ID} AND B.UID=#{UID};
+        WHERE A.SOURCE_UNIQUE_SEQ = #{COORDINATION_ID} AND B.UID=#{UID}
+        ORDER BY DATE;
     </select>
     <select id="countcomments" 
         parameterType="Map" resultType="Map">
@@ -22,4 +23,10 @@
         (#{COMMENT_UID},#{UID},SYSDATE(),#{SOURCE_UNIQUE_SEQ},#{CONTENT})
         ;
     </insert>
+    <delete id="delete" 
+        parameterType="Map">
+            DELETE FROM COMMENT
+            WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ};
+    </delete>
+
 </mapper>

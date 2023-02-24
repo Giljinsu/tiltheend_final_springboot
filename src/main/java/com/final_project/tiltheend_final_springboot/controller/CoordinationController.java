@@ -43,9 +43,13 @@ public class CoordinationController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit", method=RequestMethod.GET)
+    @RequestMapping(value = "/edit", method=RequestMethod.POST)
     public ModelAndView edit(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        Object result = coordinationService.selectCordFileOne(params);
+        Object result = coordinationService.selectCordOne(params);
+        Object files = filesService.selectFiles(params);
+        ArrayList arrayList = (ArrayList)files;
+        modelAndView.addObject("filecount", arrayList.size());
+        modelAndView.addObject("files", files);
         modelAndView.addObject("resultMap", result);
         modelAndView.setViewName("/coordination/write_coordination");
         return modelAndView;
@@ -66,11 +70,50 @@ public class CoordinationController {
         // params.put("COMMON_CODE_ID", "해당primarykey 필드 입력"); 그래야 잘 작동됨
         params.put("COMMON_CODE_ID", params.get("COORDINATION_ID"));
         List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
+        
         params.put("attachFiles", attachFiles);
         Object result = coordinationService.insertFilesAndCordAndGetList(params);
         
-        modelAndView.addObject("resultMap", result);
-        modelAndView.setViewName("/coordination/coordinationBoard");
+        // modelAndView.addObject("resultMap", result);
+        // String COORDINATION_ID = null;
+        modelAndView.addObject("destination", "/coordination/list");
+        // modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
+        modelAndView.setViewName("/coordination/temp");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/update", method=RequestMethod.POST)
+    public ModelAndView update(@RequestParam Map<String,Object> params,
+            MultipartHttpServletRequest multipartHttpServletRequest, ModelAndView modelAndView) {
+        // 파일 업데이트 = 삭제 후 저장
+        // 파일 삭제
+        Object fileinfo = filesService.selectFiles(params);
+        List list = (ArrayList)fileinfo;
+        Map file = (Map) list.get(0);
+        Object physicalfile_name = file.get("PHYSICALFILE_NAME");
+        commonUtils.deleteFile(physicalfile_name);
+        filesService.deleteFile(params);
+        
+        // 파일 저장
+        String COORDINATION_ID= (String) params.get("COORDINATION_ID");
+        params.put("COMMON_CODE_ID", params.get("COORDINATION_ID"));
+        List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
+        params.put("attachFiles", attachFiles);
+        Object result = filesService.insertFile(params);
+
+        //코디게시판 업데이트
+        result = coordinationService.updateCordAndGetList(params);
+        // Object files = filesService.selectFiles(params);
+        // Object comments= coordinationService.getCommentList(params);
+        // Object commentCount= coordinationService.getCommentCount(params);
+
+        // modelAndView.addObject("files", files);
+        // modelAndView.addObject("resultMap", result);
+        // modelAndView.addObject("commentCount", commentCount);
+        // modelAndView.addObject("comments", comments);
+        modelAndView.addObject("destination", "/coordination/view");
+        modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
+        modelAndView.setViewName("/coordination/temp");
         return modelAndView;
     }
 
@@ -83,7 +126,7 @@ public class CoordinationController {
         Object physicalfile_name = file.get("PHYSICALFILE_NAME");
 
         commonUtils.deleteFile(physicalfile_name);
-        Object result = coordinationService.deleteCordAndFileAndGetList(params);
+        Object result = coordinationService.deleteCordAndFileAndCommentAndGetList(params);
         modelAndView.addObject("resultMap", result);
         modelAndView.setViewName("/coordination/coordinationBoard");
         return modelAndView;
@@ -105,6 +148,8 @@ public class CoordinationController {
         Object result = coordinationService.insertCommentAndGetCordFileOne(params);
         Object comments= coordinationService.getCommentList(params);
         Object commentCount= coordinationService.getCommentCount(params);
+        Object files = filesService.selectFiles(params);
+        modelAndView.addObject("files", files);
         modelAndView.addObject("commentCount", commentCount);
         modelAndView.addObject("comments", comments);
         modelAndView.addObject("resultMap", result);
