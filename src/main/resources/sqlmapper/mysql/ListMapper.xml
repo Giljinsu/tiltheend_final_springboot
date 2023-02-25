@@ -47,9 +47,18 @@
     <!-- List.selectQNAUID -->
     <select id="selectQNAUID" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM USER A INNER JOIN QNA B
+        SELECT * FROM USER A JOIN QNA B
         WHERE A.UID = B.UID AND POST_NO_QNA = #{UID}
     </select>
+
+    <!-- List.searchQNA -->
+    <select id="searchQNA" 
+        parameterType="Map" resultType="Map">
+            SELECT * FROM QNA
+            WHERE TITLE LIKE '%#{keyword}%'
+    </select>
+
+
 
     <!-- List.updateQNA -->
     <!-- DATE가 2023-01-01 형식으로 저장 -->
@@ -95,6 +104,13 @@
         ORDER BY POST_NO_FAQ DESC
     </select>
 
+    <!-- List.selectFAQUID -->
+    <select id="selectFAQUID" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A JOIN FAQ B
+        WHERE A.UID = B.UID AND POST_NO_FAQ = #{UID}
+    </select>
+
     <!-- List.updateFAQ -->
     <!-- DATE가 2023-01-01 형식으로 저장 -->
     <update id="updateFAQ" 
@@ -129,6 +145,13 @@
         SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
         WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
         ORDER BY POST_NO_ANNO DESC
+    </select>
+
+    <!-- List.selectFAQUID -->
+    <select id="selectAnnouncementUID" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A JOIN ANNOUNCEMENT B
+        WHERE A.UID = B.UID AND POST_NO_ANNO = #{UID}
     </select>
 
     <!-- admin.updateAnnouncement -->
