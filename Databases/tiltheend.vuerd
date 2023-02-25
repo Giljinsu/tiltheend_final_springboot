@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -420.2129023961875,
-    "scrollLeft": -467.45372387177736,
+    "scrollTop": -1118.2129023961875,
+    "scrollLeft": -965,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -166,7 +166,7 @@
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 12,
+          "zIndex": 11,
           "widthName": 60,
           "widthComment": 60
         },
@@ -971,29 +971,6 @@
             "id": "b9a9fae3-984e-42a6-a224-3d25f8f4a003"
           },
           {
-            "name": "COMMENT_UID",
-            "comment": "댓글ID",
-            "dataType": "VARCHAR(100)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 98.7763671875,
-              "widthComment": 60,
-              "widthDataType": 94.94873046875,
-              "widthDefault": 60
-            },
-            "id": "e6281eb0-826d-4400-b595-be28a764e48e"
-          },
-          {
             "id": "0af4e14e-76cf-4494-b88a-f5e53eb54026",
             "name": "CATEGORY",
             "comment": "",
@@ -1090,7 +1067,7 @@
           "active": false,
           "left": 934.8222,
           "top": 1727.7773,
-          "zIndex": 8,
+          "zIndex": 16,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1264,10 +1241,10 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 812.0355,
           "top": 1080.1332,
-          "zIndex": 33,
+          "zIndex": 15,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1444,7 +1421,7 @@
           "active": false,
           "left": 900.3305,
           "top": 490.1936,
-          "zIndex": 29,
+          "zIndex": 14,
           "widthName": 76.40087890625,
           "widthComment": 60
         },
@@ -1667,7 +1644,7 @@
           "active": false,
           "left": 1319.6017,
           "top": 1343.3444,
-          "zIndex": 9,
+          "zIndex": 8,
           "widthName": 60,
           "widthComment": 67
         },
@@ -2005,7 +1982,7 @@
           "active": false,
           "left": 1574.7125,
           "top": 804.1852,
-          "zIndex": 11,
+          "zIndex": 10,
           "widthName": 140.4296875,
           "widthComment": 60
         },
@@ -2228,7 +2205,7 @@
           "active": false,
           "left": 2440.3443,
           "top": 707.6676,
-          "zIndex": 13,
+          "zIndex": 12,
           "widthName": 108.4248046875,
           "widthComment": 60
         },
@@ -2421,7 +2398,7 @@
           "active": false,
           "left": 1963.8894,
           "top": 1496.357,
-          "zIndex": 10,
+          "zIndex": 9,
           "widthName": 69.158203125,
           "widthComment": 60
         },
@@ -2439,7 +2416,7 @@
           "active": false,
           "left": 2964.6388371266703,
           "top": 743.9791202950857,
-          "zIndex": 14,
+          "zIndex": 13,
           "width": 383.94443423439,
           "height": 100
         },
@@ -2702,7 +2679,7 @@
             "b9a9fae3-984e-42a6-a224-3d25f8f4a003"
           ],
           "x": 1356.29632109375,
-          "y": 1780.9023,
+          "y": 1823.7773,
           "direction": "right"
         },
         "constraintName": "fk_user_to_qna",
@@ -2858,38 +2835,12 @@
             "7cbf9b9d-ebb5-44e8-9bb3-7a4963146a48"
           ],
           "x": 1963.8894,
-          "y": 1539.232,
+          "y": 1582.107,
           "direction": "left"
         },
         "constraintName": "fk_user_to_comment",
         "visible": true,
         "id": "e28364eb-ce1e-475b-a00f-a1f3417bb2dd"
-      },
-      {
-        "identification": false,
-        "relationshipType": "OneN",
-        "startRelationshipType": "Dash",
-        "start": {
-          "tableId": "0533752d-6e3b-4b3f-925d-ebfbdbe19e53",
-          "columnIds": [
-            "4218b712-8fba-4fb8-aff4-90dd687c4e43"
-          ],
-          "x": 1963.8894,
-          "y": 1624.982,
-          "direction": "left"
-        },
-        "end": {
-          "tableId": "bed469ee-cddf-4dba-8555-7df03a5fce91",
-          "columnIds": [
-            "e6281eb0-826d-4400-b595-be28a764e48e"
-          ],
-          "x": 1356.29632109375,
-          "y": 1887.1523,
-          "direction": "right"
-        },
-        "constraintName": "fk_comment_to_qna",
-        "visible": true,
-        "id": "8c415716-1132-43e2-86c0-5ac8277e653d"
       }
     ]
   }
