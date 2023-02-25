@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.final_project.tiltheend_final_springboot.dao.CommonDao;
 
 @Service
-public class ShoppingCartService {
+public class OrderListService {
 
     @Autowired
     CommonDao commonDao;
@@ -20,16 +20,11 @@ public class ShoppingCartService {
         Object result = commonDao.selectList(sqlMapId, dataMap);
         return result;
     }
-    public Object deleteShoppingCartList(Object dataMap) {
-        String sqlMapId = "shoppingcart.delete";
+    public Object deleteOrderList(Object dataMap) {
+        String sqlMapId = "orderList.delete";
         Object result = commonDao.delete(sqlMapId, dataMap);
         return result;
     }
 
-    public Object deleteAndSelectList(Object dataMap) {
-        Object result = this.deleteShoppingCartList(dataMap);
-        result = this.selectCartListAndFiles(dataMap);
-        return result;
-    }
 
 }

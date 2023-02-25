@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.final_project.tiltheend_final_springboot.service.ShoppingCartService;
 import com.final_project.tiltheend_final_springboot.service.FilesService;
+import com.final_project.tiltheend_final_springboot.service.OrderListService;
 
 @Controller
 @RequestMapping(value = "/shoppingcart")
@@ -22,9 +23,21 @@ public class ShoppingCartController {
     @Autowired
     FilesService filesService;
 
+    @Autowired
+    OrderListService orderListService;
+
     @RequestMapping(value = "/list")
     public ModelAndView list(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
         Object result = shoppingCartService.selectCartListAndFiles(params);
+        modelAndView.addObject("resultMap", result);
+        modelAndView.setViewName("shoppingcart/shoppingcart");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/delete")
+    public ModelAndView delete(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+        orderListService.deleteOrderList(params);
+        Object result = shoppingCartService.deleteAndSelectList(params);
         modelAndView.addObject("resultMap", result);
         modelAndView.setViewName("shoppingcart/shoppingcart");
         return modelAndView;

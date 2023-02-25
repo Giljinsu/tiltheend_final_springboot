@@ -5,7 +5,7 @@
     "height": 4000,
     "scrollTop": -420.2129023961875,
     "scrollLeft": -467.45372387177736,
-    "zoomLevel": 0.9,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -1218,7 +1218,7 @@
           },
           {
             "id": "53053bcc-3941-4562-b9bc-72415bc5cf49",
-            "name": "DISCOUNT_RATE(%)",
+            "name": "DISCOUNT_RATE",
             "comment": "할인율%",
             "dataType": "INTEGER",
             "default": "",
@@ -1233,7 +1233,7 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 131.04150390625,
+              "widthName": 110.82421875,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
@@ -1267,7 +1267,7 @@
           "active": true,
           "left": 812.0355,
           "top": 1080.1332,
-          "zIndex": 25,
+          "zIndex": 33,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1417,7 +1417,7 @@
             "id": "f9b1a8ac-df5f-4ba1-a4d4-19fdd4082de1"
           },
           {
-            "name": "ADDITIONAL_DISCOUNT(%)",
+            "name": "ADDITIONAL_DISCOUNT",
             "comment": "추가할인(%)",
             "dataType": "INTEGER",
             "default": "",
@@ -1432,7 +1432,7 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 175.34814453125,
+              "widthName": 155.130859375,
               "widthComment": 74.21728515625,
               "widthDataType": 60,
               "widthDefault": 60
@@ -1444,7 +1444,7 @@
           "active": false,
           "left": 900.3305,
           "top": 490.1936,
-          "zIndex": 23,
+          "zIndex": 29,
           "widthName": 76.40087890625,
           "widthComment": 60
         },
@@ -2458,7 +2458,7 @@
           "columnIds": [
             "b9ac6238-162b-491c-b113-4eb11964bfe1"
           ],
-          "x": 1272.025734375,
+          "x": 1251.80844921875,
           "y": 1133.2582,
           "direction": "right"
         },
@@ -2536,7 +2536,7 @@
           "columnIds": [
             "b9ac6238-162b-491c-b113-4eb11964bfe1"
           ],
-          "x": 1042.0306171875,
+          "x": 1031.921974609375,
           "y": 1080.1332,
           "direction": "top"
         },
@@ -2614,7 +2614,7 @@
           "columnIds": [
             "b9ac6238-162b-491c-b113-4eb11964bfe1"
           ],
-          "x": 1272.025734375,
+          "x": 1251.80844921875,
           "y": 1239.5082,
           "direction": "right"
         },
@@ -2831,7 +2831,7 @@
           "columnIds": [
             "358dec7f-f1e7-4b5f-b078-3adf0c2df3e5"
           ],
-          "x": 1171.9789375,
+          "x": 1161.870294921875,
           "y": 702.6936000000001,
           "direction": "bottom"
         },

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,7 +56,11 @@
            <th>주문관리</th>
          </thead>
          <tbody>
+          <c:set var="discountSum" value="0" />
+          <c:set var="priceSum" value="0" />
           <c:forEach items="${resultMap}" var="item" varStatus="loop">
+          <c:set var="discountSum" value="${discountSum + (item.PRICE*item.DISCOUNT_RATE/100)*item.PRODUCT_COUNT}" />
+          <c:set var="priceSum" value="${priceSum + (item.PRICE*item.PRODUCT_COUNT)}" />
           <tr>
             <td>${loop.index+1}</td>
             <td><input type="checkbox" name="" id=""></td>
@@ -63,13 +68,22 @@
               <img class="cart_image" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="">
               ${item.CLOTHES_NAME}
             </td>
-            <td>${item.PRICE}
-              <div>${item.PRICE}</div>
-            </td>
-            <td>${item.DISCOUNT_RATE}</td>
-            <td>${item.PRODUCT_COUNT}</td>
             <td>
+             <div class style="color:rgba(0,0,0,0.6); ">
+              <del><fmt:formatNumber type="number"  pattern="#,###" value="${item.PRICE*item.PRODUCT_COUNT}" />원</del>
+             </div>
+              <div class="" style="font-weight:600;">
+              <fmt:formatNumber type="number"  pattern="#,###" value="${(item.PRICE-(item.PRICE*item.DISCOUNT_RATE/100))*item.PRODUCT_COUNT} " />원
+              </div>
+            </td>
+            <td>${item.DISCOUNT_RATE}%</td>
+            <td style="font-weight:600;">${item.PRODUCT_COUNT}</td>
+            <td>
+              <form action="/shoppingcart/delete">
+                <input type="hidden" name="UID" value="${item.UID}">
+                <input type="hidden" name="SHOPPINGCART_ID" value="${item.SHOPPINGCART_ID}">
               <button class="btn border-dark">삭제하기</button>
+              </form>
             </td>
           </tr>
           </c:forEach>
@@ -111,7 +125,9 @@
           <tbody>
             <tr>
               <th>상품 할인</th>
-              <td>0원</td>
+              <td>
+              <fmt:formatNumber type="number"  pattern="#,###" value="${discountSum}" />원
+              </td>
             </tr>
             <tr>
               <th>등급 할인</th>
@@ -138,7 +154,7 @@
       </div>
 
       <div style="text-align: center; font-size: large; margin-top: 3rem; margin-bottom: 2rem;">
-        상품 금액 <b>1000원</b> - 할인 합계 <b>0원</b> = 최종 결제 금액 <b>1000원</b>
+        상품 금액 <b><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum}"/></b>원 - 할인 합계 <b><fmt:formatNumber type="number"  pattern="#,###" value="${discountSum}"/></b>원 = 최종 결제 금액 <b><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/></b>원
       </div>
       <div style="text-align: center;">
       <form action="/shoppingcart/purchasePage">
