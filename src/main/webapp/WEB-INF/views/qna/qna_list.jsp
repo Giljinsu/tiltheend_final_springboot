@@ -29,11 +29,13 @@
           <a href="/list/qna/ect">기타</a>
         </div>
         <!-- search -->
-        <div id="search">
-          <input type="text" placeholder value fw-filter fw-msg fw-label />
-          <a href="" style="color: black; height: 360px">
-            <span class="material-symbols-outlined">search</span>
-          </a>
+        <div>
+          <form action="/list/qna" method="GET" id="search">
+            <input type="text" name="title" placeholder value fw-filter fw-msg fw-label />
+            <a href="" style="color: black; height: 360px">
+              <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
+            </a>
+          </form>
         </div>
       </div>
       <!-- table -->

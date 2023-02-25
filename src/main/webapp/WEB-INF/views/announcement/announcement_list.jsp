@@ -47,7 +47,7 @@
           </tr>
           <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
             <tr>
-              <td class="col-md-1" id="number">${resultData.POST_NO_ANNO}</td>
+              <td class="col-md-1" id="number">${loop.count}</td>
               <td class="col-md-2" id="cate">
                 <c:choose>
                   <c:when test="${resultData.CATEGORY eq 'repair'}">
@@ -64,7 +64,7 @@
                   </c:when>
                 </c:choose>
               </td>
-              <td class="" id="title"><a href="/board/${resultData.POST_NO_ANNO}">${resultData.TITLE}</a></td>
+              <td class="" id="title"><a href="/list/announcement/board/${resultData.POST_NO_ANNO}">${resultData.TITLE}</a></td>
               <td class="col-md-1" id="id">${resultData.USERNAME}</td>
               <td class="col-md-2" id="date">${resultData.DATE}</td>
             </tr>

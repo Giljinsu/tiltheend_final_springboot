@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -703.416611416478,
-    "scrollLeft": -703.2499850491672,
+    "scrollTop": -1001.2129023961875,
+    "scrollLeft": -954.4537238717774,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -297,7 +297,7 @@
           "active": false,
           "left": 847.9299,
           "top": 794.2007,
-          "zIndex": 28,
+          "zIndex": 7,
           "widthName": 105.77783203125,
           "widthComment": 96.61181640625
         },
@@ -1219,8 +1219,8 @@
           {
             "id": "53053bcc-3941-4562-b9bc-72415bc5cf49",
             "name": "DISCOUNT_RATE",
-            "comment": "할인율",
-            "dataType": "VARCHAR(100)",
+            "comment": "할인율%",
+            "dataType": "INTEGER",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -1235,7 +1235,7 @@
               "pfk": false,
               "widthName": 110.82421875,
               "widthComment": 60,
-              "widthDataType": 94.94873046875,
+              "widthDataType": 60,
               "widthDefault": 60
             }
           },
@@ -1264,10 +1264,10 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 812.0355,
           "top": 1080.1332,
-          "zIndex": 6,
+          "zIndex": 17,
           "widthName": 66.2763671875,
           "widthComment": 60
         },

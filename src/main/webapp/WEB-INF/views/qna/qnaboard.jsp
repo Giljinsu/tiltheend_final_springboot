@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>testTitle</title>
+    <title>QNA</title>
     <!-- 글 제목이 들어감-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -14,8 +14,8 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/board.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="./css/board.css" />
   </head>
   <body>
     <%@ include file="../header.jsp" %>
@@ -24,18 +24,18 @@
       <div id="faq" class="">FAQ</div>
       <div id="board-head" class="mb-2">
         <!-- 글 제목 -->
-        <span class="fw-bold fw-2 ms-2" id="title">${data.TITLE}</span>
+        <span class="fw-bold fw-2 ms-2" id="title">${data[0].TITLE}</span>
         <span>
           <!-- 작성자 -->
-          <span id="id">${data.USERNAME}</span>
+          <span id="id">${data[0].USERNAME}</span>
           <!-- 날짜 -->
-          <span id="date">${data.DATE}</span>
+          <span id="date">${data[0].DATE}</span>
         </span>
       </div>
       <hr />
       <!-- 내용 -->
       <div class="mt-4 mb-4 ms-2">
-        <span>${data.CONTENT}</span>
+        <span>${data[0].CONTENT}</span>
       </div>
       <hr />
       <div class="mt-2 ms-2" style="height: 32.5px" id="back">

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -27,6 +28,9 @@
         /* border: 1px solid red; */
         width: 70%
       }
+			.clothes_name {
+				height:80px;
+			}
 			</style>
 	</head>
 	<body>
@@ -84,63 +88,35 @@
 
 						<!-- Slides -->
 						<div class="carousel-inner">
-							<div class="carousel-item active">
-								<div class="row">
-									<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
-															begin="0" end="3">
-									<a href="item_info" class="col-3 mb-3">
-										<div class="card" style="">
-											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
-											<div class="card-body">
-												<div class="card-title">Ranking #${loop.index+1}</div>
-												<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
-												<div class="card-text">${item.BRAND}</div>
-												<div class="card-text">${item.CLOTHES_NAME}</div>
-												<div class="card-text">${item.PRICE}</div>
-											</div>
+							<c:forEach begin="0" end="2" var="i"> <!-- 3개의 ROW를 CAROUSEL에 삽입하기 -->
+								<c:if test="${i==0}">
+									<div class="carousel-item active">
+								</c:if>
+								<c:if test="${i>0}">
+									<div class="carousel-item">
+								</c:if>
+										<div class="row">
+											<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
+																	begin="${i*4}" end="${i*4+3}">
+																	<%-- 각 row 마다 4개씩 제품카드를 집어넣기 --%>
+												<a href="item_info" class="col-3 mb-3">
+													<div class="card" style="">
+														<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+														<div class="card-body">
+															<div class="card-title">Ranking #${loop.index+1}</div>
+															<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
+															<div class="card-text">브랜드: ${item.BRAND}</div>
+															<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
+															<div class="card-text">
+																<fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원
+															</div>
+														</div>
+													</div>
+												</a>
+											</c:forEach>
 										</div>
-									</a>
-									</c:forEach>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="row">
-									<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
-															begin="4" end="7">
-									<a href="item_info" class="col-3 mb-3">
-										<div class="card" style="">
-											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
-											<div class="card-body">
-												<div class="card-title">Ranking #${loop.index+1}</div>
-												<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
-												<div class="card-text">${item.BRAND}</div>
-												<div class="card-text">${item.CLOTHES_NAME}</div>
-												<div class="card-text">${item.PRICE}</div>
-											</div>
-										</div>
-									</a>
-									</c:forEach>
-								</div>
-							</div>
-							<div class="carousel-item">
-								<div class="row">
-									<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
-															begin="8" end="11">
-									<a href="item_info" class="col-3 mb-3">
-										<div class="card" style="">
-											<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
-											<div class="card-body">
-												<div class="card-title">Ranking #${loop.index+1}</div>
-												<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
-												<div class="card-text">${item.BRAND}</div>
-												<div class="card-text">${item.CLOTHES_NAME}</div>
-												<div class="card-text">${item.PRICE}</div>
-											</div>
-										</div>
-									</a>
-									</c:forEach>
-								</div>
-							</div>
+									</div>
+							</c:forEach> <!-- 3개의 ROW를 CAROUSEL에 삽입하기 -->
 						</div>
 
 						<!-- Controls -->
@@ -163,9 +139,9 @@
 									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
 									<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
 									<div class="card-body">
-										<div class="card-title">${item.BRAND}</div>
-										<div class="card-text">${item.CLOTHES_NAME}</div>
-										<div class="card-text">${item.PRICE}</div>
+										<div class="card-title">브랜드: ${item.BRAND}</div>
+										<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
+										<div class="card-text"><fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원</div>
 									</div>
 								</div>
 							</a>
