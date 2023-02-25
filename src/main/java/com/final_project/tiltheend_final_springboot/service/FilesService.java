@@ -11,7 +11,7 @@ public class FilesService {
     @Autowired
     CommonDao commonDao;
     public Object selectFileOne(Object dataMap) {
-        String sqlMapId = "files.select";
+        String sqlMapId = "files.selectone";
         Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }

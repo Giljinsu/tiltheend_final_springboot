@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -867.416611416478,
-    "scrollLeft": -1838.2499850491672,
+    "scrollTop": -703.416611416478,
+    "scrollLeft": -703.2499850491672,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -166,7 +166,7 @@
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 18,
+          "zIndex": 13,
           "widthName": 60,
           "widthComment": 60
         },
@@ -270,9 +270,8 @@
             }
           },
           {
-            "id": "1eb5a0c5-c5e4-4c88-9644-d318875dbdb1",
-            "name": "SHOPPINGCART_ORDER",
-            "comment": "쇼핑카트리스트순서",
+            "name": "DATE",
+            "comment": "담은날짜",
             "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
@@ -286,18 +285,19 @@
               "pk": false,
               "fk": false,
               "pfk": false,
-              "widthName": 159.955078125,
-              "widthComment": 119,
+              "widthName": 60,
+              "widthComment": 60,
               "widthDataType": 94.94873046875,
               "widthDefault": 60
-            }
+            },
+            "id": "12d0d06f-9260-4887-ac19-f79cd575f0bc"
           }
         ],
         "ui": {
           "active": false,
           "left": 847.9299,
           "top": 794.2007,
-          "zIndex": 11,
+          "zIndex": 28,
           "widthName": 105.77783203125,
           "widthComment": 96.61181640625
         },
@@ -1090,7 +1090,7 @@
           "active": false,
           "left": 934.8222,
           "top": 1727.7773,
-          "zIndex": 14,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1267,7 +1267,7 @@
           "active": false,
           "left": 812.0355,
           "top": 1080.1332,
-          "zIndex": 10,
+          "zIndex": 6,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1444,7 +1444,7 @@
           "active": false,
           "left": 900.3305,
           "top": 490.1936,
-          "zIndex": 12,
+          "zIndex": 8,
           "widthName": 76.40087890625,
           "widthComment": 60
         },
@@ -1667,7 +1667,7 @@
           "active": false,
           "left": 1319.6017,
           "top": 1343.3444,
-          "zIndex": 15,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 67
         },
@@ -2005,7 +2005,7 @@
           "active": false,
           "left": 1574.7125,
           "top": 804.1852,
-          "zIndex": 17,
+          "zIndex": 12,
           "widthName": 140.4296875,
           "widthComment": 60
         },
@@ -2228,7 +2228,7 @@
           "active": false,
           "left": 2440.3443,
           "top": 707.6676,
-          "zIndex": 63,
+          "zIndex": 14,
           "widthName": 108.4248046875,
           "widthComment": 60
         },
@@ -2421,7 +2421,7 @@
           "active": false,
           "left": 1963.8894,
           "top": 1496.357,
-          "zIndex": 16,
+          "zIndex": 11,
           "widthName": 69.158203125,
           "widthComment": 60
         },
@@ -2439,7 +2439,7 @@
           "active": false,
           "left": 2964.6388371266703,
           "top": 743.9791202950857,
-          "zIndex": 71,
+          "zIndex": 15,
           "width": 383.94443423439,
           "height": 100
         },
@@ -2545,7 +2545,7 @@
           "columnIds": [
             "cdf07a81-5806-4ae3-a2a6-679d2ccd0a73"
           ],
-          "x": 1118.381804296875,
+          "x": 1094.908171484375,
           "y": 965.7007,
           "direction": "bottom"
         },
@@ -2571,7 +2571,7 @@
           "columnIds": [
             "254eef37-c61c-4a9b-b066-ff2b7cd32172"
           ],
-          "x": 1388.83370859375,
+          "x": 1341.88644296875,
           "y": 879.9507,
           "direction": "right"
         },
@@ -2822,7 +2822,7 @@
           "columnIds": [
             "62a65aa4-020c-4db4-bcd2-0d25ea9d260b"
           ],
-          "x": 1118.381804296875,
+          "x": 1094.908171484375,
           "y": 794.2007,
           "direction": "top"
         },
