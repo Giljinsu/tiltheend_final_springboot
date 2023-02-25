@@ -105,7 +105,7 @@
 														<div class="card-body">
 															<div class="card-title">Ranking #${loop.index+1}</div>
 															<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
-															<div class="card-text">브랜드:${item.BRAND}</div>
+															<div class="card-text">브랜드: ${item.BRAND}</div>
 															<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
 															<div class="card-text">
 																<fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원
@@ -139,9 +139,9 @@
 									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
 									<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
 									<div class="card-body">
-										<div class="card-title">${item.BRAND}</div>
-										<div class="card-text">${item.CLOTHES_NAME}</div>
-										<div class="card-text">${item.PRICE}</div>
+										<div class="card-title">브랜드: ${item.BRAND}</div>
+										<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
+										<div class="card-text"><fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원</div>
 									</div>
 								</div>
 							</a>

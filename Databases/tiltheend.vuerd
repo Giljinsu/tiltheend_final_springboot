@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -867.416611416478,
-    "scrollLeft": -1838.2499850491672,
+    "scrollTop": -1001.2129023961875,
+    "scrollLeft": -954.4537238717774,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -166,7 +166,7 @@
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 18,
+          "zIndex": 13,
           "widthName": 60,
           "widthComment": 60
         },
@@ -297,7 +297,7 @@
           "active": false,
           "left": 847.9299,
           "top": 794.2007,
-          "zIndex": 11,
+          "zIndex": 7,
           "widthName": 105.77783203125,
           "widthComment": 96.61181640625
         },
@@ -1090,7 +1090,7 @@
           "active": false,
           "left": 934.8222,
           "top": 1727.7773,
-          "zIndex": 14,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1219,8 +1219,8 @@
           {
             "id": "53053bcc-3941-4562-b9bc-72415bc5cf49",
             "name": "DISCOUNT_RATE",
-            "comment": "할인율",
-            "dataType": "VARCHAR(100)",
+            "comment": "할인율%",
+            "dataType": "INTEGER",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -1235,7 +1235,7 @@
               "pfk": false,
               "widthName": 110.82421875,
               "widthComment": 60,
-              "widthDataType": 94.94873046875,
+              "widthDataType": 60,
               "widthDefault": 60
             }
           },
@@ -1264,10 +1264,10 @@
           }
         ],
         "ui": {
-          "active": false,
+          "active": true,
           "left": 812.0355,
           "top": 1080.1332,
-          "zIndex": 10,
+          "zIndex": 17,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1444,7 +1444,7 @@
           "active": false,
           "left": 900.3305,
           "top": 490.1936,
-          "zIndex": 12,
+          "zIndex": 8,
           "widthName": 76.40087890625,
           "widthComment": 60
         },
@@ -1667,7 +1667,7 @@
           "active": false,
           "left": 1319.6017,
           "top": 1343.3444,
-          "zIndex": 15,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 67
         },
@@ -2005,7 +2005,7 @@
           "active": false,
           "left": 1574.7125,
           "top": 804.1852,
-          "zIndex": 17,
+          "zIndex": 12,
           "widthName": 140.4296875,
           "widthComment": 60
         },
@@ -2228,7 +2228,7 @@
           "active": false,
           "left": 2440.3443,
           "top": 707.6676,
-          "zIndex": 63,
+          "zIndex": 14,
           "widthName": 108.4248046875,
           "widthComment": 60
         },
@@ -2421,7 +2421,7 @@
           "active": false,
           "left": 1963.8894,
           "top": 1496.357,
-          "zIndex": 16,
+          "zIndex": 11,
           "widthName": 69.158203125,
           "widthComment": 60
         },
@@ -2439,7 +2439,7 @@
           "active": false,
           "left": 2964.6388371266703,
           "top": 743.9791202950857,
-          "zIndex": 71,
+          "zIndex": 15,
           "width": 383.94443423439,
           "height": 100
         },
