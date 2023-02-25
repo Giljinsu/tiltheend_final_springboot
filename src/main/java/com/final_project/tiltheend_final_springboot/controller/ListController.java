@@ -29,6 +29,7 @@ public class ListController {
         return modelAndView;
     }
 
+    // search -> 미완성
     @RequestMapping(value = "/search?title={keyword}", method = RequestMethod.GET)
     public ModelAndView searchQNA(@RequestParam Map<String, Object> params,
             @PathVariable String keyword, ModelAndView modelAndView) {

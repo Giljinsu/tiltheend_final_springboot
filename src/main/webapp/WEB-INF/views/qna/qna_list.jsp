@@ -30,7 +30,7 @@
         </div>
         <!-- search -->
         <div>
-          <form action="/list/search" method="GET" id="search">
+          <form action="/list/qna" method="GET" id="search">
             <input type="text" name="title" placeholder value fw-filter fw-msg fw-label />
             <a href="" style="color: black; height: 360px">
               <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
