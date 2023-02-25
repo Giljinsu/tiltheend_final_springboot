@@ -29,6 +29,16 @@ public class ListController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/search?title={keyword}", method = RequestMethod.GET)
+    public ModelAndView searchQNA(@RequestParam Map<String, Object> params,
+            @PathVariable String keyword, ModelAndView modelAndView) {
+        params.put("keyword", keyword);
+        Object resultMap = listService.searchQNA(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/qna");
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/qna/{category}", method = RequestMethod.GET)
     public ModelAndView listQnaCategory(@RequestParam Map<String, Object> params, @PathVariable String category,
             ModelAndView modelAndView) {
@@ -45,7 +55,7 @@ public class ListController {
         params.put("UID", UID);
         Object resultMap = listService.selectQNAUID(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("qna/board");
+        modelAndView.setViewName("qna/qnaboard");
         return modelAndView;
     }
 
@@ -91,6 +101,16 @@ public class ListController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/faq/board/{UID}", method = RequestMethod.GET)
+    public ModelAndView faqBoard(@RequestParam Map<String, Object> params, @PathVariable String UID,
+            ModelAndView modelAndView) {
+        params.put("UID", UID);
+        Object resultMap = listService.selectFAQUID(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/faqboard");
+        return modelAndView;
+    }
+
     // announcement
     @RequestMapping(value = "/announcement", method = RequestMethod.GET)
     public ModelAndView listAnnouncement(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
@@ -108,6 +128,16 @@ public class ListController {
         Object resultMap = listService.selectAnnouncementCategory(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("announcement/announcement");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/announcement/board/{UID}", method = RequestMethod.GET)
+    public ModelAndView announcementBoard(@RequestParam Map<String, Object> params, @PathVariable String UID,
+            ModelAndView modelAndView) {
+        params.put("UID", UID);
+        Object resultMap = listService.selectAnnouncementUID(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("announcement/announcementboard");
         return modelAndView;
     }
 }

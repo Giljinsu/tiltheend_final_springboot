@@ -31,6 +31,12 @@ public class ListService {
         return result;
     }
 
+    public Object searchQNA(Object dataMap) {
+        String sqlMapId = "List.searchQNA";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object updateQNA(Object dataMap) {
         String sqlMapId = "List.updateQNA";
         Object result = commonDao.update(sqlMapId, dataMap);
@@ -57,6 +63,12 @@ public class ListService {
         return result;
     }
 
+    public Object selectFAQUID(Object dataMap) {
+        String sqlMapId = "List.selectFAQUID";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object updateFAQ(Object dataMap) {
         String sqlMapId = "List.updateFAQ";
         Object result = commonDao.update(sqlMapId, dataMap);
@@ -73,6 +85,12 @@ public class ListService {
 
     public Object selectAnnouncementCategory(Object dataMap) {
         String sqlMapId = "List.selectAnnouncementCategory";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object selectAnnouncementUID(Object dataMap) {
+        String sqlMapId = "List.selectAnnouncementUID";
         Object result = commonDao.getList(sqlMapId, dataMap);
         return result;
     }
