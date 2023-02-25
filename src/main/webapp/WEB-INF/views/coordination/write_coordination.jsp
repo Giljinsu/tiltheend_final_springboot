@@ -55,7 +55,7 @@
                 <c:if test="${empty files}">
                   <div class="carousel-item active w-100 h-100" id="carousel_id_0">
                         <div class="w-100 h-100">
-                            <img class="model-image" id="modelimg_0" src="/files/brian/model3.jpg">
+                            <img class="model-image" id="modelimg_0" src="/files/default/default.png">
                           <div class="carousel-caption">
                             <label for="input_image_0" class="btn btn-secondary ">이미지 업로드</label>
                             <input type="file" style="display:none" onchange="setThumbnail(0);"  name="file_0"
@@ -65,20 +65,21 @@
                     </div>
                 </c:if>
                 <c:forEach items="${files}" var="file" varStatus="loop">
+                <%-- <input type="hidden" name="PHYSICALFILE_NAME" value="${file.PHYSICALFILE_NAME}"> --%>
                     <div class="carousel-item ${loop.index == 0 ? 'active' : ''} w-100 h-100" id="carousel_id_${loop.index}">
                         <div class="w-100 h-100">
                             <img class="model-image" id="modelimg_${loop.index}" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}">
                             <div class="carousel-caption">
                               <label for="input_image_${loop.index}" class="btn btn-secondary ">이미지 업로드</label>
-                              <input type="file" style="display:none" onchange="setThumbnail(${loop.index});"  name="file_${loop.index}"
-                              accept="image/gif, image/jpg, image/png" value=" "class="form-control" id="input_image_${loop.index}" />
+                              <input type="file" value="${file.ORGINALFILE_NAME}" style="display:none" onchange="setThumbnail(${loop.index});"  name="file_${loop.index}"
+                              accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_${loop.index}" />
                           </div>
                         </div>
                     </div>
                     <c:if test="${loop.last}">
                     <div class="carousel-item  w-100 h-100" id="carousel_id_${loop.index+1}">
                         <div class="w-100 h-100">
-                            <img class="model-image" id="modelimg_${loop.index+1}" src="/files/">
+                            <img class="model-image" id="modelimg_${loop.index+1}" src="/files/default/default.png">
                             <div class="carousel-caption">
                               <label for="input_image_${loop.index+1}" class="btn btn-secondary ">이미지 업로드</label>
                               <input type="file" style="display:none" onchange="setThumbnail(${loop.index+1});"  name="file_${loop.index+1}"
@@ -252,7 +253,7 @@
           var innercarousels = document.querySelector(".carousel-inner");
           let temp="<div class='w-100 h-100 carousel-item' id='carousel_id_"+currentindex+"'>"+
                         "<div class='w-100 h-100'>"+
-                            "<img class='model-image' src='/files/brian/model3.jpg' id='modelimg_"+currentindex+"'>"+
+                            "<img class='model-image' src='/files/default/default.png' id='modelimg_"+currentindex+"'>"+
                             "<div class='carousel-caption'>"+
                             "<label for='input_image_"+currentindex+"' class='btn btn-secondary '>이미지 업로드</label>"+
                             "<input type='file' style='display:none' onchange='setThumbnail("+currentindex+");'  name='file_"+currentindex+"'"+

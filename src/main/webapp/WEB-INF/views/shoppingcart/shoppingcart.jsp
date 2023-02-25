@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,7 +55,25 @@
            <th>주문관리</th>
          </thead>
          <tbody>
+          <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <tr>
+            <td>${loop.index+1}</td>
+            <td><input type="checkbox" name="" id=""></td>
+            <td>
+              <img class="cart_image" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="">
+              ${item.CLOTHES_NAME}
+            </td>
+            <td>${item.PRICE}
+              <div>${item.PRICE}</div>
+            </td>
+            <td>${item.DISCOUNT_RATE}</td>
+            <td>${item.PRODUCT_COUNT}</td>
+            <td>
+              <button class="btn border-dark">삭제하기</button>
+            </td>
+          </tr>
+          </c:forEach>
+          <%-- <tr>
             <td>1</td>
             <td><input type="checkbox" name="" id=""></td>
             <td>
@@ -67,7 +86,7 @@
             <td>
               <button class="btn border-dark">삭제하기</button>
             </td>
-          </tr>
+          </tr> --%>
          </tbody>
         </table>
         <div>

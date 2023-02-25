@@ -28,6 +28,7 @@
             <%-- 하드코딩 --%>
             <input type="hidden" name="UID" value="U0003"> 
 
+            <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}">
             <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
             <button class="btn btn_link col mb-3">
             <%-- <a href="" onclick="document.getElementById('form_${loop.index}').submit();" class="col mb-3"> --%>

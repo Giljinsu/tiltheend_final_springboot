@@ -41,9 +41,13 @@
                 <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">person</span>
                 </a>
-                <a href="/shoppingcart/shoppingcart" class="nav-link me-4 fs-5 d-flex align-items-center">
+                <form action="/shoppingcart/list" class="nav-link me-4 fs-5 ">
+                <%-- 하드 코딩 --%>
+                <input type="hidden" name="UID" value="U0001">
+                <button class="btn d-flex align-items-center">
                   <span class="material-symbols-outlined">shopping_cart_checkout</span>
-                </a>
+                </button>
+                </form>
                 <a href="#modalTarget" data-bs-toggle="modal" class="nav-link d-flex align-items-center me-4 fs-5" style="text-align: c">
                   <span class="material-symbols-outlined">search</span>
                 </a>
