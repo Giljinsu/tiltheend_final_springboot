@@ -86,4 +86,31 @@ public class CommonUtils {
             file.delete(); //마지막으로 폴더 지우
         }
     }
+
+
+    // public void updateFiles(MultipartHttpServletRequest multipartHttpServletRequest, Map params) {
+    //     Map attachFile;
+    //     List attachfiles = new ArrayList<>();
+    //     Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
+    //     String absolutePath = getAbsolutePath();
+    //     String physicalFileName = (String) params.get("PHYSICALFILE_NAME");
+    //     String storePath = absolutePath + physicalFileName + File.separator;
+    //     File file = new File(storePath);
+    //     // newPath.mkdir();
+    //     while(fileNames.hasNext()) {
+    //         String fileName = fileNames.next();
+    //         MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
+    //         String originalFileName = multipartFile.getOriginalFilename();
+    //         if(originalFileName != null) {
+    //             if(file.exists()) {
+    //                 if(file.isDirectory()) { //폴더이면
+    //                     File[] files= file.listFiles(); //안에 내용물 리스트로저장
+    //                     for(int i=0; i<files.length ; i++) {
+    //                         // if(files[i]==originalFileName); //하나씩 지움
+    //                     }
+    //                 }
+    //         }
+    //     }
+    //     // return null;
+    // }}
 }

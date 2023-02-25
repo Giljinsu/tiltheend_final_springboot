@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="shoppingcart">
+    <!-- shop.selectAll -->
+    <select id="select" parameterType="Map" resultType="Map">
+        SELECT C.*, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE
+        FROM (SELECT SHOPPINGCART_ID, PRODUCT_ID, PRODUCT_COUNT, DATE, B.*
+        FROM SHOPPINGCART A JOIN USER B 
+        ON A.UID = B.UID AND A.UID=#{UID} ) AS C JOIN product AS D
+        ON C.PRODUCT_ID = D.PRODUCT_ID
+        ;  
+    </select>
+    <!-- shop.selectBestsellingProductList -->
+    <select id="selectfileshoppingcartwithUID" parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM (SELECT C.*, BRAND, CLOTHES_NAME, PRICE, CATEGORY, DISCOUNT_RATE
+        FROM (SELECT SHOPPINGCART_ID, PRODUCT_ID, PRODUCT_COUNT, DATE, B.*
+        FROM SHOPPINGCART A JOIN USER B 
+        ON A.UID = B.UID AND A.UID=#{UID} ) AS C JOIN product AS D
+        ON C.PRODUCT_ID = D.PRODUCT_ID) AS SHOPPINGCARTINFO JOIN CIP_ATTACHFILE AS FILE
+        ON SHOPPINGCARTINFO.PRODUCT_ID = FILE.SOURCE_UNIQUE_SEQ 
+        -- AND SHOPPINGCARTINFO.PRODUCT_ID = 'PROD_1'
+        group by SOURCE_UNIQUE_SEQ;
+;
+    </select>
+    <!-- shop.insertProduct -->
+    <insert id="insertProduct" parameterType="Map">
+        INSERT INTO PRODUCT
+        (PRODUCT_ID, PICTURE, BRAND, CLOTHES_NAME, PRICE, IS_BESTSELLING_PRODUCT)
+        VALUES(#{PRODUCT_ID},#{PICTURE},#{BRAND},#{CLOTHES_NAME},#{PRICE},#{IS_BESTSELLING_PRODUCT});
+    </insert>
+    <!-- shop.updateProduct -->
+    <update id="updateProduct" parameterType="Map">
+        UPDATE PRODUCT
+        SET PRICE = #{PRICE}
+        WHERE PRODUCT_ID=#{PRODUCT_ID};
+    </update>
+    <!-- shop.deleteProduct -->
+    <delete id="deleteProduct" parameterType="Map">
+        DELETE FROM PRODUCT
+        WHERE PRODUCT_ID=#{PRODUCT_ID};
+    </delete>
+</mapper>
