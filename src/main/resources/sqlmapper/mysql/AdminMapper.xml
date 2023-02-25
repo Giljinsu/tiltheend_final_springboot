@@ -3,9 +3,10 @@
 
 <mapper namespace="admin">
     <!-- admin.select -->
-    <select id="select" 
+    <select id="selectAdmin" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM ADMIN;
+        SELECT * FROM PRODUCT
+        ORDER BY SALES_VOLUME DESC
     </select>
     <!-- admin.update -->
     <update id="update" 

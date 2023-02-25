@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,12 +28,12 @@
           </ul>
           <ul class="list-unstyled">
             <li class="d-flex align-items-center">
-              <a href="/admin/admin" class="text-decoration-none nav-link fs-5 fw-bold text-dark">베스트 상품 통계</a>
+              <a href="/admin/first" class="text-decoration-none nav-link fs-5 fw-bold text-dark">베스트 상품 통계</a>
             </li>
           </ul>
           <ul class="list-unstyled">
             <li class="d-flex align-items-center">
-              <a href="/admin/admin_list" class="text-decoration-none nav-link fs-5 fw-bold text-dark">게시판</a>
+              <a href="/admin/second" class="text-decoration-none nav-link fs-5 fw-bold text-dark">게시판</a>
             </li>
           </ul>
         </div>
@@ -53,45 +54,21 @@
                 <td class="col-md-2" id="date">상태</td>
                 <td class="col-md-2" id="date">기능</td>
               </tr>
-              <tr>
-                <td class="col-md-1" id="number">3</td>
-                <td class="col-md-2" id="cate">교환/반품/수선</td>
-                <td class="" id="title"><a href="./board.html">testTitle</a></td>
-                <td class="col-md-1" id="id">testID</td>
-                <td class="col-md-1" id="date">2023.01.05</td>
-                <td>답변대기</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">답변</div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>기타</td>
-                <td><a href="./board.html">testTitle</a></td>
-                <td>testID</td>
-                <td>2023.01.05</td>
-                <td>답변대기</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">답변</div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>주문/취소</td>
-                <td><a href="./board.html">testTitle</a></td>
-                <td>testID</td>
-                <td>2023.01.05</td>
-                <td>답변완료</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">답변</div>
-                  </form>
-                </td>
-              </tr>
+              <c:forEach items="${qna}" var="qna" varStatus="loop">
+                <tr>
+                  <td class="col-md-1" id="number">${loop.count}</td>
+                  <td class="col-md-2" id="cate">교환/반품/수선</td>
+                  <td class="" id="title"><a href="./board.html">testTitle</a></td>
+                  <td class="col-md-1" id="id">testID</td>
+                  <td class="col-md-1" id="date">2023.01.05</td>
+                  <td>답변대기</td>
+                  <td>
+                    <form action="">
+                      <div class="btn btn-sm btn-outline-secondary">답변</div>
+                    </form>
+                  </td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
           <!-- pagination -->
