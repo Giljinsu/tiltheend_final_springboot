@@ -25,9 +25,21 @@ public class ListService {
         return result;
     }
 
+    public Object selectQNAUID(Object dataMap) {
+        String sqlMapId = "List.selectQNAUID";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object updateQNA(Object dataMap) {
         String sqlMapId = "List.updateQNA";
         Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertQNA(Object dataMap) {
+        String sqlMapId = "List.insertQNA";
+        Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }
 

@@ -48,7 +48,7 @@
           </tr>
           <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
             <tr>
-              <td class="col-md-1" id="number">${resultData.POST_NO_QNA}</td>
+              <td class="col-md-1" id="number">${loop.count}</td>
               <td class="col-md-2" id="cate">
                 <c:choose>
                   <c:when test="${resultData.CATEGORY eq 'repair'}">
@@ -65,13 +65,19 @@
                   </c:when>
                 </c:choose>
               </td>
-              <td class="" id="title"><a href="/board/${resultData.POST_NO_QNA}">${resultData.TITLE}</a></td>
+              <td class="" id="title"><a href="/list/qna/board/${resultData.POST_NO_QNA}">${resultData.TITLE}</a></td>
               <td class="col-md-1" id="id">${resultData.USERNAME}</td>
               <td class="col-md-2" id="date">${resultData.DATE}</td>
             </tr>
           </c:forEach>
         </tbody>
       </table>
+
+      <div class="text-end">
+        <form action="/list/qna/write">
+          <button class="btn btn-dark">글쓰기</button>
+        </form>
+      </div>
       <!-- pagination -->
       <div class="container d-flex justify-content-center mt-4" id="pagination">
         <nav aria-label="Page navigation example" class="">
