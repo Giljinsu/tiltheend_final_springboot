@@ -3,6 +3,13 @@
 
 <mapper namespace="List">
 
+    <!-- <select id="user" 
+        parameterType="Map" resultType="_String">
+        SELECT * FROM USER A INNER JOIN FAQ B
+        WHERE A.UID = B.UID
+        ORDER BY POST_NO_FAQ DESC;
+    </select> -->
+
     <!-- QNA -->
 
     <!-- List.selectQNAwithjoin -->
@@ -12,7 +19,7 @@
         WHERE A.UID = B.UID
         <!-- <choose>
             <when test="">
-
+                
             </when>
             <when test="">
                 
@@ -37,6 +44,13 @@
         ORDER BY POST_NO_QNA DESC
     </select>
 
+    <!-- List.selectQNAUID -->
+    <select id="selectQNAUID" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM USER A INNER JOIN QNA B
+        WHERE A.UID = B.UID AND POST_NO_QNA = #{UID}
+    </select>
+
     <!-- List.updateQNA -->
     <!-- DATE가 2023-01-01 형식으로 저장 -->
     <update id="updateQNA" 
@@ -54,6 +68,13 @@
         ;
     </select>
 
+    <!-- List.insertQNA -->
+    <insert id="insertQNA" parameterType="Map">
+        INSERT INTO QNA
+        (POST_NO_QNA, UID, CATEGORY, TITLE, DATE, CONTENT, COMMENT_UID)
+        VALUE
+        (1, 'U0002', 'DELIVERY', '배송 문의','2023-02-21', '배송은 얼마나 걸리나요', '1')
+    </insert>
 
 
     <!-- FAQ -->

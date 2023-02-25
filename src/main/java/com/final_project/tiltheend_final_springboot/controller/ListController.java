@@ -39,6 +39,38 @@ public class ListController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/qna/board/{UID}", method = RequestMethod.GET)
+    public ModelAndView qnaBoard(@RequestParam Map<String, Object> params, @PathVariable String UID,
+            ModelAndView modelAndView) {
+        params.put("UID", UID);
+        Object resultMap = listService.selectQNAUID(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/board");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/qna/write", method = RequestMethod.GET)
+    public ModelAndView writeqna(@RequestParam Map<String, Object> params,
+            ModelAndView modelAndView) {
+        Object resultMap = listService.selectQNAWithJoin(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/qnaForm");
+        return modelAndView;
+    }
+
+    // @RequestMapping(value = "/qna/save", method = RequestMethod.POST)
+    // public ModelAndView saveqna(@RequestParam Map<String, Object> params,
+    // ModelAndView modelAndView) {
+    // int index = (int) listService.countQNA(params);
+    // params.put("POST_NO_QNA", index + 1);
+    // Object user = listService.
+    // params.put("UID", modelAndView)
+    // Object resultMap = listService.insertQNA(params);
+    // modelAndView.addObject("resultMap", resultMap);
+    // modelAndView.setViewName("qna/qna");
+    // return modelAndView;
+    // }
+
     // faq
     @RequestMapping(value = "/faq", method = RequestMethod.GET)
     public ModelAndView listFaq(@RequestParam Map<String, Object> params,
