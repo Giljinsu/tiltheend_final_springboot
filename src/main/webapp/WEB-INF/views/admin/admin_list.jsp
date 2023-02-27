@@ -43,7 +43,7 @@
         <!-- qna -->
         <div>
           <div id="head" class="fw-bold fs-4">Q&A</div>
-          <table class="table table-hover text-center mt-2">
+          <table class="table table-hover text-center mt-2 mb-4">
             <tbody>
               <tr>
                 <td class="col-md-1" id="number">번호</td>
@@ -57,10 +57,25 @@
               <c:forEach items="${qna}" var="qna" varStatus="loop">
                 <tr>
                   <td class="col-md-1" id="number">${loop.count}</td>
-                  <td class="col-md-2" id="cate">교환/반품/수선</td>
-                  <td class="" id="title"><a href="./board.html">testTitle</a></td>
-                  <td class="col-md-1" id="id">testID</td>
-                  <td class="col-md-1" id="date">2023.01.05</td>
+                  <td class="col-md-2" id="cate">
+                    <c:choose>
+                      <c:when test="${qna.CATEGORY eq 'repair'}">
+                        교환/반품/수선
+                      </c:when>
+                      <c:when test="${qna.CATEGORY eq 'delivery'}">
+                        출고/배송
+                      </c:when>
+                      <c:when test="${qna.CATEGORY eq 'cancle'}">
+                        주문/취소
+                      </c:when>
+                      <c:when test="${qna.CATEGORY eq 'ect'}">
+                        기타
+                      </c:when>
+                    </c:choose>
+                  </td>
+                  <td class="" id="title"><a href="/list/qna/board/${qna.POST_NO_QNA}">${qna.TITLE}</a></td>
+                  <td class="col-md-1" id="id">${qna.USERNAME}</td>
+                  <td class="col-md-1" id="date">${qna.DATE}</td>
                   <td>답변대기</td>
                   <td>
                     <form action="">
@@ -71,28 +86,7 @@
               </c:forEach>
             </tbody>
           </table>
-          <!-- pagination -->
-          <div class="container d-flex justify-content-center mt-4">
-            <nav aria-label="Page navigation example" class="">
-              <ul class="pagination pagination-sm">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
         </div>
-        <hr />
         <!-- 공지사항 -->
         <div>
           <div id="head" class="fw-bold fs-4">공지사항</div>
@@ -107,69 +101,38 @@
                 <td class="col-md-1" id="date">날짜</td>
                 <td class="col-md-3" id="date">기능</td>
               </tr>
-              <tr>
-                <td class="col-md-1" id="number">3</td>
-                <td class="col-md-2" id="cate">교환/반품/수선</td>
-                <td class="" id="title"><a href="./board.html">testTitle</a></td>
-                <td class="col-md-1" id="id">testID</td>
-                <td class="col-md-1" id="date">2023.01.05</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">수정</div>
-                    <div class="btn btn-sm btn-outline-danger">삭제</div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>기타</td>
-                <td><a href="./board.html">testTitle</a></td>
-                <td>testID</td>
-                <td>2023.01.05</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">수정</div>
-                    <div class="btn btn-sm btn-outline-danger">삭제</div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>주문/취소</td>
-                <td><a href="./board.html">testTitle</a></td>
-                <td>testID</td>
-                <td>2023.01.05</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">수정</div>
-                    <div class="btn btn-sm btn-outline-danger">삭제</div>
-                  </form>
-                </td>
-              </tr>
+              <c:forEach items="${announcement}" var="announcement" varStatus="loop">
+                <tr>
+                  <td class="col-md-1" id="number">${loop.count}</td>
+                  <td class="col-md-2" id="cate">
+                    <c:choose>
+                      <c:when test="${announcement.CATEGORY eq 'repair'}">
+                        교환/반품/수선
+                      </c:when>
+                      <c:when test="${announcement.CATEGORY eq 'delivery'}">
+                        출고/배송
+                      </c:when>
+                      <c:when test="${announcement.CATEGORY eq 'cancle'}">
+                        주문/취소
+                      </c:when>
+                      <c:when test="${announcement.CATEGORY eq 'ect'}">
+                        기타
+                      </c:when>
+                    </c:choose>
+                  </td>
+                  <td class="" id="title"><a href="/list/announcement/board/${announcement.POST_NO_ANNO}">${announcement.TITLE}</a></td>
+                  <td class="col-md-1" id="id">${announcement.USERNAME}</td>
+                  <td class="col-md-1" id="date">${announcement.DATE}</td>
+                  <td>
+                    <form action="">
+                      <div class="btn btn-sm btn-outline-secondary">수정</div>
+                      <div class="btn btn-sm btn-outline-danger">삭제</div>
+                    </form>
+                  </td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
-          <!-- pagination -->
-          <div class="container d-flex justify-content-center mt-4">
-            <nav aria-label="Page navigation example" class="">
-              <ul class="pagination pagination-sm">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-        <hr />
         <!-- FAQ -->
         <div>
           <div id="head" class="fw-bold fs-4">FAQ</div>
@@ -184,49 +147,40 @@
                 <td class="col-md-2" id="date">상태</td>
                 <td class="col-md-2" id="date">기능</td>
               </tr>
-              <tr>
-                <td class="col-md-1" id="number">3</td>
-                <td class="col-md-2" id="cate">교환/반품/수선</td>
-                <td class="" id="title"><a href="./board.html">testTitle</a></td>
-                <td class="col-md-1" id="id">testID</td>
-                <td class="col-md-1" id="date">2023.01.05</td>
-                <td>답변대기</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">수정</div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>기타</td>
-                <td><a href="./board.html">testTitle</a></td>
-                <td>testID</td>
-                <td>2023.01.05</td>
-                <td>답변대기</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">수정</div>
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>주문/취소</td>
-                <td><a href="./board.html">testTitle</a></td>
-                <td>testID</td>
-                <td>2023.01.05</td>
-                <td>답변완료</td>
-                <td>
-                  <form action="">
-                    <div class="btn btn-sm btn-outline-secondary">수정</div>
-                  </form>
-                </td>
-              </tr>
+              <c:forEach items="${faq}" var="faq" varStatus="loop">
+                <tr>
+                  <td class="col-md-1" id="number">${loop.count}</td>
+                  <td class="col-md-2" id="cate">
+                    <c:choose>
+                      <c:when test="${faq.CATEGORY eq 'repair'}">
+                        교환/반품/수선
+                      </c:when>
+                      <c:when test="${faq.CATEGORY eq 'delivery'}">
+                        출고/배송
+                      </c:when>
+                      <c:when test="${faq.CATEGORY eq 'cancle'}">
+                        주문/취소
+                      </c:when>
+                      <c:when test="${faq.CATEGORY eq 'ect'}">
+                        기타
+                      </c:when>
+                    </c:choose>
+                  </td>
+                  <td class="" id="title"><a href="/list/faq/board/${faq.POST_NO_FAQ}">${faq.TITLE}</a></td>
+                  <td class="col-md-1" id="id">${faq.USERNAME}</td>
+                  <td class="col-md-1" id="date">${faq.DATE}</td>
+                  <td>답변대기</td>
+                  <td>
+                    <form action="">
+                      <div class="btn btn-sm btn-outline-secondary">수정</div>
+                    </form>
+                  </td>
+                </tr>
+              </c:forEach>
             </tbody>
           </table>
           <!-- pagination -->
-          <div class="container d-flex justify-content-center mt-4">
+          <%-- <div class="container d-flex justify-content-center mt-4">
             <nav aria-label="Page navigation example" class="">
               <ul class="pagination pagination-sm">
                 <li class="page-item">
@@ -244,9 +198,8 @@
                 </li>
               </ul>
             </nav>
-          </div>
+          </div> --%>
         </div>
-        <hr />
       </div>
     </main>
   </body>

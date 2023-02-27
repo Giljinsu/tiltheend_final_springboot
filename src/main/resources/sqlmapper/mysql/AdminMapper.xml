@@ -8,6 +8,7 @@
         SELECT * FROM PRODUCT
         ORDER BY SALES_VOLUME DESC
     </select>
+
     <!-- admin.update -->
     <update id="update" 
         parameterType="Map">
@@ -16,4 +17,6 @@
         WHERE PRODUCT_CODE=#{PRODUCT_CODE}
         ;
     </update>
+
+    
 </mapper>
