@@ -32,15 +32,15 @@ public class ByPassController {
     //     int i = 1;
     // }
 
-    @RequestMapping(value = { "/shoppingcart/shoppingcart" })
-    public void shoppincart() {
-        int i = 1;
-    }
+    // @RequestMapping(value = { "/shoppingcart/shoppingcart" })
+    // public void shoppincart() {
+    //     int i = 1;
+    // }
 
-    @RequestMapping(value = { "/shoppingcart/purchasePage" })
-    public void purchasePage() {
-        int i = 1;
-    }
+    // @RequestMapping(value = { "/shoppingcart/purchasePage" })
+    // public void purchasePage() {
+    //     int i = 1;
+    // }
 
     @RequestMapping(value = { "/shoppingcart/delivery_address" })
     public void delivery_address() {

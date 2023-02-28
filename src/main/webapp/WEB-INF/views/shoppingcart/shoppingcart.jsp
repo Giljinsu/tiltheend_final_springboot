@@ -47,7 +47,11 @@
       <div class="mt-4">
         <table class="table" style="text-align: center; vertical-align: middle;">
          <thead>
-           <th>전체 1개</th>
+           <c:set var="countAll" value="0" />
+            <c:forEach items="${resultMap}" var="count">
+            <c:set var="countAll" value="${countAll + count.PRODUCT_COUNT}" />
+           </c:forEach>
+           <th>전체 ${countAll}개</th>
            <th><input type="checkbox" name="" id=""></th>
            <th>상품명</th>
            <th>판매가</th>
@@ -157,7 +161,11 @@
         상품 금액 <b><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum}"/></b>원 - 할인 합계 <b><fmt:formatNumber type="number"  pattern="#,###" value="${discountSum}"/></b>원 = 최종 결제 금액 <b><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/></b>원
       </div>
       <div style="text-align: center;">
-      <form action="/shoppingcart/purchasePage">
+      <form action="/orderlist/list">
+        <c:forEach items="${resultMap}" var="item" varStatus="loop">
+          <input type="hidden" name="UID" value="${item.UID}">
+          <input type="hidden" name="SHOPPINGCART_ID" value="${item.SHOPPINGCART_ID}">
+        </c:forEach>
         <button class="btn btn-dark" style="width: 8rem; height: 4rem; margin-bottom: 3rem;">주문하기</button>
       </form>
       </div>
