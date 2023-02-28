@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.final_project.tiltheend_final_springboot.service.ShoppingCartService;
-import com.final_project.tiltheend_final_springboot.service.FilesService;
 import com.final_project.tiltheend_final_springboot.service.OrderListService;
+import com.final_project.tiltheend_final_springboot.service.UserService;
 
 @Controller
 @RequestMapping(value = "/shoppingcart")
@@ -21,7 +21,7 @@ public class ShoppingCartController {
     ShoppingCartService shoppingCartService;
 
     @Autowired
-    FilesService filesService;
+    UserService userService;
 
     @Autowired
     OrderListService orderListService;
@@ -33,6 +33,7 @@ public class ShoppingCartController {
         modelAndView.setViewName("shoppingcart/shoppingcart");
         return modelAndView;
     }
+
 
     @RequestMapping(value = "/delete")
     public ModelAndView delete(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {

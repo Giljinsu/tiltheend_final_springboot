@@ -3,9 +3,20 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
+<<<<<<< HEAD
     "scrollTop": -1168.2129023961875,
     "scrollLeft": -932,
+=======
+<<<<<<< HEAD
+    "scrollTop": -490.2129023961875,
+    "scrollLeft": -395.45372387177736,
+    "zoomLevel": 0.9,
+=======
+    "scrollTop": -1142.2129023961875,
+    "scrollLeft": -1459,
+>>>>>>> 5ffda2e4e070ae63ee1ead4f380432f7acda2e10
     "zoomLevel": 0.8,
+>>>>>>> 911c78b676307a35de3c97d62a7b80e8e502557c
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -1090,7 +1101,15 @@
           "active": false,
           "left": 934.8222,
           "top": 1727.7773,
+<<<<<<< HEAD
           "zIndex": 20,
+=======
+<<<<<<< HEAD
+          "zIndex": 7,
+=======
+          "zIndex": 16,
+>>>>>>> 911c78b676307a35de3c97d62a7b80e8e502557c
+>>>>>>> 5ffda2e4e070ae63ee1ead4f380432f7acda2e10
           "widthName": 60,
           "widthComment": 60
         },
