@@ -73,7 +73,7 @@
     <select id="deleteQNA" 
         parameterType="Map" resultType="Map">
         DELETE FROM QNA
-        WHERE POST_NO_QNA=#{POST_NO}
+        WHERE POST_NO_QNA=#{POST_NO_QNA}
         ;
     </select>
 
@@ -124,7 +124,7 @@
     <select id="deleteFAQ" 
         parameterType="Map" resultType="Map">
         DELETE FROM FAQ
-        WHERE POST_NO_FAQ=#{POST_NO}
+        WHERE POST_NO_FAQ=#{POST_NO_FAQ}
         ;
     </select>
 
@@ -167,7 +167,7 @@
     <select id="deleteAnnouncement" 
         parameterType="Map" resultType="Map">
         DELETE FROM ANNOUNCEMENT
-        WHERE POST_NO_ANNO=#{POST_NO}
+        WHERE POST_NO_ANNO=#{POST_NO_ANNO}
         ;
     </select>
 </mapper>

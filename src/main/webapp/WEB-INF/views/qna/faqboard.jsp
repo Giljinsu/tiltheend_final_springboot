@@ -24,18 +24,18 @@
       <div id="faq" class="">FAQ</div>
       <div id="board-head" class="mb-2">
         <!-- 글 제목 -->
-        <span class="fw-bold fw-2 ms-2" id="title">${data[0].TITLE}</span>
+        <span class="fw-bold fw-2 ms-2" id="title">${data.TITLE}</span>
         <span>
           <!-- 작성자 -->
-          <span id="id">${data[0].USERNAME}</span>
+          <span id="id">${data.USERNAME}</span>
           <!-- 날짜 -->
-          <span id="date">${data[0].DATE}</span>
+          <span id="date">${data.DATE}</span>
         </span>
       </div>
       <hr />
       <!-- 내용 -->
       <div class="mt-4 mb-4 ms-2">
-        <span>${data[0].CONTENT}</span>
+        <span>${data.CONTENT}</span>
       </div>
       <hr />
       <div class="mt-2 ms-2" style="height: 32.5px" id="back">
