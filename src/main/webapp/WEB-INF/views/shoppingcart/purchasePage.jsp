@@ -22,6 +22,12 @@
     
     <main style="margin-top: 8rem">
       <div class="container">
+      <form action="/orderlist/save" method="post">
+      <%-- 하드코딩 --%>
+        <input type="hidden" name="DELIVERY_COMPANY" value="CJ대한통운">
+        <input type="hidden" name="DELIVERY_STATUS" value="배송준비중">
+        <input type="hidden" name="SHOPPINGCART_ID" value="배송준비중">
+
         <h2 class="mb-5">결제 페이지</h2>
         <h4>주문자 정보</h4>        
         <table class="table mt-3">
@@ -57,7 +63,7 @@
               <th class="align-middle">배송지</th>
               <td>
                 <span id="purchasePage_DELIVERYNAME">배송지를 등록해주세요</span>
-                <button class="btn border" onclick="new_window()">배송지 추가</button>
+                <button class="btn border" type="button" onclick="new_window()">배송지 추가</button>
                 <script>
                 function new_window() {
                   window.open(
@@ -86,10 +92,10 @@
               <td>
                 <select name="REQUIREMENT" id="purchase_requirement" class="" aria-label="" >
                   <option value="default">배송 시 요청사항을 선택해주세요</option>
-                  <option value="option1" >부재 시 경비실에 맡겨주세요</option>
-                  <option value="option2">부재 시 택배함에 넣어주세요</option>
-                  <option value="option3">부재 시 집 앞애 놔주세요</option>
-                  <option value="option4">파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.</option>
+                  <option value="부재 시 경비실에 맡겨주세요" >부재 시 경비실에 맡겨주세요</option>
+                  <option value="부재 시 택배함에 넣어주세요">부재 시 택배함에 넣어주세요</option>
+                  <option value="부재 시 집 앞애 놔주세요">부재 시 집 앞애 놔주세요</option>
+                  <option value="파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.">파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.</option>
                 </select>
               </td>
             </tr>
@@ -116,6 +122,7 @@
           <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <c:set var="discountSum" value="${discountSum + (item.PRICE*item.DISCOUNT_RATE/100)*item.PRODUCT_COUNT}" />
           <c:set var="priceSum" value="${priceSum + (item.PRICE*item.PRODUCT_COUNT)}" />
+          <input type="hidden" >
           <tr>
             <td>${loop.index+1}</td>
             <td>
@@ -259,6 +266,7 @@
         <div class="text-center mt-5 mb-5">
           <button class="btn btn-secondary"><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>원 결제하기</button>
         </div>
+        </form>
       </div>
     </main>
 
