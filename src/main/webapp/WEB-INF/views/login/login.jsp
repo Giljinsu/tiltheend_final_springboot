@@ -46,7 +46,7 @@
     <main style="height:500px;margin-top:320px;">
       <div class="container" style="margin-top:100px"></div>
       <div class="container">
-        <form action="/login/mypage" method="POST">
+        <form action="/login/login" method="POST">
           <div class="d-flex justify-content-center">
             <input name="id" class="w-25 p-2" type="text" placeholder="ID">
           </div>

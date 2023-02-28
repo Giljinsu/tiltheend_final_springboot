@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,12 +28,12 @@
           </ul>
           <ul class="list-unstyled">
             <li class="d-flex align-items-center">
-              <a href="/admin/admin" class="text-decoration-none nav-link fs-5 fw-bold text-dark">베스트 상품 통계</a>
+              <a href="/admin/first" class="text-decoration-none nav-link fs-5 fw-bold text-dark">베스트 상품 통계</a>
             </li>
           </ul>
           <ul class="list-unstyled">
             <li class="d-flex align-items-center">
-              <a href="/admin/admin_list" class="text-decoration-none nav-link fs-5 fw-bold text-dark">게시판</a>
+              <a href="/admin/second" class="text-decoration-none nav-link fs-5 fw-bold text-dark">게시판</a>
             </li>
           </ul>
         </div>
@@ -44,52 +45,19 @@
           <tbody>
             <tr>
               <td class="col-md-1">순위</td>
-              <td class="col-md-2">상품</td>
-              <td class="">판매 수</td>
-              <td class="col-md-1">매출</td>
-              <td class="col-md-2">배송 완료</td>
-              <td class="col-md-2">배송 준비</td>
-              <td class="col-md-2">기능</td>
+              <td class="">상품</td>
+              <td class="col-md-2">판매 수</td>
+              <td class="col-md-2">매출</td>
             </tr>
-            <tr>
-              <td class="col-md-1">1</td>
-              <td class="col-md-2">상품1</td>
-              <td class="">322</td>
-              <td class="col-md-1">322,000</td>
-              <td class="col-md-1">320</td>
-              <td>2</td>
-              <td>
-                <form action="">
-                  <div class="btn btn-sm btn-outline-secondary">배송</div>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>상품2</td>
-              <td>224</td>
-              <td>224,000</td>
-              <td>223</td>
-              <td>1</td>
-              <td>
-                <form action="">
-                  <div class="btn btn-sm btn-outline-secondary">배송</div>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>상품3</td>
-              <td>151</td>
-              <td>151,000</td>
-              <td>150</td>
-              <td>0</td>
-              <td>
-                <form action="">
-                  <div class="btn btn-sm btn-outline-secondary">배송</div>
-                </form>
-              </td>
-            </tr>
+            <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
+              <tr>
+                <td class="col-md-1">${loop.count}</td>
+                <td class="">${resultData.CLOTHES_NAME}</td>
+                <td class="col-md-2">${resultData.SALES_VOLUME}</td>
+                <c:set var="wholeprice" value="${resultData.PRICE * resultData.SALES_VOLUME}"/>
+                <td class="col-md-1">${wholeprice}</td>
+              </tr>
+            </c:forEach>
           </tbody>
         </table>
       </div>

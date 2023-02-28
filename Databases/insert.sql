@@ -233,17 +233,17 @@ VALUES
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','교환/반품/수선','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
 
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','기타','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
 
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','주문/취소','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
 
 -- COORDINATION_PICTURE
 
@@ -252,44 +252,59 @@ VALUES
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','교환/반품/수선','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
 
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','기타','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
 
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','주문/취소','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
 
 -- PRODUCT_PICTURE
 
+-- COMMENT
+INSERT INTO COMMENT
+(COMMENT_UID, UID, DATE, CONTENT, SOURCE_UNIQUE_SEQ)
+VALUES
+('1','U0001',SYSDATE(),'U0001의 댓글내용','qna');
+
+INSERT INTO COMMENT
+(COMMENT_UID, UID, DATE, CONTENT, SOURCE_UNIQUE_SEQ)
+VALUES
+('2','U0002',SYSDATE(),'U0002의 댓글내용','qna');
+
+INSERT INTO COMMENT
+(COMMENT_UID, UID, DATE, CONTENT, SOURCE_UNIQUE_SEQ)
+VALUES
+('3','U0003',SYSDATE(),'U0003의 댓글내용','qna');
 
 -- QNA
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','교환/반품/수선','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','기타','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','주문/취소','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
 
 -- REVIEW
 INSERT INTO REVIEW
-(REVIEW_ID,UID,PRODUCT_ID,ATTACHFILE_SEQ,RATE,REVIEW_CONTENT)
+(REVIEW_ID,UID,PRODUCT_ID,RATE,REVIEW_CONTENT)
 VALUES
-('R001','U0001','PROD_1','UU11','4','맘에 들어요'),
-('R002','U0002','PROD_2','UU12','5','아주 좋아요'),
-('R003','U0003','PROD_3','UU13','3','보통이에요');
+('R001','U0001','PROD_1','4','맘에 들어요'),
+('R002','U0002','PROD_2','5','아주 좋아요'),
+('R003','U0003','PROD_3','3','보통이에요');
 
 -- REVIEW_PICTURE
 
