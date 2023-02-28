@@ -107,7 +107,8 @@
 															<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
 															<div class="card-text">브랜드: ${item.BRAND}</div>
 															<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
-															<div class="card-text">
+															<div class="card-text">할인률: ${item.DISCOUNT_RATE}</div>
+															<div class="card-text">가격: 
 																<fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원
 															</div>
 														</div>
@@ -141,7 +142,8 @@
 									<div class="card-body">
 										<div class="card-title">브랜드: ${item.BRAND}</div>
 										<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
-										<div class="card-text"><fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원</div>
+										<div class="card-text">할인률: ${item.DISCOUNT_RATE}</div>
+										<div class="card-text">가격: <fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원</div>
 									</div>
 								</div>
 							</a>
