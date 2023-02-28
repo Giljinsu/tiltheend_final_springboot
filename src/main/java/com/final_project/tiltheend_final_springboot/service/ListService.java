@@ -51,6 +51,12 @@ public class ListService {
 
     // FAQ
 
+    public Object selectFAQ(Object dataMap) {
+        String sqlMapId = "List.selectFAQ";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object selectFAQWithJoin(Object dataMap) {
         String sqlMapId = "List.selectFAQwithjoin";
         Object result = commonDao.getList(sqlMapId, dataMap);
@@ -82,6 +88,12 @@ public class ListService {
     }
 
     // Announcement
+
+    public Object selectAnnouncement(Object dataMap) {
+        String sqlMapId = "List.selectAnnouncement";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
 
     public Object selectAnnouncementWithJoin(Object dataMap) {
         String sqlMapId = "List.selectAnnouncementwithjoin";

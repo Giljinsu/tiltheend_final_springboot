@@ -88,6 +88,13 @@
 
     <!-- FAQ -->
 
+    <!-- List.selectFAQ -->
+    <select id="selectFAQ" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM FAQ
+        WHERE POST_NO_FAQ = #{POST_NO_FAQ}
+    </select>
+
     <!-- List.selectFAQwithjoin -->
     <select id="selectFAQwithjoin" 
         parameterType="Map" resultType="Map">
@@ -131,6 +138,13 @@
 
 
     <!-- Announcement -->
+
+    <!-- List.selectAnnouncement -->
+    <select id="selectAnnouncement" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM ANNOUNCEMENT
+        WHERE POST_NO_ANNO = #{POST_NO_ANNO}
+    </select>
 
     <!-- List.selectAnnouncementwithjoin -->
     <select id="selectAnnouncementwithjoin" 

@@ -19,7 +19,7 @@
   </head>
   <body>
     <%@ include file="../header.jsp" %>
-    <%-- <c:set  var="data" value="${resultMap}"/> --%>
+    <c:set  var="category" value="${resultMap.CATEGORY}"/>
     <main style="margin-top: 160px" class="container">
       <div class="container">
         <form action="/admin/announcement/save" id="action-form" method="post">
@@ -29,31 +29,15 @@
               <tr>
                 <th class="col-1 text-center align-self-center">제목</th>
                 <td class="col-5">
-                  <input type="text" name="TITLE" style="width:100%" value="${resultMap[0].TITLE}">
+                  <input type="text" name="TITLE" style="width:100%" value="${resultMap.TITLE}">
                 </td>
                 <th class="col-1 text-center">구분</th>
                 <td class="col-5">
                   <select class="form-select">
-                    <option 
-                      <c:if test="${resultMap.CATEGORY eq 'repair'}">
-                        selected
-                      </c:if>
-                    >교환/반품/수선</option>
-                    <option 
-                      <c:if test="${resultMap.CATEGORY eq 'delivery'}">
-                        selected
-                      </c:if>
-                    >출고/배송</option>
-                    <option 
-                      <c:if test="${resultMap.CATEGORY eq 'cancle'}">
-                        selected
-                      </c:if>
-                    >주문/취소</option>
-                    <option 
-                      <c:if test="${resultMap.CATEGORY eq 'ect'}">
-                        selected
-                      </c:if>
-                    >기타</option>
+                    <option ${category == "repair" ? "selected" : ""}>교환/반품/수선</option>
+                    <option ${category == "delivery" ? "selected" : ""}>출고/배송</option>
+                    <option ${category == "cancle" ? "selected" : ""}>주문/취소</option>
+                    <option ${category == "ect" ? "selected" : ""}>기타</option>
                   </select>
                 </td>
               </tr>
@@ -90,25 +74,26 @@
       crossorigin="anonymous"
     ></script>
     <script>
-    var editor = new Quill('#editor', {
-			theme: 'snow'
-		});
-		// add content in quill editor
-		editor.setContents(${resultMap.CONTENT});
-		// editor.disable(); // 변경못하게함
-		// editor.root.style.backgroundColor= "#f2f2f2";
+      var editor = new Quill('#editor', {
+        theme: 'snow'
+      });
+      
+      // add content in quill editor
+      editor.setText("${resultMap.CONTENT}");
+      // editor.disable(); // 변경못하게함
+      // editor.root.style.backgroundColor= "#f2f2f2";
 
-		let submitButton = document.querySelector("#submit-button");
-		submitButton.addEventListener("click", function (event) {
-			let content = editor.getContents();
-			// Quill function
-			let qnacontent = document.querySelector("#content");
-			qnacontent.value = JSON.stringify(content);
-      // content.value = content;
-			let form = document.querySelector("#action-form");
-			form.submit();
-			// 이것이 submit한거랑 똑같음
-		});
+      let submitButton = document.querySelector("#submit-button");
+      submitButton.addEventListener("click", function (event) {
+        let content = editor.getContents();
+        // Quill function
+        let qnacontent = document.querySelector("#content");
+        qnacontent.value = JSON.stringify(content);
+        // content.value = content;
+        let form = document.querySelector("#action-form");
+        form.submit();
+        // 이것이 submit한거랑 똑같음
+      });
     </script>
   </body>
 </html>

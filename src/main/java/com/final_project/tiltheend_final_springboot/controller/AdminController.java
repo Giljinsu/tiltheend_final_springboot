@@ -49,7 +49,7 @@ public class AdminController {
     public ModelAndView editAnno(@RequestParam Map<String, Object> params, @PathVariable String UID,
             ModelAndView modelAndView) {
         params.put("POST_NO_ANNO", UID);
-        Object resultMap = listService.selectAnnouncementUID(params);
+        Object resultMap = listService.selectAnnouncement(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("admin/annoForm");
         return modelAndView;
@@ -60,6 +60,28 @@ public class AdminController {
             ModelAndView modelAndView) {
         params.put("POST_NO_ANNO", UID);
         Object resultMap = listService.deleteAnnouncement(params);
+        resultMap = this.listQna(params, modelAndView); // 다시 화면을 표시하기 위해 불러옴
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("admin/admin_list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "edit/faq/{UID}", method = RequestMethod.GET)
+    public ModelAndView editFAQ(@RequestParam Map<String, Object> params, @PathVariable String UID,
+            ModelAndView modelAndView) {
+        params.put("POST_NO_FAQ", UID);
+        Object resultMap = listService.selectFAQ(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("admin/faqForm");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "delete/faq/{UID}", method = RequestMethod.GET)
+    public ModelAndView delFAQ(@RequestParam Map<String, Object> params, @PathVariable String UID,
+            ModelAndView modelAndView) {
+        params.put("POST_NO_FAQ", UID);
+        Object resultMap = listService.deleteFAQ(params);
+        resultMap = this.listQna(params, modelAndView); // 다시 화면을 표시하기 위해 불러옴
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("admin/admin_list");
         return modelAndView;
