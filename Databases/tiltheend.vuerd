@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 4000,
     "height": 4000,
-    "scrollTop": -1142.2129023961875,
-    "scrollLeft": -1459,
+    "scrollTop": -1168.2129023961875,
+    "scrollLeft": -932,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -166,7 +166,7 @@
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 11,
+          "zIndex": 10,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1061,13 +1061,36 @@
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             }
+          },
+          {
+            "name": "STATUS",
+            "comment": "답변 유무",
+            "dataType": "VARCHAR(200)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "22545f2e-c4ba-474e-8adc-2d2a4d8fcc3e"
           }
         ],
         "ui": {
           "active": false,
           "left": 934.8222,
           "top": 1727.7773,
-          "zIndex": 16,
+          "zIndex": 20,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1244,7 +1267,7 @@
           "active": false,
           "left": 812.0355,
           "top": 1080.1332,
-          "zIndex": 15,
+          "zIndex": 14,
           "widthName": 66.2763671875,
           "widthComment": 60
         },
@@ -1421,7 +1444,7 @@
           "active": false,
           "left": 900.3305,
           "top": 490.1936,
-          "zIndex": 14,
+          "zIndex": 13,
           "widthName": 76.40087890625,
           "widthComment": 60
         },
@@ -1644,7 +1667,7 @@
           "active": false,
           "left": 1319.6017,
           "top": 1343.3444,
-          "zIndex": 8,
+          "zIndex": 7,
           "widthName": 60,
           "widthComment": 67
         },
@@ -1982,7 +2005,7 @@
           "active": false,
           "left": 1574.7125,
           "top": 804.1852,
-          "zIndex": 10,
+          "zIndex": 9,
           "widthName": 140.4296875,
           "widthComment": 60
         },
@@ -2205,7 +2228,7 @@
           "active": false,
           "left": 2440.3443,
           "top": 707.6676,
-          "zIndex": 12,
+          "zIndex": 11,
           "widthName": 108.4248046875,
           "widthComment": 60
         },
@@ -2398,7 +2421,7 @@
           "active": false,
           "left": 1963.8894,
           "top": 1496.357,
-          "zIndex": 9,
+          "zIndex": 8,
           "widthName": 69.158203125,
           "widthComment": 60
         },
@@ -2416,7 +2439,7 @@
           "active": false,
           "left": 2964.6388371266703,
           "top": 743.9791202950857,
-          "zIndex": 13,
+          "zIndex": 12,
           "width": 383.94443423439,
           "height": 100
         },
@@ -2679,7 +2702,7 @@
             "b9a9fae3-984e-42a6-a224-3d25f8f4a003"
           ],
           "x": 1356.29632109375,
-          "y": 1823.7773,
+          "y": 1834.0273,
           "direction": "right"
         },
         "constraintName": "fk_user_to_qna",
