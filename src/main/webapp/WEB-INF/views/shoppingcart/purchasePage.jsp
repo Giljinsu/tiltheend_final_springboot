@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +14,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/css/shoppingcart.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
@@ -25,25 +28,24 @@
           <tr>
             <th>이름</th>
             <td>
-              <input type="text" name="" id="">
+              <input type="text" name="" value="${USER.USERNAME}" readonly id="">
             </td>
           </tr>
           <tr>
             <th>이메일</th>
             <td>
-              <input type="text" name="" id="">
-              <span>@</span>
-              <input type="text" name="" id="">
+              <input type="text" name="" value="${USER.EMAIL}" readonly id="">
             </td>
           </tr>
           <tr>
             <th>전화번호</th>
             <td>
-              <input style="width: 4rem;" type="text" name="firstPhoneNum" id="">
+              <input type="text" name="PHONENUMBER" readonly value="${USER.PHONENUMBER}">
+              <%-- <input style="width: 4rem;" type="text" name="firstPhoneNum" id="">
               <span>-</span>
               <input style="width: 4rem;" type="text" name="secondPhoneNum" id="">
               <span>-</span>
-              <input style="width: 4rem;" type="text" name="thirdPhoneNum" id="">
+              <input style="width: 4rem;" type="text" name="thirdPhoneNum" id=""> --%>
             </td>
           </tr>
         </table>
@@ -54,7 +56,7 @@
             <tr>
               <th class="align-middle">배송지</th>
               <td>
-                <span>배송지를 등록해주세요</span>
+                <span id="purchasePage_DELIVERYNAME">배송지를 등록해주세요</span>
                 <button class="btn border" onclick="new_window()">배송지 추가</button>
                 <script>
                 function new_window() {
@@ -67,6 +69,30 @@
                 </script>
               </td>
             </tr>
+            <tr id="deliveryoption1">
+            <th class="align-middle">이름/연락처</th>
+              <td>
+                <span class="border-end pe-2 border-2" id="purchase_USERNAME"></span>
+                <span class="" id="purchase_number"></span>
+              </td>
+            </tr>
+             <tr id="deliveryoption2">
+             <th class="align-middle">주소</th>
+              <td id="purchasePage_address">
+              </td>
+            </tr>
+             <tr id="deliveryoption3">
+             <th class="align-middle">배송요청사항</th>
+              <td>
+                <select name="REQUIREMENT" id="purchase_requirement" class="" aria-label="" >
+                  <option value="default">배송 시 요청사항을 선택해주세요</option>
+                  <option value="option1" >부재 시 경비실에 맡겨주세요</option>
+                  <option value="option2">부재 시 택배함에 넣어주세요</option>
+                  <option value="option3">부재 시 집 앞애 놔주세요</option>
+                  <option value="option4">파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.</option>
+                </select>
+              </td>
+            </tr>
           </table>
         </div>
         
@@ -74,25 +100,41 @@
         <div class="mt-4">
           <table class="table" style="text-align: center; vertical-align: middle;">
            <thead>
-             <th>전체 1개</th>
+            <c:set var="countAll" value="0" />
+            <c:forEach items="${resultMap}" var="count">
+            <c:set var="countAll" value="${countAll + count.PRODUCT_COUNT}" />
+            </c:forEach>
+             <th>전체 ${countAll}개</th>
              <th>상품명</th>
              <th>판매가</th>
              <th>할인</th>
              <th>수량</th>
            </thead>
            <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <img class="cart_image" style="width: 3rem; width: 3rem; object-fit: cover;"
-                src="/refer/clothes/top1.jpg" alt="">
-                상품명
-              </td>
-              <td>1000</td>
-              <td>%</td>
-              <td>1개</td>
-            </tr>
-           </tbody>
+          <c:set var="discountSum" value="0" />
+          <c:set var="priceSum" value="0" />
+          <c:forEach items="${resultMap}" var="item" varStatus="loop">
+          <c:set var="discountSum" value="${discountSum + (item.PRICE*item.DISCOUNT_RATE/100)*item.PRODUCT_COUNT}" />
+          <c:set var="priceSum" value="${priceSum + (item.PRICE*item.PRODUCT_COUNT)}" />
+          <tr>
+            <td>${loop.index+1}</td>
+            <td>
+              <img class="cart_image" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="">
+              ${item.CLOTHES_NAME}
+            </td>
+            <td>
+             <div class style="color:rgba(0,0,0,0.6); ">
+              <del><fmt:formatNumber type="number"  pattern="#,###" value="${item.PRICE*item.PRODUCT_COUNT}" />원</del>
+             </div>
+              <div class="" style="font-weight:600;">
+              <fmt:formatNumber type="number"  pattern="#,###" value="${(item.PRICE-(item.PRICE*item.DISCOUNT_RATE/100))*item.PRODUCT_COUNT} " />원
+              </div>
+            </td>
+            <td>${item.DISCOUNT_RATE}%</td>
+            <td style="font-weight:600;">${item.PRODUCT_COUNT}</td>
+          </tr>
+          </c:forEach>
+          </tbody>
           </table>
         </div>
 
@@ -102,7 +144,7 @@
             <tbody>
               <tr>
                 <th>상품 할인</th>
-                <td>0원</td>
+                <td><fmt:formatNumber type="number"  pattern="#,###" value="${discountSum}" />원</td>
               </tr>
               <tr>
                 <th>등급 할인</th>
@@ -215,12 +257,26 @@
         </div>
 
         <div class="text-center mt-5 mb-5">
-          <button class="btn btn-secondary">%원 결제하기</button>
+          <button class="btn btn-secondary"><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>원 결제하기</button>
         </div>
       </div>
     </main>
 
     <%@ include file="../footer.jsp" %>
+    <script>
+    window.onload = function() {
+      document.getElementById("deliveryoption1").style.display ="none";
+      document.getElementById("deliveryoption2").style.display ="none";
+      document.getElementById("deliveryoption3").style.display ="none";
+    }
+    function setSelectedValue(value) {
+      var selectElement = document.getElementById("purchase_requirement");
+      selectElement.value = value;
+      document.getElementById("deliveryoption1").style.display ="table-row";
+      document.getElementById("deliveryoption2").style.display ="table-row";
+      document.getElementById("deliveryoption3").style.display ="table-row";
+    }
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

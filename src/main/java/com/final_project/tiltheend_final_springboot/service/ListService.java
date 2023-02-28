@@ -27,7 +27,7 @@ public class ListService {
 
     public Object selectQNAUID(Object dataMap) {
         String sqlMapId = "List.selectQNAUID";
-        Object result = commonDao.getList(sqlMapId, dataMap);
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
 
@@ -65,12 +65,18 @@ public class ListService {
 
     public Object selectFAQUID(Object dataMap) {
         String sqlMapId = "List.selectFAQUID";
-        Object result = commonDao.getList(sqlMapId, dataMap);
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
 
     public Object updateFAQ(Object dataMap) {
         String sqlMapId = "List.updateFAQ";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object deleteFAQ(Object dataMap) {
+        String sqlMapId = "List.deleteFAQ";
         Object result = commonDao.update(sqlMapId, dataMap);
         return result;
     }
@@ -91,12 +97,18 @@ public class ListService {
 
     public Object selectAnnouncementUID(Object dataMap) {
         String sqlMapId = "List.selectAnnouncementUID";
-        Object result = commonDao.getList(sqlMapId, dataMap);
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
 
     public Object updateAnnouncement(Object dataMap) {
         String sqlMapId = "List.updateAnnouncement";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object deleteAnnouncement(Object dataMap) {
+        String sqlMapId = "List.deleteAnnouncement";
         Object result = commonDao.update(sqlMapId, dataMap);
         return result;
     }
