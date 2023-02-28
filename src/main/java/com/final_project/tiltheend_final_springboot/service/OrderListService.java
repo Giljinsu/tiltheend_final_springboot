@@ -16,7 +16,7 @@ public class OrderListService {
         return result;
     }
     public Object insertOrderList(Object dataMap) {
-        String sqlMapId = "shoppingcart.selectfileshoppingcartwithUID";
+        String sqlMapId = "orderList.insertOrderList";
         Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }

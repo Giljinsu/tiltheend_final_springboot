@@ -15,6 +15,11 @@ public class ShoppingCartService {
         Object result = commonDao.selectList(sqlMapId, dataMap);
         return result;
     }
+    public Object selectProductIdAndCountWithUID(Object dataMap) {
+        String sqlMapId = "shoppingcart.selectProductIdAndCountWithUID";
+        Object result = commonDao.selectList(sqlMapId, dataMap);
+        return result;
+    }
     public Object selectCartListAndFiles(Object dataMap) {
         String sqlMapId = "shoppingcart.selectfileshoppingcartwithUID";
         Object result = commonDao.selectList(sqlMapId, dataMap);

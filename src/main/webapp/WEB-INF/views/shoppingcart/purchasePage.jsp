@@ -28,9 +28,12 @@
         <input type="hidden" name="DELIVERY_STATUS" value="배송준비중">
         <input type="hidden" name="SHOPPINGCART_ID" value="배송준비중">
 
+        <input type="hidden" name="UID" value="${USER.UID}">
+
         <h2 class="mb-5">결제 페이지</h2>
         <h4>주문자 정보</h4>        
         <table class="table mt-3">
+        
           <tr>
             <th>이름</th>
             <td>
@@ -122,7 +125,6 @@
           <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <c:set var="discountSum" value="${discountSum + (item.PRICE*item.DISCOUNT_RATE/100)*item.PRODUCT_COUNT}" />
           <c:set var="priceSum" value="${priceSum + (item.PRICE*item.PRODUCT_COUNT)}" />
-          <input type="hidden" >
           <tr>
             <td>${loop.index+1}</td>
             <td>

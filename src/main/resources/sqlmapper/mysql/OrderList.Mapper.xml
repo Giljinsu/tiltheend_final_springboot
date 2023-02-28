@@ -25,7 +25,11 @@
         INSERT INTO ORDERLIST
         (ORDER_ID,PRODUCT_ID,UID,DELIVERY_ID,ORDER_METHOD,FINAL_PRICE,ORDERDATE,ADDITIONAL_DISCOUNT)
         VALUES
-        (#{},#{},#{},'DEL_1','카드','54,000',SYSDATE(),'25');
+        <foreach collection="resultList" item="List"
+        open="(" close=")" separator="),(">
+        #{List.ORDER_ID},#{List.PRODUCT_ID},#{List.UID},#{List.DELIVERY_ID},#{List.ORDER_METHOD},#{List.FINAL_PRICE},SYSDATE(),#{List.ADDITIONAL_DISCOUNT}
+        </foreach>  
+        ;
     </insert>
     <!-- orderList.updateProduct -->
     <update id="updateProduct" parameterType="Map">

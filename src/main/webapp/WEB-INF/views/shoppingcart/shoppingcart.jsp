@@ -163,8 +163,9 @@
       <div style="text-align: center;">
       <form action="/orderlist/list" method="post">
         <c:forEach items="${resultMap}" var="item" varStatus="loop">
+          <%-- <input type="hidden" name="PRODUCT_ID" value="${item.PRODUCT_ID}"> --%>
           <input type="hidden" name="UID" value="${item.UID}">
-          <input type="hidden" name="SHOPPINGCART_ID" value="${item.SHOPPINGCART_ID}">
+          <%-- <input type="hidden" name="SHOPPINGCART_ID" value="${item.SHOPPINGCART_ID}"> --%>
         </c:forEach>
         <button class="btn btn-dark" style="width: 8rem; height: 4rem; margin-bottom: 3rem;">주문하기</button>
       </form>
