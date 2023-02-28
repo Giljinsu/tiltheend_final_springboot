@@ -41,7 +41,7 @@
                 <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">person</span>
                 </a>
-                <form action="/shoppingcart/list" class="nav-link me-4 fs-5 ">
+                <form action="/shoppingcart/list" class="nav-link me-4 fs-5 " method="post">
                 <%-- 하드 코딩 --%>
                 <input type="hidden" name="UID" value="U0001">
                 <button class="btn d-flex align-items-center">

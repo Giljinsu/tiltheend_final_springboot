@@ -5,26 +5,22 @@ import org.springframework.stereotype.Service;
 
 import com.final_project.tiltheend_final_springboot.dao.CommonDao;
 
-@Service
-public class OrderListService {
 
+@Service
+public class DeliveryService {
     @Autowired
     CommonDao commonDao;
+
     public Object selectOrderListByUid(Object dataMap) {
-        String sqlMapId = "orderList.selectjoinshoppingcartproduct";
+        String sqlMapId = "";
         Object result = commonDao.selectList(sqlMapId, dataMap);
         return result;
     }
-    public Object insertOrderList(Object dataMap) {
-        String sqlMapId = "shoppingcart.selectfileshoppingcartwithUID";
+
+    
+    public Object insertDeliveryInfo(Object dataMap) {
+        String sqlMapId = "delivery.insertDelivery";
         Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }
-    public Object deleteOrderList(Object dataMap) {
-        String sqlMapId = "orderList.delete";
-        Object result = commonDao.delete(sqlMapId, dataMap);
-        return result;
-    }
-
-
 }

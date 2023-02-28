@@ -13,7 +13,6 @@
         GROUP BY PRODUCT_ID
         ORDER BY DATE
         ;
-
     </select>
     <!-- orderList.selectfileshoppingcartwithUID -->
     <select id="selectfileshoppingcartwithUID" parameterType="Map" resultType="Map">
@@ -21,11 +20,14 @@
     </select>
 
 
-    <!-- shop.insertProduct -->
-    <insert id="insertProduct" parameterType="Map">
-
+    <!-- orderList.insertOrderList -->
+    <insert id="insertOrderList" parameterType="Map">
+        INSERT INTO ORDERLIST
+        (ORDER_ID,PRODUCT_ID,UID,DELIVERY_ID,ORDER_METHOD,FINAL_PRICE,ORDERDATE,ADDITIONAL_DISCOUNT)
+        VALUES
+        (#{},#{},#{},'DEL_1','카드','54,000',SYSDATE(),'25');
     </insert>
-    <!-- shop.updateProduct -->
+    <!-- orderList.updateProduct -->
     <update id="updateProduct" parameterType="Map">
 
     </update>

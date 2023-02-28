@@ -65,10 +65,10 @@
             <span>배송요청사항</span>
             <select name="REQUIREMENT" id="REQUIREMENT" class="" aria-label="" >
                 <option value="default">배송 시 요청사항을 선택해주세요</option>
-                <option value="option1" >부재 시 경비실에 맡겨주세요</option>
-                <option value="option2">부재 시 택배함에 넣어주세요</option>
-                <option value="option3">부재 시 집 앞애 놔주세요</option>
-                <option value="option4">파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.</option>
+                <option value="부재 시 경비실에 맡겨주세요" >부재 시 경비실에 맡겨주세요</option>
+                <option value="부재 시 택배함에 넣어주세요">부재 시 택배함에 넣어주세요</option>
+                <option value="부재 시 집 앞애 놔주세요">부재 시 집 앞애 놔주세요</option>
+                <option value="파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.">파손의 위험이 있는 제품입니다. 조심히 다뤄주세요.</option>
             </select>
         </div>
     </div>

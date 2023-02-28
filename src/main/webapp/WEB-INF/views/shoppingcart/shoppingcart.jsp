@@ -161,7 +161,7 @@
         상품 금액 <b><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum}"/></b>원 - 할인 합계 <b><fmt:formatNumber type="number"  pattern="#,###" value="${discountSum}"/></b>원 = 최종 결제 금액 <b><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/></b>원
       </div>
       <div style="text-align: center;">
-      <form action="/orderlist/list">
+      <form action="/orderlist/list" method="post">
         <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <input type="hidden" name="UID" value="${item.UID}">
           <input type="hidden" name="SHOPPINGCART_ID" value="${item.SHOPPINGCART_ID}">
