@@ -16,6 +16,8 @@
     />
     <link rel="stylesheet" href="/css/board.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
   </head>
   <body>
     <%@ include file="../header.jsp" %>
@@ -35,7 +37,12 @@
       <hr />
       <!-- 내용 -->
       <div class="mt-4 mb-4 ms-2">
-        <span>${data.CONTENT}</span>
+        <%-- <span>${data.CONTENT}</span> --%>
+        <div class="" style="overflow:auto; height: 20rem;">
+          <div style="height:100%"> 
+            <div id="content"  class="form-control"></div>
+          </div>
+        </div>
       </div>
       <hr />
       <div class="mt-2 ms-2" style="height: 32.5px" id="back">
@@ -49,5 +56,16 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script>
+      var content = new Quill('#content', {
+        modules: {
+          // 툴바 없애기
+          toolbar: false
+        },
+        theme: 'snow'
+      });
+      content.disable(); // 변경못하게함
+      content.setContents(${data.CONTENT});
+    </script>
   </body>
 </html>

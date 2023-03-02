@@ -22,6 +22,10 @@
       <div class="container">
         <form action="/list/qna/save" id="action-form" method="post">
           <h3 class="mb-5">Q&A 작성</h3>
+          <%-- 하드코딩 --%>
+          <input type="hidden" name="POST_NO_QNA" value="${resultMap.POST_NO_QNA}">
+          <input type="hidden" name="UID" value="U0001">
+          <input type="hidden" name="STATUS" value="답변대기">
           <table class="table">
             <tbody>
               <tr>
@@ -31,11 +35,11 @@
                 </td>
                 <th class="col-1 text-center">구분</th>
                 <td class="col-5">
-                  <select class="form-select">
-                    <option selected>교환/반품/수선</option>
-                    <option>출고/배송</option>
-                    <option>주문/취소</option>
-                    <option>기타</option>
+                  <select class="form-select" name="CATEGORY">
+                    <option value="repair" selected>교환/반품/수선</option>
+                    <option value="delivery">출고/배송</option>
+                    <option value="cancle">주문/취소</option>
+                    <option value="ect">기타</option>
                   </select>
                 </td>
               </tr>
@@ -55,7 +59,7 @@
           <div class="" style="overflow:auto; height: 20rem;">
             <div style="height:85%"> 
               <div id="editor"  class="form-control"></div>
-              <input type="hidden" name="qnaCONTENT" id="qnacontent" />
+              <input type="hidden" name="CONTENT" id="qnacontent" />
               <%-- <textarea class="form-control" name="coordination_content" id="" rows="10" placeholder="내용 작성"></textarea> --%>
             </div>
           </div>
