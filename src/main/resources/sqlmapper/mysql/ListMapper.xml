@@ -58,16 +58,14 @@
             WHERE TITLE LIKE '%#{keyword}%'
     </select>
 
-
-
     <!-- List.updateQNA -->
     <!-- DATE가 2023-01-01 형식으로 저장 -->
-    <update id="updateQNA" 
+    <!-- <update id="updateQNA" 
         parameterType="Map">
         UPDATE QNA
-        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
+        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y.%m.%d')
         ;
-    </update>
+    </update> -->
 
     <!-- List.deleteQNA -->
     <select id="deleteQNA" 
@@ -80,9 +78,9 @@
     <!-- List.insertQNA -->
     <insert id="insertQNA" parameterType="Map">
         INSERT INTO QNA
-        (POST_NO_QNA, UID, CATEGORY, TITLE, DATE, CONTENT, COMMENT_UID)
+        (POST_NO_QNA, UID, CATEGORY, TITLE, DATE, CONTENT, STATUS)
         VALUE
-        (1, 'U0002', 'DELIVERY', '배송 문의','2023-02-21', '배송은 얼마나 걸리나요', '1')
+        (#{POST_NO_QNA}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y-%m-%d'), #{CONTENT}, #{STATUS})
     </insert>
 
 
@@ -123,8 +121,8 @@
     <update id="updateFAQ" 
         parameterType="Map">
         UPDATE FAQ
-        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
-        ;
+        SET TITLE=#{TITLE}, CATEGORY=#{CATEGORY}, DATE=DATE_FORMAT(now(),'%Y.%m.%d'), CONTENT='#{CONTENT}'
+        WHERE POST_NO_FAQ=#{POST_NO_FAQ}
     </update>
 
     <!-- List.deleteFAQ -->
@@ -134,6 +132,14 @@
         WHERE POST_NO_FAQ=#{POST_NO_FAQ}
         ;
     </select>
+
+    <!-- List.insertFAQ -->
+    <insert id="insertFAQ" parameterType="Map">
+        INSERT INTO FAQ
+        (POST_NO_FAQ, UID, CATEGORY, TITLE, DATE, CONTENT)
+        VALUE
+        (#{POST_NO_FAQ}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT})
+    </insert>
 
 
 
