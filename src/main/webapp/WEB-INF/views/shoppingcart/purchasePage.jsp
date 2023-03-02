@@ -128,6 +128,7 @@
           <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <c:set var="discountSum" value="${discountSum + (item.PRICE*item.DISCOUNT_RATE/100)*item.PRODUCT_COUNT}" />
           <c:set var="priceSum" value="${priceSum + (item.PRICE*item.PRODUCT_COUNT)}" />
+          <input type="hidden" name="FINAL_PRICE[${loop.index}]" value="<fmt:formatNumber type="number"  pattern="#,###" value="${(item.PRICE-(item.PRICE*item.DISCOUNT_RATE/100))*item.PRODUCT_COUNT} " />">
           <tr>
             <td>${loop.index+1}</td>
             <td>
@@ -269,7 +270,7 @@
         </div>
 
         <div class="text-center mt-5 mb-5">
-          <input type="hidden" name="FINAL_PRICE" value="<fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>">
+          <%-- <input type="hidden" name="FINAL_PRICE" value="<fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>"> --%>
           <button class="btn btn-secondary"><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>원 결제하기</button>
         </div>
         </form>

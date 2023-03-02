@@ -14,6 +14,18 @@
         ORDER BY DATE
         ;
     </select>
+    <select id="selectjoinOrderListproduct" parameterType="Map" resultType="Map">
+        SELECT *
+        FROM (SELECT A.*, B.BRAND, B.CLOTHES_NAME, B.PRICE, B.CATEGORY, B.DISCOUNT_RATE
+        FROM ORDERLIST A , PRODUCT B
+        WHERE A.PRODUCT_ID = B.PRODUCT_ID
+        AND A.UID=#{UID}) ORDERLIST , CIP_ATTACHFILE FILE
+        WHERE ORDERLIST.PRODUCT_ID = FILE.SOURCE_UNIQUE_SEQ
+        GROUP BY ORDER_ID
+        ORDER BY ORDERDATE
+        ;
+    </select>
+
     <!-- orderList.selectfileshoppingcartwithUID -->
     <select id="selectList" parameterType="Map" resultType="Map">
         SELECT * FROM ORDERLIST

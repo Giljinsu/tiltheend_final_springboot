@@ -67,7 +67,7 @@ public class OrderListController {
             hashMap.put("PRODUCT_ID",resultMap.get("PRODUCT_ID"));
             hashMap.put("UID",params.get("UID"));
             hashMap.put("ORDER_METHOD",params.get("ORDER_METHOD"));
-            hashMap.put("FINAL_PRICE",params.get("FINAL_PRICE"));
+            hashMap.put("FINAL_PRICE",params.get("FINAL_PRICE["+i+"]"));
             hashMap.put("ADDITIONAL_DISCOUNT",params.get("ADDITIONAL_DISCOUNT"));
             hashMap.put("PRODUCT_COUNT",resultMap.get("PRODUCT_COUNT"));
 
@@ -83,7 +83,7 @@ public class OrderListController {
     @RequestMapping(value = "/list", method=RequestMethod.POST)
     public ModelAndView list(ModelAndView modelAndView, @RequestParam Map<String,Object> params ) {
         Object user = userService.selectUserOne(params);
-        Object orderList = orderListService.selectOrderListByUid(params);
+        Object orderList = orderListService.selectOrderListPageByUid(params);
         modelAndView.addObject("USER", user);
         modelAndView.addObject("resultMap", orderList);
         modelAndView.setViewName("/shoppingcart/purchasePage");

@@ -38,9 +38,16 @@
                 <a href="/list/announcement" class="nav-link fs-5 text-dark">공지사항</a>
               </div>
               <div class="navbar-nav">
-                <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
+                <form action="/myPage/purchaselist" class="nav-link me-3 fs-5 " method="post">
+                  <%-- 하드코딩 --%>
+                  <input type="hidden" name="UID" value="U0001">
+                  <button class="btn d-flex align-items-center">
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                </form>
+                <%-- <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">person</span>
-                </a>
+                </a> --%>
                 <form action="/shoppingcart/list" class="nav-link me-4 fs-5 " method="post">
                 <%-- 하드 코딩 --%>
                 <input type="hidden" name="UID" value="U0001">

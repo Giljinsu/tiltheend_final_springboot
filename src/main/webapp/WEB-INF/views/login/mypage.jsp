@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,50 +63,26 @@
         </div>
         <div id="right-column" class="">
           <div class="fs-5 mb-3">구매내역</div>
+          <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <!-- 구매내역 1개단위 start -->
           <div class="border rounded p-3 mb-3">
-            <div class="mb-3 fs-5">2023.1.23. 주문</div>
+            <div class="mb-3 fs-5">${item.ORDERDATE} 주문</div>
             <div class="d-flex"> 
               <div class="w-25 me-3">
-                <img src="../refer/mypage/shop1.jpg" alt="" class="w-100">
+                <img src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="" class="w-100">
               </div>
               <div>
-                <div>브랜드: 리바이스</div>
-                <div>종류: 청바지</div>
-                <div>모델번호: J342</div>
-                <div>가격: 45,000원</div>
+                <div>브랜드: ${item.BRAND}</div>
+                <div>종류: ${item.CATEGORY}</div>
+                <div>모델명: ${item.CLOTHES_NAME}</div>
+                <br>
+                <div>주문개수 : ${item.PRODUCT_COUNT}개</div>
+                <div>구매가격: ${item.FINAL_PRICE}원</div>
               </div>
             </div>
           </div>
           <!-- 구매내역 1개단위 end -->
-          <div class="border rounded p-3  mb-3">
-            <div class="mb-3 fs-5">2023.1.27. 주문</div>
-            <div class="d-flex"> 
-              <div class="w-25 me-3">
-                <img src="../refer/mypage/shop2.jpg" alt="" class="w-100">
-              </div>
-              <div>
-                <div>브랜드: 지오다노</div>
-                <div>종류: 셔츠</div>
-                <div>모델번호: S324</div>
-                <div>가격: 27,000원</div>
-              </div>
-            </div>
-          </div>
-          <div class="border rounded p-3  mb-3">
-            <div class="mb-3 fs-5">2023.2.4. 주문</div>
-            <div class="d-flex"> 
-              <div class="w-25 me-3">
-                <img src="../refer/mypage/shop3.jpg" alt="" class="w-100">
-              </div>
-              <div>
-                <div>브랜드: 탑탠</div>
-                <div>종류: 코트</div>
-                <div>모델번호: C634</div>
-                <div>가격: 123,000원</div>
-              </div>
-            </div>
-          </div>
+          </c:forEach>
         </div>
       </div>
       <div class="d-flex justify-content-center mb-3">
