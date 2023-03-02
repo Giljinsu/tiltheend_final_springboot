@@ -83,7 +83,7 @@
             <td>${item.DISCOUNT_RATE}%</td>
             <td style="font-weight:600;">${item.PRODUCT_COUNT}</td>
             <td>
-              <form action="/shoppingcart/delete">
+              <form action="/shoppingcart/delete" method="post">
                 <input type="hidden" name="UID" value="${item.UID}">
                 <input type="hidden" name="SHOPPINGCART_ID" value="${item.SHOPPINGCART_ID}">
               <button class="btn border-dark">삭제하기</button>

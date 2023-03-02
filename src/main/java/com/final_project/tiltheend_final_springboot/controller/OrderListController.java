@@ -15,12 +15,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.final_project.tiltheend_final_springboot.service.DeliveryService;
 import com.final_project.tiltheend_final_springboot.service.OrderListService;
 import com.final_project.tiltheend_final_springboot.service.UserService;
+import com.final_project.tiltheend_final_springboot.service.ShopService;
 import com.final_project.tiltheend_final_springboot.service.ShoppingCartService;
 import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 
 @Controller
 @RequestMapping(value = "/orderlist")
 public class OrderListController {
+
+    @Autowired
+    ShopService shopService;
     
     @Autowired
     UserService userService;
@@ -46,6 +50,16 @@ public class OrderListController {
         ArrayList result = (ArrayList)shoppingcart.selectProductIdAndCountWithUID(params);
         for(int i=0; i<result.size(); i++) {
             HashMap<String, Object> resultMap = (HashMap)result.get(i);
+            
+            // 주문시 판매수 증가
+            HashMap<String, Object> salesVolumeMap = new HashMap<>();
+            HashMap<String, Object> ProductSalesVolumeMap = (HashMap)shopService.getProductSalesVolume(resultMap);
+            int salesVolume =  (int)ProductSalesVolumeMap.get("SALES_VOLUME");
+            salesVolume= salesVolume+Integer.parseInt((String)resultMap.get("PRODUCT_COUNT"));
+            salesVolumeMap.put("SALES_VOLUME", salesVolume);
+            salesVolumeMap.put("PRODUCT_ID", resultMap.get("PRODUCT_ID"));
+            shopService.updateProductSalesVolume(salesVolumeMap);
+
             hashMap = new HashMap<>();
             String orderId = commonUtils.makeUuid();
             hashMap.put("ORDER_ID",orderId);

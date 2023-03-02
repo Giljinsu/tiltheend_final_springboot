@@ -1,7 +1,6 @@
 package com.final_project.tiltheend_final_springboot.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +15,8 @@ import com.final_project.tiltheend_final_springboot.service.OrderListService;
 import com.final_project.tiltheend_final_springboot.service.UserService;
 
 @Controller
-@RequestMapping(value = "/shoppingcart")
-public class ShoppingCartController {
+@RequestMapping(value = "/myPageController")
+public class MyPageController {
     @Autowired
     ShoppingCartService shoppingCartService;
 
@@ -36,7 +35,7 @@ public class ShoppingCartController {
     }
 
 
-    @RequestMapping(value = "/delete", method=RequestMethod.POST)
+    @RequestMapping(value = "/delete")
     public ModelAndView delete(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
         Object result = shoppingCartService.deleteAndSelectList(params);
         modelAndView.addObject("resultMap", result);

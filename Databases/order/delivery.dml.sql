@@ -12,7 +12,7 @@ VALUES
 ('DEL_1', 'CJ대한통운', SYSDATE(), '배송준비중', '경기도 화성시 반송동', '홍길동','010-2342-3356','부재시 경비실에 맡겨주세요');
 
 DELETE FROM DELIVERY
-WHERE DELIVERY_ID = '626e3125-d2c0-4db4-afb8-80f681bda157'
+WHERE DELIVERY_ID = 'd6f280de-6ff8-4503-ad70-91aa4c1874dc'
 ;
 
 UPDATE DELIVERY

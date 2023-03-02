@@ -28,6 +28,9 @@
         <input type="hidden" name="DELIVERY_STATUS" value="배송준비중">
         <input type="hidden" name="SHOPPINGCART_ID" value="배송준비중">
 
+        <input type="hidden" name="ADDITIONAL_DISCOUNT" value="0">
+        
+
         <input type="hidden" name="UID" value="${USER.UID}">
 
         <h2 class="mb-5">결제 페이지</h2>
@@ -186,15 +189,15 @@
             <div class="col p-2">
             <span>
             <label class="form-check-label" for="cardCheck">카드</label>
-            <input class="form-check-input" type="radio" value="card" name="payment" id="cardCheck">
+            <input class="form-check-input" type="radio" value="카드" name="ORDER_METHOD" id="cardCheck">
             </span>
             <span>
             <label class="form-check-label" for="accountCheck">계좌이체</label>
-            <input class="form-check-input" type="radio" value="account" name="payment" id="accountCheck">
+            <input class="form-check-input" type="radio" value="계좌이체" name="ORDER_METHOD" id="accountCheck">
             </span>
             <span>
             <label class="form-check-label" for="kakaoCheck">카카오페이</label>
-            <input class="form-check-input" type="radio" value="kakao" name="payment" id="kakaoCheck">
+            <input class="form-check-input" type="radio" value="카카오페이" name="ORDER_METHOD" id="kakaoCheck">
             </span>
             </div>
           </div>
@@ -266,6 +269,7 @@
         </div>
 
         <div class="text-center mt-5 mb-5">
+          <input type="hidden" name="FINAL_PRICE" value="<fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>">
           <button class="btn btn-secondary"><fmt:formatNumber type="number"  pattern="#,###" value="${priceSum-discountSum}"/>원 결제하기</button>
         </div>
         </form>
