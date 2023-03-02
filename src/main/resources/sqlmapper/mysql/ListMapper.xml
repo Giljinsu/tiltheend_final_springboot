@@ -33,7 +33,7 @@
             <otherwise>
             </otherwise>
         </choose> -->
-        ORDER BY POST_NO_QNA DESC;
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectQNACategory -->
@@ -41,7 +41,7 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN QNA B
         WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-        ORDER BY POST_NO_QNA DESC
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectQNAUID -->
@@ -83,6 +83,28 @@
         (#{POST_NO_QNA}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y-%m-%d'), #{CONTENT}, #{STATUS})
     </insert>
 
+    <!-- List.selectComment -->
+    <select id="selectComment" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM COMMENT
+        WHERE SOURCE_UNIQUE_SEQ = #{UID}
+    </select>
+
+    <!-- List.insertComment -->
+    <insert id="insertComment" parameterType="Map">
+        INSERT INTO COMMENT
+        (COMMENT_UID, UID, DATE, CONETNET, SOURCE_UNIQUE_SEQ)
+        VALUE
+        (#{COMMENT_UID},#{UID}, DATE_FORMAT(now(),'%Y-%m-%d'), #{CONTENT}, #{SOURCE_UNIQUE_SEQ})
+    </insert>
+
+    <!-- List.deleteComment -->
+    <select id="deleteComment" 
+        parameterType="Map" resultType="Map">
+        DELETE FROM COMMENT
+        WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ}
+    </select>
+
 
     <!-- FAQ -->
 
@@ -98,7 +120,7 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN FAQ B
         WHERE A.UID = B.UID
-        ORDER BY POST_NO_FAQ DESC;
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectFAQCategory -->
@@ -106,7 +128,7 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN FAQ B
         WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-        ORDER BY POST_NO_FAQ DESC
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectFAQUID -->
@@ -121,7 +143,10 @@
     <update id="updateFAQ" 
         parameterType="Map">
         UPDATE FAQ
-        SET TITLE=#{TITLE}, CATEGORY=#{CATEGORY}, DATE=DATE_FORMAT(now(),'%Y.%m.%d'), CONTENT='#{CONTENT}'
+        SET TITLE=#{TITLE},
+            CATEGORY=#{CATEGORY},
+            DATE=DATE_FORMAT(now(),'%Y.%m.%d'),
+            CONTENT=#{CONTENT}
         WHERE POST_NO_FAQ=#{POST_NO_FAQ}
     </update>
 
@@ -150,13 +175,15 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM ANNOUNCEMENT
         WHERE POST_NO_ANNO = #{POST_NO_ANNO}
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectAnnouncementwithjoin -->
     <select id="selectAnnouncementwithjoin" 
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
-        WHERE A.UID = B.UID;
+        WHERE A.UID = B.UID
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectFAQCategory -->
@@ -164,7 +191,7 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
         WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-        ORDER BY POST_NO_ANNO DESC
+        ORDER BY DATE DESC;
     </select>
 
     <!-- List.selectFAQUID -->
@@ -179,8 +206,11 @@
     <update id="updateAnnouncement" 
         parameterType="Map">
         UPDATE ANNOUNCEMENT
-        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y-%m-%d')
-        ;
+        SET TITLE=#{TITLE},
+            CATEGORY=#{CATEGORY},
+            DATE=DATE_FORMAT(now(),'%Y.%m.%d'),
+            CONTENT=#{CONTENT}
+        WHERE POST_NO_ANNO=#{POST_NO_ANNO}
     </update>
 
     <!-- admin.deleteAnnouncement -->
@@ -190,4 +220,12 @@
         WHERE POST_NO_ANNO=#{POST_NO_ANNO}
         ;
     </select>
+
+    <!-- List.insertAnnouncement -->
+    <insert id="insertAnnouncement" parameterType="Map">
+        INSERT INTO ANNOUNCEMENT
+        (POST_NO_ANNO, UID, CATEGORY, TITLE, DATE, CONTENT)
+        VALUE
+        (#{POST_NO_ANNO}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT})
+    </insert>
 </mapper>

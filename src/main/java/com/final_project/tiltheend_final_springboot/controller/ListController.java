@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.final_project.tiltheend_final_springboot.service.CommentService;
 import com.final_project.tiltheend_final_springboot.service.ListService;
 import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 
@@ -19,6 +20,9 @@ public class ListController {
 
     @Autowired
     ListService listService;
+
+    @Autowired
+    CommentService commentService;
 
     CommonUtils commonUtils = new CommonUtils();
 
@@ -58,7 +62,9 @@ public class ListController {
             ModelAndView modelAndView) {
         params.put("UID", UID);
         Object resultMap = listService.selectQNAUID(params);
+        Object comment = commentService.selectComment(params);
         modelAndView.addObject("resultMap", resultMap);
+        modelAndView.addObject("comments", comment);
         modelAndView.setViewName("qna/qnaboard");
         return modelAndView;
     }
@@ -73,6 +79,15 @@ public class ListController {
     @RequestMapping(value = "/qna/save", method = RequestMethod.POST)
     public ModelAndView saveqna(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         params.put("POST_NO_QNA", commonUtils.makeUuid());
+        Object resultMap = listService.insertQNAAndSelectQNA(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/qna");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/qna/comment", method = RequestMethod.POST)
+    public ModelAndView saveComment(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        params.put("COMMENT_UID", commonUtils.makeUuid());
         Object resultMap = listService.insertQNAAndSelectQNA(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/qna");

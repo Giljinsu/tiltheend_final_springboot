@@ -30,6 +30,9 @@
       <div class="container">
         <form action="/admin/${link}/announcement/save" id="action-form" method="post">
           <h3 class="mb-5">공지사항 ${code}</h3>
+          <%-- 하드코딩 --%>
+          <input type="hidden" name="POST_NO_ANNO" value="${resultMap.POST_NO_ANNO}">
+          <input type="hidden" name="UID" value="U0001">
           <table class="table">
             <tbody>
               <tr>
@@ -39,11 +42,11 @@
                 </td>
                 <th class="col-1 text-center">구분</th>
                 <td class="col-5">
-                  <select class="form-select">
-                    <option ${category == "repair" ? "selected" : ""}>교환/반품/수선</option>
-                    <option ${category == "delivery" ? "selected" : ""}>출고/배송</option>
-                    <option ${category == "cancle" ? "selected" : ""}>주문/취소</option>
-                    <option ${category == "ect" ? "selected" : ""}>기타</option>
+                  <select class="form-select" name="CATEGORY">
+                    <option ${category == "repair" ? "selected" : ""} value="repair">교환/반품/수선</option>
+                    <option ${category == "delivery" ? "selected" : ""} value="delivery">출고/배송</option>
+                    <option ${category == "cancle" ? "selected" : ""} value="cancle">주문/취소</option>
+                    <option ${category == "ect" ? "selected" : ""} value="ect">기타</option>
                   </select>
                 </td>
               </tr>

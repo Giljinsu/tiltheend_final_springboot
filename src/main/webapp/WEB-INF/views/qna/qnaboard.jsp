@@ -22,8 +22,9 @@
   <body>
     <%@ include file="../header.jsp" %>
     <c:set var="data" value="${resultMap}"/>
+    <c:set var="comments" value="${comments}"/>
     <main style="margin-top: 160px" class="container">
-      <div id="faq" class="">FAQ</div>
+      <div id="faq" class="">QNA</div>
       <div id="board-head" class="mb-2">
         <!-- 글 제목 -->
         <span class="fw-bold fw-2 ms-2" id="title">${data.TITLE}</span>
@@ -44,6 +45,21 @@
           </div>
         </div>
       </div>
+      <hr />
+      <div class="mb-4">답변</div>
+      <div id="comment">${comments.CONTENT}</div>
+      <c:if test="${empty comments}">
+		    <!-- 댓글 작성 -->
+        <div class="" style="height: 3rem; margin-bottom: 2rem;">
+        <form class="w-100 d-flex" action="/list/qna/comment" method="post">
+          <%-- 하드 코딩 --%>
+          <input type="hidden" name="UID" value="U0003"> 
+          <%-- ----- --%>
+          <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}"> 
+          <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
+          <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
+        </form>
+	    </c:if>
       <hr />
       <div class="mt-2 ms-2" style="height: 32.5px" id="back">
         <a href="/list/qna">목록으로</a>

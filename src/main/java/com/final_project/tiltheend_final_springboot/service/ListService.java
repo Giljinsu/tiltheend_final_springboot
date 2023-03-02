@@ -89,25 +89,13 @@ public class ListService {
 
     public Object deleteFAQ(Object dataMap) {
         String sqlMapId = "List.deleteFAQ";
-        Object result = commonDao.update(sqlMapId, dataMap);
+        Object result = commonDao.delete(sqlMapId, dataMap);
         return result;
     }
 
     public Object insertFAQ(Object dataMap) {
         String sqlMapId = "List.insertFAQ";
         Object result = commonDao.insert(sqlMapId, dataMap);
-        return result;
-    }
-
-    public Object insertFAQAndSelectFAQ(Object dataMap) {
-        this.insertFAQ(dataMap);
-        Object result = this.selectFAQWithJoin(dataMap);
-        return result;
-    }
-
-    public Object updateFAQAndSelectFAQ(Object dataMap) {
-        this.updateFAQ(dataMap);
-        Object result = this.selectFAQWithJoin(dataMap);
         return result;
     }
 
@@ -145,7 +133,13 @@ public class ListService {
 
     public Object deleteAnnouncement(Object dataMap) {
         String sqlMapId = "List.deleteAnnouncement";
-        Object result = commonDao.update(sqlMapId, dataMap);
+        Object result = commonDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertAnnouncement(Object dataMap) {
+        String sqlMapId = "List.insertAnnouncement";
+        Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }
 }
