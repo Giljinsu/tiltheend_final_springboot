@@ -139,6 +139,11 @@
               </c:forEach>
             </tbody>
           </table>
+          <div class="text-end">
+            <form action="/list/anno/write">
+              <button class="btn btn-dark">글쓰기</button>
+            </form>
+          </div>
         <!-- FAQ -->
         <div>
           <div id="head" class="fw-bold fs-4">FAQ</div>
@@ -192,6 +197,11 @@
               </c:forEach>
             </tbody>
           </table>
+          <div class="text-end">
+            <form action="/list/faq/write">
+              <button class="btn btn-dark">글쓰기</button>
+            </form>
+          </div>
           <!-- pagination -->
           <%-- <div class="container d-flex justify-content-center mt-4">
             <nav aria-label="Page navigation example" class="">
