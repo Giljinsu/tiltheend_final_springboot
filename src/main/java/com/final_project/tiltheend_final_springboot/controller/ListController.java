@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.final_project.tiltheend_final_springboot.service.ListService;
+import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 
 @Controller
 @RequestMapping(value = "/list")
@@ -18,6 +19,8 @@ public class ListController {
 
     @Autowired
     ListService listService;
+
+    CommonUtils commonUtils = new CommonUtils();
 
     // qna
     @RequestMapping(value = "/qna", method = RequestMethod.GET)
@@ -63,24 +66,18 @@ public class ListController {
     @RequestMapping(value = "/qna/write", method = RequestMethod.GET)
     public ModelAndView writeqna(@RequestParam Map<String, Object> params,
             ModelAndView modelAndView) {
-        Object resultMap = listService.selectQNAWithJoin(params);
-        modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/qnaForm");
         return modelAndView;
     }
 
-    // @RequestMapping(value = "/qna/save", method = RequestMethod.POST)
-    // public ModelAndView saveqna(@RequestParam Map<String, Object> params,
-    // ModelAndView modelAndView) {
-    // int index = (int) listService.countQNA(params);
-    // params.put("POST_NO_QNA", index + 1);
-    // Object user = listService.
-    // params.put("UID", modelAndView)
-    // Object resultMap = listService.insertQNA(params);
-    // modelAndView.addObject("resultMap", resultMap);
-    // modelAndView.setViewName("qna/qna");
-    // return modelAndView;
-    // }
+    @RequestMapping(value = "/qna/save", method = RequestMethod.POST)
+    public ModelAndView saveqna(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        params.put("POST_NO_QNA", commonUtils.makeUuid());
+        Object resultMap = listService.insertQNAAndSelectQNA(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/qna");
+        return modelAndView;
+    }
 
     // faq
     @RequestMapping(value = "/faq", method = RequestMethod.GET)
@@ -112,6 +109,13 @@ public class ListController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/faq/write", method = RequestMethod.GET)
+    public ModelAndView writeFAQ(@RequestParam Map<String, Object> params,
+            ModelAndView modelAndView) {
+        modelAndView.setViewName("admin/faqForm");
+        return modelAndView;
+    }
+
     // announcement
     @RequestMapping(value = "/announcement", method = RequestMethod.GET)
     public ModelAndView listAnnouncement(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
@@ -139,6 +143,13 @@ public class ListController {
         Object resultMap = listService.selectAnnouncementUID(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("announcement/announcementboard");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/anno/write", method = RequestMethod.GET)
+    public ModelAndView writeAnno(@RequestParam Map<String, Object> params,
+            ModelAndView modelAndView) {
+        modelAndView.setViewName("admin/annoForm");
         return modelAndView;
     }
 }

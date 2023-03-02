@@ -20,10 +20,19 @@
   <body>
     <%@ include file="../header.jsp" %>
     <c:set  var="category" value="${resultMap.CATEGORY}"/>
+    <c:set  var="code" value="수정"/>
+    <c:set  var="link" value="edit"/>
+    <c:if test="${empty resultMap}">
+		  <c:set var="code" value="작성" />
+      <c:set  var="link" value="write"/>
+	  </c:if>
     <main style="margin-top: 160px" class="container">
       <div class="container">
-        <form action="/admin/announcement/save" id="action-form" method="post">
-          <h3 class="mb-5">FAQ 수정</h3>
+        <form action="/admin/${link}/faq/save" id="action-form" method="post">
+          <h3 class="mb-5">FAQ ${code}</h3>
+          <%-- 하드코딩 --%>
+          <input type="hidden" name="POST_NO_FAQ" value="${resultMap.POST_NO_FAQ}">
+          <input type="hidden" name="UID" value="U0001">
           <table class="table">
             <tbody>
               <tr>
@@ -33,11 +42,11 @@
                 </td>
                 <th class="col-1 text-center">구분</th>
                 <td class="col-5">
-                  <select class="form-select">
-                    <option ${category == "repair" ? "selected" : ""}>교환/반품/수선</option>
-                    <option ${category == "delivery" ? "selected" : ""}>출고/배송</option>
-                    <option ${category == "cancle" ? "selected" : ""}>주문/취소</option>
-                    <option ${category == "ect" ? "selected" : ""}>기타</option>
+                  <select class="form-select" name="CATEGORY">
+                    <option ${category == "repair" ? "selected" : ""} value="repair">교환/반품/수선</option>
+                    <option ${category == "delivery" ? "selected" : ""} value="delivery">출고/배송</option>
+                    <option ${category == "cancle" ? "selected" : ""} value="cancle">주문/취소</option>
+                    <option ${category == "ect" ? "selected" : ""} value="ect">기타</option>
                   </select>
                 </td>
               </tr>
@@ -62,7 +71,7 @@
             </div>
           </div>
           <div class="text-end mb-4">
-            <button class="btn btn-dark" id="submit-button">FAQ 수정</button>
+            <button class="btn btn-dark" id="submit-button">FAQ ${code}</button>
           </div>
         </form>
       </div>
@@ -79,7 +88,7 @@
       });
       
       // add content in quill editor
-      editor.setText("${resultMap.CONTENT}");
+      editor.setContents(${resultMap.CONTENT});
       // editor.disable(); // 변경못하게함
       // editor.root.style.backgroundColor= "#f2f2f2";
 
@@ -87,8 +96,8 @@
       submitButton.addEventListener("click", function (event) {
         let content = editor.getContents();
         // Quill function
-        let qnacontent = document.querySelector("#content");
-        qnacontent.value = JSON.stringify(content);
+        let faqcontent = document.querySelector("#content");
+        faqcontent.value = JSON.stringify(content);
         // content.value = content;
         let form = document.querySelector("#action-form");
         form.submit();

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.final_project.tiltheend_final_springboot.service.AdminService;
 import com.final_project.tiltheend_final_springboot.service.ListService;
+import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 
 @Controller
 @RequestMapping(value = "admin")
@@ -22,6 +23,8 @@ public class AdminController {
 
     @Autowired
     ListService listService;
+
+    CommonUtils commonUtils = new CommonUtils();
 
     @RequestMapping(value = { "", "/", "/first" }, method = RequestMethod.GET)
     public ModelAndView adminfunc(@RequestParam Map<String, Object> params,
@@ -66,6 +69,23 @@ public class AdminController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/write/announcement/save", method = RequestMethod.POST)
+    public ModelAndView saveAnno(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        params.put("POST_NO_QNA", commonUtils.makeUuid());
+        Object resultMap = listService.insertQNAAndSelectQNA(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("admin/admin_list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/edit/announcement/save", method = RequestMethod.POST)
+    public ModelAndView editAnno(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object resultMap = listService.insertQNAAndSelectQNA(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("admin/admin_list");
+        return modelAndView;
+    }
+
     @RequestMapping(value = "edit/faq/{UID}", method = RequestMethod.GET)
     public ModelAndView editFAQ(@RequestParam Map<String, Object> params, @PathVariable String UID,
             ModelAndView modelAndView) {
@@ -82,6 +102,23 @@ public class AdminController {
         params.put("POST_NO_FAQ", UID);
         Object resultMap = listService.deleteFAQ(params);
         resultMap = this.listQna(params, modelAndView); // 다시 화면을 표시하기 위해 불러옴
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("admin/admin_list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/write/faq/save", method = RequestMethod.POST)
+    public ModelAndView saveFAQ(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        params.put("POST_NO_QNA", commonUtils.makeUuid());
+        Object resultMap = listService.insertFAQAndSelectFAQ(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("admin/admin_list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/edit/faq/save", method = RequestMethod.POST)
+    public ModelAndView editFAQ(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object resultMap = listService.updateFAQAndSelectFAQ(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("admin/admin_list");
         return modelAndView;

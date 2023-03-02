@@ -20,10 +20,16 @@
   <body>
     <%@ include file="../header.jsp" %>
     <c:set  var="category" value="${resultMap.CATEGORY}"/>
+    <c:set  var="code" value="수정"/>
+    <c:set  var="link" value="edit"/>
+    <c:if test="${empty resultMap}">
+		  <c:set var="code" value="작성" />
+      <c:set  var="link" value="write"/>
+	  </c:if>
     <main style="margin-top: 160px" class="container">
       <div class="container">
-        <form action="/admin/announcement/save" id="action-form" method="post">
-          <h3 class="mb-5">공지사항 수정</h3>
+        <form action="/admin/${link}/announcement/save" id="action-form" method="post">
+          <h3 class="mb-5">공지사항 ${code}</h3>
           <table class="table">
             <tbody>
               <tr>
@@ -62,7 +68,7 @@
             </div>
           </div>
           <div class="text-end mb-4">
-            <button class="btn btn-dark" id="submit-button">게시글 수정</button>
+            <button class="btn btn-dark" id="submit-button">게시글 ${code}</button>
           </div>
         </form>
       </div>
@@ -79,7 +85,7 @@
       });
       
       // add content in quill editor
-      editor.setText("${resultMap.CONTENT}");
+      editor.setContents(${resultMap.CONTENT});
       // editor.disable(); // 변경못하게함
       // editor.root.style.backgroundColor= "#f2f2f2";
 

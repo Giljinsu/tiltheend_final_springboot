@@ -49,6 +49,12 @@ public class ListService {
         return result;
     }
 
+    public Object insertQNAAndSelectQNA(Object dataMap) {
+        this.insertQNA(dataMap);
+        Object result = this.selectQNAWithJoin(dataMap);
+        return result;
+    }
+
     // FAQ
 
     public Object selectFAQ(Object dataMap) {
@@ -84,6 +90,24 @@ public class ListService {
     public Object deleteFAQ(Object dataMap) {
         String sqlMapId = "List.deleteFAQ";
         Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertFAQ(Object dataMap) {
+        String sqlMapId = "List.insertFAQ";
+        Object result = commonDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertFAQAndSelectFAQ(Object dataMap) {
+        this.insertFAQ(dataMap);
+        Object result = this.selectFAQWithJoin(dataMap);
+        return result;
+    }
+
+    public Object updateFAQAndSelectFAQ(Object dataMap) {
+        this.updateFAQ(dataMap);
+        Object result = this.selectFAQWithJoin(dataMap);
         return result;
     }
 
