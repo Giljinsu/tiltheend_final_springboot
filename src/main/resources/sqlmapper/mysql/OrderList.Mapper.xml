@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="orderList">
-    <!-- orderList.select -->
+    <!-- orderList.selectjoinshoppingcartproduct -->
     <select id="selectjoinshoppingcartproduct" parameterType="Map" resultType="Map">
         SELECT * 
         FROM (SELECT  A.SHOPPINGCART_ID, A.PRODUCT_COUNT, A.UID, A.DATE, B.*
@@ -14,20 +14,34 @@
         ORDER BY DATE
         ;
     </select>
-    <!-- orderList.selectfileshoppingcartwithUID -->
-    <select id="selectfileshoppingcartwithUID" parameterType="Map" resultType="Map">
+    <select id="selectjoinOrderListproduct" parameterType="Map" resultType="Map">
+        SELECT *
+        FROM (SELECT A.*, B.BRAND, B.CLOTHES_NAME, B.PRICE, B.CATEGORY, B.DISCOUNT_RATE
+        FROM ORDERLIST A , PRODUCT B
+        WHERE A.PRODUCT_ID = B.PRODUCT_ID
+        AND A.UID=#{UID}) ORDERLIST , CIP_ATTACHFILE FILE
+        WHERE ORDERLIST.PRODUCT_ID = FILE.SOURCE_UNIQUE_SEQ
+        GROUP BY ORDER_ID
+        ORDER BY ORDERDATE
+        ;
+    </select>
 
+    <!-- orderList.selectfileshoppingcartwithUID -->
+    <select id="selectList" parameterType="Map" resultType="Map">
+        SELECT * FROM ORDERLIST
+        order by ORDERDATE
+        ;
     </select>
 
 
     <!-- orderList.insertOrderList -->
     <insert id="insertOrderList" parameterType="Map">
         INSERT INTO ORDERLIST
-        (ORDER_ID,PRODUCT_ID,UID,DELIVERY_ID,ORDER_METHOD,FINAL_PRICE,ORDERDATE,ADDITIONAL_DISCOUNT)
+        (ORDER_ID,PRODUCT_ID,UID,DELIVERY_ID,ORDER_METHOD,FINAL_PRICE,ORDERDATE,ADDITIONAL_DISCOUNT,PRODUCT_COUNT)
         VALUES
         <foreach collection="resultList" item="List"
         open="(" close=")" separator="),(">
-        #{List.ORDER_ID},#{List.PRODUCT_ID},#{List.UID},#{List.DELIVERY_ID},#{List.ORDER_METHOD},#{List.FINAL_PRICE},SYSDATE(),#{List.ADDITIONAL_DISCOUNT}
+        #{List.ORDER_ID},#{List.PRODUCT_ID},#{List.UID},#{List.DELIVERY_ID},#{List.ORDER_METHOD},#{List.FINAL_PRICE},SYSDATE(),#{List.ADDITIONAL_DISCOUNT},#{List.PRODUCT_COUNT}
         </foreach>  
         ;
     </insert>

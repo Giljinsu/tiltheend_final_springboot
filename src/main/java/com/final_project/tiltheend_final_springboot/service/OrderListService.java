@@ -10,8 +10,13 @@ public class OrderListService {
 
     @Autowired
     CommonDao commonDao;
-    public Object selectOrderListByUid(Object dataMap) {
+    public Object selectOrderListPageByUid(Object dataMap) {
         String sqlMapId = "orderList.selectjoinshoppingcartproduct";
+        Object result = commonDao.selectList(sqlMapId, dataMap);
+        return result;
+    }
+    public Object selectOrderListByUid(Object dataMap) {
+        String sqlMapId = "orderList.selectjoinOrderListproduct";
         Object result = commonDao.selectList(sqlMapId, dataMap);
         return result;
     }

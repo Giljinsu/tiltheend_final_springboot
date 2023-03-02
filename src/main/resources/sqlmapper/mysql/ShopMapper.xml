@@ -35,4 +35,16 @@
         DELETE FROM PRODUCT
         WHERE PRODUCT_ID=#{PRODUCT_ID};
     </delete>
+
+    <!-- 주문시 이용 -->
+    <select id="selectVolume" parameterType="Map" resultType="Map">
+        SELECT SALES_VOLUME FROM PRODUCT
+        WHERE PRODUCT_ID =#{PRODUCT_ID};
+    </select>
+
+    <update id="updateProductVolume" parameterType="Map">
+        UPDATE PRODUCT
+        SET SALES_VOLUME = #{SALES_VOLUME}
+        WHERE PRODUCT_ID = #{PRODUCT_ID};
+    </update>
 </mapper>
