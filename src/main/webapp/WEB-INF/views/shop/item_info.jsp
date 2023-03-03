@@ -67,6 +67,7 @@
         </div>
         <div>
           <div id="info">
+          <%-- <c:set  var="item" value="${resultMap}"/> --%>
             <div class="row row-cols-2">
               <!-- carousel -->
               <div class="image col-7" style="height: 950px">
@@ -96,12 +97,12 @@
               <!-- 가격정보 -->
               <div id="price-info" class="col-5">
                 <div id="item-info">
-                  <div id="name">상품명</div>
+                  <div id="name">${resultMap.CLOTHES_NAME}</div>
                   <div id="item-code">
-                    <span style="font-size: 12px; color: gray">상품코드</span>
+                    <span style="font-size: 12px; color: gray">${resultMap.PRODUCT_ID}</span>
                   </div>
                   <div id="item-price">
-                    <span>상품 가격</span>
+                    <span>${resultMap.PRICE}원</span>
                   </div>
                   <div id="item-size">
                     <table border="0">
