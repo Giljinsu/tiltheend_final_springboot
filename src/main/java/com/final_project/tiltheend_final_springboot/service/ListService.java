@@ -55,6 +55,12 @@ public class ListService {
         return result;
     }
 
+    public Object updateStatus(Object dataMap) {
+        String sqlMapId = "List.updatestatus";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
     // FAQ
 
     public Object selectFAQ(Object dataMap) {

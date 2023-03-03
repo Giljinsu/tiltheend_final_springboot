@@ -80,7 +80,7 @@
         INSERT INTO QNA
         (POST_NO_QNA, UID, CATEGORY, TITLE, DATE, CONTENT, STATUS)
         VALUE
-        (#{POST_NO_QNA}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y-%m-%d'), #{CONTENT}, #{STATUS})
+        (#{POST_NO_QNA}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT}, #{STATUS})
     </insert>
 
     <!-- List.selectComment -->
@@ -95,7 +95,7 @@
         INSERT INTO COMMENT
         (COMMENT_UID, UID, DATE, CONETNET, SOURCE_UNIQUE_SEQ)
         VALUE
-        (#{COMMENT_UID},#{UID}, DATE_FORMAT(now(),'%Y-%m-%d'), #{CONTENT}, #{SOURCE_UNIQUE_SEQ})
+        (#{COMMENT_UID},#{UID}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT}, #{SOURCE_UNIQUE_SEQ})
     </insert>
 
     <!-- List.deleteComment -->
@@ -104,6 +104,14 @@
         DELETE FROM COMMENT
         WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ}
     </select>
+
+    <!-- List.updatestatus -->
+    <update id="updatestatus" 
+        parameterType="Map">
+        UPDATE QNA
+        SET STATUS='답변완료'
+        WHERE POST_NO_QNA=#{POST_NO_QNA}
+    </update>
 
 
     <!-- FAQ -->

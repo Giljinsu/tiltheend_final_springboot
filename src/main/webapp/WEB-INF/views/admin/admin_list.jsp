@@ -78,9 +78,9 @@
                   <td class="col-md-1" id="date">${qna.DATE}</td>
                   <td>${qna.STATUS}</td>
                   <td>
-                    <form action="">
-                      <div class="btn btn-sm btn-outline-secondary">답변</div>
-                    </form>
+                    <a href="/list/qna/board/${qna.POST_NO_QNA}" style="display:inline">
+                      <div class="btn btn-sm btn-outline-secondary">바로가기</div>
+                    </a>
                   </td>
                 </tr>
               </c:forEach>

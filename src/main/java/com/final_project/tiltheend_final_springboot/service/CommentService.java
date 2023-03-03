@@ -45,8 +45,9 @@ public class CommentService {
     }
 
     public Object insertComment2(Object dataMap) {
+        Object result = listService.updateStatus(dataMap);
         String sqlMapId = "comment.insertcommentUSERUID";
-        Object result = commonDao.insert(sqlMapId, dataMap);
+        result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }
 

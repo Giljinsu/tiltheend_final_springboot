@@ -17,26 +17,6 @@
   </head>
   <body>
     <%@ include file="../header.jsp" %>
-    <!-- modal -->
-    <div class="modal fade" id="modalTarget">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.7)">
-          <div class="modal-header" style="color: white">
-            Search
-            <button class="btn btn-secondary close_button" data-bs-dismiss="modal" style="border: 0; background-color: rgba(0, 0, 0, 0)">
-              <span class="material-symbols-outlined"> close </span>
-            </button>
-          </div>
-          <div class="modal-body d-flex align-items-center">
-            <input type="text" class="form-control me-3" />
-            <a href="" style="color: white">
-              <span class="material-symbols-outlined">search</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- 헤더 여기까지 복사해야함 -->
     <!-- modal-img-1 -->
     <div class="modal fade" id="modal-img-1">
       <div class="modal-dialog modal-dialog-centered">
@@ -73,17 +53,17 @@
       <div id="wrapper" style="width: 1200px; margin-left: auto; margin-right: auto" class="d-flex">
         <!-- 사이드바 -->
         <div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
-          <div><a href="">여성</a></div>
-          <div><a href="">남성</a></div>
           <div><a href="">전체</a></div>
-          <div><a href="">신상품</a></div>
-          <div><a href="">세일중</a></div>
-          <div><a href="">상의</a></div>
-          <div><a href="">아우터</a></div>
-          <div><a href="">바지</a></div>
-          <div><a href="">신발</a></div>
-          <div><a href="">모자</a></div>
-          <div><a href="">가방</a></div>
+					<div><a href="">여성</a></div>
+					<div><a href="">남성</a></div>
+					<div><a href="">신상품</a></div>
+					<div><a href="">세일중</a></div>
+					<div><a href="">상의</a></div>
+					<div><a href="">아우터</a></div>
+					<div><a href="">바지</a></div>
+					<div><a href="">신발</a></div>
+					<div><a href="">모자</a></div>
+					<div><a href="">가방</a></div>
         </div>
         <div>
           <div id="info">
