@@ -99,7 +99,7 @@
 											<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
 																	begin="${i*4}" end="${i*4+3}">
 																	<%-- 각 row 마다 4개씩 제품카드를 집어넣기 --%>
-												<a href="item_info" class="col-3 mb-3">
+												<a href="/shop/${item.PRODUCT_ID}" class="col-3 mb-3">
 													<div class="card" style="">
 														<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
 														<div class="card-body">
