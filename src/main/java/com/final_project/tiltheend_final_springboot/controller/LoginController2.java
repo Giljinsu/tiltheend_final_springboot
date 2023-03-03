@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.final_project.tiltheend_final_springboot.service.LoginService;
+import com.final_project.tiltheend_final_springboot.service.LoginService2;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController {
+public class LoginController2 {
 
   @Autowired
-  LoginService loginService;
+  LoginService2 loginService;
 
   @PostMapping("/login")
   public ModelAndView login(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
