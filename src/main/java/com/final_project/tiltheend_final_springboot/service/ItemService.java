@@ -10,4 +10,9 @@ public class ItemService {
     @Autowired
     CommonDao commonDao;
 
+    public Object selectItemWithUID(Object dataMap) {
+        String sqlMapId = "item.selectitemwithuid";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
 }
