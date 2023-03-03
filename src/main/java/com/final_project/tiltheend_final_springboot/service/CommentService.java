@@ -11,8 +11,17 @@ public class CommentService {
     @Autowired
     CommonDao commonDao;
 
+    @Autowired
+    ListService listService;
+
     public Object selectCommentOne(Object dataMap) {
         String sqlMapId = "comment.selectcomments";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object selectCommentOneWithoutUser(Object dataMap) {
+        String sqlMapId = "comment.selectcommentwithoutuser";
         Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
     }
@@ -31,6 +40,12 @@ public class CommentService {
 
     public Object insertComment(Object dataMap) {
         String sqlMapId = "comment.insertcomment";
+        Object result = commonDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertComment2(Object dataMap) {
+        String sqlMapId = "comment.insertcommentUSERUID";
         Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }

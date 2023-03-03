@@ -62,7 +62,7 @@ public class ListController {
             ModelAndView modelAndView) {
         params.put("UID", UID);
         Object resultMap = listService.selectQNAUID(params);
-        Object comment = commentService.selectComment(params);
+        Object comment = commentService.selectCommentOneWithoutUser(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.addObject("comments", comment);
         modelAndView.setViewName("qna/qnaboard");
@@ -85,12 +85,17 @@ public class ListController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/qna/comment", method = RequestMethod.POST)
-    public ModelAndView saveComment(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+    @RequestMapping(value = "/qna/comment/{UID}", method = RequestMethod.POST)
+    public ModelAndView saveComment(@RequestParam Map<String, Object> params, @PathVariable String UID,
+            ModelAndView modelAndView) {
         params.put("COMMENT_UID", commonUtils.makeUuid());
-        Object resultMap = listService.insertQNAAndSelectQNA(params);
+        params.put("UID", UID);
+        Object resultMap = commentService.insertComment2(params);
+        resultMap = listService.selectQNAUID(params);
+        Object comment = commentService.selectCommentOneWithoutUser(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("qna/qna");
+        modelAndView.addObject("comments", comment);
+        modelAndView.setViewName("qna/qnaboard");
         return modelAndView;
     }
 

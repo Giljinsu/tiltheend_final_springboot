@@ -48,14 +48,17 @@
       <hr />
       <div class="mb-4">답변</div>
       <div id="comment">${comments.CONTENT}</div>
+      <%-- 답변이 없고 유저의 권한이 관리자일때 --%>
+      <%-- && data.ROLE eq 'ADMIN' --%>
       <c:if test="${empty comments}">
 		    <!-- 댓글 작성 -->
-        <div class="" style="height: 3rem; margin-bottom: 2rem;">
-        <form class="w-100 d-flex" action="/list/qna/comment" method="post">
+        <div class="mb-4">
+        <form class="w-100 d-flex" action="/list/qna/comment/${data.POST_NO_QNA}" method="post">
           <%-- 하드 코딩 --%>
-          <input type="hidden" name="UID" value="U0003"> 
+          <input type="hidden" name="USER_UID" value="U0001"> 
           <%-- ----- --%>
-          <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}"> 
+          <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}">
+          <input type="hidden" name="UID" value="${data.POST_NO_QNA}">
           <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
           <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
         </form>

@@ -9,6 +9,12 @@
         WHERE A.SOURCE_UNIQUE_SEQ = #{COORDINATION_ID} AND B.UID=#{UID}
         ORDER BY DATE;
     </select>
+    <select id="selectcommentwithoutuser" 
+        parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM COMMENT
+        WHERE SOURCE_UNIQUE_SEQ = #{UID}
+    </select>
     <select id="countcomments" 
         parameterType="Map" resultType="Map">
         SELECT COUNT(*) AS COUNT
@@ -21,6 +27,14 @@
         (COMMENT_UID,UID,DATE,SOURCE_UNIQUE_SEQ,CONTENT)
         VALUES
         (#{COMMENT_UID},#{UID},SYSDATE(),#{SOURCE_UNIQUE_SEQ},#{CONTENT})
+        ;
+    </insert>
+    <insert id="insertcommentUSERUID" 
+        parameterType="Map">
+        INSERT INTO COMMENT
+        (COMMENT_UID,UID,DATE,SOURCE_UNIQUE_SEQ,CONTENT)
+        VALUES
+        (#{COMMENT_UID},#{USER_UID},SYSDATE(),#{SOURCE_UNIQUE_SEQ},#{CONTENT})
         ;
     </insert>
     <delete id="delete" 
