@@ -24,7 +24,7 @@ public class ItemController {
         params.put("PRODUCT_ID", UID);
         Object resultMap = itemService.selectItemWithUID(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("qna/qna");
+        modelAndView.setViewName("shop/item_info");
         return modelAndView;
     }
 }
