@@ -3,4 +3,10 @@
 
 <mapper namespace="item">
     
+    <select id="selectitemwithuid" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM PRODUCT
+        WHERE PRODUCT_ID = #{PRODUCT_ID}
+    </select>
+
 </mapper>
