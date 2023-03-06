@@ -7,7 +7,7 @@
     <select id="select" 
         parameterType="Map" resultType="Map">
         SELECT * 
-        FROM coordination_info
+        FROM COORDINATION_INFO
         WHERE COORDINATION_ID = #{COORDINATION_ID}
         ;
     </select>
@@ -25,7 +25,7 @@
     <select id="getlistnotjoin" 
         parameterType="Map" resultType="Map">
         SELECT * 
-        FROM coordination_info
+        FROM COORDINATION_INFO
         ;
     </select>
      <select id="getlistwithjoinfile" 
