@@ -100,13 +100,13 @@ public class CoordinationController {
         int fileCount = Integer.parseInt((String)params.get("fileCount"));
         List ORGINALFILE_NAME = new ArrayList<>();
         List ATTACHFILE_SEQ = new ArrayList<>();
-        String PHYSICALFILE_NAME =null;
+        String PHYSICALFILE_NAME =(String)params.get("PHYSICALFILE_NAME");
         String isAdded = "";
         if(params.get("ISADDED")!=null) {
             isAdded = (String)params.get("ISADDED");
         }
         for(int i=0; i<=fileCount ; i++) {
-            PHYSICALFILE_NAME = (String)params.get("PHYSICALFILE_NAME["+i+"]");
+            // PHYSICALFILE_NAME = (String)params.get("PHYSICALFILE_NAME["+i+"]");
             ORGINALFILE_NAME.add(params.get("ORGINALFILE_NAME["+i+"]"));
             if(params.get("ATTACHFILE_SEQ["+i+"]")!=null) {
                 ATTACHFILE_SEQ.add(params.get("ATTACHFILE_SEQ["+i+"]"));
@@ -115,28 +115,31 @@ public class CoordinationController {
         if(PHYSICALFILE_NAME==null && ORGINALFILE_NAME==null) { //새로 업로드
         }
         ORGINALFILE_NAME = commonUtils.updateFiles(multipartHttpServletRequest, PHYSICALFILE_NAME, ORGINALFILE_NAME);
-        for(int i=0; i<ORGINALFILE_NAME.size() ; i++) {
-                params.put("ATTACHFILE_SEQ", ATTACHFILE_SEQ.get(i));
-                params.put("PHYSICALFILE_NAME", PHYSICALFILE_NAME);
-                params.put("ORGINALFILE_NAME", ORGINALFILE_NAME.get(i));
-                filesService.updateFile(params);
+        if(ATTACHFILE_SEQ.size()!=0) {
+            for(int i=0; i<ATTACHFILE_SEQ.size() ; i++) {
+                    params.put("ATTACHFILE_SEQ", ATTACHFILE_SEQ.get(i));
+                    params.put("PHYSICALFILE_NAME", PHYSICALFILE_NAME);
+                    params.put("ORGINALFILE_NAME", ORGINALFILE_NAME.get(i));
+                    filesService.updateFile(params);
+            }
         }
         // 파일 인서트
         Map attachFile;
         List attachfiles = new ArrayList<>();
         if(isAdded.equals("true")){
-            for(int i=0; i<ORGINALFILE_NAME.size(); i++) {
+            for(int i=0; i<ORGINALFILE_NAME.size()-ATTACHFILE_SEQ.size(); i++) {
                 attachFile = new HashMap<>();
                 attachFile.put("ATTACHFILE_SEQ", commonUtils.makeUuid());
-                attachFile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID"));
-                attachFile.put("ORGINALFILE_NAME", ORGINALFILE_NAME.get(i));
+                attachFile.put("SOURCE_UNIQUE_SEQ", params.get("SOURCE_UNIQUE_SEQ"));
+                attachFile.put("ORGINALFILE_NAME", ORGINALFILE_NAME.get(i+ATTACHFILE_SEQ.size()));
                 attachFile.put("PHYSICALFILE_NAME", PHYSICALFILE_NAME);
                 attachFile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
                 attachFile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
                 
                 attachfiles.add(attachFile);
             }
-            filesService.insertFile(attachfiles);
+            params.put("attachFiles", attachfiles);
+            filesService.insertFile(params);
         } // insert
         // params.put("COMMON_CODE_ID", params.get("COORDINATION_ID"));
         // List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
@@ -154,7 +157,7 @@ public class CoordinationController {
         modelAndView.addObject("resultMap", result);
         modelAndView.addObject("commentCount", commentCount);
         modelAndView.addObject("comments", comments);
-        modelAndView.addObject("destination", "/coordination/view");
+        modelAndView.addObject("destination", "/coordination/list");
         modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");
         return modelAndView;

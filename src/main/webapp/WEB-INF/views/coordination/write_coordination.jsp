@@ -69,7 +69,7 @@
                 <div id="setOriginalNameAndPhysicalName${loop.index}">
                 </div>
                 <input type="hidden" id="ATTACHFILE_SEQ${loop.index}" value="${file.ATTACHFILE_SEQ}">
-                <input type="hidden" id="PHYSICALFILE_NAME${loop.index}" value="${file.PHYSICALFILE_NAME}">
+                <input type="hidden" name="PHYSICALFILE_NAME" value="${file.PHYSICALFILE_NAME}">
                 <input type="hidden" id="ORGINALFILE_NAME${loop.index}" value="${file.ORGINALFILE_NAME}">
                     <div class="carousel-item ${loop.index == 0 ? 'active' : ''} w-100 h-100" id="carousel_id_${loop.index}">
                         <div class="w-100 h-100">
@@ -247,9 +247,8 @@
         let originalFilename = document.querySelector("#ORGINALFILE_NAME"+currentindex);
         let attachFileSeq = document.querySelector("#ATTACHFILE_SEQ"+currentindex);
              
-        if(physicalFileName!=null && originalFilename!=null) {
-          coordinaiton_form.innerHTML="<input type='hidden' name='PHYSICALFILE_NAME["+currentindex+"]' value='"+physicalFileName.value+"'>"+
-                                      "<input type='hidden' name='ORGINALFILE_NAME["+currentindex+"]' value='"+originalFilename.value+"'>"+
+        if(attachFileSeq!=null && originalFilename!=null) { // 수정인지 아닌지 확인
+          coordinaiton_form.innerHTML="<input type='hidden' name='ORGINALFILE_NAME["+currentindex+"]' value='"+originalFilename.value+"'>"+
                                       "<input type='hidden' name='ATTACHFILE_SEQ["+currentindex+"]' value='"+attachFileSeq.value+"'>";
         }
         // =====

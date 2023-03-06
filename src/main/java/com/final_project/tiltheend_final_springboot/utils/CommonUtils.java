@@ -39,6 +39,7 @@ public class CommonUtils {
         String storePath = absolutePath + physicalFileName + File.separator;
         File newPath = new File(storePath);
         newPath.mkdir();
+        int fileOrder=0;
         while(fileNames.hasNext()) {
             String fileName = fileNames.next();
             MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
@@ -56,6 +57,7 @@ public class CommonUtils {
                     attachFile.put("PHYSICALFILE_NAME", physicalFileName);
                     attachFile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
                     attachFile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
+                    attachFile.put("FILE_ORDER", ++fileOrder);
                 
                     attachfiles.add(attachFile);
                 } catch (IllegalStateException e) {
