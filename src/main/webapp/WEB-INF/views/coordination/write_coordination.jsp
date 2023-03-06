@@ -30,7 +30,7 @@
     <c:set var="count" value="0"/>
     </c:if>
     <main style="margin-top: 8rem">
-      <form action="/coordination/${form_action}" id="action-form" method="post" enctype="multipart/form-data">
+      <form action="/coordination/${form_action}" id="action-form" method="post" id="coordinaiton_form" enctype="multipart/form-data">
       <%-- 하드코딩 --%>
       <input type="hidden" name="COORDINATION_ID" value="${resultMap.COORDINATION_ID}">
       <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${resultMap.COORDINATION_ID}">
@@ -38,6 +38,7 @@
       <input type="hidden" name="UID" value="U0001">
       <input type="hidden" name="VIEWS" value="1">
       <input type="hidden" name="LIKES" value="2">
+      <div id="isadded"></div>
       <%-- 파일을 업로드시 --%>
       <input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111">
       <input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111">
@@ -65,7 +66,11 @@
                     </div>
                 </c:if>
                 <c:forEach items="${files}" var="file" varStatus="loop">
-                <%-- <input type="hidden" name="PHYSICALFILE_NAME" value="${file.PHYSICALFILE_NAME}"> --%>
+                <div id="setOriginalNameAndPhysicalName${loop.index}">
+                </div>
+                <input type="hidden" id="ATTACHFILE_SEQ${loop.index}" value="${file.ATTACHFILE_SEQ}">
+                <input type="hidden" id="PHYSICALFILE_NAME${loop.index}" value="${file.PHYSICALFILE_NAME}">
+                <input type="hidden" id="ORGINALFILE_NAME${loop.index}" value="${file.ORGINALFILE_NAME}">
                     <div class="carousel-item ${loop.index == 0 ? 'active' : ''} w-100 h-100" id="carousel_id_${loop.index}">
                         <div class="w-100 h-100">
                             <img class="model-image" id="modelimg_${loop.index}" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}">
@@ -77,6 +82,7 @@
                         </div>
                     </div>
                     <c:if test="${loop.last}">
+                    <input type="hidden" name="fileCount" value="${loop.index}">
                     <div class="carousel-item  w-100 h-100" id="carousel_id_${loop.index+1}">
                         <div class="w-100 h-100">
                             <img class="model-image" id="modelimg_${loop.index+1}" src="/files/default/default.png">
@@ -233,18 +239,31 @@
 
       // 이미지 썸네일
       let lastindex = ${count};
-
     function setThumbnail(currentindex) {
         var reader = new FileReader();
-
+        // 파일 업데이트 부분
+        let coordinaiton_form = document.querySelector("#setOriginalNameAndPhysicalName"+currentindex);
+        let physicalFileName = document.querySelector("#PHYSICALFILE_NAME"+currentindex);
+        let originalFilename = document.querySelector("#ORGINALFILE_NAME"+currentindex);
+        let attachFileSeq = document.querySelector("#ATTACHFILE_SEQ"+currentindex);
+             
+        if(physicalFileName!=null && originalFilename!=null) {
+          coordinaiton_form.innerHTML="<input type='hidden' name='PHYSICALFILE_NAME["+currentindex+"]' value='"+physicalFileName.value+"'>"+
+                                      "<input type='hidden' name='ORGINALFILE_NAME["+currentindex+"]' value='"+originalFilename.value+"'>"+
+                                      "<input type='hidden' name='ATTACHFILE_SEQ["+currentindex+"]' value='"+attachFileSeq.value+"'>";
+        }
+        // =====
         reader.onload = function(event) {
           var img = document.querySelector("#modelimg_"+currentindex);
           let carousel_id = document.querySelector("#carousel_id_"+currentindex+"")
             img.setAttribute("src", event.target.result);
           
-          if(currentindex<lastindex) {
+          if(currentindex<lastindex) { //새로운 이미지 업로드시 밑에 부분 작동
             return;
           }
+          //여기서보내
+          let isadded = document.querySelector("#isadded");
+          isadded.innerHTML="<input type='hidden' name='ISADDED' value='true'>"
           currentindex++;
             lastindex=currentindex;
           // if() {

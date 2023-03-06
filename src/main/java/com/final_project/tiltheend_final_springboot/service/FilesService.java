@@ -26,10 +26,11 @@ public class FilesService {
         return result;
     }
     public Object updateFile(Object dataMap) {
-        String sqlMapId = "coordination.update";
+        String sqlMapId = "files.update";
         Object result = commonDao.update(sqlMapId, dataMap);
         return result;
     }
+    
     public Object deleteFile(Object dataMap) {
         String sqlMapId = "files.delete";
         Object result = commonDao.delete(sqlMapId, dataMap);

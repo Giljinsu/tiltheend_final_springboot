@@ -22,9 +22,9 @@
 
     <update id="update" 
         parameterType="Map">
-        UPDATE coordination_info
-        SET USERNAME='홍길동'
-        WHERE COORDINATION_ID=${COORDINATION_ID}
+        UPDATE CIP_ATTACHFILE
+        SET ORGINALFILE_NAME=#{ORGINALFILE_NAME}
+        WHERE ATTACHFILE_SEQ=#{ATTACHFILE_SEQ}
         ;
     </update>
     <insert id="insert" 

@@ -3,6 +3,7 @@ package com.final_project.tiltheend_final_springboot.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -85,32 +86,74 @@ public class CoordinationController {
     @RequestMapping(value = "/update", method=RequestMethod.POST)
     public ModelAndView update(@RequestParam Map<String,Object> params,
             MultipartHttpServletRequest multipartHttpServletRequest, ModelAndView modelAndView) {
-        // 파일 업데이트 = 삭제 후 저장
-        // 파일 삭제
-        Object fileinfo = filesService.selectFiles(params);
-        List list = (ArrayList)fileinfo;
-        Map file = (Map) list.get(0);
-        Object physicalfile_name = file.get("PHYSICALFILE_NAME");
-        commonUtils.deleteFile(physicalfile_name);
-        filesService.deleteFile(params);
+        // // 파일 업데이트 = 삭제 후 저장
+        // // 파일 삭제
+        // Object fileinfo = filesService.selectFiles(params);
+        // List list = (ArrayList)fileinfo;
+        // Map file = (Map) list.get(0);
+        // Object physicalfile_name = file.get("PHYSICALFILE_NAME");
+        // commonUtils.deleteFile(physicalfile_name);
+        // filesService.deleteFile(params);
         
-        // 파일 저장
+        // // 파일 저장
         String COORDINATION_ID= (String) params.get("COORDINATION_ID");
-        params.put("COMMON_CODE_ID", params.get("COORDINATION_ID"));
-        List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
-        params.put("attachFiles", attachFiles);
-        Object result = filesService.insertFile(params);
+        int fileCount = Integer.parseInt((String)params.get("fileCount"));
+        List ORGINALFILE_NAME = new ArrayList<>();
+        List ATTACHFILE_SEQ = new ArrayList<>();
+        String PHYSICALFILE_NAME =null;
+        String isAdded = "";
+        if(params.get("ISADDED")!=null) {
+            isAdded = (String)params.get("ISADDED");
+        }
+        for(int i=0; i<=fileCount ; i++) {
+            PHYSICALFILE_NAME = (String)params.get("PHYSICALFILE_NAME["+i+"]");
+            ORGINALFILE_NAME.add(params.get("ORGINALFILE_NAME["+i+"]"));
+            if(params.get("ATTACHFILE_SEQ["+i+"]")!=null) {
+                ATTACHFILE_SEQ.add(params.get("ATTACHFILE_SEQ["+i+"]"));
+            }
+        }
+        if(PHYSICALFILE_NAME==null && ORGINALFILE_NAME==null) { //새로 업로드
+        }
+        ORGINALFILE_NAME = commonUtils.updateFiles(multipartHttpServletRequest, PHYSICALFILE_NAME, ORGINALFILE_NAME);
+        for(int i=0; i<ORGINALFILE_NAME.size() ; i++) {
+                params.put("ATTACHFILE_SEQ", ATTACHFILE_SEQ.get(i));
+                params.put("PHYSICALFILE_NAME", PHYSICALFILE_NAME);
+                params.put("ORGINALFILE_NAME", ORGINALFILE_NAME.get(i));
+                filesService.updateFile(params);
+        }
+        // 파일 인서트
+        Map attachFile;
+        List attachfiles = new ArrayList<>();
+        if(isAdded.equals("true")){
+            for(int i=0; i<ORGINALFILE_NAME.size(); i++) {
+                attachFile = new HashMap<>();
+                attachFile.put("ATTACHFILE_SEQ", commonUtils.makeUuid());
+                attachFile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID"));
+                attachFile.put("ORGINALFILE_NAME", ORGINALFILE_NAME.get(i));
+                attachFile.put("PHYSICALFILE_NAME", PHYSICALFILE_NAME);
+                attachFile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
+                attachFile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
+                
+                attachfiles.add(attachFile);
+            }
+            filesService.insertFile(attachfiles);
+        } // insert
+        // params.put("COMMON_CODE_ID", params.get("COORDINATION_ID"));
+        // List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
+        // params.put("attachFiles", attachFiles);
+        // Object result = filesService.insertFile(params);
+
 
         //코디게시판 업데이트
-        result = coordinationService.updateCordAndGetList(params);
-        // Object files = filesService.selectFiles(params);
-        // Object comments= coordinationService.getCommentList(params);
-        // Object commentCount= coordinationService.getCommentCount(params);
+        Object result = coordinationService.updateCordAndGetList(params);
+        Object files = filesService.selectFiles(params);
+        Object comments= coordinationService.getCommentList(params);
+        Object commentCount= coordinationService.getCommentCount(params);
 
-        // modelAndView.addObject("files", files);
-        // modelAndView.addObject("resultMap", result);
-        // modelAndView.addObject("commentCount", commentCount);
-        // modelAndView.addObject("comments", comments);
+        modelAndView.addObject("files", files);
+        modelAndView.addObject("resultMap", result);
+        modelAndView.addObject("commentCount", commentCount);
+        modelAndView.addObject("comments", comments);
         modelAndView.addObject("destination", "/coordination/view");
         modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");
