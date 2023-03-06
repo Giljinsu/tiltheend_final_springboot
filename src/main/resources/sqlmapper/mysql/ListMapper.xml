@@ -110,7 +110,7 @@
         parameterType="Map">
         UPDATE QNA
         SET STATUS='답변완료'
-        WHERE POST_NO_QNA=#{POST_NO_QNA}
+        WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
     </update>
 
 

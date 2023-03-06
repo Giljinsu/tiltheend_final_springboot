@@ -58,7 +58,6 @@
           <input type="hidden" name="USER_UID" value="U0001"> 
           <%-- ----- --%>
           <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}">
-          <input type="hidden" name="UID" value="${data.POST_NO_QNA}">
           <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
           <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
         </form>
