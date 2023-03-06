@@ -31,7 +31,7 @@
               <tr>
                 <th class="col-1 text-center align-self-center">제목</th>
                 <td class="col-5">
-                  <input type="text" name="TITLE" style="width:100%">
+                  <input type="text" name="TITLE" style="width:100%" required>
                 </td>
                 <th class="col-1 text-center">구분</th>
                 <td class="col-5">
@@ -59,7 +59,7 @@
           <div class="" style="overflow:auto; height: 20rem;">
             <div style="height:85%"> 
               <div id="editor"  class="form-control"></div>
-              <input type="hidden" name="CONTENT" id="qnacontent" />
+              <input type="hidden" name="CONTENT" id="qnacontent" required/>
               <%-- <textarea class="form-control" name="coordination_content" id="" rows="10" placeholder="내용 작성"></textarea> --%>
             </div>
           </div>
