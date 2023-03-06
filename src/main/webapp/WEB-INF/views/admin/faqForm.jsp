@@ -38,7 +38,7 @@
               <tr>
                 <th class="col-1 text-center align-self-center">제목</th>
                 <td class="col-5">
-                  <input type="text" name="TITLE" style="width:100%" value="${resultMap.TITLE}" required>
+                  <input type="text" name="TITLE" style="width:100%" required value="${resultMap.TITLE}">
                 </td>
                 <th class="col-1 text-center">구분</th>
                 <td class="col-5">
