@@ -77,7 +77,7 @@
 				<div id="right-column">
 					<div class="pt-4 pb-4">상품 > 전체</div>
 
-					<div class="fs-5 mb-3">베스트 상품 리스트</div>
+					<div class="fs-5 mb-3">베스트 상품 리스트(test)</div>
 					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
 						<!-- Indicators -->
 						<ol class="carousel-indicators">
