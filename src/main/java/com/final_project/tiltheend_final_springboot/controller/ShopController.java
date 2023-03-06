@@ -25,7 +25,6 @@ public class ShopController {
     modelAndView.addObject("resultMap", resultMap);
     modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
     modelAndView.setViewName("/shop/shop");
-    System.out.println("logging test");
     return modelAndView;
   }
 }

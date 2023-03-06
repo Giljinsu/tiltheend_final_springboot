@@ -69,7 +69,7 @@
 					<div><a href="">세일중</a></div>
 					<div><a href="">상의</a></div>
 					<div><a href="">아우터</a></div>
-					<div><a href="">바지</a></div>
+					<div><a href="">바지</a></div> 
 					<div><a href="">신발</a></div>
 					<div><a href="">모자</a></div>
 					<div><a href="">가방</a></div>
