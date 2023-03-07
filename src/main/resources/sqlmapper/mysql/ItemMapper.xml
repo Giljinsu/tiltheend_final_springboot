@@ -5,8 +5,14 @@
     
     <select id="selectitemwithuid" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM PRODUCT
-        WHERE PRODUCT_ID = #{PRODUCT_ID}
+        SELECT * FROM PRODUCT A JOIN REVIEW B
+        WHERE A.PRODUCT_ID = B.PRODUCT_ID AND A.PRODUCT_ID = #{PRODUCT_ID}
+    </select>
+
+    <select id="selectreview" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM REVIEW
+        WHERE PRODUCT_ID = #{PRODUCT_ID} AND RATE = #{RATE}
     </select>
 
 </mapper>

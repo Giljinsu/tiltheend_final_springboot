@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -97,12 +99,12 @@
               <!-- 가격정보 -->
               <div id="price-info" class="col-5">
                 <div id="item-info">
-                  <div id="name">${resultMap.CLOTHES_NAME}</div>
+                  <div id="name">${resultMap[0].CLOTHES_NAME}</div>
                   <div id="item-code">
-                    <span style="font-size: 12px; color: gray">${resultMap.PRODUCT_ID}</span>
+                    <span style="font-size: 12px; color: gray">${resultMap[0].PRODUCT_ID}</span>
                   </div>
                   <div id="item-price">
-                    <span>${resultMap.PRICE}원</span>
+                    <span>${resultMap[0].PRICE}원</span>
                   </div>
                   <div id="item-size">
                     <table border="0">
@@ -112,13 +114,13 @@
                           <select name="" id="">
                             <option value="*">--- [필수] 사이즈를 선택해 주세요 ---</option>
                             <option value="**" disabled>------------------</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                            <option value="27">27</option>
-                            <option value="28">28</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
+                            <option value="24" name="SIZE">24</option>
+                            <option value="25" name="SIZE">25</option>
+                            <option value="26" name="SIZE">26</option>
+                            <option value="27" name="SIZE">27</option>
+                            <option value="28" name="SIZE">28</option>
+                            <option value="29" name="SIZE">29</option>
+                            <option value="30" name="SIZE">30</option>
                           </select>
                         </td>
                       </tr>
@@ -128,11 +130,13 @@
                 <hr />
                 <div id="total-price" class="d-flex justify-content-between">
                   <strong>총상품금액</strong>
-                  <span>0</span>
+                  <span>${resultMap[0].PRICE}원</span>
                 </div>
-                <div id="buttons" class="d-flex justify-content-center">
-                  <div class="btn btn-outline-dark" id="add2cart" style="margin-right: 5px">카트에 담기</div>
-                  <div class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</div>
+                <div id="buttons">
+                  <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post" class="d-flex justify-content-center">
+                    <div class="btn btn-outline-dark" id="add2cart" >카트에 담기</div>
+                    <div class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -145,8 +149,15 @@
             <hr />
             <div id="review-rate">
               <!-- review -->
+              <c:set var="reviews" value="${resultMap}"/>
+                <c:set var="rate_5" value="${review_5}"/>
+                <c:set var="rate_4" value="${review_4}"/>
+                <c:set var="rate_3" value="${review_3}"/>
+                <c:set var="rate_2" value="${review_2}"/>
+                <c:set var="rate_1" value="${review_1}"/>
+                <c:set var="count" value="${fn:length(reviews)}"/>
               <div class="row row-cols-2">
-                <div style="width: 80%; padding-left: 30px">REVIEW (2)</div>
+                <div style="width: 80%; padding-left: 30px">REVIEW (${fn:length(reviews)})</div>
                 <div style="width: 20%; text-align: right; padding-right: 30px">
                   <!-- <a href="./review.html" style="color: black; text-decoration: none">전체 리뷰 보기</a> -->
                 </div>
@@ -157,22 +168,22 @@
                 <div style="text-align: center">
                   <div>
                     <img src="/refer/review/star.png" alt="" id="star" />
-                    <span style="font-size: 40px">4.5</span>
+                    <span style="font-size: 40px">2</span>
                   </div>
-                  <div style="font-weight: 700"><span>2</span>명의 고객님이 리뷰를 남겼습니다.</div>
+                  <div style="font-weight: 700"><span>${fn:length(reviews)}</span>명의 고객님이 리뷰를 남겼습니다.</div>
                 </div>
                 <div>
                   <div class="row row-cols-2">
-                    <div class="rate" style="width: 25%">아주 좋아요 (1)</div>
-                    <progress class="progressbar" value="1" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">맘에 들어요 (1)</div>
-                    <progress class="progressbar" value="1" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">보통이에요 (0)</div>
-                    <progress class="progressbar" value="0" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">그냥 그래요 (0)</div>
-                    <progress class="progressbar" value="0" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">별로에요 (0)</div>
-                    <progress class="progressbar" value="0" max="2" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">아주 좋아요 (${fn:length(rate_5)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_5)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">맘에 들어요 (${fn:length(rate_4)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_4)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">보통이에요 (${fn:length(rate_3)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_3)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">그냥 그래요 (${fn:length(rate_2)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_2)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">별로에요 (${fn:length(rate_1)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_1)}" max="${count}" style="width: 75%"></progress>
                   </div>
                 </div>
               </div>
