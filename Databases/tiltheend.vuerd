@@ -160,13 +160,36 @@
               "widthDataType": 94.94873046875,
               "widthDefault": 60
             }
+          },
+          {
+            "name": "DATE",
+            "comment": "입력 날짜",
+            "dataType": "VARCHAR(100)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 94.94873046875,
+              "widthDefault": 60
+            },
+            "id": "47fa3bf0-1505-42f2-b922-ea8425453b98"
           }
         ],
         "ui": {
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 21,
+          "zIndex": 26,
           "widthName": 60,
           "widthComment": 60
         },
@@ -2626,7 +2649,7 @@
             "d8e663a8-c39f-4151-8baf-50414029a888"
           ],
           "x": 1753.11586015625,
-          "y": 1565.1569,
+          "y": 1501.7819,
           "direction": "right"
         },
         "end": {
@@ -2635,7 +2658,7 @@
             "0f0b2466-286f-49ad-9043-e8111838009c"
           ],
           "x": 2212.479,
-          "y": 1309.3734,
+          "y": 1314.4984,
           "direction": "left"
         },
         "constraintName": "fk_user_to_review",
@@ -2739,7 +2762,7 @@
             "4ee458ab-5b24-4ced-bac0-410a10311970"
           ],
           "x": 2212.479,
-          "y": 1395.1234,
+          "y": 1410.4984,
           "direction": "left"
         },
         "constraintName": "fk_product_to_review",
@@ -2860,7 +2883,7 @@
             "d8e663a8-c39f-4151-8baf-50414029a888"
           ],
           "x": 1753.11586015625,
-          "y": 1501.7819,
+          "y": 1565.1569,
           "direction": "right"
         },
         "end": {
