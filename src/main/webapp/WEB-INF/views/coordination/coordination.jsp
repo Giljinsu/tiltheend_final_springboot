@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +22,7 @@
 <body>
 <%@ include file="../header.jsp" %>
     <c:set  var="item" value="${resultMap}"/>
-  
+    <sec:authentication property="principal" var="userDetailsBean" />
     <main style="margin-top: 8rem">
       <div class="coordination">
         <div class="row">
@@ -83,6 +84,15 @@
                 </div>
               </div>
               <%-- 수정 삭제 --%>
+              <%-- <c:choose>
+                <c:when test="${empty userDetailsBean}">
+
+                </c:when>
+                <c:otherwise>
+                </c:otherwise>
+              <c:choose> --%>
+              <%-- 테스트용 --%>
+              <c:if test="${item.UID eq userDetailsBean.UID}">
               <div class="d-flex justify-content-end mt-3">
                 <form action="/coordination/edit" method="post">
                 <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
@@ -95,6 +105,7 @@
                   <button class="btn border">삭제</button>
                 </form>
               </div>
+              </c:if>
           </div>
           </div>
         </div>
@@ -134,6 +145,11 @@
             <div style="margin-bottom: 0.5rem;">
               ${comment.USERNAME}
               <span style="font-size: 0.7rem;">(${comment.DATE})</span>
+              <c:if test="${comment.UID eq userDetailsBean.UID }">
+              <span>
+                <button class="btn" style="font-size:0.8rem;">삭제</button>
+              </span>
+              </c:if>
             </div>
             <div>
               ${comment.CONTENT}
@@ -146,7 +162,7 @@
         <div class="" style="height: 3rem; margin-bottom: 2rem;">
         <form class="w-100 d-flex" action="/coordination/comment" method="post">
           <%-- 하드 코딩 --%>
-          <input type="hidden" name="UID" value="U0003"> 
+          <input type="hidden" name="UID" value="${userDetailsBean.UID}"> 
           <%-- ----- --%>
           <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
           <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}"> 

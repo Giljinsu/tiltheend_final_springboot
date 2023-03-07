@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,6 +21,7 @@
   </head>
   <body>
   <%@ include file="../header.jsp" %>
+  <sec:authentication property="principal" var="userDetailsBean" />
     <c:set var="form_action" value="update"/>
     <c:if test="${empty resultMap}">
     <c:set var="form_action" value="save"/>
@@ -35,7 +37,7 @@
       <input type="hidden" name="COORDINATION_ID" value="${resultMap.COORDINATION_ID}">
       <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${resultMap.COORDINATION_ID}">
       <input type="hidden" name="PRODUCT_ID" value="PROD_1">
-      <input type="hidden" name="UID" value="U0001">
+      <input type="hidden" name="UID" value="${userDetailsBean.UID}">
       <input type="hidden" name="VIEWS" value="1">
       <input type="hidden" name="LIKES" value="2">
       <div id="isadded"></div>

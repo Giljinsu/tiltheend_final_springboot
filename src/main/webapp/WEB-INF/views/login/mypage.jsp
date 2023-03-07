@@ -60,6 +60,7 @@
           <div><a href="#">구매내역</a></div>
           <div><a href="#">개인정보수정</a></div>
           <div><a href="/login/wishListPage">위시리스트</a></div>
+          <div><a href="/logout">로그아웃</a></div>
         </div>
         <div id="right-column" class="">
           <div class="fs-5 mb-3">구매내역</div>

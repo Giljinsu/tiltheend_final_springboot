@@ -10,4 +10,16 @@ public class LoginService {
     @Autowired
     CommonDao commonDao;
 
+    public Object signUp(Object dataMap) {
+        String sqlMapper = "login.signup";
+        Object result =commonDao.insert(sqlMapper, dataMap);
+        return result;
+    }
+    
+    // public Object login(Object dataMap) {
+    //     String sqlMapper = "login.getOne";
+    //     Object result =commonDao.selectOne(sqlMapper, dataMap);
+    //     return result;
+    // }
+
 }
