@@ -136,53 +136,7 @@
         </c:forEach>
       </div>
 
-      <!-- 코디 게시판 -->
-      <div class="fs-3 mt-5 mb-3">
-        코디
-        <a href="/coordination/list" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
-      </div>
-      <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
-        <a href="/coordination/coordination" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/coordination/model1.jpg" class="card-image" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명(링크걸림)</div>
-              <div class="card-text">의류명</div>
-              <div class="card-text fs-6">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/coordination/model2.jpg" class="card-image" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명2</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/coordination/model3.jpg" class="card-image" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명2</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/coordination/model2.jpg" class="card-image" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명2</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a>
-      </div>
+      
 
     </main>
 
