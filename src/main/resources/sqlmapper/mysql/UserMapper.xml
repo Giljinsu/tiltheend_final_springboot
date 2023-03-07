@@ -4,14 +4,14 @@
 <mapper namespace="user">
     <select id="selectOne" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM user
+        SELECT * FROM USER
         WHERE UID = #{UID}
         ;
     </select>
 
     <select id="selectAll" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM user
+        SELECT * FROM USER
         WHERE UID = #{UID}
         ;
     </select>
