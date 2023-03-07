@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +17,7 @@
     <link rel="stylesheet" href="/css/header.css" />
   </head>
   <body>
+  <sec:authentication property="principal" var="userDetailsBean" />
     <header class="fixed-top bg-white border-bottom">
       <nav class="navbar navbar-expand">
         <div class="d-flex align-items-center">
@@ -38,13 +41,27 @@
                 <a href="/list/announcement" class="nav-link fs-5 text-dark">공지사항</a>
               </div>
               <div class="navbar-nav">
-                <form action="/myPage/purchaselist" class="nav-link me-3 fs-5 " method="post">
-                  <%-- 하드코딩 --%>
-                  <input type="hidden" name="UID" value="U0001">
-                  <button class="btn d-flex align-items-center">
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                </form>
+              <%-- 로그인 된상태 --%>
+                <sec:authorize access="isAuthenticated()">
+                  <form action="/myPage/purchaselist" class="nav-link me-3 fs-5 " method="post">
+                    <%-- 하드코딩 --%>
+                    <input type="hidden" name="UID" value="${userDetailsBean.UID}">
+                    <%-- <input type="hidden" name="UID" value="U0001"> --%>
+                    <button class="btn d-flex align-items-center">
+                      <span class="material-symbols-outlined">person</span>
+                     </button>
+                  </form>
+                 </sec:authorize>
+                 <%-- 로그인 안되어있는 상태 --%>
+                <sec:authorize access="isAnonymous()">
+                  <form action="/login/loginForm" class="nav-link me-3 fs-5 " method="post">
+                    <%-- 하드코딩 --%>
+                    <%-- <input type="hidden" name="UID" value="U0001"> --%>
+                    <button class="btn d-flex align-items-center">
+                      <span class="material-symbols-outlined">person</span>
+                    </button>
+                  </form>
+                </sec:authorize>
                 <%-- <a href="/login/login" class="nav-link me-4 fs-5 d-flex align-items-center">
                   <span class="material-symbols-outlined">person</span>
                 </a> --%>

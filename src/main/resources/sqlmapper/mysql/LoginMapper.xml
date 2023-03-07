@@ -2,5 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="login">
-    
+    <select id="getOne" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM user
+        WHERE ID = #{ID}
+        ;
+    </select>
+
+    <insert id="signup" parameterType="Map">
+    INSERT INTO USER
+    (UID, ID, PW, EMAIL, USERNAME, SEX, PHONENUMBER, BIRTH_YEAR, ROLE)  
+    VALUES
+    (#{UID}, #{ID}, #{PW}, #{EMAIL}, #{USERNAME}, #{SEX}, #{PHONENUMBER}, #{BIRTH_YEAR}, #{ROLE})
+    ;
+    </insert>
 </mapper>

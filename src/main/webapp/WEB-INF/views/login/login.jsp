@@ -46,12 +46,12 @@
     <main style="height:500px;margin-top:320px;">
       <div class="container" style="margin-top:100px"></div>
       <div class="container">
-        <form action="/login/login" method="POST">
+        <form action="/login" method="POST">
           <div class="d-flex justify-content-center">
-            <input name="id" class="w-25 p-2" type="text" placeholder="ID">
+            <input id="username" name="username" class="w-25 p-2" type="text" placeholder="ID">
           </div>
           <div class="d-flex justify-content-center">
-            <input name="pw" class="w-25 p-2" type="password" placeholder="PW">
+            <input name="password" class="w-25 p-2" type="password" placeholder="PW">
           </div>
           <div class="d-flex justify-content-center">
             <button class="w-25 mt-3 btn btn-dark rounded-pill">LOGIN</button>

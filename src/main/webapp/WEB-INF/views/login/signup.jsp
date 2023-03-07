@@ -47,43 +47,46 @@
       <div></div>
       <div class="container">
         <div class="fs-4 text-center mt-5 mb-4">Join Us!</div>
-        <form class="form-group d-flex justify-content-center mb-5" action="">
+        <form class="form-group d-flex justify-content-center mb-5" action="/login/join" method="post">
           <table class="table w-50 fs-6 font-weight-bold">
             <tr>
               <td>이름</td>
-              <td><input id="name" class="form-control" type="text"></td>
+              <td><input id="name" name="USERNAME" class="form-control" type="text"></td>
             </tr>
             <tr>
               <td>태어난 연도</td>
-              <td><input id="birthYear" class="form-control" type="text"></td>
+              <td><input id="birthYear" name="BIRTH_YEAR" class="form-control" type="text"></td>
             </tr>
             <tr>
               <td>성별</td>
-              <td><select name="sex" id="">
+              <td><select name="SEX" id="">
                 <option value="male">---</option>
-                <option value="male">남자</option>
-                <option value="female">여자</option>
+                <option value="남">남자</option>
+                <option value="여">여자</option>
               </select></td>
             </tr>
             <tr>
               <td>전화번호</td>
-              <td><input class="form-control" type="text"></td>
+              <td><input class="form-control" name="PHONENUMBER" type="text"></td>
             </tr>
             <tr>
               <td>이메일</td>
-              <td><input class="form-control" type="text" placeholder="tom@gmail.com"></td>
+              <td><input class="form-control" name="EMAIL" type="text" placeholder="tom@gmail.com"></td>
             </tr>
             <tr>
               <td>ID</td>
+                <form></form>
               <td class="d-flex justify-content-start">
-                <input class="form-control mb-2 w-75" type="text">
+                <input class="form-control mb-2 w-75" name="ID" type="text">
                 <div class="">&nbsp;</div>
-                <button class="btn h-50 btn-dark w-25">중복확인</button>
+                <form action="" class="h-50 w-25">
+                <button class="btn btn-dark">중복확인</button>
+                </form>
               </td>
             </tr>
             <tr>
               <td>PW</td>
-              <td><input class="form-control" type="password"></td>
+              <td><input class="form-control" name="PW" type="password"></td>
             </tr>
             <tr>
               <td colspan="2" class="text-center">
