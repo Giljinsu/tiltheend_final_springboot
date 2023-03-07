@@ -95,11 +95,13 @@ public class CoordinationController {
         // commonUtils.deleteFile(physicalfile_name);
         // filesService.deleteFile(params);
         
-        // // 파일 저장
+        // // 파일 업데이트
         String COORDINATION_ID= (String) params.get("COORDINATION_ID");
         int fileCount = Integer.parseInt((String)params.get("fileCount"));
         List ORGINALFILE_NAME = new ArrayList<>();
         List ATTACHFILE_SEQ = new ArrayList<>();
+        List del_ATTACHFILE_SEQ = new ArrayList<>();
+        List FILE_ORDER = new ArrayList<>();
         String PHYSICALFILE_NAME =(String)params.get("PHYSICALFILE_NAME");
         String isAdded = "";
         if(params.get("ISADDED")!=null) {
@@ -110,6 +112,10 @@ public class CoordinationController {
             ORGINALFILE_NAME.add(params.get("ORGINALFILE_NAME["+i+"]"));
             if(params.get("ATTACHFILE_SEQ["+i+"]")!=null) {
                 ATTACHFILE_SEQ.add(params.get("ATTACHFILE_SEQ["+i+"]"));
+            }
+            if(params.get("delete_ATTACHFILE_SEQ["+i+"]")!=null) {
+                del_ATTACHFILE_SEQ.add(params.get("delete_ATTACHFILE_SEQ["+i+"]"));
+                FILE_ORDER.add(params.get("FILE_ORDER["+i+"]"));
             }
         }
         if(PHYSICALFILE_NAME==null && ORGINALFILE_NAME==null) { //새로 업로드
@@ -123,9 +129,20 @@ public class CoordinationController {
                     filesService.updateFile(params);
             }
         }
+
+        // 파일 삭제
+        // List del_ATTACHFILE_SEQ = new ArrayList<>();
+        for(int i=0; i<del_ATTACHFILE_SEQ.size();i++) {
+            params.put("delete_ATTACHFILE_SEQ", del_ATTACHFILE_SEQ.get(i));
+            params.put("FILE_ORDER", FILE_ORDER.get(i));
+            filesService.deleteFileOne(params);
+        }
+
+
         // 파일 인서트
         Map attachFile;
         List attachfiles = new ArrayList<>();
+        int fileOrder=fileCount+1;
         if(isAdded.equals("true")){
             for(int i=0; i<ORGINALFILE_NAME.size()-ATTACHFILE_SEQ.size(); i++) {
                 attachFile = new HashMap<>();
@@ -135,7 +152,7 @@ public class CoordinationController {
                 attachFile.put("PHYSICALFILE_NAME", PHYSICALFILE_NAME);
                 attachFile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
                 attachFile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
-                
+                attachFile.put("FILE_ORDER", ++fileOrder);
                 attachfiles.add(attachFile);
             }
             params.put("attachFiles", attachfiles);
@@ -157,7 +174,7 @@ public class CoordinationController {
         modelAndView.addObject("resultMap", result);
         modelAndView.addObject("commentCount", commentCount);
         modelAndView.addObject("comments", comments);
-        modelAndView.addObject("destination", "/coordination/list");
+        modelAndView.addObject("destination", "/coordination/view");
         modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");
         return modelAndView;

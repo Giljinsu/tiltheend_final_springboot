@@ -24,10 +24,19 @@
     <update id="update" 
         parameterType="Map">
         UPDATE CIP_ATTACHFILE
-        SET ORGINALFILE_NAME=#{ORGINALFILE_NAME}, MODIFIER_SEQ = SYSDATE()
+        SET ORGINALFILE_NAME=#{ORGINALFILE_NAME}, MODIFY_DATE = SYSDATE()
         WHERE ATTACHFILE_SEQ=#{ATTACHFILE_SEQ}
         ;
     </update>
+
+    <update id="afterDeleteOne" 
+        parameterType="Map">
+        UPDATE CIP_ATTACHFILE 
+        SET FILE_ORDER = FILE_ORDER - 1 
+        WHERE FILE_ORDER &gt; #{FILE_ORDER}
+        ;
+    </update>
+
     <insert id="insert" 
         parameterType="Map">
         INSERT INTO CIP_ATTACHFILE
@@ -45,6 +54,12 @@
         parameterType="Map">
         DELETE FROM CIP_ATTACHFILE
         WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ}
+        ;
+    </delete>
+        <delete id="deleteOne" 
+        parameterType="Map">
+        DELETE FROM CIP_ATTACHFILE
+        WHERE ATTACHFILE_SEQ=#{delete_ATTACHFILE_SEQ}
         ;
     </delete>
 </mapper>

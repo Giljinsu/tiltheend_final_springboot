@@ -30,10 +30,21 @@ public class FilesService {
         Object result = commonDao.update(sqlMapId, dataMap);
         return result;
     }
+    public Object afterDeleteOne(Object dataMap) {
+        String sqlMapId = "files.afterDeleteOne";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
     
     public Object deleteFile(Object dataMap) {
         String sqlMapId = "files.delete";
         Object result = commonDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+    public Object deleteFileOne(Object dataMap) {
+        String sqlMapId = "files.deleteOne";
+        Object result = commonDao.delete(sqlMapId, dataMap);
+        result = this.afterDeleteOne(dataMap);
         return result;
     }
     public Object getList() {

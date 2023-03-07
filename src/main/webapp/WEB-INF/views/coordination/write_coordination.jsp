@@ -61,6 +61,7 @@
                             <label for="input_image_0" class="btn btn-secondary ">이미지 업로드</label>
                             <input type="file" style="display:none" onchange="setThumbnail(0);"  name="file_0"
                             accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_0" />
+                            <button class="btn btn-warning" id="delBtn0" onclick="deleteImage(${loop.index});" type="button" style="display:none;">삭제</button>
                           </div>
                         </div>
                     </div>
@@ -71,6 +72,7 @@
                 <input type="hidden" id="ATTACHFILE_SEQ${loop.index}" value="${file.ATTACHFILE_SEQ}">
                 <input type="hidden" name="PHYSICALFILE_NAME" value="${file.PHYSICALFILE_NAME}">
                 <input type="hidden" id="ORGINALFILE_NAME${loop.index}" value="${file.ORGINALFILE_NAME}">
+                <input type="hidden" id="FILE_ORDER${loop.index}" value="${file.FILE_ORDER}">
                     <div class="carousel-item ${loop.index == 0 ? 'active' : ''} w-100 h-100" id="carousel_id_${loop.index}">
                         <div class="w-100 h-100">
                             <img class="model-image" id="modelimg_${loop.index}" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}">
@@ -78,6 +80,7 @@
                               <label for="input_image_${loop.index}" class="btn btn-secondary ">이미지 업로드</label>
                               <input type="file" value="${file.ORGINALFILE_NAME}" style="display:none" onchange="setThumbnail(${loop.index});"  name="file_${loop.index}"
                               accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_${loop.index}" />
+                              <button class="btn btn-warning" id="delBtn${loop.index}" onclick="deleteImage(${loop.index});" type="button">삭제</button>
                           </div>
                         </div>
                     </div>
@@ -90,6 +93,7 @@
                               <label for="input_image_${loop.index+1}" class="btn btn-secondary ">이미지 업로드</label>
                               <input type="file" style="display:none" onchange="setThumbnail(${loop.index+1});"  name="file_${loop.index+1}"
                               accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_${loop.index+1}" />
+                              <button class="btn btn-warning" id="delBtn${loop.index+1}" onclick="deleteImage(${loop.index+1});" type="button" style="display:none;">삭제</button>
                           </div>
                         </div>
                     </div>
@@ -253,6 +257,10 @@
         }
         // =====
         reader.onload = function(event) {
+          //삭제버튼 나타내기
+          let delBtn = document.querySelector("#delBtn"+currentindex);
+          delBtn.style.display="inline-block"
+
           var img = document.querySelector("#modelimg_"+currentindex);
           let carousel_id = document.querySelector("#carousel_id_"+currentindex+"")
             img.setAttribute("src", event.target.result);
@@ -276,6 +284,7 @@
                             "<label for='input_image_"+currentindex+"' class='btn btn-secondary '>이미지 업로드</label>"+
                             "<input type='file' style='display:none' onchange='setThumbnail("+currentindex+");'  name='file_"+currentindex+"'"+
                             "accept='image/gif, image/jpg, image/png' class='form-control' id='input_image_"+currentindex+"' />"+
+                            "<button class='btn btn-warning' id='delBtn"+currentindex+"' onclick='deleteImage("+currentindex+");' type='button' style='display:none;'>삭제</button>"
                           "</div>"+
                         "</div>" +
                     "</div>";
@@ -289,6 +298,22 @@
 
         reader.readAsDataURL(event.target.files[0]);
       };
+
+      function deleteImage(currentindex) {
+        let coordinaiton_form = document.querySelector("#setOriginalNameAndPhysicalName"+currentindex);
+        let attachFileSeq = document.querySelector("#ATTACHFILE_SEQ"+currentindex);
+        let fileId = document.querySelector("#input_image_"+currentindex);
+        let delBtn = document.querySelector("#delBtn"+currentindex);
+        let file_Order = document.querySelector("#FILE_ORDER"+currentindex);
+
+        var img = document.querySelector("#modelimg_"+currentindex);
+        let carousel_id = document.querySelector("#carousel_id_"+currentindex+"");
+        img.setAttribute("src", "/files/default/default.png");
+        delBtn.style.display="none";
+        fileId.value="";
+        coordinaiton_form.innerHTML="<input type='hidden' name='delete_ATTACHFILE_SEQ["+currentindex+"]' value='"+attachFileSeq.value+"'>"+
+                                    "<input type='hidden' name='FILE_ORDER["+currentindex+"]' value='"+file_Order.value+"'>";
+      }
     </script>
   </body>
 </html>
