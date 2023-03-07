@@ -17,6 +17,7 @@
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/coordinationBoard.css">
   </head>
   <body>
     <%@ include file="header.jsp" %>
@@ -104,6 +105,36 @@
 							<span class="visually-hidden">Next</span>
 						</button>
 			</div>
+
+      <%-- 코디 게시판 갱신 --%>
+      <div class="fs-3 mt-5 mb-3">코디
+        <a href="/coordination/list" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
+      </div>
+      <c:set  var="item" value="${resultMap}"/>
+      <div class="row row-cols-1 row-cols-md-4">
+        <c:forEach items="${resultMap}" var="item" varStatus="loop">
+          <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
+          <form id="" action="/coordination/view" method="post">
+              <%-- 하드코딩 --%>
+              <input type="hidden" name="UID" value="U0003"> 
+
+              <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}">
+              <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">
+              <button class="btn btn_link col mb-3">
+              <%-- <a href="" onclick="document.getElementById('form_${loop.index}').submit();" class="col mb-3"> --%>
+                  <div class="card border-light h-100">
+                      <img src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" class="card-image" alt="">
+                      <div class="card-body text-start">
+                          <div class="card-title">${item.TITLE}</div>
+                          <div class="card-text">${item.USERNAME}</div>
+                          <div class="card-text-viewcount">조회수 : ${item.VIEWS} </div>
+                      </div>
+                  </div>
+              <%-- </a> --%>
+              </button>
+          </form>
+        </c:forEach>
+      </div>
 
       <!-- 코디 게시판 -->
       <div class="fs-3 mt-5 mb-3">
