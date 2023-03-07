@@ -18,6 +18,7 @@ public class PrincipalUser implements UserDetails {
     public Map getUserInfo() {
         return userInfo;
     }
+
     public String getUserName() {
         return userName;
     }

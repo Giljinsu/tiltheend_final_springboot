@@ -23,6 +23,7 @@ public class SecurityConfiguration {
             // .antMatchers("/manager/*").access("hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")
             // .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
             .antMatchers("/shoppingcart/list").authenticated()
+            .antMatchers("/coordination/view").authenticated()
             .antMatchers("/coordination/write_coordination").authenticated()
             .anyRequest().permitAll(); // 설정한 url 이외는 접근 가능
             

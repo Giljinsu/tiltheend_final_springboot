@@ -6,7 +6,8 @@
         parameterType="Map" resultType="Map">
         SELECT * 
         FROM COMMENT A, USER B
-        WHERE A.SOURCE_UNIQUE_SEQ = #{COORDINATION_ID} AND B.UID=#{UID}
+        WHERE A.SOURCE_UNIQUE_SEQ = #{COORDINATION_ID} 
+        AND B.UID=A.UID
         ORDER BY DATE;
     </select>
     <select id="selectcommentwithoutuser" 
