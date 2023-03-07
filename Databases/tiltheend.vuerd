@@ -119,7 +119,7 @@
             "id": "1e4331d2-5ab4-4806-85d0-21eca653cbd8",
             "name": "RATE",
             "comment": "별점",
-            "dataType": "INTEGER",
+            "dataType": "VARCHAR(100)",
             "default": "",
             "option": {
               "autoIncrement": false,
@@ -134,7 +134,7 @@
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
-              "widthDataType": 60,
+              "widthDataType": 94.94873046875,
               "widthDefault": 60
             }
           },
@@ -189,7 +189,7 @@
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 26,
+          "zIndex": 19,
           "widthName": 60,
           "widthComment": 60
         },
