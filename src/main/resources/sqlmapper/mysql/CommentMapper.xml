@@ -43,5 +43,10 @@
             DELETE FROM COMMENT
             WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ};
     </delete>
+    <delete id="deleteOne" 
+        parameterType="Map">
+            DELETE FROM COMMENT
+            WHERE COMMENT_UID=#{COMMENT_UID};
+    </delete>
 
 </mapper>

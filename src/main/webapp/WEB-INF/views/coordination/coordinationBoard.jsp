@@ -26,7 +26,7 @@
         <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
         <form id="" action="/coordination/view" method="post">
             <%-- 하드코딩 --%>
-            <input type="hidden" name="UID" value="U0003"> 
+            <%-- <input type="hidden" name="UID" value="U0003">  --%>
 
             <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}">
             <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">

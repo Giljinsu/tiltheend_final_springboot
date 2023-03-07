@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.final_project.tiltheend_final_springboot.service.CommentService;
 import com.final_project.tiltheend_final_springboot.service.CoordinationService;
 import com.final_project.tiltheend_final_springboot.service.FilesService;
 import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
@@ -21,6 +22,9 @@ import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 @Controller
 @RequestMapping(value = "/coordination")
 public class CoordinationController {
+
+    @Autowired
+    CommentService commentService;
 
     @Autowired
     CoordinationService coordinationService;
@@ -209,6 +213,21 @@ public class CoordinationController {
         String COMMENT_UID = commonUtils.makeUuid();
         params.put("COMMENT_UID", COMMENT_UID);
         Object result = coordinationService.insertCommentAndGetCordFileOne(params);
+        Object comments= coordinationService.getCommentList(params);
+        Object commentCount= coordinationService.getCommentCount(params);
+        Object files = filesService.selectFiles(params);
+        modelAndView.addObject("files", files);
+        modelAndView.addObject("commentCount", commentCount);
+        modelAndView.addObject("comments", comments);
+        modelAndView.addObject("resultMap", result);
+        modelAndView.setViewName("/coordination/coordination");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/deleteComment", method=RequestMethod.POST)
+    public ModelAndView deleteComment(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
+        commentService.deleteCommentOne(params);
+        Object result = coordinationService.selectCordOne(params);
         Object comments= coordinationService.getCommentList(params);
         Object commentCount= coordinationService.getCommentCount(params);
         Object files = filesService.selectFiles(params);

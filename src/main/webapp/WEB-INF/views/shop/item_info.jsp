@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,6 +54,7 @@
       </div>
     </div>
     <main style="margin-top: 60px">
+    <sec:authentication property="principal" var="userDetailsBean" />
       <div id="wrapper" style="width: 1200px; margin-left: auto; margin-right: auto" class="d-flex">
         <!-- 사이드바 -->
         <div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
@@ -98,46 +101,48 @@
               </div>
               <!-- 가격정보 -->
               <div id="price-info" class="col-5">
-                <div id="item-info">
-                  <div id="name">${resultMap[0].CLOTHES_NAME}</div>
-                  <div id="item-code">
-                    <span style="font-size: 12px; color: gray">${resultMap[0].PRODUCT_ID}</span>
+                <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post" class="d-flex justify-content-center">
+                  <div id="item-info">
+                    <div id="name">${resultMap[0].CLOTHES_NAME}</div>
+                    <div id="item-code">
+                      <span style="font-size: 12px; color: gray">${resultMap[0].PRODUCT_ID}</span>
+                    </div>
+                    <div id="item-price">
+                      <span><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</span>
+                    </div>
+                    <div id="item-size">
+                      <table border="0">
+                        <tr>
+                          <th scope="row" style="display: block">SIZE</th>
+                          <td style="display: block">
+                            <select name="" id="">
+                              <option value="*">--- [필수] 사이즈를 선택해 주세요 ---</option>
+                              <option value="**" disabled>------------------</option>
+                              <option value="24" name="SIZE">24</option>
+                              <option value="25" name="SIZE">25</option>
+                              <option value="26" name="SIZE">26</option>
+                              <option value="27" name="SIZE">27</option>
+                              <option value="28" name="SIZE">28</option>
+                              <option value="29" name="SIZE">29</option>
+                              <option value="30" name="SIZE">30</option>
+                            </select>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
                   </div>
-                  <div id="item-price">
-                    <span>${resultMap[0].PRICE}원</span>
+                  <hr />
+                  <div id="total-price" class="d-flex justify-content-between">
+                    <strong>총상품금액</strong>
+                    <span><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</span>
                   </div>
-                  <div id="item-size">
-                    <table border="0">
-                      <tr>
-                        <th scope="row" style="display: block">SIZE</th>
-                        <td style="display: block">
-                          <select name="" id="">
-                            <option value="*">--- [필수] 사이즈를 선택해 주세요 ---</option>
-                            <option value="**" disabled>------------------</option>
-                            <option value="24" name="SIZE">24</option>
-                            <option value="25" name="SIZE">25</option>
-                            <option value="26" name="SIZE">26</option>
-                            <option value="27" name="SIZE">27</option>
-                            <option value="28" name="SIZE">28</option>
-                            <option value="29" name="SIZE">29</option>
-                            <option value="30" name="SIZE">30</option>
-                          </select>
-                        </td>
-                      </tr>
-                    </table>
+                  <div id="buttons">
+                      <input type="hidden" name="PRODUCT_ID" value="${resultMap[0].PRODUCT_ID}">
+                      <input type="hidden" name="UID" value="${userDetailsBean.UID}">
+                      <button class="btn btn-outline-dark" id="add2cart" >카트에 담기</button>
+                      <button class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</button>
                   </div>
-                </div>
-                <hr />
-                <div id="total-price" class="d-flex justify-content-between">
-                  <strong>총상품금액</strong>
-                  <span>${resultMap[0].PRICE}원</span>
-                </div>
-                <div id="buttons">
-                  <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post" class="d-flex justify-content-center">
-                    <div class="btn btn-outline-dark" id="add2cart" >카트에 담기</div>
-                    <div class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</div>
-                  </form>
-                </div>
+                </form>
               </div>
             </div>
             <!-- 상세정보 -->
@@ -264,11 +269,11 @@
                         </c:when>
                       </c:choose>
                     </span> --%>
-                    <span style="color: gray; font-size: 7px; margin-left: 75%">2023.02.23</span>
+                    <span style="color: gray; font-size: 7px; margin-left: 70%">${resultMap.DATE}</span>
                   </div>
                   <div class="mt-3">${resultMap.REVIEW_CONTENT}</div>
                   <div style="justify-items: start" class="mt-3">
-                    <a href="#modal-img-1" data-bs-toggle="modal" style="display: inline-flex">
+                    <a href="#modal-img-${loop.index}" data-bs-toggle="modal" style="display: inline-flex">
                       <div class="card border-bold" style="width: 100px">
                         <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
                       </div>
@@ -282,30 +287,6 @@
                 </div>
               <hr />
               </c:forEach>
-              <div id="review2" class="mt-1 ms-3">
-                <div style="display: flex; align-items: center">
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span style="margin-left: 0.3rem">아주 좋아요</span>
-                  <span style="color: gray; font-size: 7px; margin-left: 75%">2023.01.31</span>
-                </div>
-                <div class="mt-3">리뷰 내용</div>
-                <div style="justify-items: start" class="mt-3">
-                  <a href="#modal-img-3" data-bs-toggle="modal" style="display: inline-flex">
-                    <div class="card border-bold" style="width: 100px">
-                      <img src="/refer/review/review3.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                    </div>
-                  </a>
-                  <a href="#modal-img-4" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
-                    <div class="card border-bold" style="width: 100px">
-                      <img src="/refer/review/review4.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                    </div>
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
