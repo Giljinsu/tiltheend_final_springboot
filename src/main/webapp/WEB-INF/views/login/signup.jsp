@@ -47,59 +47,82 @@
       <div></div>
       <div class="container">
         <div class="fs-4 text-center mt-5 mb-4">Join Us!</div>
-        <form class="form-group d-flex justify-content-center mb-5" action="/login/join" method="post">
+        <form class="form-group d-flex justify-content-center mb-5" onsubmit="return validateForm()" action="/login/join" method="post">
           <table class="table w-50 fs-6 font-weight-bold">
             <tr>
               <td>이름</td>
-              <td><input id="name" name="USERNAME" class="form-control" type="text"></td>
+              <td><input id="name" name="USERNAME" class="form-control" value="${currentInfo.nameValue}" type="text">
+              <div id="nameErr"></div>
+              </td>
             </tr>
             <tr>
-              <td>태어난 연도</td>
-              <td><input id="birthYear" name="BIRTH_YEAR" class="form-control" type="text"></td>
+              <td>생년월일</td>
+              <td><input id="birthYear" name="BIRTH_YEAR" value="${currentInfo.birthYearValue}" class="form-control" type="date">
+                <div id="birthYearErr"></div>
+              </td>
             </tr>
             <tr>
               <td>성별</td>
-              <td><select name="SEX" id="">
-                <option value="male">---</option>
-                <option value="남">남자</option>
-                <option value="여">여자</option>
-              </select></td>
+              <td><select name="SEX" id="sex">
+                <option value="">---</option>
+                <option value="남" ${currentInfo.sexValue eq "남" ? 'selected' : ""}>남자</option>
+                <option value="여" ${currentInfo.sexValue eq "여" ? 'selected' : ""}>여자</option>
+              </select>
+              <div id="sexErr"></div>
+              </td>
             </tr>
             <tr>
               <td>전화번호</td>
-              <td><input class="form-control" name="PHONENUMBER" type="text"></td>
+              <td class="">
+                <input class="" value="${currentInfo.phonenumber0Value}" style="width:5rem;" name="PHONENUMBER0" id="phonenumber0" type="text"> -
+                <input class="" value="${currentInfo.phonenumber1Value}" style="width:8rem;" name="PHONENUMBER1" id="phonenumber1" type="text"> -
+                <input class="" value="${currentInfo.phonenumber2Value}" style="width:8rem;" name="PHONENUMBER2" id="phonenumber2" type="text">
+                <div id="phonenumberErr"></div>
+              </td>
             </tr>
             <tr>
               <td>이메일</td>
-              <td><input class="form-control" name="EMAIL" type="text" placeholder="tom@gmail.com"></td>
+              <td><input class="form-control" value="${currentInfo.emailValue}" name="EMAIL" id="email" type="text" placeholder="tom@gmail.com">
+              <div id="emailErr"></div>
+              </td>
             </tr>
             <tr>
               <td>ID</td>
                 <form></form>
-              <td class="d-flex justify-content-start">
-                <input class="form-control mb-2 w-75" name="ID" type="text">
+              <td class="">
+                <div class="d-flex justify-content-start">
+                <input class="form-control mb-2 w-75" value="${currentInfo.idValue}" id="id" name="ID" type="text">
                 <div class="">&nbsp;</div>
-                <form action="" class="h-50 w-25">
-                <button class="btn btn-dark">중복확인</button>
+                <form id="idCheckForm" action="/login/checkingid" class="h-50 w-25">
+                <div id="addHiddenInput"></div>
+                <button class="btn btn-dark" onclick="checkId()" type="button">중복확인</button>
                 </form>
+                </div>
+                <div id="idErr" class="d-block" style="color:red;">
+                ${idcheck}
+                <input type="hidden" id="idcheck" value="${idcheck}">
+                </div>
               </td>
             </tr>
             <tr>
               <td>PW</td>
-              <td><input class="form-control" name="PW" type="password"></td>
+              <td><input class="form-control" value="${currentInfo.pwValue}" id="pw" name="PW" type="password">
+              <div id="pwErr"></div>
+              </td>
             </tr>
             <tr>
               <td colspan="2" class="text-center">
-                <button class="btn btn-dark">회원가입</button>
+                <button class="btn btn-dark" >회원가입</button>
               </td>
             </tr>
           </table>
         </form>
-        
+        <script></script>
       </div>
     </main>
 
     <%@ include file="../footer.jsp" %>
+    <script src="/js/join.js">
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

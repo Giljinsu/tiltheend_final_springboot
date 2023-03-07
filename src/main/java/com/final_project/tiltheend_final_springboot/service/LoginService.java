@@ -16,6 +16,12 @@ public class LoginService {
         return result;
     }
     
+    public Object getIds(Object dataMap) {
+        String sqlMapper = "login.selectIds";
+        Object result =commonDao.selectList(sqlMapper, dataMap);
+        return result;
+    }
+    
     // public Object login(Object dataMap) {
     //     String sqlMapper = "login.getOne";
     //     Object result =commonDao.selectOne(sqlMapper, dataMap);

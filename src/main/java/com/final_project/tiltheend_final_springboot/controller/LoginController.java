@@ -1,5 +1,8 @@
 package com.final_project.tiltheend_final_springboot.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +44,8 @@ public class LoginController {
     @RequestMapping(value = "/signup", method=RequestMethod.GET)
     public ModelAndView signupPage(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
         String path = "/login/signup";
+        Object idList = loginService.getIds(path);
+        modelAndView.addObject("idList", idList);
         modelAndView.setViewName(path);
         return modelAndView;
     }
@@ -55,6 +60,27 @@ public class LoginController {
         params.put("PW", bCryptPasswordEncoder.encode(PW));
         loginService.signUp(params);
         String path = "/login/login";
+        modelAndView.setViewName(path);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/checkingid", method=RequestMethod.GET)
+    public ModelAndView checkingid(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
+        String path = "/login/signup";
+        List idList = (ArrayList)loginService.getIds(path);
+        for(int i=0; i<idList.size(); i++) {
+            Map idListMap = (HashMap)idList.get(i);
+            String dbId = (String)idListMap.get("ID"); 
+            String currentId = (String)params.get("idValue");
+            if(dbId.equals(currentId)) {
+                modelAndView.addObject("currentInfo", params);
+                modelAndView.addObject("idcheck","아이디 중복입니다.");
+                modelAndView.setViewName(path);
+                return modelAndView;
+            }
+        }
+        modelAndView.addObject("currentInfo", params);
+        modelAndView.addObject("idcheck","사용가능한 ID입니다.");
         modelAndView.setViewName(path);
         return modelAndView;
     }

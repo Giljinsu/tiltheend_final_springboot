@@ -9,6 +9,13 @@
         ;
     </select>
 
+    <select id="selectIds" 
+        parameterType="Map" resultType="Map">
+        SELECT ID 
+        FROM user
+        ;
+    </select>
+
     <insert id="signup" parameterType="Map">
     INSERT INTO USER
     (UID, ID, PW, EMAIL, USERNAME, SEX, PHONENUMBER, BIRTH_YEAR, ROLE)  
