@@ -49,7 +49,9 @@
       </div>
 
       <%-- 새로 삽입하는 Top Ranking --%>
-      <div class="fs-3 mt-5 mb-3">Top Ranking</div>
+      <div class="fs-3 mt-5 mb-3">Top Ranking
+        <a href="/shop/shop" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>      
+      </div>
 					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
 						<!-- Indicators -->
 						<ol class="carousel-indicators">
