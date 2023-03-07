@@ -50,7 +50,7 @@ public class ItemController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/cart/{UID}", method = RequestMethod.GET)
+    @RequestMapping(value = "/cart/{UID}", method = RequestMethod.POST)
     public ModelAndView toCart(@RequestParam Map<String, Object> params, @PathVariable String UID,
             ModelAndView modelAndView) {
         params.put("SHOPPINGCART_ID", commonUtils.makeUuid());
