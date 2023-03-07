@@ -88,7 +88,7 @@ function validateForm() {
         return true;
     }
     idErr.innerHTML="아이디 중복체크해주세요!";
-    
+    return false;
 }
 
 function checkId() {
