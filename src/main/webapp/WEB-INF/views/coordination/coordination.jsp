@@ -144,15 +144,18 @@
           <h5 style="">댓글 : ${commentCount.COUNT}개</h5>
           <c:forEach items="${comments}" var="comment">
           <div class="comment">
-            <div style="margin-bottom: 0.5rem;">
-              ${comment.USERNAME}
+            <div style="margin-bottom: 0.5rem;" class="d-flex">
+              <div class="me-2">
+                ${comment.USERNAME}
+              </div>
               <span style="font-size: 0.7rem;">(${comment.DATE})</span>
               <sec:authorize access="isAuthenticated()">
               <c:if test="${comment.UID eq userDetailsBean.UID }">
-              <form action="" method="post">
-              <span>
-                <button class="btn" style="font-size:0.8rem;">삭제</button>
-              </span>
+              <form action="/coordination/deleteComment" method="post">
+                <input type="hidden" name="COMMENT_UID" value="${comment.COMMENT_UID}">
+                <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${resultMap.COORDINATION_ID}">
+                <input type="hidden" name="COORDINATION_ID" value="${resultMap.COORDINATION_ID}">
+                <button class="btn pt-0" style="font-size:0.7rem;">삭제</button>
               </form>
               </c:if>
               </sec:authorize>

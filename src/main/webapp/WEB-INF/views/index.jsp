@@ -111,7 +111,7 @@
         <a href="/coordination/list" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
       </div>
       <c:set  var="item" value="${resultMap}"/>
-      <div class="row row-cols-1 row-cols-md-4 g-4 mb-5">
+      <div class="row row-cols-1 row-cols-md-4 g-1 mb-5">
         <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
           <form id="" class="col" style=""  action="/coordination/view" method="post">
@@ -123,7 +123,7 @@
               <button class="btn btn_link col mb-3" style="width:100%;">
               <%-- <a href="" onclick="document.getElementById('form_${loop.index}').submit();" class="col mb-3"> --%>
                   <div class="card border-light h-100">
-                      <img style="width:100%" class="card-image"src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" class="card-image" alt="">
+                      <img style="width:100%; height:50rem" class="card-image"src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" class="card-image" alt="">
                       <div class="card-body text-start">
                           <div class="card-title">${item.TITLE}</div>
                           <div class="card-text">${item.USERNAME}</div>

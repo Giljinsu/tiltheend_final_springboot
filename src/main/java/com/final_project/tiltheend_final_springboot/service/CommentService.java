@@ -56,4 +56,9 @@ public class CommentService {
         Object result = commonDao.delete(sqlMapId, dataMap);
         return result;
     }
+    public Object deleteCommentOne(Object dataMap) {
+        String sqlMapId = "comment.deleteOne";
+        Object result = commonDao.delete(sqlMapId, dataMap);
+        return result;
+    }
 }
