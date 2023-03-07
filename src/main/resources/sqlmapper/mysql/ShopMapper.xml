@@ -18,6 +18,14 @@
         ORDER BY SALES_VOLUME DESC
         LIMIT 12;
     </select>
+    <select id="selectBestsellingProductList18" parameterType="Map" resultType="Map">
+        SELECT * FROM PRODUCT
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
+        ORDER BY SALES_VOLUME DESC
+        LIMIT 18;
+    </select>
     <!-- shop.insertProduct -->
     <insert id="insertProduct" parameterType="Map">
         INSERT INTO PRODUCT
