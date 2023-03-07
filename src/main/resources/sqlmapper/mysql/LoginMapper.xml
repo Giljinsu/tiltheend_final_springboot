@@ -4,7 +4,7 @@
 <mapper namespace="login">
     <select id="getOne" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM user
+        SELECT * FROM USER
         WHERE ID = #{ID}
         ;
     </select>
