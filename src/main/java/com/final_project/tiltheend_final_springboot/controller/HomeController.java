@@ -16,7 +16,7 @@ public class HomeController {
     @RequestMapping(value = { "/", "" })
     public ModelAndView bypass(ModelAndView modelAndView) {
 
-        Object resultMapBestProduct = shopService.getBestsellingProductList();
+        Object resultMapBestProduct = shopService.getBestsellingProductList18();
         modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
         modelAndView.setViewName("/index");
         return modelAndView;
