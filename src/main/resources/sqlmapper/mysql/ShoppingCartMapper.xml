@@ -31,6 +31,14 @@
         ORDER BY DATE
 ;
     </select>
+
+    <insert id="insertshoppingcart" parameterType="Map">
+        INSERT INTO SHOPPINGCART
+        (SHOPPINGCART_ID, PRODUCT_ID, UID, PRODUCT_COUNT, DATE, SIZE)
+        VALUES
+        (#{SHOPPINGCART_ID},#{PRODUCT_ID},'U0001','1',SYSDATE(), #{SIZE})
+    </insert>
+
     <!-- shop.insertProduct -->
     <insert id="insertProduct" parameterType="Map">
         INSERT INTO PRODUCT

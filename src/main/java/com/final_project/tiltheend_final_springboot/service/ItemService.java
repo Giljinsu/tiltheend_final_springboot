@@ -12,7 +12,13 @@ public class ItemService {
 
     public Object selectItemWithUID(Object dataMap) {
         String sqlMapId = "item.selectitemwithuid";
-        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object selectReviewWithRate(Object dataMap) {
+        String sqlMapId = "item.selectreview";
+        Object result = commonDao.getList(sqlMapId, dataMap);
         return result;
     }
 }

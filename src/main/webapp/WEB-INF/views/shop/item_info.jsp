@@ -1,11 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>상품명</title>
+    <title>${resultMap[0].CLOTHES_NAME}</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -97,12 +99,12 @@
               <!-- 가격정보 -->
               <div id="price-info" class="col-5">
                 <div id="item-info">
-                  <div id="name">${resultMap.CLOTHES_NAME}</div>
+                  <div id="name">${resultMap[0].CLOTHES_NAME}</div>
                   <div id="item-code">
-                    <span style="font-size: 12px; color: gray">${resultMap.PRODUCT_ID}</span>
+                    <span style="font-size: 12px; color: gray">${resultMap[0].PRODUCT_ID}</span>
                   </div>
                   <div id="item-price">
-                    <span>${resultMap.PRICE}원</span>
+                    <span>${resultMap[0].PRICE}원</span>
                   </div>
                   <div id="item-size">
                     <table border="0">
@@ -112,13 +114,13 @@
                           <select name="" id="">
                             <option value="*">--- [필수] 사이즈를 선택해 주세요 ---</option>
                             <option value="**" disabled>------------------</option>
-                            <option value="24">24</option>
-                            <option value="25">25</option>
-                            <option value="26">26</option>
-                            <option value="27">27</option>
-                            <option value="28">28</option>
-                            <option value="29">29</option>
-                            <option value="30">30</option>
+                            <option value="24" name="SIZE">24</option>
+                            <option value="25" name="SIZE">25</option>
+                            <option value="26" name="SIZE">26</option>
+                            <option value="27" name="SIZE">27</option>
+                            <option value="28" name="SIZE">28</option>
+                            <option value="29" name="SIZE">29</option>
+                            <option value="30" name="SIZE">30</option>
                           </select>
                         </td>
                       </tr>
@@ -128,11 +130,13 @@
                 <hr />
                 <div id="total-price" class="d-flex justify-content-between">
                   <strong>총상품금액</strong>
-                  <span>0</span>
+                  <span>${resultMap[0].PRICE}원</span>
                 </div>
-                <div id="buttons" class="d-flex justify-content-center">
-                  <div class="btn btn-outline-dark" id="add2cart" style="margin-right: 5px">카트에 담기</div>
-                  <div class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</div>
+                <div id="buttons">
+                  <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post" class="d-flex justify-content-center">
+                    <div class="btn btn-outline-dark" id="add2cart" >카트에 담기</div>
+                    <div class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -145,8 +149,15 @@
             <hr />
             <div id="review-rate">
               <!-- review -->
+              <c:set var="reviews" value="${resultMap}"/>
+              <c:set var="rate_5" value="${review_5}"/>
+              <c:set var="rate_4" value="${review_4}"/>
+              <c:set var="rate_3" value="${review_3}"/>
+              <c:set var="rate_2" value="${review_2}"/>
+              <c:set var="rate_1" value="${review_1}"/>
+              <c:set var="count" value="${fn:length(reviews)}"/>
               <div class="row row-cols-2">
-                <div style="width: 80%; padding-left: 30px">REVIEW (2)</div>
+                <div style="width: 80%; padding-left: 30px">REVIEW (${count})</div>
                 <div style="width: 20%; text-align: right; padding-right: 30px">
                   <!-- <a href="./review.html" style="color: black; text-decoration: none">전체 리뷰 보기</a> -->
                 </div>
@@ -157,52 +168,120 @@
                 <div style="text-align: center">
                   <div>
                     <img src="/refer/review/star.png" alt="" id="star" />
-                    <span style="font-size: 40px">4.5</span>
+                    <span style="font-size: 40px">${(fn:length(rate_5)*5+fn:length(rate_4)*4+fn:length(rate_3)*3+fn:length(rate_2)*2+fn:length(rate_1)*1)/count}</span>
                   </div>
-                  <div style="font-weight: 700"><span>2</span>명의 고객님이 리뷰를 남겼습니다.</div>
+                  <div style="font-weight: 700"><span>${fn:length(reviews)}</span>명의 고객님이 리뷰를 남겼습니다.</div>
                 </div>
                 <div>
                   <div class="row row-cols-2">
-                    <div class="rate" style="width: 25%">아주 좋아요 (1)</div>
-                    <progress class="progressbar" value="1" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">맘에 들어요 (1)</div>
-                    <progress class="progressbar" value="1" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">보통이에요 (0)</div>
-                    <progress class="progressbar" value="0" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">그냥 그래요 (0)</div>
-                    <progress class="progressbar" value="0" max="2" style="width: 75%"></progress>
-                    <div class="rate" style="width: 25%">별로에요 (0)</div>
-                    <progress class="progressbar" value="0" max="2" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">아주 좋아요 (${fn:length(rate_5)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_5)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">맘에 들어요 (${fn:length(rate_4)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_4)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">보통이에요 (${fn:length(rate_3)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_3)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">그냥 그래요 (${fn:length(rate_2)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_2)}" max="${count}" style="width: 75%"></progress>
+                    <div class="rate" style="width: 25%; font-size: 13px">별로에요 (${fn:length(rate_1)})</div>
+                    <progress class="progressbar" value="${fn:length(rate_1)}" max="${count}" style="width: 75%"></progress>
                   </div>
                 </div>
               </div>
               <hr />
               <!-- 리뷰들 -->
-              <div id="review1" class="mt-1 ms-3">
-                <div style="display: flex; align-items: center">
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span style="margin-left: 0.3rem">맘에 들어요</span>
-                  <span style="color: gray; font-size: 7px; margin-left: 75%">2023.02.23</span>
+              <c:forEach items="${resultMap}" var="resultMap" varStatus="loop">
+                <c:set var="rate" value="${resultMap.RATE}"/>
+                <div class="mt-1 ms-3">
+                  <div style="display: flex; align-items: center">
+                  <c:choose>
+                        <c:when test="${rate eq '5'}">
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span style="margin-left: 0.3rem">
+                            아주 좋아요
+                          </span>
+                        </c:when>
+                        <c:when test="${rate eq '4'}">
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span style="margin-left: 0.3rem">
+                            맘에 들어요
+                          </span>
+                        </c:when>
+                        <c:when test="${rate eq '3'}">
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span style="margin-left: 0.3rem">
+                            보통이에요
+                          </span>
+                        </c:when>
+                        <c:when test="${rate eq '2'}">
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span style="margin-left: 0.3rem">
+                            그냥 그래요
+                          </span>
+                        </c:when>
+                        <c:when test="${rate eq '1'}">
+                          <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                          <span style="margin-left: 0.3rem">
+                            별로에요
+                          </span>
+                        </c:when>
+                      </c:choose>
+                    <%-- <span style="margin-left: 0.3rem">
+                      <c:choose>
+                        <c:when test="${rate eq '5'}">
+                          아주 좋아요
+                        </c:when>
+                        <c:when test="${rate eq '4'}">
+                          맘에 들어요
+                        </c:when>
+                        <c:when test="${rate eq '3'}">
+                          보통이에요
+                        </c:when>
+                        <c:when test="${rate eq '2'}">
+                          그냥 그래요
+                        </c:when>
+                        <c:when test="${rate eq '1'}">
+                          별로에요
+                        </c:when>
+                      </c:choose>
+                    </span> --%>
+                    <span style="color: gray; font-size: 7px; margin-left: 75%">2023.02.23</span>
+                  </div>
+                  <div class="mt-3">${resultMap.REVIEW_CONTENT}</div>
+                  <div style="justify-items: start" class="mt-3">
+                    <a href="#modal-img-1" data-bs-toggle="modal" style="display: inline-flex">
+                      <div class="card border-bold" style="width: 100px">
+                        <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      </div>
+                    </a>
+                    <a href="#modal-img-2" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
+                      <div class="card border-bold" style="width: 100px">
+                        <img src="/refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      </div>
+                    </a>
+                  </div>
                 </div>
-                <div class="mt-3">리뷰 내용</div>
-                <div style="justify-items: start" class="mt-3">
-                  <a href="#modal-img-1" data-bs-toggle="modal" style="display: inline-flex">
-                    <div class="card border-bold" style="width: 100px">
-                      <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                    </div>
-                  </a>
-                  <a href="#modal-img-2" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
-                    <div class="card border-bold" style="width: 100px">
-                      <img src="/refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                    </div>
-                  </a>
-                </div>
-              </div>
               <hr />
+              </c:forEach>
               <div id="review2" class="mt-1 ms-3">
                 <div style="display: flex; align-items: center">
                   <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
