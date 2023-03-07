@@ -92,6 +92,7 @@
                 </c:otherwise>
               <c:choose> --%>
               <%-- 테스트용 --%>
+              <sec:authorize access="isAuthenticated()">
               <c:if test="${item.UID eq userDetailsBean.UID}">
               <div class="d-flex justify-content-end mt-3">
                 <form action="/coordination/edit" method="post">
@@ -106,6 +107,7 @@
                 </form>
               </div>
               </c:if>
+              </sec:authorize>
           </div>
           </div>
         </div>
@@ -145,11 +147,15 @@
             <div style="margin-bottom: 0.5rem;">
               ${comment.USERNAME}
               <span style="font-size: 0.7rem;">(${comment.DATE})</span>
+              <sec:authorize access="isAuthenticated()">
               <c:if test="${comment.UID eq userDetailsBean.UID }">
+              <form action="" method="post">
               <span>
                 <button class="btn" style="font-size:0.8rem;">삭제</button>
               </span>
+              </form>
               </c:if>
+              </sec:authorize>
             </div>
             <div>
               ${comment.CONTENT}
@@ -160,6 +166,7 @@
         </div>
         <!-- 댓글 작성 -->
         <div class="" style="height: 3rem; margin-bottom: 2rem;">
+        <sec:authorize access="isAuthenticated()">
         <form class="w-100 d-flex" action="/coordination/comment" method="post">
           <%-- 하드 코딩 --%>
           <input type="hidden" name="UID" value="${userDetailsBean.UID}"> 
@@ -169,6 +176,7 @@
           <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
           <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
         </form>
+        </sec:authorize>
         </div>
       </div>
     </main>
