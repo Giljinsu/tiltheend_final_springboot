@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,192 +48,60 @@
 
       </div>
 
-      <!-- TOP Ranking -->
-      <div class="fs-3 mt-5 mb-3">
-        Top Ranking
-        <a href="/shop/shop" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
-      </div>
-      <!--<div class="row row-cols-2 row-cols-md-5 g-4">
-        <a href="./item_info.html" class="col-2">
-          <div class="card border-light h-100">
-            <img src="./refer/clothes/top1.jpg" class="card-image-top" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명(링크연결)</div>
-              <div class="card-text">의류명</div>
-              <div class="card-text fs-6">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/clothes/top2.jpg" class="card-image-top" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명2</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/clothes/top3.jpg" class="card-image-top" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명3</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/clothes/top4.jpg" class="card-image-top" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명4</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a>
-        <a href="" class="col">
-          <div class="card border-light h-100">
-            <img src="./refer/clothes/top4.jpg" class="card-image-top" alt="" />
-            <div class="card-body">
-              <div class="card-title">브랜드명</div>
-              <div class="card-text">의류명4</div>
-              <div class="card-text">가격</div>
-            </div>
-          </div>
-        </a> -->
-      </div>
-      <!-- carousel 적용 -->
-      <div class="" style="">
-            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-              <!-- carousel indicator -->
-            <!-- <div class="carousel-indicators"> -->
-              <!-- 갯수만큼 넣으면 됨 -->
-              <!-- <button data-bs-target="#carouselId" data-bs-slide-to="0" class="active bg-black"></button>
-              <button data-bs-target="#carouselId" data-bs-slide-to="1" class="active bg-black"></button>
-              <button data-bs-target="#carouselId" data-bs-slide-to="2" class="active bg-black"></button> -->
-              <!-- data-bs-targets을 줘서 어떤것인지 암  active를 해야 작동함-->
-          <!-- </div> -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="8000">
-                        <div class="row row-cols-2 row-cols-md-5 g-4">
-                            <a href="/shop/item_info" class="col-2">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top1.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명(링크연결)</div>
-                                        <div class="card-text">의류명</div>
-                                        <div class="card-text fs-6">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light  h-100">
-                                    <img src="./refer/clothes/top2.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명2</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top3.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명3</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top4.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명4</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top4.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명4</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="carousel-item" data-bs-interval="8000">
-                        <div class="row row-cols-2 row-cols-md-5 g-4">
-                            <a href="" class="col">
-                                <div class="card border-light  h-100">
-                                    <img src="./refer/clothes/top2.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명2</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="./item_info.html" class="col-2">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top1.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명(링크연결)</div>
-                                        <div class="card-text">의류명</div>
-                                        <div class="card-text fs-6">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top4.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명4</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top4.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명4</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="" class="col">
-                                <div class="card border-light h-100">
-                                    <img src="./refer/clothes/top3.jpg" class="card-image-top" alt="">
-                                    <div class="card-body">
-                                        <div class="card-title">브랜드명</div>
-                                        <div class="card-text">의류명3</div>
-                                        <div class="card-text">가격</div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" data-bs-target="#carouselId" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                  </button>
-                  <button class="carousel-control-next" data-bs-target="#carouselId" data-bs-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                  </button>
-                </div>
-            </div>
-        </div>
+      <%-- 새로 삽입하는 Top Ranking --%>
+      <div class="fs-3 mt-5 mb-3">Top Ranking</div>
+					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>
+							<li data-bs-target="#myCarousel" data-bs-slide-to="1"></li>
+							<li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>
+						</ol>
+
+						<!-- Slides -->
+						<div class="carousel-inner">
+							<c:forEach begin="0" end="2" var="i"> <!-- 3개의 ROW를 CAROUSEL에 삽입하기 -->
+								<c:if test="${i==0}">
+									<div class="carousel-item active">
+								</c:if>
+								<c:if test="${i>0}">
+									<div class="carousel-item">
+								</c:if>
+										<div class="row">
+											<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
+																	begin="${i*4}" end="${i*4+3}">
+																	<%-- 각 row 마다 4개씩 제품카드를 집어넣기 --%>
+												<a href="/shop/${item.PRODUCT_ID}" class="col-3 mb-3">
+													<div class="card" style="">
+														<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+														<div class="card-body">
+															<div class="card-title">Ranking #${loop.index+1}</div>
+															<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
+															<div class="card-text">브랜드: ${item.BRAND}</div>
+															<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
+															<div class="card-text">할인률: ${item.DISCOUNT_RATE}</div>
+															<div class="card-text">가격: 
+																<fmt:formatNumber value="${item.PRICE}" pattern="#,###"/>원
+															</div>
+														</div>
+													</div>
+												</a>
+											</c:forEach>
+										</div>
+									</div>
+							</c:forEach> <!-- 3개의 ROW를 CAROUSEL에 삽입하기 -->
+						</div>
+
+						<!-- Controls -->
+						<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+			</div>
 
       <!-- 코디 게시판 -->
       <div class="fs-3 mt-5 mb-3">

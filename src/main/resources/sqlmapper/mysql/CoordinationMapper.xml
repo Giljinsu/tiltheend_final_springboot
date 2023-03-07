@@ -7,7 +7,7 @@
     <select id="select" 
         parameterType="Map" resultType="Map">
         SELECT * 
-        FROM coordination_info
+        FROM COORDINATION_INFO
         WHERE COORDINATION_ID = #{COORDINATION_ID}
         ;
     </select>
@@ -25,7 +25,7 @@
     <select id="getlistnotjoin" 
         parameterType="Map" resultType="Map">
         SELECT * 
-        FROM coordination_info
+        FROM COORDINATION_INFO
         ;
     </select>
      <select id="getlistwithjoinfile" 
@@ -33,8 +33,10 @@
         SELECT * 
             FROM COORDINATION_INFO  
             JOIN (SELECT * FROM CIP_ATTACHFILE
+            WHERE FILE_ORDER IN (SELECT MIN(FILE_ORDER) FROM CIP_ATTACHFILE)
             GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
             ON COORDINATION_ID = SOURCE_UNIQUE_SEQ 
+            ORDER BY WRITE_DATE DESC
             ;
     </select>
     <update id="update" 

@@ -39,6 +39,7 @@ public class CommonUtils {
         String storePath = absolutePath + physicalFileName + File.separator;
         File newPath = new File(storePath);
         newPath.mkdir();
+        int fileOrder=0;
         while(fileNames.hasNext()) {
             String fileName = fileNames.next();
             MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
@@ -56,6 +57,7 @@ public class CommonUtils {
                     attachFile.put("PHYSICALFILE_NAME", physicalFileName);
                     attachFile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));
                     attachFile.put("MODIFIER_SEQ", params.get("MODIFIER_SEQ"));
+                    attachFile.put("FILE_ORDER", ++fileOrder);
                 
                     attachfiles.add(attachFile);
                 } catch (IllegalStateException e) {
@@ -87,6 +89,52 @@ public class CommonUtils {
         }
     }
 
+
+    public List updateFiles(MultipartHttpServletRequest multipartHttpServletRequest, String physicalFileName, 
+            List originalFileName) { // 새로 들어온 파일 이름들을 저장함
+        // 파일 업데이트 = 삭제 후 저장
+        Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
+        String absolutePath = this.getAbsolutePath();
+        String storePath = absolutePath + physicalFileName + File.separator;
+        File file = new File(storePath); //폴더
+        
+        //삭제
+        if(file.exists()) {
+            if(file.isDirectory()) { //폴더이면
+                File[] files= file.listFiles(); //안에 내용물 리스트로저장
+                for(int i=0; i<files.length ; i++) {
+                    for(int j=0; j<originalFileName.size(); j++){
+                        if(files[i].getName().equals(originalFileName.get(j))) {// 기존의 있던 파일 삭제
+                            files[i].delete(); 
+                        }
+                    }
+                }
+            }
+        }
+
+        originalFileName = new ArrayList<>();
+        //저장
+        while(fileNames.hasNext()) {
+            String fileName = fileNames.next();
+            MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
+            String currentFileName = multipartFile.getOriginalFilename();
+            if(currentFileName != null && multipartFile.getSize() !=0) {
+                originalFileName.add(multipartFile.getOriginalFilename());
+                String storeFilePath = storePath+currentFileName;
+                try {
+                    multipartFile.transferTo(new File(storeFilePath));
+
+                } catch (IllegalStateException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+        return originalFileName;
+    }
 
     // public void updateFiles(MultipartHttpServletRequest multipartHttpServletRequest, Map params) {
     //     Map attachFile;

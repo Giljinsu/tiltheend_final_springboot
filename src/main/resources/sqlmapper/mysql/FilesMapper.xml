@@ -9,6 +9,7 @@
         SELECT * 
         FROM CIP_ATTACHFILE
         WHERE SOURCE_UNIQUE_SEQ = #{SOURCE_UNIQUE_SEQ}
+        ORDER BY FILE_ORDER
         ;
     </select>
     <select id="selectone" 
@@ -22,21 +23,30 @@
 
     <update id="update" 
         parameterType="Map">
-        UPDATE coordination_info
-        SET USERNAME='홍길동'
-        WHERE COORDINATION_ID=${COORDINATION_ID}
+        UPDATE CIP_ATTACHFILE
+        SET ORGINALFILE_NAME=#{ORGINALFILE_NAME}, MODIFY_DATE = SYSDATE()
+        WHERE ATTACHFILE_SEQ=#{ATTACHFILE_SEQ}
         ;
     </update>
+
+    <update id="afterDeleteOne" 
+        parameterType="Map">
+        UPDATE CIP_ATTACHFILE 
+        SET FILE_ORDER = FILE_ORDER - 1 
+        WHERE FILE_ORDER &gt; #{FILE_ORDER}
+        ;
+    </update>
+
     <insert id="insert" 
         parameterType="Map">
         INSERT INTO CIP_ATTACHFILE
         (ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
-        REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE)
+        REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE, FILE_ORDER)
         VALUES
         <foreach collection="attachFiles" item="attachFile"
             open="(" close=")" separator="),(">
 	    #{attachFile.ATTACHFILE_SEQ}, #{attachFile.SOURCE_UNIQUE_SEQ}, #{attachFile.ORGINALFILE_NAME},#{attachFile.PHYSICALFILE_NAME},
-        #{attachFile.REGISTER_SEQ},SYSDATE(),#{attachFile.MODIFIER_SEQ},SYSDATE()
+        #{attachFile.REGISTER_SEQ},SYSDATE(),#{attachFile.MODIFIER_SEQ},SYSDATE(),#{attachFile.FILE_ORDER}
         </foreach>       
         ;
     </insert>
@@ -44,6 +54,12 @@
         parameterType="Map">
         DELETE FROM CIP_ATTACHFILE
         WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ}
+        ;
+    </delete>
+        <delete id="deleteOne" 
+        parameterType="Map">
+        DELETE FROM CIP_ATTACHFILE
+        WHERE ATTACHFILE_SEQ=#{delete_ATTACHFILE_SEQ}
         ;
     </delete>
 </mapper>

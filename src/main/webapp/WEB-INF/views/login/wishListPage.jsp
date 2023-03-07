@@ -54,9 +54,9 @@
       <div class="container">
         <div class="d-flex align-items-stretch">
           <div id="left-column" class="me-3 pe-3 border-end">
-            <div><a href="mypage.html">구매내역</a></div>
+            <div><a href="/myPage/purchaselist.html">구매내역</a></div>
             <div><a href="#">개인정보수정</a></div>
-            <div><a href="wishListPage.html">위시리스트</a></div>
+            <div><a href="#">위시리스트</a></div>
           </div>
           <div id="right-column" class="">
             <div class="fs-5 mb-3">위시리스트</div>
