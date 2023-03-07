@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>상품명</title>
+    <title>${resultMap[0].CLOTHES_NAME}</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -157,7 +157,7 @@
                 <c:set var="rate_1" value="${review_1}"/>
                 <c:set var="count" value="${fn:length(reviews)}"/>
               <div class="row row-cols-2">
-                <div style="width: 80%; padding-left: 30px">REVIEW (${fn:length(reviews)})</div>
+                <div style="width: 80%; padding-left: 30px">REVIEW (${count})</div>
                 <div style="width: 20%; text-align: right; padding-right: 30px">
                   <!-- <a href="./review.html" style="color: black; text-decoration: none">전체 리뷰 보기</a> -->
                 </div>
@@ -168,7 +168,7 @@
                 <div style="text-align: center">
                   <div>
                     <img src="/refer/review/star.png" alt="" id="star" />
-                    <span style="font-size: 40px">2</span>
+                    <span style="font-size: 40px">${(fn:length(rate_5)*5+fn:length(rate_4)*4+fn:length(rate_3)*3+fn:length(rate_2)*2+fn:length(rate_1)*1)/count}</span>
                   </div>
                   <div style="font-weight: 700"><span>${fn:length(reviews)}</span>명의 고객님이 리뷰를 남겼습니다.</div>
                 </div>
@@ -189,30 +189,50 @@
               </div>
               <hr />
               <!-- 리뷰들 -->
-              <div id="review1" class="mt-1 ms-3">
-                <div style="display: flex; align-items: center">
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
-                  <span style="margin-left: 0.3rem">맘에 들어요</span>
-                  <span style="color: gray; font-size: 7px; margin-left: 75%">2023.02.23</span>
+              <c:forEach items="${resultMap}" var="resultMap" varStatus="loop">
+                <div class="mt-1 ms-3">
+                  <div style="display: flex; align-items: center">
+                    <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                    <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                    <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                    <span class="material-symbols-outlined" style="color: #ffc107; font-variation-settings: 'FILL' 1"> grade </span>
+                    <span class="material-symbols-outlined" style="color: #b3b3b3; font-variation-settings: 'FILL' 1"> grade </span>
+                    <span style="margin-left: 0.3rem">
+                      <c:choose>
+                        <c:when test="${resultMap.RATE eq '5'}">
+                          아주 좋아요
+                        </c:when>
+                        <c:when test="${resultMap.RATE eq '4'}">
+                          맘에 들어요
+                        </c:when>
+                        <c:when test="${resultMap.RATE eq '3'}">
+                          보통이에요
+                        </c:when>
+                        <c:when test="${resultMap.RATE eq '2'}">
+                          그냥 그래요
+                        </c:when>
+                        <c:when test="${resultMap.RATE eq '1'}">
+                          별로에요
+                        </c:when>
+                      </c:choose>
+                    </span>
+                    <span style="color: gray; font-size: 7px; margin-left: 75%">2023.02.23</span>
+                  </div>
+                  <div class="mt-3">리뷰 내용</div>
+                  <div style="justify-items: start" class="mt-3">
+                    <a href="#modal-img-1" data-bs-toggle="modal" style="display: inline-flex">
+                      <div class="card border-bold" style="width: 100px">
+                        <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      </div>
+                    </a>
+                    <a href="#modal-img-2" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
+                      <div class="card border-bold" style="width: 100px">
+                        <img src="/refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
+                      </div>
+                    </a>
+                  </div>
                 </div>
-                <div class="mt-3">리뷰 내용</div>
-                <div style="justify-items: start" class="mt-3">
-                  <a href="#modal-img-1" data-bs-toggle="modal" style="display: inline-flex">
-                    <div class="card border-bold" style="width: 100px">
-                      <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                    </div>
-                  </a>
-                  <a href="#modal-img-2" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
-                    <div class="card border-bold" style="width: 100px">
-                      <img src="/refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                    </div>
-                  </a>
-                </div>
-              </div>
+              </c:forEach>
               <hr />
               <div id="review2" class="mt-1 ms-3">
                 <div style="display: flex; align-items: center">
