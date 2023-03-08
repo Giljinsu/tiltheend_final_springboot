@@ -59,49 +59,49 @@
         <!-- 사이드바 -->
         <div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
           <div><a href="">전체</a></div>
-					<div><a href="">여성</a></div>
-					<div><a href="">남성</a></div>
-					<div><a href="">신상품</a></div>
-					<div><a href="">세일중</a></div>
-					<div><a href="">상의</a></div>
-					<div><a href="">아우터</a></div>
-					<div><a href="">바지</a></div>
-					<div><a href="">신발</a></div>
-					<div><a href="">모자</a></div>
-					<div><a href="">가방</a></div>
+          <div><a href="">여성</a></div>
+          <div><a href="">남성</a></div>
+          <div><a href="">신상품</a></div>
+          <div><a href="">세일중</a></div>
+          <div><a href="">상의</a></div>
+          <div><a href="">아우터</a></div>
+          <div><a href="">바지</a></div>
+          <div><a href="">신발</a></div>
+          <div><a href="">모자</a></div>
+          <div><a href="">가방</a></div>
         </div>
-        <div>
-          <div id="info">
-          <%-- <c:set  var="item" value="${resultMap}"/> --%>
-            <div class="row row-cols-2">
-              <!-- carousel -->
-              <div class="image col-7" style="height: 950px">
-                <div id="carouselControlId" class="carousel slide" data-bs-ride="carousel" style="width: 550px; text-align: center">
-                  <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img class="image" src="/refer/item_info/item1.jpg" alt="" />
+          <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post">
+          <div>
+            <div id="info">
+            <%-- <c:set  var="item" value="${resultMap}"/> --%>
+              <div class="row row-cols-2">
+                <!-- carousel -->
+                <div class="image col-7" style="height: 950px">
+                  <div id="carouselControlId" class="carousel slide" data-bs-ride="carousel" style="width: 550px; text-align: center">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="image" src="/refer/item_info/item1.jpg" alt="" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="image" src="/refer/item_info/item2.jpg" alt="" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="image" src="/refer/item_info/item3.jpg" alt="" />
+                      </div>
+                      <div class="carousel-item">
+                        <img class="image" src="/refer/item_info/item4.jpg" alt="" />
+                      </div>
                     </div>
-                    <div class="carousel-item">
-                      <img class="image" src="/refer/item_info/item2.jpg" alt="" />
-                    </div>
-                    <div class="carousel-item">
-                      <img class="image" src="/refer/item_info/item3.jpg" alt="" />
-                    </div>
-                    <div class="carousel-item">
-                      <img class="image" src="/refer/item_info/item4.jpg" alt="" />
-                    </div>
+                    <button class="carousel-control-prev" data-bs-target="#carouselControlId" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" data-bs-target="#carouselControlId" data-bs-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                    </button>
                   </div>
-                  <button class="carousel-control-prev" data-bs-target="#carouselControlId" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                  </button>
-                  <button class="carousel-control-next" data-bs-target="#carouselControlId" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                  </button>
                 </div>
-              </div>
-              <!-- 가격정보 -->
-              <div id="price-info" class="col-5">
-                <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post" class="d-flex justify-content-center">
+                <!-- 가격정보 -->
+                <div id="price-info" class="col-5">
                   <div id="item-info">
                     <div id="name">${resultMap[0].CLOTHES_NAME}</div>
                     <div id="item-code">
@@ -136,11 +136,11 @@
                     <strong>총상품금액</strong>
                     <span><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</span>
                   </div>
-                  <div id="buttons">
+                  <div id="buttons" class="d-flex justify-content-center">
                       <input type="hidden" name="PRODUCT_ID" value="${resultMap[0].PRODUCT_ID}">
-                      <input type="hidden" name="UID" value="${userDetailsBean.UID}">
-                      <button class="btn btn-outline-dark" id="add2cart" >카트에 담기</button>
-                      <button class="btn btn-dark" id="buynow" style="margin-left: 5px">구매</button>
+                      <input type="hidden" name="UID" value="U0001">
+                      <button class="btn btn-outline-dark" id="add2cart" style="width: 45%">카트에 담기</button>
+                      <button class="btn btn-dark" id="buynow" style="margin-left: 5px; width: 45%">구매</button>
                   </div>
                 </form>
               </div>
