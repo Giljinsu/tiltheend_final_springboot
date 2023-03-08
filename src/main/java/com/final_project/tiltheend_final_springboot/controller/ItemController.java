@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.final_project.tiltheend_final_springboot.service.FilesService;
 import com.final_project.tiltheend_final_springboot.service.ItemService;
 import com.final_project.tiltheend_final_springboot.service.ShoppingCartService;
 import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
@@ -22,6 +23,9 @@ public class ItemController {
 
     @Autowired
     ShoppingCartService shoppingCartService;
+
+    @Autowired
+    FilesService filesService;
 
     CommonUtils commonUtils = new CommonUtils();
 
@@ -40,12 +44,17 @@ public class ItemController {
         Object review_2 = itemService.selectReviewWithRate(params);
         params.put("RATE", '1');
         Object review_1 = itemService.selectReviewWithRate(params);
+        params.put("SOURCE_UNIQUE_SEQ", UID);
+        Object itemFiles = filesService.selectFiles(params);
+        Object reviewFiles = itemService.selectReview(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.addObject("review_5", review_5);
         modelAndView.addObject("review_4", review_4);
         modelAndView.addObject("review_3", review_3);
         modelAndView.addObject("review_2", review_2);
         modelAndView.addObject("review_1", review_1);
+        modelAndView.addObject("file", itemFiles);
+        modelAndView.addObject("reviewfile", reviewFiles);
         modelAndView.setViewName("shop/item_info");
         return modelAndView;
     }
@@ -55,6 +64,7 @@ public class ItemController {
             ModelAndView modelAndView) {
         params.put("SHOPPINGCART_ID", commonUtils.makeUuid());
         Object resultMap = shoppingCartService.insertShoppingcart(params);
+        resultMap = shoppingCartService.selectCartListAndFiles(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("shoppingcart/shoppingcart");
         return modelAndView;

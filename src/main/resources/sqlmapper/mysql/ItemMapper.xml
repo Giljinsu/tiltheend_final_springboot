@@ -10,17 +10,16 @@
         ORDER BY DATE DESC
     </select>
 
-    <select id="selectreview" 
+    <select id="selectreviewrate" 
         parameterType="Map" resultType="Map">
         SELECT * FROM REVIEW
         WHERE PRODUCT_ID = #{PRODUCT_ID} AND RATE = #{RATE}
     </select>
 
-    <select id="selectpicture" 
+    <select id="selectreview" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM PRODUCT A JOIN REVIEW B
-        WHERE A.PRODUCT_ID = B.PRODUCT_ID AND A.PRODUCT_ID = #{PRODUCT_ID}
-        ORDER BY DATE DESC
+        SELECT * FROM REVIEW A JOIN CIP_ATTACHFILE B
+        WHERE A.REVIEW_ID = B.SOURCE_UNIQUE_SEQ AND PRODUCT_ID = #{PRODUCT_ID}
     </select>
 
 </mapper>

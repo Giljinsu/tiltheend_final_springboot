@@ -17,6 +17,12 @@ public class ItemService {
     }
 
     public Object selectReviewWithRate(Object dataMap) {
+        String sqlMapId = "item.selectreviewrate";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object selectReview(Object dataMap) {
         String sqlMapId = "item.selectreview";
         Object result = commonDao.getList(sqlMapId, dataMap);
         return result;

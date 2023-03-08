@@ -43,7 +43,7 @@ public class ShoppingCartService {
 
     public Object insertShoppingcart(Object dataMap) {
         String sqlMapId = "shoppingcart.insertshoppingcart";
-        Object result = commonDao.delete(sqlMapId, dataMap);
+        Object result = commonDao.insert(sqlMapId, dataMap);
         return result;
     }
 

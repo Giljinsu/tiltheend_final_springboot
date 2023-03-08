@@ -21,38 +21,18 @@
   </head>
   <body>
     <%@ include file="../header.jsp" %>
-    <!-- modal-img-1 -->
-    <div class="modal fade" id="modal-img-1">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="/refer/review/review1.jpg" alt="" />
+    <c:forEach items="${resultMap}" var="resultMap" varStatus="loop">
+      <c:forEach items="${reviewfile}" var="reviewfile" varStatus="loop2">
+        <%-- img modal --%>
+        <div class="modal fade" id="modal-img-${loop.index}-${loop2.index}">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
+              <img src="/files/${reviewfile.PHYSICALFILE_NAME}/${reviewfile.ORGINALFILE_NAME}" alt="" />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <!-- modal-img-2 -->
-    <div class="modal fade" id="modal-img-2">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="/refer/review/review2.jpg" alt="" />
-        </div>
-      </div>
-    </div>
-    <!-- modal-img-3 -->
-    <div class="modal fade" id="modal-img-3">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="/refer/review/review3.jpg" alt="" />
-        </div>
-      </div>
-    </div>
-    <!-- modal-img-4 -->
-    <div class="modal fade" id="modal-img-4">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="background-color: rgba(0, 0, 0, 0.2)">
-          <img src="/refer/review/review4.jpg" alt="" />
-        </div>
-      </div>
-    </div>
+      </c:forEach>
+    </c:forEach>
     <main style="margin-top: 60px">
     <sec:authentication property="principal" var="userDetailsBean" />
       <div id="wrapper" style="width: 1200px; margin-left: auto; margin-right: auto" class="d-flex">
@@ -79,10 +59,12 @@
                 <div class="image col-7" style="height: 950px">
                   <div id="carouselControlId" class="carousel slide" data-bs-ride="carousel" style="width: 550px; text-align: center">
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img class="image" src="/refer/item_info/item1.jpg" alt="" />
+                    <c:forEach items="${file}" var="file" varStatus="loop">
+                      <div class="carousel-item ${loop.index == 0 ? 'active' : ''}">
+                        <img class="image" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}" alt="" />
                       </div>
-                      <div class="carousel-item">
+                    </c:forEach>
+                      <%-- <div class="carousel-item">
                         <img class="image" src="/refer/item_info/item2.jpg" alt="" />
                       </div>
                       <div class="carousel-item">
@@ -90,7 +72,7 @@
                       </div>
                       <div class="carousel-item">
                         <img class="image" src="/refer/item_info/item4.jpg" alt="" />
-                      </div>
+                      </div> --%>
                     </div>
                     <button class="carousel-control-prev" data-bs-target="#carouselControlId" data-bs-slide="prev">
                       <span class="carousel-control-prev-icon"></span>
@@ -138,7 +120,13 @@
                   </div>
                   <div id="buttons" class="d-flex justify-content-center">
                       <input type="hidden" name="PRODUCT_ID" value="${resultMap[0].PRODUCT_ID}">
-                      <input type="hidden" name="UID" value="U0001">
+                      <%-- 로그인 된상태 --%>
+                <sec:authorize access="isAuthenticated()">
+                    <input type="hidden" name="UID" value="${userDetailsBean.UID}">
+                 </sec:authorize>
+                 <%-- 로그인 안되어있는 상태 --%>
+                <sec:authorize access="isAnonymous()">
+                </sec:authorize>
                       <button class="btn btn-outline-dark" id="add2cart" style="width: 45%">카트에 담기</button>
                       <button class="btn btn-dark" id="buynow" style="margin-left: 5px; width: 45%">구매</button>
                   </div>
@@ -173,7 +161,16 @@
                 <div style="text-align: center">
                   <div>
                     <img src="/refer/review/star.png" alt="" id="star" />
-                    <span style="font-size: 40px">${(fn:length(rate_5)*5+fn:length(rate_4)*4+fn:length(rate_3)*3+fn:length(rate_2)*2+fn:length(rate_1)*1)/count}</span>
+                    <span style="font-size: 40px">
+                    <c:choose>
+                      <c:when test="${fn:length(reviews) == 0}">
+                        0
+                      </c:when>
+                      <c:otherwise>
+                        ${(fn:length(rate_5)*5+fn:length(rate_4)*4+fn:length(rate_3)*3+fn:length(rate_2)*2+fn:length(rate_1)*1)/count}
+                      </c:otherwise>
+                    </c:choose>
+                    </span>
                   </div>
                   <div style="font-weight: 700"><span>${fn:length(reviews)}</span>명의 고객님이 리뷰를 남겼습니다.</div>
                 </div>
@@ -273,16 +270,13 @@
                   </div>
                   <div class="mt-3">${resultMap.REVIEW_CONTENT}</div>
                   <div style="justify-items: start" class="mt-3">
-                    <a href="#modal-img-${loop.index}" data-bs-toggle="modal" style="display: inline-flex">
-                      <div class="card border-bold" style="width: 100px">
-                        <img src="/refer/review/review1.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                      </div>
-                    </a>
-                    <a href="#modal-img-2" data-bs-toggle="modal" style="display: inline-flex; margin-left: 0.3rem">
-                      <div class="card border-bold" style="width: 100px">
-                        <img src="/refer/review/review2.jpg" class="card-image-top" style="height: 100px; width: 100px" />
-                      </div>
-                    </a>
+                    <c:forEach items="${reviewfile}" var="reviewfile" varStatus="loop2">
+                      <a href="#modal-img-${loop.index}-${loop2.index}" data-bs-toggle="modal" style="display: inline-flex">
+                        <div class="card border-bold" style="width: 100px">
+                          <img src="/files/${reviewfile.PHYSICALFILE_NAME}/${reviewfile.ORGINALFILE_NAME}" class="card-image-top" style="height: 100px; width: 100px" />
+                        </div>
+                      </a>
+                    </c:forEach>
                   </div>
                 </div>
               <hr />
@@ -292,8 +286,13 @@
         </div>
       </div>
     </main>
-
-    <%@ include file="../footer.jsp" %>
+<%-- <c:forEach items="${reviewfile}" var="reviewfile" varStatus="loop">
+  <a href="#modal-img-3" data-bs-toggle="modal" style="display: inline-flex">
+    <div class="card border-bold" style="width: 100px">
+      <img src="/files/${reviewfile.PHYSICALFILE_NAME}/${reviewfile.ORGINALFILE_NAME}" class="card-image-top" style="height: 100px; width: 100px" />
+    </div>
+  </a>
+</c:forEach> --%>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
