@@ -36,7 +36,7 @@
         INSERT INTO SHOPPINGCART
         (SHOPPINGCART_ID, PRODUCT_ID, UID, PRODUCT_COUNT, DATE, SIZE)
         VALUES
-        (#{SHOPPINGCART_ID},#{PRODUCT_ID},'U0001','1',SYSDATE(), #{SIZE})
+        (#{SHOPPINGCART_ID},#{PRODUCT_ID},#{UID},'1',SYSDATE(), #{SIZE})
     </insert>
 
     <!-- shop.insertProduct -->
