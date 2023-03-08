@@ -1,4 +1,3 @@
-USE tiltheend_final;
 CREATE TABLE ADMINPAGELIST
 (
   LISTID      VARCHAR(100) NOT NULL COMMENT '리스트아이디',
