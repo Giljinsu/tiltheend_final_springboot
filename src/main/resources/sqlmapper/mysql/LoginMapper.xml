@@ -12,7 +12,7 @@
     <select id="selectIds" 
         parameterType="Map" resultType="Map">
         SELECT ID 
-        FROM user
+        FROM USER
         ;
     </select>
 
