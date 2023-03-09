@@ -28,9 +28,6 @@
         /* border: 1px solid red; */
         width: 70%
       }
-			.clothes_name {
-				height:80px;
-			}
 			</style>
 	</head>
 	<body>
@@ -113,7 +110,9 @@
 																	<%-- 각 row 마다 4개씩 제품카드를 집어넣기 --%>
 												<a href="/shop/${item.PRODUCT_ID}" class="col-3 mb-3">
 													<div class="card" style="">
-														<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+														<div class="d-flex align-items-center" style="height:293px">
+															<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+														</div>
 														<div class="card-body">
 															<div class="card-title">Ranking #${loop.index+1}</div>
 															<div class="card-text">누적판매량:${item.SALES_VOLUME}개</div>
@@ -150,7 +149,9 @@
 							<a href="/shop/${item.PRODUCT_ID}" class="col-3 mb-3">
 								<div class="card" style="">
 									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
-									<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+									<div class="d-flex align-items-center" style="height:293px">
+										<img class="card-img-top" src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="Card image cap">
+									</div>
 									<div class="card-body">
 										<div class="card-title">브랜드: ${item.BRAND}</div>
 										<div class="card-text clothes_name">${item.CLOTHES_NAME}</div>
