@@ -5,14 +5,14 @@
     
     <select id="product" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM PRODUCT
-        WHERE PRODUCT_ID = #{PRODUCT_ID}
+            SELECT * FROM PRODUCT
+            WHERE CLOTHES_NAME LIKE #{SEARCH_TEXT}; ;
     </select>
 
     <select id="coordination" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM REVIEW
-        WHERE PRODUCT_ID = #{PRODUCT_ID}
+            SELECT * FROM COORDINATION_INFO
+            WHERE TITLE LIKE #{SEARCH_TEXT};
     </select>
 
     <select id="faq" 
