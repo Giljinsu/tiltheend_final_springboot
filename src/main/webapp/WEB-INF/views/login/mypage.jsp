@@ -32,6 +32,7 @@
   </head>
   <body>
     <%@ include file="../header.jsp" %>
+    <sec:authentication property="principal" var="userDetailsBean" />
   <!-- modal -->
   <div class="modal fade" id="modalTarget">
       <div class="modal-dialog modal-dialog-centered">
@@ -84,7 +85,7 @@
           <%-- <div><a href="/logout">로그아웃</a></div> --%>
         </div>
         <div id="right-column" class="">
-          <div class="fs-5 mb-3">구매내역</div>
+          <div class="fs-5 mb-3">${userDetailsBean.userName}님의 구매내역</div>
           <c:forEach items="${resultMap}" var="item" varStatus="loop">
           <!-- 구매내역 1개단위 start -->
           <div class="border rounded p-3 mb-3">
