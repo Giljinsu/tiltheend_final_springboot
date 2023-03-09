@@ -15,4 +15,16 @@
         WHERE UID = #{UID}
         ;
     </select>
+
+    <update id="update" 
+        parameterType="Map">
+            UPDATE USER
+            SET USERNAME=#{USERNAME},
+                EMAIL=#{EMAIL},
+                SEX=#{SEX},
+                PHONENUMBER=#{PHONENUMBER},
+                BIRTH_YEAR=#{BIRTH_YEAR}
+            WHERE UID=#{UID}
+            ;
+    </update>
 </mapper>
