@@ -81,4 +81,11 @@
         WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
     </select>
 
+    <select id="selectAnnoTotal" 
+        parameterType="Map" resultType="int">
+        SELECT COUNT(*) AS CNT
+        FROM ANNOUNCEMENT A JOIN USER B
+        WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
+    </select>
+
 </mapper>

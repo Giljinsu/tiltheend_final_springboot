@@ -198,6 +198,15 @@
 
     <!-- Announcement -->
 
+    <select id="selectAnnoTotal" 
+        parameterType="Map" resultType="int">
+        SELECT COUNT(*) AS CNT
+        FROM ANNOUNCEMENT
+        <if test="CATEGORY != null">
+        WHERE CATEGORY = #{CATEGORY}
+        </if>
+    </select>
+
     <!-- List.selectAnnouncement -->
     <select id="selectAnnouncement" 
         parameterType="Map" resultType="Map">

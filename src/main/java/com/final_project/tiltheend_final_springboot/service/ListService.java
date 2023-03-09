@@ -191,6 +191,36 @@ public class ListService {
         return result;
     }
 
+    public Object getAnnoListWithPagination(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotalAnno(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.selectAnnouncementWithJoin(dataMap));
+        return result;
+    }
+
+    public Object getTotalAnno(Object dataMap) {
+        String sqlMapId = "List.selectAnnoTotal";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getAnnoListWithPaginationAndCategory(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotalAnno(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.selectAnnouncementCategory(dataMap));
+        return result;
+    }
+
     public Object selectAnnouncementCategory(Object dataMap) {
         String sqlMapId = "List.selectAnnouncementCategory";
         Object result = commonDao.getList(sqlMapId, dataMap);

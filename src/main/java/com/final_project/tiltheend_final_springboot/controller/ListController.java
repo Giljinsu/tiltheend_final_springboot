@@ -208,20 +208,32 @@ public class ListController {
     }
 
     // announcement
-    @RequestMapping(value = "/announcement", method = RequestMethod.GET)
-    public ModelAndView listAnnouncement(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        Object resultMap = listService.selectAnnouncementWithJoin(params);
+    @RequestMapping(value = "/announcement/{currentPage}", method = RequestMethod.GET)
+    public ModelAndView listAnnouncement(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
+            @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
+        Object resultMap = listService.getAnnoListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("announcement/announcement");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/announcement/{category}", method = RequestMethod.GET)
+    @RequestMapping(value = "/announcement/{currentPage}/{category}", method = RequestMethod.GET)
     public ModelAndView listAnnouncementCategory(@RequestParam Map<String, Object> params,
-            @PathVariable String category,
-            ModelAndView modelAndView) {
+            @PathVariable String category, ModelAndView modelAndView, @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
         params.put("CATEGORY", category);
-        Object resultMap = listService.selectAnnouncementCategory(params);
+        Object resultMap = listService.getAnnoListWithPaginationAndCategory(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("announcement/announcement");
         return modelAndView;
@@ -244,12 +256,19 @@ public class ListController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/announcement/search" }, method = RequestMethod.POST)
-    public ModelAndView searchAnno(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+    @RequestMapping(value = { "/announcement/{currentPage}/search" }, method = RequestMethod.POST)
+    public ModelAndView searchAnno(ModelAndView modelAndView, @RequestParam Map<String, Object> params,
+            @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
         String text = (String) params.get("SEARCH_TEXT");
         String searchtext = "%" + text + "%";
         params.put("SEARCH_TEXT", searchtext);
-        Object faqList = searchService.searchAnnoWithUser(params);
+        Object faqList = searchService.getAnnoWithSearch(params);
         modelAndView.addObject("resultMap", faqList);
         modelAndView.setViewName("/announcement/announcement");
         return modelAndView;
