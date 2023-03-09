@@ -63,7 +63,7 @@
                             <label for="input_image_0" class="btn btn-secondary ">이미지 업로드</label>
                             <input type="file" style="display:none" onchange="setThumbnail(0);"  name="file_0"
                             accept="image/gif, image/jpg, image/png" class="form-control" id="input_image_0" />
-                            <button class="btn btn-warning" id="delBtn0" onclick="deleteImage(${loop.index});" type="button" style="display:none;">삭제</button>
+                            <button class="btn btn-warning" id="delBtn0" onclick="deleteImage(0);" type="button" style="display:none;">삭제</button>
                           </div>
                         </div>
                     </div>

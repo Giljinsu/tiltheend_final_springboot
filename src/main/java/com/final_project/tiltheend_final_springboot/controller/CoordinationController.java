@@ -81,7 +81,7 @@ public class CoordinationController {
         
         // modelAndView.addObject("resultMap", result);
         // String COORDINATION_ID = null;
-        modelAndView.addObject("destination", "/coordination/list");
+        modelAndView.addObject("destination", "/coordination/list/1");
         // modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");
         return modelAndView;
@@ -90,16 +90,7 @@ public class CoordinationController {
     @RequestMapping(value = "/update", method=RequestMethod.POST)
     public ModelAndView update(@RequestParam Map<String,Object> params,
             MultipartHttpServletRequest multipartHttpServletRequest, ModelAndView modelAndView) {
-        // // 파일 업데이트 = 삭제 후 저장
-        // // 파일 삭제
-        // Object fileinfo = filesService.selectFiles(params);
-        // List list = (ArrayList)fileinfo;
-        // Map file = (Map) list.get(0);
-        // Object physicalfile_name = file.get("PHYSICALFILE_NAME");
-        // commonUtils.deleteFile(physicalfile_name);
-        // filesService.deleteFile(params);
-        
-        // // 파일 업데이트
+
         String COORDINATION_ID= (String) params.get("COORDINATION_ID");
         int fileCount = Integer.parseInt((String)params.get("fileCount"));
         List ORGINALFILE_NAME = new ArrayList<>();
@@ -142,7 +133,6 @@ public class CoordinationController {
             filesService.deleteFileOne(params);
         }
 
-
         // 파일 인서트
         Map attachFile;
         List attachfiles = new ArrayList<>();
@@ -162,22 +152,6 @@ public class CoordinationController {
             params.put("attachFiles", attachfiles);
             filesService.insertFile(params);
         } // insert
-        // params.put("COMMON_CODE_ID", params.get("COORDINATION_ID"));
-        // List attachFiles = commonUtils.createFiles(multipartHttpServletRequest, params); // 파일 만들어짐
-        // params.put("attachFiles", attachFiles);
-        // Object result = filesService.insertFile(params);
-
-
-        //코디게시판 업데이트
-        // Object result = coordinationService.updateCordAndGetList(params);
-        // Object files = filesService.selectFiles(params);
-        // Object comments= coordinationService.getCommentList(params);
-        // Object commentCount= coordinationService.getCommentCount(params);
-
-        // modelAndView.addObject("files", files);
-        // modelAndView.addObject("resultMap", result);
-        // modelAndView.addObject("commentCount", commentCount);
-        // modelAndView.addObject("comments", comments);
         modelAndView.addObject("destination", "/coordination/view");
         modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");
@@ -193,16 +167,24 @@ public class CoordinationController {
         Object physicalfile_name = file.get("PHYSICALFILE_NAME");
 
         commonUtils.deleteFile(physicalfile_name);
+        params.put("currentPage", 1);
+        params.put("pageScale", 8);
         Object result = coordinationService.deleteCordAndFileAndCommentAndGetList(params);
         modelAndView.addObject("resultMap", result);
         modelAndView.setViewName("/coordination/coordinationBoard");
         return modelAndView;
     }
 
-    @RequestMapping(value = {"/list"}, method=RequestMethod.GET)
-    public ModelAndView list(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
-        Object resultMap = coordinationService.getList();
-        
+    @RequestMapping(value = {"/list/{currentPage}"}, method=RequestMethod.GET)
+    public ModelAndView list(@RequestParam Map<String,Object> params, ModelAndView modelAndView,
+        @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if(currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 8);
+        Object resultMap = coordinationService.getListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("/coordination/coordinationBoard");
         return modelAndView;

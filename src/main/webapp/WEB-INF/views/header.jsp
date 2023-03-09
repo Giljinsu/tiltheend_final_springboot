@@ -36,7 +36,7 @@
                     <a href="./announcement.html" class="dropdown-item">공지사항</a>
                   </div>
                 </div> -->
-                <a href="/coordination/list" class="nav-link fs-5 text-dark">코디게시판</a>
+                <a href="/coordination/list/1" class="nav-link fs-5 text-dark">코디게시판</a>
                 <a href="/list/qna" class="nav-link fs-5 text-dark">Q&A</a>
                 <a href="/list/announcement" class="nav-link fs-5 text-dark">공지사항</a>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
