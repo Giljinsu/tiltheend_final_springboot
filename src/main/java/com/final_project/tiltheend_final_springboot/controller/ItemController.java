@@ -33,7 +33,8 @@ public class ItemController {
     public ModelAndView showItem(@RequestParam Map<String, Object> params, @PathVariable String UID,
             ModelAndView modelAndView) {
         params.put("PRODUCT_ID", UID);
-        Object resultMap = itemService.selectItemWithUID(params);
+        Object resultMap_item = itemService.selectItemWithUID(params);
+        Object resultMap_review = itemService.selectReviewWithUID(params);
         params.put("RATE", '5');
         Object review_5 = itemService.selectReviewWithRate(params);
         params.put("RATE", '4');
@@ -46,8 +47,9 @@ public class ItemController {
         Object review_1 = itemService.selectReviewWithRate(params);
         params.put("SOURCE_UNIQUE_SEQ", UID);
         Object itemFiles = filesService.selectFiles(params);
-        Object reviewFiles = itemService.selectReview(params);
-        modelAndView.addObject("resultMap", resultMap);
+        Object reviewFiles = itemService.selectReviewFile(params);
+        modelAndView.addObject("resultMap", resultMap_item);
+        modelAndView.addObject("resultMap_review", resultMap_review);
         modelAndView.addObject("review_5", review_5);
         modelAndView.addObject("review_4", review_4);
         modelAndView.addObject("review_3", review_3);

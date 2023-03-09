@@ -142,7 +142,7 @@
             <hr />
             <div id="review-rate">
               <!-- review -->
-              <c:set var="reviews" value="${resultMap}"/>
+              <c:set var="reviews" value="${resultMap_review}"/>
               <c:set var="rate_5" value="${review_5}"/>
               <c:set var="rate_4" value="${review_4}"/>
               <c:set var="rate_3" value="${review_3}"/>
@@ -191,8 +191,8 @@
               </div>
               <hr />
               <!-- 리뷰들 -->
-              <c:forEach items="${resultMap}" var="resultMap" varStatus="loop">
-                <c:set var="rate" value="${resultMap.RATE}"/>
+              <c:forEach items="${resultMap_review}" var="resultMap_review" varStatus="loop">
+                <c:set var="rate" value="${resultMap_review.RATE}"/>
                 <div class="mt-1 ms-3">
                   <div style="display: flex; align-items: center">
                   <c:choose>
@@ -266,9 +266,9 @@
                         </c:when>
                       </c:choose>
                     </span> --%>
-                    <span style="color: gray; font-size: 7px; margin-left: 70%">${resultMap.DATE}</span>
+                    <span style="color: gray; font-size: 7px; margin-left: 70%">${resultMap_review.DATE}</span>
                   </div>
-                  <div class="mt-3">${resultMap.REVIEW_CONTENT}</div>
+                  <div class="mt-3">${resultMap_review.REVIEW_CONTENT}</div>
                   <div style="justify-items: start" class="mt-3">
                     <c:forEach items="${reviewfile}" var="reviewfile" varStatus="loop2">
                       <a href="#modal-img-${loop.index}-${loop2.index}" data-bs-toggle="modal" style="display: inline-flex">

@@ -16,14 +16,20 @@ public class ItemService {
         return result;
     }
 
+    public Object selectReviewWithUID(Object dataMap) {
+        String sqlMapId = "item.selectreviewwithuid";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object selectReviewWithRate(Object dataMap) {
         String sqlMapId = "item.selectreviewrate";
         Object result = commonDao.getList(sqlMapId, dataMap);
         return result;
     }
 
-    public Object selectReview(Object dataMap) {
-        String sqlMapId = "item.selectreview";
+    public Object selectReviewFile(Object dataMap) {
+        String sqlMapId = "item.selectreviewfile";
         Object result = commonDao.getList(sqlMapId, dataMap);
         return result;
     }

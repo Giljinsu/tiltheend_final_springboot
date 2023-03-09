@@ -5,9 +5,14 @@
     
     <select id="selectitemwithuid" 
         parameterType="Map" resultType="Map">
-        SELECT * FROM PRODUCT A JOIN REVIEW B
-        WHERE A.PRODUCT_ID = B.PRODUCT_ID AND A.PRODUCT_ID = #{PRODUCT_ID}
-        ORDER BY DATE DESC
+        SELECT * FROM PRODUCT
+        WHERE PRODUCT_ID = #{PRODUCT_ID}
+    </select>
+
+    <select id="selectreviewwithuid" 
+        parameterType="Map" resultType="Map">
+        SELECT * FROM REVIEW
+        WHERE PRODUCT_ID = #{PRODUCT_ID}
     </select>
 
     <select id="selectreviewrate" 
@@ -16,7 +21,7 @@
         WHERE PRODUCT_ID = #{PRODUCT_ID} AND RATE = #{RATE}
     </select>
 
-    <select id="selectreview" 
+    <select id="selectreviewfile" 
         parameterType="Map" resultType="Map">
         SELECT * FROM REVIEW A JOIN CIP_ATTACHFILE B
         WHERE A.REVIEW_ID = B.SOURCE_UNIQUE_SEQ AND PRODUCT_ID = #{PRODUCT_ID}
