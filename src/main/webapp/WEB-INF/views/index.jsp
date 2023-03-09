@@ -108,7 +108,7 @@
 
       <%-- 코디 게시판 갱신 --%>
       <div class="fs-3 mt-5 mb-3">코디
-        <a href="/coordination/list" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
+        <a href="/coordination/list/1" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>
       </div>
       <c:set  var="item" value="${resultMap}"/>
       <div class="row row-cols-1 row-cols-md-4 g-1 mb-5">
