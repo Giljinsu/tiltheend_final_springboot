@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,13 +19,14 @@
   </head>
   <body>
     <%@ include file="../header.jsp" %>
+    <sec:authentication property="principal" var="userDetailsBean" />
     <main style="margin-top: 160px" class="container">
       <div class="container">
         <form action="/list/qna/save" id="action-form" method="post">
           <h3 class="mb-5">Q&A 작성</h3>
           <%-- 하드코딩 --%>
           <input type="hidden" name="POST_NO_QNA" value="${resultMap.POST_NO_QNA}">
-          <input type="hidden" name="UID" value="U0001">
+          <input type="hidden" name="UID" value="${userDetailsBean.UID}">
           <input type="hidden" name="STATUS" value="답변대기">
           <table class="table">
             <tbody>
