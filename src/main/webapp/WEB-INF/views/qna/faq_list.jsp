@@ -29,11 +29,11 @@
           <a href="/list/faq/ect">기타</a>
         </div>
         <!-- search -->
-        <div id="search">
-          <input type="text" placeholder value fw-filter fw-msg fw-label />
-          <a href="" style="color: black; height: 360px">
-            <span class="material-symbols-outlined">search</span>
-          </a>
+        <div>
+          <form action="/list/faq/search" method="POST" id="search">
+            <input type="text" name="SEARCH_TEXT" placeholder value fw-filter fw-msg fw-label />
+              <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
+          </form>
         </div>
       </div>
       <!-- table -->
@@ -65,7 +65,7 @@
                   </c:when>
                 </c:choose>
               </td>
-              <td class="" id="title"><a href="faq/board/${resultData.POST_NO_FAQ}">${resultData.TITLE}</a></td>
+              <td class="" id="title"><a href="/list/faq/board/${resultData.POST_NO_FAQ}">${resultData.TITLE}</a></td>
               <td class="col-md-1" id="id">${resultData.USERNAME}</td>
               <td class="col-md-2" id="date">${resultData.DATE}</td>
             </tr>

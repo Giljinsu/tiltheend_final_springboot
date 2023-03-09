@@ -113,6 +113,14 @@
         WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
     </update>
 
+    <!-- List.updatestatus2 -->
+    <update id="updatestatus2" 
+        parameterType="Map">
+        UPDATE QNA
+        SET STATUS='답변대기'
+        WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
+    </update>
+
 
     <!-- FAQ -->
 

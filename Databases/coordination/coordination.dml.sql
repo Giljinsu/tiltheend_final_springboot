@@ -9,6 +9,7 @@ order by write_date desc
             GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
             ON COORDINATION_ID = SOURCE_UNIQUE_SEQ 
             ORDER BY WRITE_DATE DESC
+            -- LIMIT 0, 1
             ;
             
 INSERT INTO COORDINATION_INFO
@@ -48,3 +49,6 @@ SET TITLE='홍길동',
     JOB=''
 WHERE COORDINATION_ID='CORD_1'
 ;
+
+SELECT cip_attachfile.SOURCE_UNIQUE_SEQ FROM coordination_info
+JOIN cip_attachfile ON (coordination_info.COORDINATION_ID = cip_attachfile.SOURCE_UNIQUE_SEQ)

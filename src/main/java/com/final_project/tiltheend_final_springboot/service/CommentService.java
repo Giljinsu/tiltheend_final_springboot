@@ -44,10 +44,17 @@ public class CommentService {
         return result;
     }
 
-    public Object insertComment2(Object dataMap) {
+    public Object insertComment_Qna(Object dataMap) {
         Object result = listService.updateStatus(dataMap);
         String sqlMapId = "comment.insertcommentUSERUID";
         result = commonDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object deleteComment_Qna(Object dataMap) {
+        Object result = listService.updateStatus2(dataMap);
+        String sqlMapId = "comment.delete";
+        result = commonDao.delete(sqlMapId, dataMap);
         return result;
     }
 
@@ -56,6 +63,7 @@ public class CommentService {
         Object result = commonDao.delete(sqlMapId, dataMap);
         return result;
     }
+
     public Object deleteCommentOne(Object dataMap) {
         String sqlMapId = "comment.deleteOne";
         Object result = commonDao.delete(sqlMapId, dataMap);
