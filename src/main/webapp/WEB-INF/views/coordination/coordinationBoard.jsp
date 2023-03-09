@@ -36,7 +36,7 @@
                 <div class="card border-light h-100">
                     <img src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" class="card-image" alt="" loading="lazy" />
                     <div class="card-body text-start">
-                        <div class="card-title">${item.TITLE}</div>
+                        <div class="card-title fs-5">${item.TITLE}</div>
                         <div class="card-text">${item.USERNAME}</div>
                         <div class="card-text-viewcount">조회수 : ${item.VIEWS} </div>
                     </div>
