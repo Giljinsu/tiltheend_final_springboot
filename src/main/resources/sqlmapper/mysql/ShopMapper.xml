@@ -35,7 +35,7 @@
         ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
         <if test="category == 'women'">WHERE CATEGORY LIKE "여자%"</if>
         <if test="category == 'men'">WHERE CATEGORY LIKE "남자%"</if>
-        <if test="category == 'new'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'new'">WHERE CLOTHES_NAME LIKE "%[신상품★]%"</if>
         <if test="category == 'sale'">WHERE CATEGORY LIKE "여자%"</if>
         <if test="category == 'top'">WHERE CATEGORY LIKE "여자%"</if>
         <if test="category == 'outer'">WHERE CATEGORY LIKE "여자%"</if>
