@@ -139,13 +139,13 @@
                 <tr>
                   <th class="col-4">제목</th>
                   <td class="col-8 row">
-                    <input type="text" name="TITLE" value="${resultMap.TITLE}" id="">
+                    <input type="text" id="cord_title" name="TITLE" value="${resultMap.TITLE}" id="">
                   </td>
                 </tr>
                 <tr>
                   <th class="col-4">이름</th>
                   <td class="col-8 row">
-                    <input type="text" name="USERNAME" value="${resultMap.USERNAME}" id="">
+                    <input type="text" id="cord_username" name="USERNAME" value="${resultMap.USERNAME}" id="">
                   </td>
                 </tr>
                 <tr>
@@ -181,7 +181,7 @@
           ">
             <h5 class="productlist_title">사용된 제품</h5>
             <div>
-              <button class="btn btn-secondary">제품 업로드</button>
+              <button class="btn btn-secondary" type="button">제품 업로드</button>
               <%-- <input type="hidden" name="PRODUCT_ID" value="PROD_1"> --%>
             </div>
           </div>
@@ -210,7 +210,7 @@
           </div>
           <hr />
           <div class="text-center mb-4">
-            <button class="btn btn-secondary" id="submit-button">게시글 작성</button>
+            <button class="btn btn-secondary" type="button" id="submit-button">게시글 작성</button>
           </div>
         </form>
         </div>
@@ -239,6 +239,24 @@
 			cord_content.value = JSON.stringify(content);
       // cord_content.value = content;
 			let form = document.querySelector("#action-form");
+
+        let cord_titleValue = document.querySelector("#cord_title").value;
+        let cord_usernameValue = document.querySelector("#cord_username").value;
+        let input_imageValue = document.querySelector("#input_image_0").value;
+
+        if(cord_titleValue == "") {
+          alert("제목을 입력해주세요");
+          return ;
+        } 
+        if(cord_usernameValue == "") {
+          alert("이름을 입력해주세요");
+          return ;
+        } 
+        if(input_imageValue == "" && "${form_action}"=="save")  {
+          alert("1개이상의 이미지를 업로드 해주세요");
+          return ;
+        } 
+
 			form.submit();
 			// 이것이 submit한거랑 똑같음
 		});
@@ -316,6 +334,7 @@
         coordinaiton_form.innerHTML="<input type='hidden' name='delete_ATTACHFILE_SEQ["+currentindex+"]' value='"+attachFileSeq.value+"'>"+
                                     "<input type='hidden' name='FILE_ORDER["+currentindex+"]' value='"+file_Order.value+"'>";
       }
+
     </script>
   </body>
 </html>

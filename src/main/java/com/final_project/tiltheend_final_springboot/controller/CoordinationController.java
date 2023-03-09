@@ -169,15 +169,15 @@ public class CoordinationController {
 
 
         //코디게시판 업데이트
-        Object result = coordinationService.updateCordAndGetList(params);
-        Object files = filesService.selectFiles(params);
-        Object comments= coordinationService.getCommentList(params);
-        Object commentCount= coordinationService.getCommentCount(params);
+        // Object result = coordinationService.updateCordAndGetList(params);
+        // Object files = filesService.selectFiles(params);
+        // Object comments= coordinationService.getCommentList(params);
+        // Object commentCount= coordinationService.getCommentCount(params);
 
-        modelAndView.addObject("files", files);
-        modelAndView.addObject("resultMap", result);
-        modelAndView.addObject("commentCount", commentCount);
-        modelAndView.addObject("comments", comments);
+        // modelAndView.addObject("files", files);
+        // modelAndView.addObject("resultMap", result);
+        // modelAndView.addObject("commentCount", commentCount);
+        // modelAndView.addObject("comments", comments);
         modelAndView.addObject("destination", "/coordination/view");
         modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");

@@ -19,10 +19,10 @@ public class SecurityConfiguration {
                 // .antMatchers("/").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
                 // .antMatchers("/").authenticated() // 로그인 했는지 확인
                 // .antMatchers("/admin").access("hasRole('ROLE_ADMIN')")//권한있는지 확인
-                // .antMatchers("/admin").authenticated()
+                .antMatchers("/admin").authenticated()
                 // .antMatchers("/manager/*").access("hasRole('ROLE_MANAGER') or
                 // hasRole('ROLE_ADMIN')")
-                // .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/admin").access("hasRole('ROLE_ADMIN')")
                 .antMatchers("/shoppingcart/list").authenticated()
                 .antMatchers("/coordination/write_coordination").authenticated()
                 .antMatchers("/shop/cart/**").authenticated()
