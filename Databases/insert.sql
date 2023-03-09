@@ -95,26 +95,9 @@ INSERT INTO CIP_ATTACHFILE
         (ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
         REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE, FILE_ORDER)
 VALUES
-		('UU152', 'CORD_1', 'model1_3.jpg','dami','REG1123',SYSDATE(),'MOD1122',SYSDATE(),3)
-;
-INSERT INTO CIP_ATTACHFILE
-        (ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
-        REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE, FILE_ORDER)
-VALUES
-		('UU162', 'CORD_1', 'model1_4.jpg','dami','REG1123',SYSDATE(),'MOD1122',SYSDATE(),4)
-;
-
-INSERT INTO CIP_ATTACHFILE
-        (ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
-        REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE, FILE_ORDER)
-VALUES
-		('UU12', 'CORD_2', 'model3.jpg','brian','REG1124',SYSDATE(),'MOD1123',SYSDATE(),1)
-;
-
-INSERT INTO CIP_ATTACHFILE
-        (ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
-        REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE, FILE_ORDER)
-VALUES
+		('UU152', 'CORD_1', 'model1_3.jpg','dami','REG1123',SYSDATE(),'MOD1122',SYSDATE(),3),
+		('UU162', 'CORD_1', 'model1_4.jpg','dami','REG1123',SYSDATE(),'MOD1122',SYSDATE(),4),
+		('UU12', 'CORD_2', 'model3.jpg','brian','REG1124',SYSDATE(),'MOD1123',SYSDATE(),1),
 		('UU13', 'CORD_3', 'model2.jpg','chulsu','REG1125',SYSDATE(),'MOD1124',SYSDATE(),1)
 ;
 
@@ -200,16 +183,8 @@ VALUES
 INSERT INTO COORDINATION_INFO
 (COORDINATION_ID, UID, PRODUCT_ID, TITLE, BULLETIN_NO, USERNAME, HEIGHT, WEIGHT, CORD_CONTENT, VIEWS, WRITE_DATE, MODIFICATION_DATE, LIKES, JOB)
 VALUES
-('CORD_1','U0001','PROD_1', '코디1', '1', '김다미', '170', '50','{"ops":[{"insert":"test입니다"}]}', '10', SYSDATE(), SYSDATE(), '5', '배우');
-
-INSERT INTO COORDINATION_INFO
-(COORDINATION_ID, UID, PRODUCT_ID, TITLE, BULLETIN_NO, USERNAME, HEIGHT, WEIGHT, CORD_CONTENT, VIEWS, WRITE_DATE, MODIFICATION_DATE, LIKES, JOB)
-VALUES
-('CORD_2','U0002','PROD_3', '코디2', '2', '브라이언', '180', '80','{"ops":[{"insert":"test입니다"}]}', '3', SYSDATE(), SYSDATE(), '2', '군인');
-
-INSERT INTO COORDINATION_INFO
-(COORDINATION_ID, UID, PRODUCT_ID, TITLE, BULLETIN_NO, USERNAME, HEIGHT, WEIGHT, CORD_CONTENT, VIEWS, WRITE_DATE, MODIFICATION_DATE, LIKES, JOB)
-VALUES
+('CORD_1','U0001','PROD_1', '코디1', '1', '김다미', '170', '50','{"ops":[{"insert":"test입니다"}]}', '10', SYSDATE(), SYSDATE(), '5', '배우'),
+('CORD_2','U0002','PROD_3', '코디2', '2', '브라이언', '180', '80','{"ops":[{"insert":"test입니다"}]}', '3', SYSDATE(), SYSDATE(), '2', '군인'),
 ('CORD_3','U0003','PROD_3', '코디3', '3', '김철수', '173', '63','{"ops":[{"insert":"test입니다"}]}', '2', SYSDATE(), SYSDATE(), '1', '모델');
 
 
@@ -282,17 +257,17 @@ VALUES
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}');
 
 -- COORDINATION_PICTURE
 
@@ -301,17 +276,17 @@ VALUES
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}');
 
 -- PRODUCT_PICTURE
 
@@ -335,17 +310,17 @@ VALUES
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('3','U0001','repair','반품시 유의사항','2023.01.05','내용','답변대기');
+('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용','답변완료');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','내용','답변대기');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 -- REVIEW
 INSERT INTO REVIEW
