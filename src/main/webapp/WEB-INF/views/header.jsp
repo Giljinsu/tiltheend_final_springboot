@@ -38,7 +38,7 @@
                 </div> -->
                 <a href="/coordination/list/1" class="nav-link fs-5 text-dark">코디게시판</a>
                 <a href="/list/qna/1" class="nav-link fs-5 text-dark">Q&A</a>
-                <a href="/list/announcement" class="nav-link fs-5 text-dark">공지사항</a>
+                <a href="/list/announcement/1" class="nav-link fs-5 text-dark">공지사항</a>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                   <a href="/admin" class="nav-link fs-5 text-dark">관리자페이지</a>
                 </sec:authorize>
