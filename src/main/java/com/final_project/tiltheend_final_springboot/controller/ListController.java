@@ -97,7 +97,7 @@ public class ListController {
         String text = (String) params.get("SEARCH_TEXT");
         String searchtext = "%" + text + "%";
         params.put("SEARCH_TEXT", searchtext);
-        Object faqList = searchService.searchFaq(params);
+        Object faqList = searchService.searchQna(params);
         modelAndView.addObject("resultMap", faqList);
         modelAndView.setViewName("/qna/qna");
         return modelAndView;
