@@ -90,7 +90,16 @@
                       <span style="font-size: 12px; color: gray">${resultMap[0].PRODUCT_ID}</span>
                     </div>
                     <div id="item-price">
-                      <span><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</span>
+                      <c:set var="discount" value="${resultMap[0].DISCOUNT_RATE}"/>
+                      <c:choose>
+                        <c:when test="${discount == 0}">
+                          <span><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</span>
+                        </c:when>
+                        <c:otherwise>
+                          <div style="color: gray"><del><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</del></div>
+                          <div><fmt:formatNumber value="${resultMap[0].PRICE*((100-discount)/100)}" pattern="###,###"/>원</div>
+                        </c:otherwise>
+                      </c:choose>
                     </div>
                     <div id="item-size">
                       <table border="0">
@@ -116,17 +125,17 @@
                   <hr />
                   <div id="total-price" class="d-flex justify-content-between">
                     <strong>총상품금액</strong>
-                    <span><fmt:formatNumber value="${resultMap[0].PRICE}" pattern="###,###"/>원</span>
+                    <span><fmt:formatNumber value="${resultMap[0].PRICE*((100-discount)/100)}" pattern="###,###"/>원</span>
                   </div>
                   <div id="buttons" class="d-flex justify-content-center">
                       <input type="hidden" name="PRODUCT_ID" value="${resultMap[0].PRODUCT_ID}">
                       <%-- 로그인 된상태 --%>
-                <sec:authorize access="isAuthenticated()">
-                    <input type="hidden" name="UID" value="${userDetailsBean.UID}">
-                 </sec:authorize>
-                 <%-- 로그인 안되어있는 상태 --%>
-                <sec:authorize access="isAnonymous()">
-                </sec:authorize>
+                      <sec:authorize access="isAuthenticated()">
+                          <input type="hidden" name="UID" value="${userDetailsBean.UID}">
+                      </sec:authorize>
+                      <%-- 로그인 안되어있는 상태 --%>
+                      <sec:authorize access="isAnonymous()">
+                      </sec:authorize>
                       <button class="btn btn-outline-dark" id="add2cart" style="width: 45%">카트에 담기</button>
                       <button class="btn btn-dark" id="buynow" style="margin-left: 5px; width: 45%">구매</button>
                   </div>

@@ -90,7 +90,7 @@ public class ListController {
             ModelAndView modelAndView) {
         params.put("COMMENT_UID", commonUtils.makeUuid());
         Object resultMap = commentService.insertComment2(params);
-        resultMap = listService.updateStatus(params);
+        params.put("UID", UID);
         resultMap = listService.selectQNAUID(params);
         Object comment = commentService.selectCommentOneWithoutUser(params);
         modelAndView.addObject("resultMap", resultMap);

@@ -55,7 +55,7 @@
       <div id="comment">${comments.CONTENT}</div>
       <%-- 답변이 없고 유저의 권한이 관리자일때 --%>
       <%-- && data.ROLE eq 'ADMIN' --%>
-      <sec:authorize access="isAuthenticated()">
+      <sec:authorize access="hasRole('ROLE_ADMIN')">
         <c:if test="${empty comments}">
           <!-- 댓글 작성 -->
           <div class="mb-4" sec:authorize="hasRole('ADMIN')">
