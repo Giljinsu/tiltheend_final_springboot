@@ -63,7 +63,7 @@
 				<!-- 사이드바 -->
 				<div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
 					<div><a href="">전체</a></div>
-					<div><a href="">여성</a></div>
+					<div><a href="/shop/women">여성</a></div>
 					<div><a href="">남성</a></div>
 					<div><a href="">신상품</a></div>
 					<div><a href="">세일중</a></div>

@@ -17,6 +17,12 @@ public class ShopService {
     return result;
   }
 
+  public Object getProductList(Object dataMap) {
+    String sqlMapId = "shop.selectCategory";
+    Object result = commonDao.selectList(sqlMapId, dataMap);
+    return result;
+  }
+
   public Object getProductSalesVolume(Object dataMap) {
     String sqlMapId = "shop.selectVolume";
     Object result = commonDao.selectOne(sqlMapId, dataMap);
@@ -25,6 +31,12 @@ public class ShopService {
 
   public Object getBestsellingProductList() {
     String sqlMapId = "shop.selectBestsellingProductList";
+    Object result = commonDao.selectList(sqlMapId);
+    return result;
+  }
+
+  public Object getBestsellingProductList(Object dataMap) {
+    String sqlMapId = "shop.selectBestsellingProductListWomen";
     Object result = commonDao.selectList(sqlMapId);
     return result;
   }
