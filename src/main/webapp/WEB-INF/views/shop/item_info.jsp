@@ -123,6 +123,21 @@
                     </div>
                   </div>
                   <hr />
+
+                  <div class="d-flex">
+                  <div class="fs-4">개수 : </div>
+                  <button class="btn btn-secondary ms-3" id="downCount" onclick="minusCount()" type="button">
+                    <span class="material-symbols-outlined">
+                    arrow_back_ios
+                    </span>
+                  </button>
+                  <input class="text-end" type="text" id="PRODUCT_COUNT" name="PRODUCT_COUNT" value="1" style="width:4rem" readonly>
+                  <button class="btn btn-secondary" id="upCount" onclick="plusCount()" type="button">
+                    <span class="material-symbols-outlined">
+                    arrow_forward_ios
+                    </span>
+                  </button>
+                  </div>
                   <div id="total-price" class="d-flex justify-content-between">
                     <strong>총상품금액</strong>
                     <span><fmt:formatNumber value="${resultMap[0].PRICE*((100-discount)/100)}" pattern="###,###"/>원</span>
@@ -311,6 +326,19 @@
     </div>
   </a>
 </c:forEach> --%>
+    <script>
+    let countValue = document.getElementById("PRODUCT_COUNT")
+    function plusCount() {
+      countValue.value=parseInt(countValue.value)+1;
+      // countValue.innerText=parseInt(countValue)
+    }
+    function minusCount() {
+      countValue.value=parseInt(countValue.value)-1;
+      if(countValue.value<1) {
+        countValue.value=1;
+      }
+    }
+    </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
