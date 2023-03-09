@@ -40,7 +40,7 @@
                 <a href="/list/qna" class="nav-link fs-5 text-dark">Q&A</a>
                 <a href="/list/announcement" class="nav-link fs-5 text-dark">공지사항</a>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
-                  <a href="/admin" class="nav-link fs-5 text-dark">관리자 페이지</a>
+                  <a href="/admin" class="nav-link fs-5 text-dark">관리자페이지</a>
                 </sec:authorize>
               </div>
               <div class="navbar-nav">
