@@ -28,11 +28,11 @@
           <a href="/list/announcement/ect">기타</a>
         </div>
         <!-- search -->
-        <div id="search">
-          <input type="text" placeholder value fw-filter fw-msg fw-label />
-          <a href="" style="color: black; height: 360px">
-            <span class="material-symbols-outlined">search</span>
-          </a>
+        <div>
+          <form action="/list/announcement/search" method="POST" id="search">
+            <input type="text" name="SEARCH_TEXT" placeholder value fw-filter fw-msg fw-label />
+              <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
+          </form>
         </div>
       </div>
       <!-- table -->

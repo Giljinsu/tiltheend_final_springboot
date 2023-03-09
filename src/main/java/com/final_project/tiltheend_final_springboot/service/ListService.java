@@ -55,8 +55,16 @@ public class ListService {
         return result;
     }
 
+    // 답변완료로 상태변경 - qna댓글 달아줄때
     public Object updateStatus(Object dataMap) {
         String sqlMapId = "List.updatestatus";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    // 답변대기로 상태변경 - qna댓글 삭제할때
+    public Object updateStatus2(Object dataMap) {
+        String sqlMapId = "List.updatestatus2";
         Object result = commonDao.update(sqlMapId, dataMap);
         return result;
     }

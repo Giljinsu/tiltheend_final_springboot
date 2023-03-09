@@ -55,7 +55,28 @@ VALUES
 ('PROD_33','generic','드롭 숄더 MA-1 항공 점퍼 카키', 109000,'남자아우터','36',105),
 ('PROD_34','generic','[신상품★]ㅌ오버사이즈 셔츠 화이트', 98100,'남자상의','10',80),
 ('PROD_35','generic','[신상품★]언어펙티드 X 플랙 롱 슬리브 오렌지', 55200,'남자상의','20',135),
-('PROD_36','generic','그래픽 후디 스카이 블루', 79200,'남자상의','20',105);
+('PROD_36','generic','그래픽 후디 스카이 블루', 79200,'남자상의','20',105),
+
+('PROD_37','나이키','나이키 코트 줌 라이트3 클레이코트 테니스화', 74900,'남자신발','10',55),
+('PROD_38','나이키','나이키 와플 데뷰', 89000,'여자신발','15',65),
+('PROD_39','나이키','나이키 덩크 로우 레트로 SE', 139000,'남자신발','0',75),
+('PROD_40','영에이지','남성 세미 캐주얼화', 93740,'남자신발','10',35),
+('PROD_41','엘칸토','7CM스틸레토힐 여성포인트토구두', 58910,'여자신발','20',65),
+('PROD_42','TANDY','리본 장식 여성 펌프스', 86400,'여자신발','10',75),
+
+('PROD_43','블루독베이비','BASIC캡모자', 27440,'남자모자','13',85),
+('PROD_44','햇츠온','여성 린넨 혼방 링클 벙거지 모자', 13700,'여자모자','0',95),
+('PROD_45','무지','BASIC 화이트모자', 23780,'여자모자','0',35),
+('PROD_46','라코스떼','남성여성 오렌지 벙거지 모자', 23000,'여자모자','10',70),
+('PROD_47','무지','남성 검정 모자', 33000,'남자모자','0',40),
+('PROD_48','샤넬','여성 퍼플 모자', 73000,'여자모자','0',120),
+
+('PROD_49','샤넬','여성 베이지 핸드백', 230000,'여자가방','10',5),
+('PROD_50','디올','여성 브라운 핸드백', 330000,'여자가방','10',14),
+('PROD_51','메트로시티','여성 그린 핸드백', 170000,'여자가방','20',13),
+('PROD_52','루이비통','여성 그레이 핸드백', 1340000,'여자가방','20',5),
+('PROD_53','샤넬','여성 핑크 핸드백', 730000,'여자가방','0',9),
+('PROD_54','샘소나이트','남성 블랙 서류가방', 190000,'남자가방','20',33);
 
 -- file CIP_ATTACHFILE
 INSERT INTO CIP_ATTACHFILE
@@ -97,14 +118,6 @@ VALUES
 		('UU13', 'CORD_3', 'model2.jpg','chulsu','REG1125',SYSDATE(),'MOD1124',SYSDATE(),1)
 ;
 
-INSERT INTO CIP_ATTACHFILE
-(ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
-REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE)
-VALUES
-('UU60', 'R001', 'review1.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU61', 'R002', 'review2.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU62', 'R003', 'review1.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU63', 'R004', 'review2.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE());
 
 -- file PRODUCT_PICTURE 삽입
 INSERT INTO CIP_ATTACHFILE
@@ -134,6 +147,7 @@ VALUES
 ('UU34', 'PROD_20', 'shop20.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU35', 'PROD_21', 'shop21.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU36', 'PROD_22', 'shop22.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+
 ('UU37', 'PROD_23', 'shop23.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU38', 'PROD_24', 'shop24.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU39', 'PROD_25', 'shop25.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
@@ -148,15 +162,39 @@ VALUES
 ('UU48', 'PROD_34', 'shop34.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU49', 'PROD_35', 'shop35.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
 ('UU50', 'PROD_36', 'shop36.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU51', 'PROD_37', 'shop37.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU52', 'PROD_38', 'shop38.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU53', 'PROD_39', 'shop39.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU54', 'PROD_40', 'shop40.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU55', 'PROD_41', 'shop41.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU56', 'PROD_42', 'shop42.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU57', 'PROD_43', 'shop43.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU58', 'PROD_44', 'shop44.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
-('UU59', 'PROD_45', 'shop45.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE());
+
+
+('UU60', 'PROD_37', 'shoes1.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU61', 'PROD_38', 'shoes2.png','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU62', 'PROD_39', 'shoes3.png','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU63', 'PROD_40', 'shoes4.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU65', 'PROD_41', 'shoes5.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU66', 'PROD_42', 'shoes6.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+
+('UU67', 'PROD_43', 'hats1.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU68', 'PROD_44', 'hats2.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU69', 'PROD_45', 'hats3.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU70', 'PROD_46', 'hats4.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU71', 'PROD_47', 'hats5.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU72', 'PROD_48', 'hats6.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+
+('UU73', 'PROD_49', 'bags1.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU74', 'PROD_50', 'bags2.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU75', 'PROD_51', 'bags3.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU76', 'PROD_52', 'bags4.jfif','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU77', 'PROD_53', 'bags5.jfif','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU78', 'PROD_54', 'bags6.jpg','shop','REG1125',SYSDATE(),'MOD1124',SYSDATE());
+
+
+INSERT INTO CIP_ATTACHFILE
+(ATTACHFILE_SEQ, SOURCE_UNIQUE_SEQ, ORGINALFILE_NAME, PHYSICALFILE_NAME, 
+REGISTER_SEQ, REGISTRY_DATE, MODIFIER_SEQ, MODIFY_DATE)
+VALUES
+('UU79', 'R001', 'review1.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU80', 'R002', 'review2.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU81', 'R003', 'review1.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE()),
+('UU82', 'R004', 'review2.jpg','review','REG1125',SYSDATE(),'MOD1124',SYSDATE());
+
 
 -- coordination
 INSERT INTO COORDINATION_INFO
