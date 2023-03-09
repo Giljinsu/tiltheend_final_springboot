@@ -31,6 +31,12 @@
             WHERE TITLE LIKE #{SEARCH_TEXT};
     </select>
 
+    <select id="qna" 
+        parameterType="Map" resultType="Map">
+            SELECT * FROM QNA
+            WHERE TITLE LIKE #{SEARCH_TEXT};
+    </select>
+
     <select id="selectreviewfile" 
         parameterType="Map" resultType="Map">
         SELECT * FROM REVIEW A JOIN CIP_ATTACHFILE B

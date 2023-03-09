@@ -74,6 +74,45 @@
         </div>
 
         <div>
+          <h3>QNA</h3>
+          <table class="table table-hover text-center mt-2">
+        <tbody>
+          <tr>
+            <td class="col-md-1" id="number">번호</td>
+            <td class="col-md-2" id="cate">구분</td>
+            <td class="" id="title">제목</td>
+            <td class="col-md-1" id="id">작성자</td>
+            <td class="col-md-1" id="date">날짜</td>
+          </tr>
+          <c:forEach items="${qnaLists}" var="qnaList" varStatus="loop">
+            <tr>
+              <td class="col-md-1" id="number">${loop.count}</td>
+              <td class="col-md-2" id="cate">
+                <c:choose>
+                  <c:when test="${qnaList.CATEGORY eq 'repair'}">
+                    교환/반품/수선
+                  </c:when>
+                  <c:when test="${qnaList.CATEGORY eq 'delivery'}">
+                    출고/배송
+                  </c:when>
+                  <c:when test="${qnaList.CATEGORY eq 'cancle'}">
+                    주문/취소
+                  </c:when>
+                  <c:when test="${qnaList.CATEGORY eq 'ect'}">
+                    기타
+                  </c:when>
+                </c:choose>
+              </td>
+              <td class="" id="title"><a href="/list/qna/board/${qnaList.POST_NO_QNA}">${qnaList.TITLE}</a></td>
+              <td class="col-md-1" id="id">${qnaList.USERNAME}</td>
+              <td class="col-md-2" id="date">${qnaList.DATE}</td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
+        </div>
+
+        <div>
           <h3>FAQ</h3>
       <table class="table table-hover text-center mt-2">
         <tbody>
