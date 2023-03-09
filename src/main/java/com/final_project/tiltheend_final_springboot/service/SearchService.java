@@ -34,5 +34,10 @@ public class SearchService {
         return result;
     }
 
+    public Object searchAnno(Object dataMap) {
+        String sqlMapId = "search.anno";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
 
 }
