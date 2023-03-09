@@ -282,17 +282,17 @@ VALUES
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO ANNOUNCEMENT
 (`POST_NO_ANNO`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}');
 
 -- COORDINATION_PICTURE
 
@@ -301,17 +301,17 @@ VALUES
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('3','U0001','repair','반품시 유의사항','2023.01.05','내용');
+('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}');
 
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','내용');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}');
 
 -- PRODUCT_PICTURE
 
@@ -335,17 +335,17 @@ VALUES
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('3','U0001','repair','반품시 유의사항','2023.01.05','내용','답변대기');
+('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','내용','답변완료');
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','내용','답변대기');
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 -- REVIEW
 INSERT INTO REVIEW
