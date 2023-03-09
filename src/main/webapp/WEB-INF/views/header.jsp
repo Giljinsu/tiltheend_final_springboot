@@ -70,7 +70,9 @@
                 </a> --%>
                 <form action="/shoppingcart/list" class="nav-link me-4 fs-5 " method="post">
                 <%-- 하드 코딩 --%>
+                <sec:authorize access="isAuthenticated()">
                 <input type="hidden" name="UID" value="${userDetailsBean.UID}">
+                </sec:authorize>
                 <button class="btn d-flex align-items-center">
                   <span class="material-symbols-outlined">shopping_cart_checkout</span>
                 </button>
