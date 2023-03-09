@@ -29,17 +29,16 @@ public class HomeController {
     public ModelAndView bypass(ModelAndView modelAndView) {
         Object resultMap = coordinationService.getListIndexPage();
         Object resultMapBestProduct = shopService.getBestsellingProductList18();
-
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
         modelAndView.setViewName("/index");
         return modelAndView;
     }
 
-    @RequestMapping(value = { "search" }, method=RequestMethod.POST)
+    @RequestMapping(value = { "search" }, method = RequestMethod.POST)
     public ModelAndView search(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
-        String text = (String)params.get("SEARCH_TEXT");
-        String searchtext = "%"+text+"%";
+        String text = (String) params.get("SEARCH_TEXT");
+        String searchtext = "%" + text + "%";
         params.put("SEARCH_TEXT", searchtext);
         Object productList = searchService.searchProduct(params);
         Object coordinationList = searchService.searchCoordination(params);
