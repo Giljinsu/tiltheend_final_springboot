@@ -96,7 +96,7 @@
     </insert>
     <delete id="delete" 
         parameterType="Map">
-        DELETE FROM coordination_info
+        DELETE FROM COORDINATION_INFO
         WHERE COORDINATION_ID=#{COORDINATION_ID}
         ;
     </delete>
