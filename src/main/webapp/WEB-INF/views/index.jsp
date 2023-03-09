@@ -51,7 +51,7 @@
 
       <%-- 새로 삽입하는 Top Ranking --%>
       <div class="fs-3 mt-5 mb-3">Top Ranking
-        <a href="/shop/shop" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>      
+        <a href="/shop2/shop" class="align-items-bottom" style="font-size: 0.8rem; text-decoration-line: none; color: rgba(0, 0, 0, 0.5)">더보기</a>      
       </div>
 					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
 						<!-- Indicators -->
@@ -65,10 +65,10 @@
 						<div class="carousel-inner">
 							<c:forEach begin="0" end="2" var="i"> <!-- 3개의 ROW를 CAROUSEL에 삽입하기 -->
 								<c:if test="${i==0}">
-									<div class="carousel-item active">
+									<div class="carousel-item active" data-bs-interval="8000">
 								</c:if>
 								<c:if test="${i>0}">
-									<div class="carousel-item">
+									<div class="carousel-item" data-bs-interval="8000">
 								</c:if>
 										<div class="row">
 											<c:forEach items="${resultMapBestProduct}" var="item" varStatus="loop"
