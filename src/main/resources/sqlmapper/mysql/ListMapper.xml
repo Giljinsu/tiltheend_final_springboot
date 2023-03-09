@@ -12,6 +12,12 @@
 
     <!-- QNA -->
 
+    <select id="selectQnaTotal" 
+        parameterType="Map" resultType="int">
+            SELECT COUNT(*) AS CNT
+            FROM QNA
+    </select>
+
     <!-- List.selectQNAwithjoin -->
     <select id="selectQNAwithjoin" 
         parameterType="Map" resultType="Map">
@@ -33,7 +39,10 @@
             <otherwise>
             </otherwise>
         </choose> -->
-        ORDER BY DATE DESC;
+        ORDER BY DATE DESC
+        <if test="pageScale != null">
+        LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+        </if>
     </select>
 
     <!-- List.selectQNACategory -->

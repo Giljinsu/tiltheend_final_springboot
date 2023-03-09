@@ -31,16 +31,22 @@ public class ListController {
     CommonUtils commonUtils = new CommonUtils();
 
     // qna
-    @RequestMapping(value = "/qna", method = RequestMethod.GET)
+    @RequestMapping(value = "/qna/{currentPage}", method = RequestMethod.GET)
     public ModelAndView listQna(@RequestParam Map<String, Object> params,
-            ModelAndView modelAndView) {
-        Object resultMap = listService.selectQNAWithJoin(params);
+            ModelAndView modelAndView, @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
+        Object resultMap = listService.getQNAListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/qna");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/qna/{category}", method = RequestMethod.GET)
+    @RequestMapping(value = "/qna/{currentPage}/{category}", method = RequestMethod.GET)
     public ModelAndView listQnaCategory(@RequestParam Map<String, Object> params, @PathVariable String category,
             ModelAndView modelAndView) {
         params.put("CATEGORY", category);
