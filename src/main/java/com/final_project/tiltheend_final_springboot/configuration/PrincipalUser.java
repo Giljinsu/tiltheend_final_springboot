@@ -14,6 +14,11 @@ public class PrincipalUser implements UserDetails {
     private Map userInfo;
     private String userName;
     private String UID;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
 
     public Map getUserInfo() {
         return userInfo;
@@ -31,6 +36,7 @@ public class PrincipalUser implements UserDetails {
         int i = 1;
         this.userName = (String)userInfo.get("USERNAME");
         this.UID = (String)userInfo.get("UID");
+        this.role = (String)userInfo.get("ROLE");
     }
     @Override
     public Collection<GrantedAuthority> getAuthorities() {

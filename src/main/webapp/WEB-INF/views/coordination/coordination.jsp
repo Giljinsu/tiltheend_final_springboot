@@ -93,7 +93,7 @@
               <c:choose> --%>
               <%-- 테스트용 --%>
               <sec:authorize access="isAuthenticated()">
-              <c:if test="${item.UID eq userDetailsBean.UID}">
+              <c:if test="${item.UID eq userDetailsBean.UID || userDetailsBean.role eq 'ROLE_ADMIN'}">
               <div class="d-flex justify-content-end mt-3">
                 <form action="/coordination/edit" method="post">
                 <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">

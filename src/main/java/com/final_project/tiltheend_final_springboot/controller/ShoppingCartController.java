@@ -43,4 +43,11 @@ public class ShoppingCartController {
         modelAndView.setViewName("shoppingcart/shoppingcart");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/delivery_address")
+    public ModelAndView login(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
+        String path = "/shoppingcart/delivery_address";
+        modelAndView.setViewName(path);
+        return modelAndView;
+    }
 }

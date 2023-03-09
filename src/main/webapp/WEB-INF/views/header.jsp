@@ -110,10 +110,12 @@
             </button>
           </div>
           <div class="modal-body d-flex align-items-center">
-            <input name="search_text" type="text" class="form-control me-3" />
-            <a href="" style="color: white">
+            <form action="/search" class="d-flex" style="width:40rem" method="post">
+            <input name="SEARCH_TEXT" type="text" class="form-control me-3" />
+            <button class="btn" style="">
               <span style="color: white" class="material-symbols-outlined">search</span>
-            </a>
+            </button>
+            </form>
           </div>
         </div>
       </div>
