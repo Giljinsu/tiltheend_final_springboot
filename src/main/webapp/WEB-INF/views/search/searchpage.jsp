@@ -31,7 +31,7 @@
 							<a href="/shop/${productList.PRODUCT_ID}" class="col-3 mb-3">
 								<div class="card" style="">
 									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
-									<img class="card-img-top" src="/files/${productList.PHYSICALFILE_NAME}/${productList.ORGINALFILE_NAME}" alt="Card image cap">
+									<img class="card-img-top" style="height:20rem;" src="/files/${productList.PHYSICALFILE_NAME}/${productList.ORGINALFILE_NAME}" alt="Card image cap">
 									<div class="card-body">
 										<div class="card-title">브랜드: ${productList.BRAND}</div>
 										<div class="card-text clothes_name">${productList.CLOTHES_NAME}</div>
