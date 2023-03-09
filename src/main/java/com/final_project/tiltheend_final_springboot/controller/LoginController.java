@@ -58,7 +58,7 @@ public class LoginController {
         params.put("UID", UID);
         params.put("ROLE", "MEMBER");
         params.put("PW", bCryptPasswordEncoder.encode(PW));
-        String phonenumber = params.get("phonenumber0")+"-"+params.get("PHONENUMBER1")+"-"+params.get("PHONENUMBER1");
+        String phonenumber = params.get("PHONENUMBER0")+"-"+params.get("PHONENUMBER1")+"-"+params.get("PHONENUMBER1");
         params.put("PHONENUMBER", phonenumber);
         loginService.signUp(params);
         String path = "/login/login";
