@@ -107,7 +107,7 @@
           <div class="modal-body d-flex align-items-center">
             <input name="search_text" type="text" class="form-control me-3" />
             <a href="" style="color: white">
-              <span class="material-symbols-outlined">search</span>
+              <span style="color: white" class="material-symbols-outlined">search</span>
             </a>
           </div>
         </div>
