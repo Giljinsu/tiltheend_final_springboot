@@ -18,11 +18,11 @@
 </head>
 <body>
    <%@ include file="../header.jsp" %>
-    <c:set  var="item" value="${resultMap}"/>
+    <c:set  var="item" value="${resultMap.resultList}"/>
     <main style="margin-top:8rem;" class="container">
         <div class="row row-cols-1 row-cols-md-4">
         
-        <c:forEach items="${resultMap}" var="item" varStatus="loop">
+        <c:forEach items="${resultMap.resultList}" var="item" varStatus="loop">
         <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
         <form id="" action="/coordination/view" method="post">
             <%-- 하드코딩 --%>
@@ -55,18 +55,19 @@
         </div>
         <!-- pagination -->
         <div class="container d-flex justify-content-center">
+        <c:set var="_pagination" value="${resultMap.paginations}" />
             <nav aria-label="Page navigation example" class="">
                 <ul class="pagination">
                   <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                    <a class="page-link" href="/coordination/list/${_pagination.blockStart-1}" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
                     </a>
                   </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
+                  <li class="page-item"><a class="page-link" href="/coordination/list/${i}">${i}</a></li>
+                </c:forEach>
                   <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+                    <a class="page-link" href="/coordination/list/${_pagination.blockEnd+1}" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
                     </a>
                   </li>

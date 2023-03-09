@@ -11,6 +11,15 @@
         WHERE COORDINATION_ID = #{COORDINATION_ID}
         ;
     </select>
+
+        <!-- coordination.selectTotal -->
+    <select id="selectTotal" 
+        parameterType="Map" resultType="int">
+            SELECT COUNT(*) AS CNT
+            FROM COORDINATION_INFO
+            ;
+    </select>
+    
     <!-- 코디게시판 파일 조인 -->
     <select id="selectjoinfile" 
         parameterType="Map" resultType="Map">
@@ -20,7 +29,6 @@
         AND A.COORDINATION_ID=#{COORDINATION_ID};
     </select>
     <!-- 게시판 용 -->
-
 
     <select id="getlistnotjoin" 
         parameterType="Map" resultType="Map">
@@ -36,7 +44,10 @@
             WHERE FILE_ORDER IN (SELECT MIN(FILE_ORDER) FROM CIP_ATTACHFILE)
             GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
             ON COORDINATION_ID = SOURCE_UNIQUE_SEQ 
+            <if test="pageScale != null">
             ORDER BY WRITE_DATE DESC
+            LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+            </if>
             ;
     </select>
     <select id="getlistwithjoinfileIndexPage" 

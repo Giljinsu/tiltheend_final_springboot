@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.final_project.tiltheend_final_springboot.dao.CommonDao;
+import com.final_project.tiltheend_final_springboot.utils.Paginations;
 
 @Service
 public class CoordinationService {
@@ -90,6 +91,30 @@ public class CoordinationService {
         return result;
     }
 
+    public Object getList(Object dataMap) {
+        String sqlMapId = "coordination.getlistwithjoinfile";
+        Object result = commonDao.selectList(sqlMapId,dataMap);
+        return result;
+    }
+
+    public Object getTotal(Object dataMap) {
+        String sqlMapId = "coordination.selectTotal";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+    
+    public Object getListWithPagination(Object dataMap){
+        Map<String, Object> result = new HashMap<String,Object>();
+        int totalCount = (int)this.getTotal(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin",paginations.getPageBegin()-1);
+        result.put("resultList", this.getList(dataMap));
+        return result;
+    }
+
     public Object getListIndexPage() {
         String sqlMapId = "coordination.getlistwithjoinfileIndexPage";
         Object result = commonDao.selectList(sqlMapId);
@@ -114,7 +139,7 @@ public class CoordinationService {
         Object result = filesService.deleteFile(dataMap);
         result = this.deleteComment(dataMap);
         result = this.deleteCord(dataMap);
-        result = this.getList();
+        result = this.getListWithPagination(dataMap);
         return result;
     }
 
