@@ -40,17 +40,6 @@ public class ListController {
         return modelAndView;
     }
 
-    // search -> 미완성
-    @RequestMapping(value = "/search?title={keyword}", method = RequestMethod.GET)
-    public ModelAndView searchQNA(@RequestParam Map<String, Object> params,
-            @PathVariable String keyword, ModelAndView modelAndView) {
-        params.put("keyword", keyword);
-        Object resultMap = listService.searchQNA(params);
-        modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("qna/qna");
-        return modelAndView;
-    }
-
     @RequestMapping(value = "/qna/{category}", method = RequestMethod.GET)
     public ModelAndView listQnaCategory(@RequestParam Map<String, Object> params, @PathVariable String category,
             ModelAndView modelAndView) {
