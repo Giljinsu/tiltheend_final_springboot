@@ -5,14 +5,24 @@
     
     <select id="product" 
         parameterType="Map" resultType="Map">
-            SELECT * FROM PRODUCT
-            WHERE CLOTHES_NAME LIKE #{SEARCH_TEXT}; ;
+        SELECT * FROM PRODUCT
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
+		WHERE CLOTHES_NAME LIKE #{SEARCH_TEXT};
     </select>
 
     <select id="coordination" 
         parameterType="Map" resultType="Map">
-            SELECT * FROM COORDINATION_INFO
-            WHERE TITLE LIKE #{SEARCH_TEXT};
+            SELECT * 
+            FROM COORDINATION_INFO  
+            JOIN (SELECT * FROM CIP_ATTACHFILE
+            WHERE FILE_ORDER IN (SELECT MIN(FILE_ORDER) FROM CIP_ATTACHFILE)
+            GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+            ON COORDINATION_ID = SOURCE_UNIQUE_SEQ 
+            WHERE TITLE LIKE #{SEARCH_TEXT}
+            ORDER BY WRITE_DATE DESC
+            ;
     </select>
 
     <select id="faq" 

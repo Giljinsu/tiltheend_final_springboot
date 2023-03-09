@@ -23,17 +23,58 @@
     <%@ include file="../header.jsp" %>
 
     <main class="container" style="margin-top: 5rem; width: 98%; margin-left: auto; margin-right: auto">
+      <h1 class ="mb-5">Search : ${searchtext} </h1>
         <div>
           <h3>상품</h3>
-          
+            <div class="row">
+          	<c:forEach items="${productLists}" var="productList" varStatus="loop">
+							<a href="/shop/${productList.PRODUCT_ID}" class="col-3 mb-3">
+								<div class="card" style="">
+									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
+									<img class="card-img-top" src="/files/${productList.PHYSICALFILE_NAME}/${productList.ORGINALFILE_NAME}" alt="Card image cap">
+									<div class="card-body">
+										<div class="card-title">브랜드: ${productList.BRAND}</div>
+										<div class="card-text clothes_name">${productList.CLOTHES_NAME}</div>
+										<div class="card-text">할인률: ${productList.DISCOUNT_RATE}</div>
+										<div class="card-text">가격: <fmt:formatNumber value="${productList.PRICE}" pattern="#,###"/>원</div>
+									</div>
+								</div>
+							</a>
+						</c:forEach>
+            </div>
         </div>
 
         <div>
           <h3>코디</h3>
+          <div class="row row-cols-1 row-cols-md-4">
+          
+          <c:forEach items="${coordinationLists}" var="coordinationList" varStatus="loop">
+          <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
+          <form id="" action="/coordination/view" method="post">
+              <%-- 하드코딩 --%>
+              <%-- <input type="hidden" name="UID" value="U0003">  --%>
+
+              <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${coordinationList.COORDINATION_ID}">
+              <input type="hidden" name="COORDINATION_ID" value="${coordinationList.COORDINATION_ID}">
+              <button class="btn btn_link col mb-3">
+              <%-- <a href="" onclick="document.getElementById('form_${loop.index}').submit();" class="col mb-3"> --%>
+                  <div class="card border-light h-100">
+                      <img src="/files/${coordinationList.PHYSICALFILE_NAME}/${coordinationList.ORGINALFILE_NAME}" class="card-image" alt="" loading="lazy" />
+                      <div class="card-body text-start">
+                          <div class="card-title">${coordinationList.TITLE}</div>
+                          <div class="card-text">${coordinationList.USERNAME}</div>
+                          <div class="card-text-viewcount">조회수 : ${coordinationList.VIEWS} </div>
+                      </div>
+                  </div>
+              <%-- </a> --%>
+              </button>
+          </form>
+          </c:forEach>
+          </div>
         </div>
 
         <div>
-          <h3>faq</h3>
+          <h3>FAQ</h3>
       <table class="table table-hover text-center mt-2">
         <tbody>
           <tr>

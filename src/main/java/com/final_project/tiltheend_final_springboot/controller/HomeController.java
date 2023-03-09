@@ -41,7 +41,12 @@ public class HomeController {
         String text = (String)params.get("SEARCH_TEXT");
         String searchtext = "%"+text+"%";
         params.put("SEARCH_TEXT", searchtext);
+        Object productList = searchService.searchProduct(params);
+        Object coordinationList = searchService.searchCoordination(params);
         Object faqList = searchService.searchFaq(params);
+        modelAndView.addObject("searchtext", text);
+        modelAndView.addObject("productLists", productList);
+        modelAndView.addObject("coordinationLists", coordinationList);
         modelAndView.addObject("faqLists", faqList);
         modelAndView.setViewName("/search/searchpage");
         return modelAndView;
