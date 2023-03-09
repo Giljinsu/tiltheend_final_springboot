@@ -22,5 +22,16 @@ public class UserService {
         return result;
     }
 
+    public Object updateUser(Object dataMap) {
+        String sqlMapId = "user.update";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object updateuserAndSelectUserOne(Object dataMap) {
+        Object result = this.updateUser(dataMap);
+        result = this.selectUserOne(dataMap);
+        return result;
+    }
 
 }

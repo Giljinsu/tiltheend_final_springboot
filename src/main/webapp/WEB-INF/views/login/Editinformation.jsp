@@ -77,35 +77,75 @@
                 <button class="btn d-flex align-items-center">
                    로그아웃
                 </button>
-            </form>     
-          <%-- <div><a href="/myPage/purchaselist">구매내역</a></div> --%>
-          <%-- <div><a href="/myPage/editInformation">개인정보수정</a></div> --%>
+            </form>       
+          <%-- <div><a href="/myPage/purchaselist">구매내역</a></div>
+          <div><a href="/myPage/editInformation">개인정보수정</a></div> --%>
           <%-- <div><a href="/login/wishListPage">위시리스트</a></div> --%>
           <%-- <div><a href="/logout">로그아웃</a></div> --%>
         </div>
         <div id="right-column" class="">
-          <div class="fs-5 mb-3">구매내역</div>
-          <c:forEach items="${resultMap}" var="item" varStatus="loop">
-          <!-- 구매내역 1개단위 start -->
-          <div class="border rounded p-3 mb-3">
-            <div class="mb-3 fs-5">${item.ORDERDATE} 주문</div>
-            <div class="d-flex"> 
-              <div class="w-25 me-3">
-                <img src="/files/${item.PHYSICALFILE_NAME}/${item.ORGINALFILE_NAME}" alt="" class="w-100">
-              </div>
-              <div>
-                <div>브랜드: ${item.BRAND}</div>
-                <div>종류: ${item.CATEGORY}</div>
-                <div>모델명: ${item.CLOTHES_NAME}</div>
-                <br>
-                <div>주문개수 : ${item.PRODUCT_COUNT}개</div>
-                <div>구매가격: ${item.FINAL_PRICE}원</div>
-              </div>
-            </div>
-          </div>
-          <!-- 구매내역 1개단위 end -->
-          </c:forEach>
-        </div>
+        <div class="fs-5 mb-3">개인정보수정</div>
+        <form class="form-group d-flex mb-5" action="/myPage/updateUser" method="post">
+        <input type="hidden" name="UID" value="${userDetailsBean.UID}">
+          <table class="table w-100 fs-6 font-weight-bold">
+            <tr>
+              <td>이름</td>
+              <td><input id="name" name="USERNAME" class="form-control" value="${currentInfo.USERNAME}" type="text">
+              <div id="nameErr"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>생년월일</td>
+              <td><input id="birthYear" name="BIRTH_YEAR" value="${currentInfo.BIRTH_YEAR}" class="form-control" type="date">
+                <div id="birthYearErr"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>성별</td>
+              <td><select name="SEX" id="sex">
+                <option value="">---</option>
+                <option value="남" ${currentInfo.SEX eq "남" ? 'selected' : ""}>남자</option>
+                <option value="여" ${currentInfo.SEX eq "여" ? 'selected' : ""}>여자</option>
+              </select>
+              <div id="sexErr"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>전화번호</td>
+              <td class="">
+                <input class="" value="${currentInfo.PHONENUMBER0}" style="width:5rem;" name="PHONENUMBER0" id="phonenumber0" type="text"> -
+                <input class="" value="${currentInfo.PHONENUMBER1}" style="width:8rem;" name="PHONENUMBER1" id="phonenumber1" type="text"> -
+                <input class="" value="${currentInfo.PHONENUMBER2}" style="width:8rem;" name="PHONENUMBER2" id="phonenumber2" type="text">
+                <div id="phonenumberErr"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>이메일</td>
+              <td><input class="form-control" value="${currentInfo.EMAIL}" name="EMAIL" id="email" type="text" placeholder="tom@gmail.com">
+              <div id="emailErr"></div>
+              </td>
+            </tr>
+            <%-- <tr>
+              <td>ID</td>
+                <form></form>
+              <td class="">
+                <input class="form-control mb-2 w-100" value="${currentInfo.ID}" id="id" name="ID" type="text">
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>PW</td>
+              <td><input class="form-control" value="${currentInfo.PW}" id="pw" name="PW" type="password">
+              </td>
+            </tr> --%>
+            <tr>
+              <td colspan="2" class="text-end">
+                <button class="btn btn-dark" >정보수정하기</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
       </div>
       <div class="d-flex justify-content-center mb-3">
         <button class="btn btn-dark me-2">이전</button>
@@ -120,5 +160,11 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script>
+    let success = '${success}';
+    if(success == "success"){
+      alert("정보 수정하였습니다!")
+    }
+    </script>
   </body>
 </html>
