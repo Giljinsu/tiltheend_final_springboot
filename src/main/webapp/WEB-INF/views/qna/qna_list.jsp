@@ -30,11 +30,9 @@
         </div>
         <!-- search -->
         <div>
-          <form action="/list/qna" method="GET" id="search">
-            <input type="text" name="title" placeholder value fw-filter fw-msg fw-label />
-            <a href="" style="color: black; height: 360px">
+          <form action="/list/qna/search" method="POST" id="search">
+            <input type="text" name="SEARCH_TEXT" placeholder value fw-filter fw-msg fw-label />
               <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
-            </a>
           </form>
         </div>
       </div>

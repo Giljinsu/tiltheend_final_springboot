@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.final_project.tiltheend_final_springboot.service.CommentService;
 import com.final_project.tiltheend_final_springboot.service.ListService;
+import com.final_project.tiltheend_final_springboot.service.SearchService;
 import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 
 @Controller
@@ -24,6 +25,9 @@ public class ListController {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    SearchService searchService;
+
     CommonUtils commonUtils = new CommonUtils();
 
     // qna
@@ -31,17 +35,6 @@ public class ListController {
     public ModelAndView listQna(@RequestParam Map<String, Object> params,
             ModelAndView modelAndView) {
         Object resultMap = listService.selectQNAWithJoin(params);
-        modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("qna/qna");
-        return modelAndView;
-    }
-
-    // search -> 미완성
-    @RequestMapping(value = "/search?title={keyword}", method = RequestMethod.GET)
-    public ModelAndView searchQNA(@RequestParam Map<String, Object> params,
-            @PathVariable String keyword, ModelAndView modelAndView) {
-        params.put("keyword", keyword);
-        Object resultMap = listService.searchQNA(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/qna");
         return modelAndView;
@@ -96,6 +89,17 @@ public class ListController {
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.addObject("comments", comment);
         modelAndView.setViewName("qna/qnaboard");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/qna/search" }, method = RequestMethod.POST)
+    public ModelAndView search(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+        String text = (String) params.get("SEARCH_TEXT");
+        String searchtext = "%" + text + "%";
+        params.put("SEARCH_TEXT", searchtext);
+        Object faqList = searchService.searchQna(params);
+        modelAndView.addObject("resultMap", faqList);
+        modelAndView.setViewName("/qna/qna");
         return modelAndView;
     }
 
