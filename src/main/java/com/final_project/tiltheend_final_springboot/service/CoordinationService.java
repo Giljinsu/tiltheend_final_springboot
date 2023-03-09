@@ -78,6 +78,12 @@ public class CoordinationService {
         Object result = commonDao.update(sqlMapId, dataMap);
         return result;
     }
+    
+    public Object viewCountUp(Object dataMap) {
+        String sqlMapId = "coordination.upviews";
+        Object result = commonDao.update(sqlMapId, dataMap);
+        return result;
+    }
 
     public Object deleteCord(Object dataMap) {
         String sqlMapId = "coordination.delete";

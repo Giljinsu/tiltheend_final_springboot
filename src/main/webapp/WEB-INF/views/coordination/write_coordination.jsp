@@ -38,7 +38,7 @@
       <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${resultMap.COORDINATION_ID}">
       <input type="hidden" name="PRODUCT_ID" value="PROD_1">
       <input type="hidden" name="UID" value="${userDetailsBean.UID}">
-      <input type="hidden" name="VIEWS" value="1">
+      <input type="hidden" name="VIEWS" value="0">
       <input type="hidden" name="LIKES" value="2">
       <div id="isadded"></div>
       <%-- 파일을 업로드시 --%>

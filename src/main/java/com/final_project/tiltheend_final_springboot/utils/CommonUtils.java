@@ -9,12 +9,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.final_project.tiltheend_final_springboot.service.CoordinationService;
 import com.final_project.tiltheend_final_springboot.service.FilesService;
 
 public class CommonUtils {
+
     public String makeUuid() {
         UUID uuid = UUID.randomUUID();
         return uuid.toString();
@@ -136,30 +142,39 @@ public class CommonUtils {
         return originalFileName;
     }
 
-    // public void updateFiles(MultipartHttpServletRequest
-    // multipartHttpServletRequest, Map params) {
-    // Map attachFile;
-    // List attachfiles = new ArrayList<>();
-    // Iterator<String> fileNames = multipartHttpServletRequest.getFileNames();
-    // String absolutePath = getAbsolutePath();
-    // String physicalFileName = (String) params.get("PHYSICALFILE_NAME");
-    // String storePath = absolutePath + physicalFileName + File.separator;
-    // File file = new File(storePath);
-    // // newPath.mkdir();
-    // while(fileNames.hasNext()) {
-    // String fileName = fileNames.next();
-    // MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
-    // String originalFileName = multipartFile.getOriginalFilename();
-    // if(originalFileName != null) {
-    // if(file.exists()) {
-    // if(file.isDirectory()) { //폴더이면
-    // File[] files= file.listFiles(); //안에 내용물 리스트로저장
-    // for(int i=0; i<files.length ; i++) {
-    // // if(files[i]==originalFileName); //하나씩 지움
-    // }
-    // }
-    // }
-    // }
-    // // return null;
-    // }}
+    public Boolean viewCountUp(Map params, HttpServletRequest req, HttpServletResponse res) {
+
+        Cookie oldCookie = null;
+        CoordinationService coordinationService = new CoordinationService();
+
+        String id = (String)params.get("COORDINATION_ID");
+
+        Cookie[] cookies = req.getCookies();
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("boardView")) {
+                    oldCookie = cookie;
+                }
+            }
+        }
+
+        if (oldCookie != null) {
+            if (!oldCookie.getValue().contains("[" + id.toString() + "]")) {
+                // coordinationService.viewCountUp(params);
+                oldCookie.setValue(oldCookie.getValue() + "_[" + id + "]");
+                oldCookie.setPath("/");
+                oldCookie.setMaxAge(60 * 60 * 24);
+                res.addCookie(oldCookie);
+                return true;
+            }
+        } else {
+            // coordinationService.viewCountUp(params);
+            Cookie newCookie = new Cookie("boardView","[" + id + "]");
+            newCookie.setPath("/");
+            newCookie.setMaxAge(60 * 60 * 24);
+            res.addCookie(newCookie);
+            return true;
+        }
+        return false;
+    }
 }
