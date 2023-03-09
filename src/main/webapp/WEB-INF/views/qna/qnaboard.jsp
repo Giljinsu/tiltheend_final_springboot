@@ -48,9 +48,23 @@
         </div>
       </div>
       <hr />
-      <div class="mb-4">
+      <div class="mb-2">
         <span>답변</span>
-        <span sec:authorize access="hasRole('ADMIN')">삭제</span>
+        <sec:authorize access="hasRole('ROLE_ADMIN')">
+          <c:if test="${not empty comments}">
+            <span>
+              <form action="/list/qna/delcomment" method="post" style="display: inline-block; margin-left: 90%">
+              <%-- 데이터(댓글의 uid) hidden으로 넘겨줘야 함 --%>
+                <input type="hidden" name="COMMENT_UID" value="${comments.COMMENT_UID}">
+                <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}">
+                <input type="hidden" name="UID" value="${data.POST_NO_QNA}">
+                <button class="btn btn-sm btn-outline-danger">
+                  삭제
+                </button>
+              </form>
+            </span>
+          </c:if>
+        </sec:authorize>
       </div>
       <div id="comment">${comments.CONTENT}</div>
       <%-- 답변이 없고 유저의 권한이 관리자일때 --%>
@@ -58,7 +72,7 @@
       <sec:authorize access="hasRole('ROLE_ADMIN')">
         <c:if test="${empty comments}">
           <!-- 댓글 작성 -->
-          <div class="mb-4" sec:authorize="hasRole('ADMIN')">
+          <div class="mb-4">
             <form class="w-100 d-flex" action="/list/qna/comment/${data.POST_NO_QNA}" method="post">
               <%-- 하드 코딩 --%>
               <input type="hidden" name="USER_UID" value="${userDetailsBean.UID}"> 

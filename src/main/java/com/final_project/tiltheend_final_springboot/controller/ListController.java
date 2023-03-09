@@ -82,7 +82,7 @@ public class ListController {
     public ModelAndView saveComment(@RequestParam Map<String, Object> params, @PathVariable String UID,
             ModelAndView modelAndView) {
         params.put("COMMENT_UID", commonUtils.makeUuid());
-        Object resultMap = commentService.insertComment2(params);
+        Object resultMap = commentService.insertComment_Qna(params);
         params.put("UID", UID);
         resultMap = listService.selectQNAUID(params);
         Object comment = commentService.selectCommentOneWithoutUser(params);
@@ -92,15 +92,25 @@ public class ListController {
         return modelAndView;
     }
 
-    // user와 조인하지 않음 조인한 쿼리를 매퍼에 넣어야함.
     @RequestMapping(value = { "/qna/search" }, method = RequestMethod.POST)
-    public ModelAndView search(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+    public ModelAndView searchQna(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
         String text = (String) params.get("SEARCH_TEXT");
         String searchtext = "%" + text + "%";
         params.put("SEARCH_TEXT", searchtext);
-        Object faqList = searchService.searchQna(params);
+        Object faqList = searchService.searchQnaWithUser(params);
         modelAndView.addObject("resultMap", faqList);
         modelAndView.setViewName("/qna/qna");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/qna/delcomment", method = RequestMethod.POST)
+    public ModelAndView delComment(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object resultMap = commentService.deleteComment_Qna(params);
+        resultMap = listService.selectQNAUID(params);
+        Object comment = commentService.selectCommentOneWithoutUser(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.addObject("comments", comment);
+        modelAndView.setViewName("qna/qnaboard");
         return modelAndView;
     }
 
@@ -141,6 +151,17 @@ public class ListController {
         return modelAndView;
     }
 
+    @RequestMapping(value = { "/faq/search" }, method = RequestMethod.POST)
+    public ModelAndView searchFaq(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+        String text = (String) params.get("SEARCH_TEXT");
+        String searchtext = "%" + text + "%";
+        params.put("SEARCH_TEXT", searchtext);
+        Object faqList = searchService.searchFaqWithUser(params);
+        modelAndView.addObject("resultMap", faqList);
+        modelAndView.setViewName("/qna/faq");
+        return modelAndView;
+    }
+
     // announcement
     @RequestMapping(value = "/announcement", method = RequestMethod.GET)
     public ModelAndView listAnnouncement(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
@@ -175,6 +196,17 @@ public class ListController {
     public ModelAndView writeAnno(@RequestParam Map<String, Object> params,
             ModelAndView modelAndView) {
         modelAndView.setViewName("admin/annoForm");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/announcement/search" }, method = RequestMethod.POST)
+    public ModelAndView searchAnno(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+        String text = (String) params.get("SEARCH_TEXT");
+        String searchtext = "%" + text + "%";
+        params.put("SEARCH_TEXT", searchtext);
+        Object faqList = searchService.searchAnnoWithUser(params);
+        modelAndView.addObject("resultMap", faqList);
+        modelAndView.setViewName("/announcement/announcement");
         return modelAndView;
     }
 }

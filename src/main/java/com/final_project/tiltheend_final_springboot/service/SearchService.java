@@ -40,4 +40,22 @@ public class SearchService {
         return result;
     }
 
+    public Object searchFaqWithUser(Object dataMap) {
+        String sqlMapId = "search.faqwithuser";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object searchQnaWithUser(Object dataMap) {
+        String sqlMapId = "search.qnawithuser";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object searchAnnoWithUser(Object dataMap) {
+        String sqlMapId = "search.annowithuser";
+        Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
 }
