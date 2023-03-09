@@ -36,8 +36,8 @@ public class ShopService {
   }
 
   public Object getBestsellingProductList(Object dataMap) {
-    String sqlMapId = "shop.selectBestsellingProductListWomen";
-    Object result = commonDao.selectList(sqlMapId);
+    String sqlMapId = "shop.selectBestsellingProductListCategory";
+    Object result = commonDao.selectList(sqlMapId, dataMap);
     return result;
   }
 

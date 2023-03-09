@@ -13,31 +13,34 @@ import org.springframework.web.servlet.ModelAndView;
 import com.final_project.tiltheend_final_springboot.service.ShopService;
 
 @Controller
-@RequestMapping("/shop")
+@RequestMapping("/shop2")
 public class ShopController {
 
   @Autowired
   ShopService shopService;
-
-  @GetMapping("/shop")
-  public ModelAndView productList(ModelAndView modelAndView) {
-    Object resultMap = shopService.getProductList();
-    Object resultMapBestProduct = shopService.getBestsellingProductList();
-    modelAndView.addObject("resultMap", resultMap);
-    modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
-    modelAndView.setViewName("/shop/shop");
-    return modelAndView;
-  }
 
   @GetMapping("/{category}")
   public ModelAndView productListWomen(@RequestParam Map<String, Object> params, @PathVariable String category,
       ModelAndView modelAndView) {
     params.put("category", category);
     Object resultMap = shopService.getProductList(params);
-    Object resultMapBestProduct = shopService.getBestsellingProductList();
+    Object resultMapBestProduct = shopService.getBestsellingProductList(params);
     modelAndView.addObject("resultMap", resultMap);
     modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
     modelAndView.setViewName("/shop/shop");
     return modelAndView;
   }
+
+  @GetMapping("/shop")
+  public ModelAndView productList(ModelAndView modelAndView) {
+    String category = "all";
+    Object resultMap = shopService.getProductList();
+    Object resultMapBestProduct = shopService.getBestsellingProductList();
+    modelAndView.addObject("category", category);
+    modelAndView.addObject("resultMap", resultMap);
+    modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
+    modelAndView.setViewName("/shop/shop");
+    return modelAndView;
+  }
+
 }

@@ -9,17 +9,6 @@
 		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
         ON PRODUCT_ID = SOURCE_UNIQUE_SEQ;
     </select>
-    <!-- shop.selectWomen -->
-    <select id="selectCategory" parameterType="Map" resultType="Map">
-        SELECT * FROM PRODUCT
-        JOIN (SELECT * FROM CIP_ATTACHFILE
-		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
-        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
-        <if test="category == 'women'">
-            WHERE CATEGORY LIKE "여자%"
-        </if>
-        ;
-    </select>
     <!-- shop.selectBestsellingProductList -->
     <select id="selectBestsellingProductList" parameterType="Map" resultType="Map">
         SELECT * FROM PRODUCT
@@ -29,13 +18,31 @@
         ORDER BY SALES_VOLUME DESC
         LIMIT 12;
     </select>
-    <!-- shop.selectBestsellingProductListWomen -->
-    <select id="selectBestsellingProductListWomen" parameterType="Map" resultType="Map">
+    <!-- shop.selectCategory -->
+    <select id="selectCategory" parameterType="Map" resultType="Map">
+        SELECT * FROM PRODUCT
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
+        <if test="category == 'women'">WHERE CATEGORY LIKE "여자%"</if>
+        ;
+    </select>
+    <!-- shop.selectBestsellingProductListCategory -->
+    <select id="selectBestsellingProductListCategory" parameterType="Map" resultType="Map">
         SELECT * FROM PRODUCT
         JOIN (SELECT * FROM CIP_ATTACHFILE
 		GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
         ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
-        WHERE CATEGORY LIKE "여자%"
+        <if test="category == 'women'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'men'">WHERE CATEGORY LIKE "남자%"</if>
+        <if test="category == 'new'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'sale'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'top'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'outer'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'pants'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'shoes'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'hats'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'bags'">WHERE CATEGORY LIKE "여자%"</if>
         ORDER BY SALES_VOLUME DESC
         LIMIT 12;
     </select>
