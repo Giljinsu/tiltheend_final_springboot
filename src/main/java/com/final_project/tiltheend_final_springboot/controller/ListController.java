@@ -92,6 +92,7 @@ public class ListController {
         return modelAndView;
     }
 
+    // user와 조인하지 않음 조인한 쿼리를 매퍼에 넣어야함.
     @RequestMapping(value = { "/qna/search" }, method = RequestMethod.POST)
     public ModelAndView search(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
         String text = (String) params.get("SEARCH_TEXT");
