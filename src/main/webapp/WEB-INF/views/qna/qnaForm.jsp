@@ -22,7 +22,7 @@
     <sec:authentication property="principal" var="userDetailsBean" />
     <main style="margin-top: 160px" class="container">
       <div class="container">
-        <form action="/list/qna/save" id="action-form" method="post">
+        <form action="/list/qna/save/1" id="action-form" method="post">
           <h3 class="mb-5">Q&A 작성</h3>
           <%-- 하드코딩 --%>
           <input type="hidden" name="POST_NO_QNA" value="${resultMap.POST_NO_QNA}">

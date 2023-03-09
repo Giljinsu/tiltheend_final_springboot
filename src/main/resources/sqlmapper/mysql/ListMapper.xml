@@ -14,8 +14,11 @@
 
     <select id="selectQnaTotal" 
         parameterType="Map" resultType="int">
-            SELECT COUNT(*) AS CNT
-            FROM QNA
+        SELECT COUNT(*) AS CNT
+        FROM QNA
+        <if test="CATEGORY != null">
+        WHERE CATEGORY = #{CATEGORY} <!-- 첫번쨰 페이지 리스트 -->
+        </if>
     </select>
 
     <!-- List.selectQNAwithjoin -->

@@ -47,6 +47,18 @@ public class ListService {
         return result;
     }
 
+    public Object getQNAListWithPaginationAndCategory(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotal(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.selectQNACategory(dataMap));
+        return result;
+    }
+
     public Object selectQNAUID(Object dataMap) {
         String sqlMapId = "List.selectQNAUID";
         Object result = commonDao.selectOne(sqlMapId, dataMap);
@@ -73,7 +85,7 @@ public class ListService {
 
     public Object insertQNAAndSelectQNA(Object dataMap) {
         this.insertQNA(dataMap);
-        Object result = this.selectQNAWithJoin(dataMap);
+        Object result = this.getQNAListWithPagination(dataMap);
         return result;
     }
 

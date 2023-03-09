@@ -48,9 +48,31 @@ public class ListController {
 
     @RequestMapping(value = "/qna/{currentPage}/{category}", method = RequestMethod.GET)
     public ModelAndView listQnaCategory(@RequestParam Map<String, Object> params, @PathVariable String category,
-            ModelAndView modelAndView) {
+            ModelAndView modelAndView, @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
         params.put("CATEGORY", category);
-        Object resultMap = listService.selectQNACategory(params);
+        Object resultMap = listService.getQNAListWithPaginationAndCategory(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("qna/qna");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/qna/save/{currentPage}", method = RequestMethod.POST)
+    public ModelAndView saveqna(@RequestParam Map<String, Object> params, ModelAndView modelAndView,
+            @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
+        params.put("POST_NO_QNA", commonUtils.makeUuid());
+        Object resultMap = listService.insertQNAAndSelectQNA(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/qna");
         return modelAndView;
@@ -72,15 +94,6 @@ public class ListController {
     public ModelAndView writeqna(@RequestParam Map<String, Object> params,
             ModelAndView modelAndView) {
         modelAndView.setViewName("qna/qnaForm");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/qna/save", method = RequestMethod.POST)
-    public ModelAndView saveqna(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        params.put("POST_NO_QNA", commonUtils.makeUuid());
-        Object resultMap = listService.insertQNAAndSelectQNA(params);
-        modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("qna/qna");
         return modelAndView;
     }
 

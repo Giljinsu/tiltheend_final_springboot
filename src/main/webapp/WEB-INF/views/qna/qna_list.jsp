@@ -18,7 +18,7 @@
   </head>
   <body>
     <main style="margin-top: 160px" class="container">
-      <div id="head"><a href="/list/qna" class="fw-bold me-4">Q&A</a> <a href="/list/faq">FAQ</a></div>
+      <div id="head"><a href="/list/qna/1" class="fw-bold me-4">Q&A</a> <a href="/list/faq">FAQ</a></div>
 
       <div id="category" class="mt-2 mb-2 d-flex" style="justify-content: space-between">
         <div>
