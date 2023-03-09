@@ -1,9 +1,13 @@
 package com.final_project.tiltheend_final_springboot.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.final_project.tiltheend_final_springboot.dao.CommonDao;
+import com.final_project.tiltheend_final_springboot.utils.Paginations;
 
 @Service
 public class SearchService {
@@ -55,6 +59,42 @@ public class SearchService {
     public Object searchAnnoWithUser(Object dataMap) {
         String sqlMapId = "search.annowithuser";
         Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getTotalQna(Object dataMap) {
+        String sqlMapId = "search.selectQnaTotal";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getTotalFaq(Object dataMap) {
+        String sqlMapId = "search.selectFaqTotal";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getQNAWithSearch(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotalQna(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.searchQnaWithUser(dataMap));
+        return result;
+    }
+
+    public Object getFAQWithSearch(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotalFaq(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.searchFaqWithUser(dataMap));
         return result;
     }
 

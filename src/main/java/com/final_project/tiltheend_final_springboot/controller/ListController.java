@@ -111,13 +111,20 @@ public class ListController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/qna/search" }, method = RequestMethod.POST)
-    public ModelAndView searchQna(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+    @RequestMapping(value = { "/qna/{currentPage}/search" }, method = RequestMethod.POST)
+    public ModelAndView searchQna(ModelAndView modelAndView, @RequestParam Map<String, Object> params,
+            @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
         String text = (String) params.get("SEARCH_TEXT");
         String searchtext = "%" + text + "%";
         params.put("SEARCH_TEXT", searchtext);
-        Object faqList = searchService.searchQnaWithUser(params);
-        modelAndView.addObject("resultMap", faqList);
+        Object qnaList = searchService.getQNAWithSearch(params);
+        modelAndView.addObject("resultMap", qnaList);
         modelAndView.setViewName("/qna/qna");
         return modelAndView;
     }
@@ -134,20 +141,32 @@ public class ListController {
     }
 
     // faq
-    @RequestMapping(value = "/faq", method = RequestMethod.GET)
+    @RequestMapping(value = "/faq/{currentPage}", method = RequestMethod.GET)
     public ModelAndView listFaq(@RequestParam Map<String, Object> params,
-            ModelAndView modelAndView) {
-        Object resultMap = listService.selectFAQWithJoin(params);
+            ModelAndView modelAndView, @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
+        Object resultMap = listService.getFAQListWithPagination(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/faq");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/faq/{category}", method = RequestMethod.GET)
+    @RequestMapping(value = "/faq/{currentPage}/{category}", method = RequestMethod.GET)
     public ModelAndView listFaqCategory(@RequestParam Map<String, Object> params, @PathVariable String category,
-            ModelAndView modelAndView) {
+            ModelAndView modelAndView, @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
         params.put("CATEGORY", category);
-        Object resultMap = listService.selectFAQCategory(params);
+        Object resultMap = listService.getFAQListWithPaginationAndCategory(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("qna/faq");
         return modelAndView;
@@ -170,12 +189,19 @@ public class ListController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/faq/search" }, method = RequestMethod.POST)
-    public ModelAndView searchFaq(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+    @RequestMapping(value = { "/faq/{currentPage}/search" }, method = RequestMethod.POST)
+    public ModelAndView searchFaq(ModelAndView modelAndView, @RequestParam Map<String, Object> params,
+            @PathVariable String currentPage) {
+        int currentPageNum = Integer.parseInt(currentPage);
+        if (currentPageNum < 1) {
+            currentPageNum = 1;
+        }
+        params.put("currentPage", currentPageNum);
+        params.put("pageScale", 5);
         String text = (String) params.get("SEARCH_TEXT");
         String searchtext = "%" + text + "%";
         params.put("SEARCH_TEXT", searchtext);
-        Object faqList = searchService.searchFaqWithUser(params);
+        Object faqList = searchService.getFAQWithSearch(params);
         modelAndView.addObject("resultMap", faqList);
         modelAndView.setViewName("/qna/faq");
         return modelAndView;

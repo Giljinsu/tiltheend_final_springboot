@@ -18,19 +18,19 @@
   </head>
   <body>
     <main style="margin-top: 160px" class="container">
-      <div id="head"><a href="/list/qna" class="me-4">Q&A</a> <a href="/list/faq" class="fw-bold">FAQ</a></div>
+      <div id="head"><a href="/list/qna/1" class="me-4">Q&A</a> <a href="/list/faq/1" class="fw-bold">FAQ</a></div>
 
       <div id="category" class="mt-2 mb-2 d-flex" style="justify-content: space-between">
         <div>
-          <a href="/list/faq">전체</a>
-          <a href="/list/faq/repair">교환/반품/수선</a>
-          <a href="/list/faq/delivery">출고/배송</a>
-          <a href="/list/faq/cancle">주문/취소</a>
-          <a href="/list/faq/ect">기타</a>
+          <a href="/list/faq/1">전체</a>
+          <a href="/list/faq/1/repair">교환/반품/수선</a>
+          <a href="/list/faq/1/delivery">출고/배송</a>
+          <a href="/list/faq/1/cancle">주문/취소</a>
+          <a href="/list/faq/1/ect">기타</a>
         </div>
         <!-- search -->
         <div>
-          <form action="/list/faq/search" method="POST" id="search">
+          <form action="/list/faq/1/search" method="POST" id="search">
             <input type="text" name="SEARCH_TEXT" placeholder value fw-filter fw-msg fw-label />
               <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
           </form>
@@ -46,7 +46,7 @@
             <td class="col-md-1" id="id">작성자</td>
             <td class="col-md-1" id="date">날짜</td>
           </tr>
-          <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
+          <c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
             <tr>
               <td class="col-md-1" id="number">${loop.count}</td>
               <td class="col-md-2" id="cate">
@@ -74,18 +74,19 @@
       </table>
       <!-- pagination -->
       <div class="container d-flex justify-content-center mt-4" id="pagination">
+        <c:set var="_pagination" value="${resultMap.paginations}" />
         <nav aria-label="Page navigation example" class="">
           <ul class="pagination pagination-sm">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
+              <a class="page-link" href="/list/faq/${_pagination.blockStart-1}" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
               </a>
             </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
+              <li class="page-item"><a class="page-link" href="/list/faq/${i}">${i}</a></li>
+            </c:forEach>
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
+              <a class="page-link" href="/list/faq/${_pagination.blockStart+1}" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>

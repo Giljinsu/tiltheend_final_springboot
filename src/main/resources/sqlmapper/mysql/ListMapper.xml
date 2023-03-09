@@ -17,7 +17,7 @@
         SELECT COUNT(*) AS CNT
         FROM QNA
         <if test="CATEGORY != null">
-        WHERE CATEGORY = #{CATEGORY} <!-- 첫번쨰 페이지 리스트 -->
+        WHERE CATEGORY = #{CATEGORY}
         </if>
     </select>
 
@@ -26,115 +26,112 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN QNA B
         WHERE A.UID = B.UID
-        <!-- <choose>
-            <when test="">
-                
-            </when>
-            <when test="">
-                
-            </when>
-            <when test="">
-                
-            </when>
-            <when test="">
-                
-            </when>
-            <otherwise>
-            </otherwise>
-        </choose> -->
         ORDER BY DATE DESC
         <if test="pageScale != null">
         LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
         </if>
     </select>
 
-    <!-- List.selectQNACategory -->
-    <select id="selectQNACategory" 
-        parameterType="Map" resultType="Map">
-        SELECT * FROM USER A INNER JOIN QNA B
-        WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-        ORDER BY DATE DESC;
-    </select>
+    <!-- 묶는용(나중에 삭제해야함) -->
+    <!-- 한번에 삭제하면 안되고 열어서 select id wrap만 삭제해야함 -->
+    <!-- <select id="wrap"> -->
+        <!-- List.selectQNACategory -->
+        <select id="selectQNACategory" 
+            parameterType="Map" resultType="Map">
+            SELECT * FROM USER A INNER JOIN QNA B
+            WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
+            ORDER BY DATE DESC;
+        </select>
 
-    <!-- List.selectQNAUID -->
-    <select id="selectQNAUID" 
-        parameterType="Map" resultType="Map">
-        SELECT * FROM USER A JOIN QNA B
-        WHERE A.UID = B.UID AND POST_NO_QNA = #{UID}
-    </select>
+        <!-- List.selectQNAUID -->
+        <select id="selectQNAUID" 
+            parameterType="Map" resultType="Map">
+            SELECT * FROM USER A JOIN QNA B
+            WHERE A.UID = B.UID AND POST_NO_QNA = #{UID}
+        </select>
 
-    <!-- List.searchQNA -->
-    <select id="searchQNA" 
-        parameterType="Map" resultType="Map">
-            SELECT * FROM QNA
-            WHERE TITLE LIKE '%#{keyword}%'
-    </select>
+        <!-- List.searchQNA -->
+        <select id="searchQNA" 
+            parameterType="Map" resultType="Map">
+                SELECT * FROM QNA
+                WHERE TITLE LIKE '%#{keyword}%'
+        </select>
 
-    <!-- List.updateQNA -->
-    <!-- DATE가 2023-01-01 형식으로 저장 -->
-    <!-- <update id="updateQNA" 
-        parameterType="Map">
-        UPDATE QNA
-        SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y.%m.%d')
-        ;
-    </update> -->
+        <!-- List.updateQNA -->
+        <!-- DATE가 2023-01-01 형식으로 저장 -->
+        <!-- <update id="updateQNA" 
+            parameterType="Map">
+            UPDATE QNA
+            SET TITLE=#{TITLE},DATE=DATE_FORMAT(now(),'%Y.%m.%d')
+            ;
+        </update> -->
 
-    <!-- List.deleteQNA -->
-    <select id="deleteQNA" 
-        parameterType="Map" resultType="Map">
-        DELETE FROM QNA
-        WHERE POST_NO_QNA=#{POST_NO_QNA}
-        ;
-    </select>
+        <!-- List.deleteQNA -->
+        <select id="deleteQNA" 
+            parameterType="Map" resultType="Map">
+            DELETE FROM QNA
+            WHERE POST_NO_QNA=#{POST_NO_QNA}
+            ;
+        </select>
 
-    <!-- List.insertQNA -->
-    <insert id="insertQNA" parameterType="Map">
-        INSERT INTO QNA
-        (POST_NO_QNA, UID, CATEGORY, TITLE, DATE, CONTENT, STATUS)
-        VALUE
-        (#{POST_NO_QNA}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT}, #{STATUS})
-    </insert>
+        <!-- List.insertQNA -->
+        <insert id="insertQNA" parameterType="Map">
+            INSERT INTO QNA
+            (POST_NO_QNA, UID, CATEGORY, TITLE, DATE, CONTENT, STATUS)
+            VALUE
+            (#{POST_NO_QNA}, #{UID}, #{CATEGORY}, #{TITLE}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT}, #{STATUS})
+        </insert>
 
-    <!-- List.selectComment -->
-    <select id="selectComment" 
-        parameterType="Map" resultType="Map">
-        SELECT * FROM COMMENT
-        WHERE SOURCE_UNIQUE_SEQ = #{UID}
-    </select>
+        <!-- List.selectComment -->
+        <select id="selectComment" 
+            parameterType="Map" resultType="Map">
+            SELECT * FROM COMMENT
+            WHERE SOURCE_UNIQUE_SEQ = #{UID}
+        </select>
 
-    <!-- List.insertComment -->
-    <insert id="insertComment" parameterType="Map">
-        INSERT INTO COMMENT
-        (COMMENT_UID, UID, DATE, CONETNET, SOURCE_UNIQUE_SEQ)
-        VALUE
-        (#{COMMENT_UID},#{UID}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT}, #{SOURCE_UNIQUE_SEQ})
-    </insert>
+        <!-- List.insertComment -->
+        <insert id="insertComment" parameterType="Map">
+            INSERT INTO COMMENT
+            (COMMENT_UID, UID, DATE, CONETNET, SOURCE_UNIQUE_SEQ)
+            VALUE
+            (#{COMMENT_UID},#{UID}, DATE_FORMAT(now(),'%Y.%m.%d'), #{CONTENT}, #{SOURCE_UNIQUE_SEQ})
+        </insert>
 
-    <!-- List.deleteComment -->
-    <select id="deleteComment" 
-        parameterType="Map" resultType="Map">
-        DELETE FROM COMMENT
-        WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ}
-    </select>
+        <!-- List.deleteComment -->
+        <select id="deleteComment" 
+            parameterType="Map" resultType="Map">
+            DELETE FROM COMMENT
+            WHERE SOURCE_UNIQUE_SEQ=#{SOURCE_UNIQUE_SEQ}
+        </select>
 
-    <!-- List.updatestatus -->
-    <update id="updatestatus" 
-        parameterType="Map">
-        UPDATE QNA
-        SET STATUS='답변완료'
-        WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
-    </update>
+        <!-- List.updatestatus -->
+        <update id="updatestatus" 
+            parameterType="Map">
+            UPDATE QNA
+            SET STATUS='답변완료'
+            WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
+        </update>
 
-    <!-- List.updatestatus2 -->
-    <update id="updatestatus2" 
-        parameterType="Map">
-        UPDATE QNA
-        SET STATUS='답변대기'
-        WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
-    </update>
+        <!-- List.updatestatus2 -->
+        <update id="updatestatus2" 
+            parameterType="Map">
+            UPDATE QNA
+            SET STATUS='답변대기'
+            WHERE POST_NO_QNA=#{SOURCE_UNIQUE_SEQ}
+        </update>
+    <!-- </select> -->
 
 
     <!-- FAQ -->
+
+    <select id="selectFaqTotal" 
+        parameterType="Map" resultType="int">
+        SELECT COUNT(*) AS CNT
+        FROM FAQ
+        <if test="CATEGORY != null">
+        WHERE CATEGORY = #{CATEGORY}
+        </if>
+    </select>
 
     <!-- List.selectFAQ -->
     <select id="selectFAQ" 
@@ -148,7 +145,10 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN FAQ B
         WHERE A.UID = B.UID
-        ORDER BY DATE DESC;
+        ORDER BY DATE DESC
+        <if test="pageScale != null">
+        LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+        </if>
     </select>
 
     <!-- List.selectFAQCategory -->

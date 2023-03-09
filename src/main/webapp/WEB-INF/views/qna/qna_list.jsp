@@ -18,7 +18,7 @@
   </head>
   <body>
     <main style="margin-top: 160px" class="container">
-      <div id="head"><a href="/list/qna/1" class="fw-bold me-4">Q&A</a> <a href="/list/faq">FAQ</a></div>
+      <div id="head"><a href="/list/qna/1" class="fw-bold me-4">Q&A</a> <a href="/list/faq/1">FAQ</a></div>
 
       <div id="category" class="mt-2 mb-2 d-flex" style="justify-content: space-between">
         <div>
@@ -30,7 +30,7 @@
         </div>
         <!-- search -->
         <div>
-          <form action="/list/qna/search" method="POST" id="search">
+          <form action="/list/qna/1/search" method="POST" id="search">
             <input type="text" name="SEARCH_TEXT" placeholder value fw-filter fw-msg fw-label />
               <button type="submit" class="btn"><i class="material-symbols-outlined">search</i></button>
           </form>

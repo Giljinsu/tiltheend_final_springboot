@@ -67,4 +67,18 @@
         WHERE A.REVIEW_ID = B.SOURCE_UNIQUE_SEQ AND PRODUCT_ID = #{PRODUCT_ID}
     </select>
 
+    <select id="selectQnaTotal" 
+        parameterType="Map" resultType="int">
+        SELECT COUNT(*) AS CNT
+        FROM QNA A JOIN USER B
+        WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
+    </select>
+
+    <select id="selectFaqTotal" 
+        parameterType="Map" resultType="int">
+        SELECT COUNT(*) AS CNT
+        FROM FAQ A JOIN USER B
+        WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
+    </select>
+
 </mapper>

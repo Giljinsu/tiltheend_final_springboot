@@ -25,7 +25,7 @@ public class ListService {
 
     public Object getQNAListWithPagination(Object dataMap) {
         Map<String, Object> result = new HashMap<String, Object>();
-        int totalCount = (int) this.getTotal(dataMap);
+        int totalCount = (int) this.getTotalQna(dataMap);
         int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
         int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
         Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
@@ -35,7 +35,7 @@ public class ListService {
         return result;
     }
 
-    public Object getTotal(Object dataMap) {
+    public Object getTotalQna(Object dataMap) {
         String sqlMapId = "List.selectQnaTotal";
         Object result = commonDao.selectOne(sqlMapId, dataMap);
         return result;
@@ -49,7 +49,7 @@ public class ListService {
 
     public Object getQNAListWithPaginationAndCategory(Object dataMap) {
         Map<String, Object> result = new HashMap<String, Object>();
-        int totalCount = (int) this.getTotal(dataMap);
+        int totalCount = (int) this.getTotalQna(dataMap);
         int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
         int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
         Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
@@ -117,9 +117,39 @@ public class ListService {
         return result;
     }
 
+    public Object getFAQListWithPagination(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotalFAQ(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.selectFAQWithJoin(dataMap));
+        return result;
+    }
+
+    public Object getTotalFAQ(Object dataMap) {
+        String sqlMapId = "List.selectFaqTotal";
+        Object result = commonDao.selectOne(sqlMapId, dataMap);
+        return result;
+    }
+
     public Object selectFAQCategory(Object dataMap) {
         String sqlMapId = "List.selectFAQCategory";
         Object result = commonDao.getList(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object getFAQListWithPaginationAndCategory(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotalFAQ(dataMap);
+        int currentPage = (int) ((Map<String, Object>) dataMap).get("currentPage");
+        int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
+        Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
+        result.put("paginations", paginations);
+        ((Map<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin() - 1);
+        result.put("resultList", this.selectFAQCategory(dataMap));
         return result;
     }
 
