@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +55,10 @@
           <div class="d-flex justify-content-center">
             <input name="password" class="w-25 p-2" type="password" placeholder="PW">
           </div>
+        <c:if test="${not empty param.fail}">
+      <%-- param은 원래 jsp가 가진것 --%>
+        <div class="text-center"><font color="red">아이디 또는 비밀번호를 확인해주세요</font></div>
+      </c:if>
           <div class="d-flex justify-content-center">
             <button class="w-25 mt-3 btn btn-dark rounded-pill">LOGIN</button>
           </div>
