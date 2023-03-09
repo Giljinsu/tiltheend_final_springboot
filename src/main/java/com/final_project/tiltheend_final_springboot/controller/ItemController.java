@@ -46,7 +46,10 @@ public class ItemController {
         params.put("RATE", '1');
         Object review_1 = itemService.selectReviewWithRate(params);
         params.put("SOURCE_UNIQUE_SEQ", UID);
-        Object itemFiles = filesService.selectFiles(params);
+        params.put("CATEGORY", "shop");
+        Object itemFiles_main = filesService.selectFilesWithCategory(params);
+        params.put("CATEGORY", "common");
+        Object itemFiles_info = filesService.selectFilesWithCategory(params);
         Object reviewFiles = itemService.selectReviewFile(params);
         modelAndView.addObject("resultMap", resultMap_item);
         modelAndView.addObject("resultMap_review", resultMap_review);
@@ -55,7 +58,8 @@ public class ItemController {
         modelAndView.addObject("review_3", review_3);
         modelAndView.addObject("review_2", review_2);
         modelAndView.addObject("review_1", review_1);
-        modelAndView.addObject("file", itemFiles);
+        modelAndView.addObject("file_main", itemFiles_main);
+        modelAndView.addObject("file_info", itemFiles_info);
         modelAndView.addObject("reviewfile", reviewFiles);
         modelAndView.setViewName("shop/item_info");
         return modelAndView;

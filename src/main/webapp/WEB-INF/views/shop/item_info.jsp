@@ -59,11 +59,11 @@
                 <div class="image col-7" style="height: 950px">
                   <div id="carouselControlId" class="carousel slide" data-bs-ride="carousel" style="width: 550px; text-align: center">
                     <div class="carousel-inner">
-                    <c:forEach items="${file}" var="file" varStatus="loop">
-                      <div class="carousel-item ${loop.index == 0 ? 'active' : ''}">
-                        <img class="image" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}" alt="" />
-                      </div>
-                    </c:forEach>
+                      <c:forEach items="${file_main}" var="file" varStatus="loop">
+                        <div class="carousel-item ${loop.index == 0 ? 'active' : ''}">
+                          <img class="image" src="/files/${file.PHYSICALFILE_NAME}/${file.ORGINALFILE_NAME}" alt="" />
+                        </div>
+                      </c:forEach>
                       <%-- <div class="carousel-item">
                         <img class="image" src="/refer/item_info/item2.jpg" alt="" />
                       </div>
@@ -143,8 +143,17 @@
               </div>
             </div>
             <!-- 상세정보 -->
+            <%-- 임시로 하드코딩 사유 : 데이터를 많이 넣어야함(시간없는데 데이터 넣는 시간이 아깝다) --%>
             <div id="item-info">
-              <div>상품 상세 정보칸입니다.</div>
+              <div>
+                <%-- <c:forEach items="${file_info}" var="file" varStatus="loop"> --%>
+                  <div>
+                    <img class="image" src="/files/shop/common/info01.jpg" alt="" style="width:100%; height:100%"/>
+                    <img class="image" src="/files/shop/common/info02.jpg" alt="" style="width:100%; height:100%"/>
+                    <%-- <img class="image" src="/files/shop/common/${file.ORGINALFILE_NAME}" alt="" style="width:100%; height:100%"/> --%>
+                  </div>
+                <%-- </c:forEach> --%>
+              </div>
             </div>
           </div>
           <div id="review-qna">

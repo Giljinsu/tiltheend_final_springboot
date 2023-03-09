@@ -18,6 +18,14 @@
         WHERE SOURCE_UNIQUE_SEQ = #{SOURCE_UNIQUE_SEQ}
         GROUP BY SOURCE_UNIQUE_SEQ
         ;
+    </select>
+    <select id="selectwithcategory" 
+        parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM CIP_ATTACHFILE
+        WHERE SOURCE_UNIQUE_SEQ = #{SOURCE_UNIQUE_SEQ}
+        AND PHYSICALFILE_NAME=#{CATEGORY}
+        ;
     </select>    
 
 
