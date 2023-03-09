@@ -26,6 +26,7 @@ public class SecurityConfiguration {
                 .antMatchers("/shoppingcart/list").authenticated()
                 .antMatchers("/coordination/write_coordination").authenticated()
                 .antMatchers("/shop/cart/**").authenticated()
+                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().permitAll(); // 설정한 url 이외는 접근 가능
 
         // 로그인 대한 부분 /loginForm으로 연결

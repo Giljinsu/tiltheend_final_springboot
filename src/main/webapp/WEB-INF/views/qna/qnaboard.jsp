@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +22,7 @@
   </head>
   <body>
     <%@ include file="../header.jsp" %>
+    <sec:authentication property="principal" var="userDetailsBean" />
     <c:set var="data" value="${resultMap}"/>
     <c:set var="comments" value="${comments}"/>
     <main style="margin-top: 160px" class="container">
@@ -46,22 +48,28 @@
         </div>
       </div>
       <hr />
-      <div class="mb-4">답변</div>
+      <div class="mb-4">
+        <span>답변</span>
+        <span sec:authorize access="hasRole('ADMIN')">삭제</span>
+      </div>
       <div id="comment">${comments.CONTENT}</div>
       <%-- 답변이 없고 유저의 권한이 관리자일때 --%>
       <%-- && data.ROLE eq 'ADMIN' --%>
-      <c:if test="${empty comments}">
-		    <!-- 댓글 작성 -->
-        <div class="mb-4">
-        <form class="w-100 d-flex" action="/list/qna/comment/${data.POST_NO_QNA}" method="post">
-          <%-- 하드 코딩 --%>
-          <input type="hidden" name="USER_UID" value="U0001"> 
-          <%-- ----- --%>
-          <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}">
-          <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
-          <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
-        </form>
-	    </c:if>
+      <sec:authorize access="isAuthenticated()">
+        <c:if test="${empty comments}">
+          <!-- 댓글 작성 -->
+          <div class="mb-4" sec:authorize="hasRole('ADMIN')">
+            <form class="w-100 d-flex" action="/list/qna/comment/${data.POST_NO_QNA}" method="post">
+              <%-- 하드 코딩 --%>
+              <input type="hidden" name="USER_UID" value="${userDetailsBean.UID}"> 
+              <%-- ----- --%>
+              <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${data.POST_NO_QNA}">
+              <input class="form-control" style="" type="text" name="CONTENT" value="" id="comment">
+              <button class="btn" id="commentBtn" style="font-weight: 600; width: 4rem; border: 1px solid gray;">등록</button>
+            </form>
+          </div>
+        </c:if>
+      </sec:authorize>
       <hr />
       <div class="mt-2 ms-2" style="height: 32.5px" id="back">
         <a href="/list/qna">목록으로</a>
