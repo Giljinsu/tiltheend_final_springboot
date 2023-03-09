@@ -62,20 +62,32 @@
 				
 				<!-- 사이드바 -->
 				<div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
-					<div><a href="">전체</a></div>
-					<div><a href="">여성</a></div>
-					<div><a href="">남성</a></div>
-					<div><a href="">신상품</a></div>
-					<div><a href="">세일중</a></div>
-					<div><a href="">상의</a></div>
-					<div><a href="">아우터</a></div>
-					<div><a href="">바지</a></div> 
-					<div><a href="">신발</a></div>
-					<div><a href="">모자</a></div>
-					<div><a href="">가방</a></div>
+					<div><a href="/shop2/shop">전체</a></div>
+					<div><a href="/shop2/women">여성</a></div>
+					<div><a href="/shop2/men">남성</a></div>
+					<div><a href="/shop2/new">신상품</a></div>
+					<div><a href="/shop2/sale">세일중</a></div>
+					<div><a href="/shop2/top">상의</a></div>
+					<div><a href="/shop2/outer">아우터</a></div>
+					<div><a href="/shop2/pants">바지</a></div> 
+					<div><a href="/shop2/shoes">신발</a></div>
+					<div><a href="/shop2/hats">모자</a></div>
+					<div><a href="/shop2/bags">가방</a></div>
 				</div> 
 				<div id="right-column">
-					<div class="pt-4 pb-4">상품 > 전체</div>
+						<div class="pt-4 pb-4">상품 > 
+							<c:if test="${category.equals('all')}">전체</c:if>
+							<c:if test="${category.equals('women')}">여성</c:if>
+							<c:if test="${category.equals('men')}">남성</c:if>
+							<c:if test="${category.equals('new')}">신상품</c:if>
+							<c:if test="${category.equals('sale')}">세일중</c:if>
+							<c:if test="${category.equals('top')}">상의</c:if>
+							<c:if test="${category.equals('outer')}">아우터</c:if>
+							<c:if test="${category.equals('pants')}">바지</c:if>
+							<c:if test="${category.equals('shoes')}">신발</c:if>
+							<c:if test="${category.equals('hats')}">모자</c:if>
+							<c:if test="${category.equals('bags')}">가방</c:if>
+						</div>
 
 					<div class="fs-5 mb-3">베스트 상품 리스트</div>
 					<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
