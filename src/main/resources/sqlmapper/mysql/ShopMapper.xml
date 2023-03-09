@@ -31,6 +31,9 @@
         <if test="category == 'top'">WHERE CATEGORY LIKE "%상의"</if>
         <if test="category == 'outer'">WHERE CATEGORY LIKE "%아우터"</if>
         <if test="category == 'pants'">WHERE CATEGORY LIKE "%하의"</if>
+        <if test="category == 'shoes'">WHERE CATEGORY LIKE "%신발"</if>
+        <if test="category == 'hats'">WHERE CATEGORY LIKE "%모자"</if>
+        <if test="category == 'bags'">WHERE CATEGORY LIKE "%가방"</if>
         ;
     </select>
     <!-- shop.selectBestsellingProductListCategory -->
@@ -46,11 +49,9 @@
         <if test="category == 'top'">WHERE CATEGORY LIKE "%상의"</if>
         <if test="category == 'outer'">WHERE CATEGORY LIKE "%아우터"</if>
         <if test="category == 'pants'">WHERE CATEGORY LIKE "%하의"</if>
-
-
-        <if test="category == 'shoes'">WHERE CATEGORY LIKE "여자%"</if>
-        <if test="category == 'hats'">WHERE CATEGORY LIKE "여자%"</if>
-        <if test="category == 'bags'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'shoes'">WHERE CATEGORY LIKE "%신발"</if>
+        <if test="category == 'hats'">WHERE CATEGORY LIKE "%모자"</if>
+        <if test="category == 'bags'">WHERE CATEGORY LIKE "%가방"</if>
         ORDER BY SALES_VOLUME DESC
         LIMIT 12;
     </select>
