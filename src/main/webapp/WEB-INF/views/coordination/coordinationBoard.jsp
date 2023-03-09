@@ -18,6 +18,7 @@
 </head>
 <body>
    <%@ include file="../header.jsp" %>
+   <sec:authentication property="principal" var="userDetailsBean" />
     <c:set  var="item" value="${resultMap.resultList}"/>
     <main style="margin-top:8rem;" class="container">
         <div class="row row-cols-1 row-cols-md-4">
@@ -26,7 +27,7 @@
         <%-- action="/coordination/view/${item.COORDINATION_ID}" --%>
         <form id="" action="/coordination/view" method="post">
             <%-- 하드코딩 --%>
-            <%-- <input type="hidden" name="UID" value="U0003">  --%>
+            <%-- <input type="hidden" name="UID" value="${userDetailsBean.UID}"> --%>
 
             <input type="hidden" name="SOURCE_UNIQUE_SEQ" value="${item.COORDINATION_ID}">
             <input type="hidden" name="COORDINATION_ID" value="${item.COORDINATION_ID}">

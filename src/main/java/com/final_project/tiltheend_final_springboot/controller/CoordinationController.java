@@ -3,6 +3,10 @@ package com.final_project.tiltheend_final_springboot.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +39,13 @@ public class CoordinationController {
     CommonUtils commonUtils = new CommonUtils();
     
     @RequestMapping(value = "/view", method=RequestMethod.POST)
-    public ModelAndView view(@RequestParam Map<String,Object> params, ModelAndView modelAndView) {
+    public ModelAndView view(@RequestParam Map<String,Object> params, ModelAndView modelAndView,
+        HttpServletRequest req, HttpServletResponse res) {
+            Boolean canViewCountUp = commonUtils.viewCountUp(params, req, res);
+
+        if(canViewCountUp) {
+            coordinationService.viewCountUp(params);
+        }
         Object result = coordinationService.selectCordOne(params);
         Object comments= coordinationService.getCommentList(params);
         Object commentCount= coordinationService.getCommentCount(params);
@@ -152,6 +162,7 @@ public class CoordinationController {
             params.put("attachFiles", attachfiles);
             filesService.insertFile(params);
         } // insert
+        coordinationService.updateCord(params);
         modelAndView.addObject("destination", "/coordination/view");
         modelAndView.addObject("COORDINATION_ID",COORDINATION_ID);
         modelAndView.setViewName("/coordination/temp");
