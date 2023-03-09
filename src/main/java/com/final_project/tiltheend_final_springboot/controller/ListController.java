@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.final_project.tiltheend_final_springboot.service.CommentService;
 import com.final_project.tiltheend_final_springboot.service.ListService;
+import com.final_project.tiltheend_final_springboot.service.SearchService;
 import com.final_project.tiltheend_final_springboot.utils.CommonUtils;
 
 @Controller
@@ -23,6 +24,9 @@ public class ListController {
 
     @Autowired
     CommentService commentService;
+
+    @Autowired
+    SearchService searchService;
 
     CommonUtils commonUtils = new CommonUtils();
 
@@ -96,6 +100,17 @@ public class ListController {
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.addObject("comments", comment);
         modelAndView.setViewName("qna/qnaboard");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/qna/search" }, method = RequestMethod.POST)
+    public ModelAndView search(ModelAndView modelAndView, @RequestParam Map<String, Object> params) {
+        String text = (String) params.get("SEARCH_TEXT");
+        String searchtext = "%" + text + "%";
+        params.put("SEARCH_TEXT", searchtext);
+        Object faqList = searchService.searchFaq(params);
+        modelAndView.addObject("resultMap", faqList);
+        modelAndView.setViewName("/qna/qna");
         return modelAndView;
     }
 
