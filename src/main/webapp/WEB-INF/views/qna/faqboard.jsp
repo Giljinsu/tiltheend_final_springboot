@@ -46,7 +46,7 @@
       </div>
       <hr />
       <div class="mt-2 ms-2" style="height: 32.5px" id="back">
-        <a href="/list/faq">목록으로</a>
+        <a href="/list/faq/1">목록으로</a>
       </div>
     </main>
 
