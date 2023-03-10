@@ -40,7 +40,10 @@
             parameterType="Map" resultType="Map">
             SELECT * FROM USER A INNER JOIN QNA B
             WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-            ORDER BY DATE DESC;
+            ORDER BY DATE DESC
+            <if test="pageScale != null">
+            LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+            </if>
         </select>
 
         <!-- List.selectQNAUID -->
@@ -156,7 +159,10 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN FAQ B
         WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-        ORDER BY DATE DESC;
+        ORDER BY DATE DESC
+        <if test="pageScale != null">
+        LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+        </if>
     </select>
 
     <!-- List.selectFAQUID -->
@@ -220,7 +226,10 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
         WHERE A.UID = B.UID
-        ORDER BY DATE DESC;
+        ORDER BY DATE DESC
+        <if test="pageScale != null">
+        LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+        </if>
     </select>
 
     <!-- List.selectFAQCategory -->
@@ -228,7 +237,10 @@
         parameterType="Map" resultType="Map">
         SELECT * FROM USER A INNER JOIN ANNOUNCEMENT B
         WHERE A.UID = B.UID AND CATEGORY = #{CATEGORY}
-        ORDER BY DATE DESC;
+        ORDER BY DATE DESC
+        <if test="pageScale != null">
+        LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+        </if>
     </select>
 
     <!-- List.selectFAQUID -->

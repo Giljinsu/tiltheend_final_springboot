@@ -46,19 +46,28 @@
     <select id="faqwithuser" 
         parameterType="Map" resultType="Map">
             SELECT * FROM FAQ A JOIN USER B
-            WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
+            WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT}
+            <if test="pageScale != null">
+            LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+            </if>
     </select>
 
     <select id="qnawithuser" 
         parameterType="Map" resultType="Map">
             SELECT * FROM QNA A JOIN USER B
-            WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
+            WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT}
+            <if test="pageScale != null">
+            LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+            </if>
     </select>
 
     <select id="annowithuser" 
         parameterType="Map" resultType="Map">
             SELECT * FROM ANNOUNCEMENT A JOIN USER B
-            WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT};
+            WHERE A.UID = B.UID AND TITLE LIKE #{SEARCH_TEXT}
+            <if test="pageScale != null">
+            LIMIT #{pageBegin}, #{pageScale} <!-- 첫번쨰 페이지 리스트 -->
+            </if>
     </select>
 
     <select id="selectreviewfile" 
