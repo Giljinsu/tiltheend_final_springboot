@@ -11,7 +11,7 @@
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
     <img src="https://img.shields.io/badge/jsp-FFA500?style=for-the-badge&logo=java&logoColor=white">
     <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white">
-    <img src="https://img.shields.io/badge/JSTL-000000?style=for-the-badge&logo=기술스택아이콘&logoColor=white">
+    <img src="https://img.shields.io/badge/JSTL-000000?style=for-the-badge&logo=&logoColor=white">
     <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
 
 - Back-end
