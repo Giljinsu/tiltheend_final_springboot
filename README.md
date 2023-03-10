@@ -2,12 +2,39 @@
 
 ### KH Acadmey Final Project **끝까지버팀**입니다.
 - 구성원 : 길진수, 김병근, 김용범
+### Tech Stack
+<!-- <img src="https://img.shields.io/badge/표시할이름-색상?style=for-the-badge&logo=기술스택아이콘&logoColor=white"> -->
+
+- Front-end  
+    <img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html5&logoColor=white"> 
+    <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white">
+    <img src="https://img.shields.io/badge/jsp-FFA500?style=for-the-badge&logo=java&logoColor=white">
+    <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white">
+    <img src="https://img.shields.io/badge/JSTL-000000?style=for-the-badge&logo=기술스택아이콘&logoColor=white">
+    <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
+
+- Back-end
+
+    <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+    <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Security&logoColor=white">
+    <img src="https://img.shields.io/badge/Servlet-E11F21?style=for-the-badge&logo=&logoColor=white">
+
+- Server
+
+    <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=Ubuntu&logoColor=white">
+    <img src="https://img.shields.io/badge/linux-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+
+- DataBase
+
+    <img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white">
+
+- ETC
+
+    <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white">
+    <img src="https://img.shields.io/badge/zoom-0652E2?style=for-the-badge&logo=zoom&logoColor=white">
 
 # **DESCRIPTION**
-
-
-
-
 
 해당 웹사이트는 의류를 판매하는 사이트입니다.   
 
@@ -42,7 +69,7 @@
 ### 프로젝트 동기
 실전처럼 의뢰팀에게 의뢰를 받고 페이지를 완성시킴으로써 조금 더 성장하기 위해서 프로젝트를 실시하였습니다.
 
-### 각페이지 담당자
+### 각 페이지 담당자
 - 메인페이지   
 FrontEnd : 길진수   
 BackEnd : 길진수
