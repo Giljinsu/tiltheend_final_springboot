@@ -71,103 +71,103 @@
 
 ### 각 페이지 담당자
 - 메인페이지   
-FrontEnd : 길진수   
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/index.jsp)   
 BackEnd : 길진수
 
 - 코디상세게시판   
-FrontEnd : 길진수   
-BackEnd : 길진수
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/coordination/coordination.jsp)   
+BackEnd : 길진수 
 
 - 코디게시판   
-FrontEnd : 길진수   
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/coordination/coordinationBoard.jsp)   
 BackEnd : 길진수
 
 - 장바구니   
-FrontEnd : 길진수   
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/shoppingcart/shoppingcart.jsp)   
 BackEnd : 길진수
 
 - 공지사항   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/announcement/announcement.jsp)   
 BackEnd : 김병근
 
 - 로그인페이지   
-FrontEnd : 김용범   
+FrontEnd : 김용범 [링크](./src/main/webapp/WEB-INF/views/login/login.jsp)   
 BackEnd : 길진수
 
 - 마이페이지 - 구매목록   
-FrontEnd : 김용범   
+FrontEnd : 김용범 [링크](./src/main/webapp/WEB-INF/views/login/mypage.jsp)   
 BackEnd : 길진수
 
 - 쇼핑페이지   
-FrontEnd : 김용범   
+FrontEnd : 김용범 [링크](./src/main/webapp/WEB-INF/views/shop/shop.jsp)   
 BackEnd : 김용범
 
 - 회원가입페이지   
-FrontEnd : 김용범   
+FrontEnd : 김용범 [링크](./src/main/webapp/WEB-INF/views/login/signup.jsp)   
 BackEnd : 길진수
 
 - FAQ 게시판   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/qna/faq.jsp)   
 BackEnd : 김병근
 
 - QNA 게시판   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/qna/qna.jsp)   
 BackEnd : 김병근
 
 - (관리자페이지) 게시판   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/admin/admin_list.jsp)   
 BackEnd : 김병근
 
 - (관리자페이지) 베스트상품 통계   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/admin/admin.jsp)    
 BackEnd : 김병근
 
 - 상품상세페이지   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/shop/item_info.jsp)   
 BackEnd : 김병근
 
-- 받는사람 정보입력 페이지   
-FrontEnd : 길진수   
+- 받는사람 정보입력 페이지    
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/shoppingcart/delivery_address.jsp)   
 BackEnd : 길진수
 
 - 주문페이지   
-FrontEnd : 길진수   
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/shoppingcart/purchasePage.jsp)   
 BackEnd : 길진수
 
 - 코디 게시글 작성 페이지   
-FrontEnd : 길진수   
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/coordination/write_coordination.jsp)   
 BackEnd : 길진수
 
 - 마이페이지 - 개인정보수정   
-FrontEnd : 김용범   
+FrontEnd : 김용범 [링크](./src/main/webapp/WEB-INF/views/login/Editinformation.jsp)   
 BackEnd : 길진수
 
 - QNA 게시판 내용   
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/qna/qnaboard.jsp)   
 BackEnd : 김병근
 
 - QNA 작성 폼  
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/qna/qnaForm.jsp)   
 BackEnd : 김병근
 
 - FAQ 게시판 내용  
-FrontEnd : 김병근   
+FrontEnd : 김병근[링크](./src/main/webapp/WEB-INF/views/qna/faqboard.jsp)   
 BackEnd : 김병근
 
 - FAQ 작성 폼  
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/qna/qnaForm.jsp)   
 BackEnd : 김병근
 
 - 공지사항 게시판 내용  
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/announcement/announcementboard.jsp)   
 BackEnd : 김병근
 
 - 공지사항 작성 폼  
-FrontEnd : 김병근   
+FrontEnd : 김병근 [링크](./src/main/webapp/WEB-INF/views/qna/qnaForm.jsp)   
 BackEnd : 김병근
 
 - 검색페이지  
-FrontEnd : 길진수   
+FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/search/searchpage.jsp)   
 BackEnd : 길진수
 
 
