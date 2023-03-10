@@ -19,8 +19,8 @@
 
 ### **[프로젝트 동작화면]**
 <!-- ![메인화면](./refer/%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.PNG) -->
-<img src="./refer/%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.PNG" width="49%" height=""></img>
 <img src="./refer/%EA%B4%80%EB%A6%AC%EC%9E%90%ED%99%94%EB%A9%B4.PNG" width="49%" height="" align="right"></img>
+<img src="./refer/%EB%A9%94%EC%9D%B8%ED%99%94%EB%A9%B4.PNG" width="49%" height=""></img>
 ### 링크
 - 서버 링크 : [끝까지버팀서버](http://yongbeom.mynetgear.com:8080/)
 - 동영상 링크 : [프로젝트 동작유튜브](#)
