@@ -26,7 +26,7 @@
 
 ### 링크
 - 서버 링크 : [끝까지버팀서버](http://yongbeom.mynetgear.com:8080/)
-- 동영상 링크 : [프로젝트 동작유튜브](#)
+- 동영상 링크 : [프로젝트 동작유튜브](https://youtu.be/3L9r1h21fWE)
 - 의뢰팀 의뢰서: [의뢰팀 의뢰서](./refer/PT_Requestment_%EB%A7%9D%EA%B3%A0.pdf)
 - 요구사항정의서 링크 : [프로젝트 요구사항정의서](./refer/%EB%81%9D%EA%B9%8C%EC%A7%80%EB%B2%84%ED%8C%80-%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%EC%A0%95%EC%9D%98%EC%84%9C.xlsx)
 - 테스트케이스 링크 : [프로젝트 테스트케이스](./refer/%EB%81%9D%EA%B9%8C%EC%A7%80%EB%B2%84%ED%8C%80-%ED%85%8C%EC%8A%A4%ED%8A%B8%EC%BC%80%EC%9D%B4%EC%8A%A4%20(1).xlsx)
