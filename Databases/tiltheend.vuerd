@@ -1,10 +1,10 @@
 {
   "canvas": {
     "version": "2.2.11",
-    "width": 4000,
-    "height": 4000,
-    "scrollTop": -1173.2129023961875,
-    "scrollLeft": -1513,
+    "width": 3000,
+    "height": 3000,
+    "scrollTop": -602,
+    "scrollLeft": -575,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -189,7 +189,7 @@
           "active": false,
           "left": 2212.479,
           "top": 1266.4984,
-          "zIndex": 19,
+          "zIndex": 15,
           "widthName": 60,
           "widthComment": 60
         },
@@ -2364,9 +2364,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 2440.3443,
-          "top": 707.6676,
-          "zIndex": 13,
+          "left": 2075.9,
+          "top": 634.3346,
+          "zIndex": 17,
           "widthName": 108.4248046875,
           "widthComment": 60
         },
@@ -2575,9 +2575,9 @@
         "value": "SOURCE_UNIQUE_SEQ : 해당되는 페이지의 주요키 넣으시면 된다",
         "ui": {
           "active": false,
-          "left": 2964.6388371266703,
-          "top": 743.9791202950857,
-          "zIndex": 2,
+          "left": 2596.05556576561,
+          "top": 682.8680091839748,
+          "zIndex": 19,
           "width": 383.94443423439,
           "height": 100
         },
