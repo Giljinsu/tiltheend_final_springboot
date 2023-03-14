@@ -1,5 +1,7 @@
 package com.final_project.tiltheend_final_springboot.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,4 +77,20 @@ public class ItemController {
         modelAndView.setViewName("shoppingcart/shoppingcart");
         return modelAndView;
     }
+
+
+    //     @RequestMapping(value = "/calcPrice", method = RequestMethod.POST)
+    // public Map calcPrice(@RequestParam Map<String, Object> params,
+    //         ModelAndView modelAndView) {
+    //             // params.put("PRODUCT_ID", UID);
+    //             ArrayList resultMap_item = (ArrayList) itemService.selectItemWithUID(params);
+    //             HashMap<String, Object> resultMap;
+    //             resultMap = (HashMap)resultMap_item.get(0);
+    //             int calcPrice = (int)resultMap.get("PRICE")*Integer.parseInt((String) params.get("tempProductCount"));
+    //             int i= 1;
+    //             resultMap.put("PRICE", calcPrice);
+    //             return resultMap;
+    //             // modelAndView.addObject("resultMap", resultMap_item);
+    //             // return resultMap_item;
+    // }
 }

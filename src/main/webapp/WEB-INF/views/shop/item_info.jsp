@@ -18,6 +18,10 @@
     />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="/css/item_info.css" />
+    <script
+    src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+    crossorigin="anonymous"></script>
   </head>
   <body>
     <%@ include file="../header.jsp" %>
@@ -140,7 +144,7 @@
                   </div>
                   <div id="total-price" class="d-flex justify-content-between">
                     <strong>총상품금액</strong>
-                    <span><fmt:formatNumber value="${resultMap[0].PRICE*((100-discount)/100)}" pattern="###,###"/>원</span>
+                    <span id="product_TotalPrice"><fmt:formatNumber value="${resultMap[0].PRICE*((100-discount)/100)}" pattern="###,###"/>원</span>
                   </div>
                   <div id="buttons" class="d-flex justify-content-center">
                       <input type="hidden" name="PRODUCT_ID" value="${resultMap[0].PRODUCT_ID}">
@@ -338,6 +342,78 @@
         countValue.value=1;
       }
     }
+        // $(document).ready(function(){ 
+        $(function(){ //위와 동일
+        $("#upCount").click(function() {
+            $.ajax({
+              url:"http://localhost:8080/shop/calcPrice",
+              type : "POST",
+              data : {'tempProductCount':countValue.value,"PRODUCT_ID":"${resultMap[0].PRODUCT_ID}"},
+              success : function(dataID, status) {
+                        let a= Number.parseInt(dataID.PRICE);
+                        let b= Number.parseInt(dataID.DISCOUNT_RATE);
+                        let c= Number.parseInt(a*((100-b)/100));
+                        let result = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        $("#product_TotalPrice").html(result+"원");
+                        // $("#product_TotalPrice").html("<div>"+(dataID.PRICE*((100-dataID.DISCOUNT_RATE)/100))+"</div>");
+                        // $("#product_TotalPrice").append(dataID.PRICE);
+                        // $("#dataID").append(typeof dataID);
+                        // 하나 하나 확인 표시
+                        // $("#dataID").append(dataID.paginations.blockScale);
+                        // $("#dataID").append(", ");
+                        // $("#dataID").append(dataID.resultList[1].NAME);
+                        // $("#dataID").append(", ");
+                        // each // 자바스크립트
+                        // $.each(dataID.resultList, function(index, item) {
+                        //     $("#dataID").append('<div>'+index+', '+item.NAME+'</div>');
+                        // });
+                    },
+     error:function(request,status,error){
+        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       },
+              complete: function() {
+                        // remove progress bar
+                        // $("#complete_status").append("Done");
+                    },
+            })
+          });
+        });
+
+                $(function(){ //위와 동일
+        $("#downCount").click(function() {
+            $.ajax({
+              url:"http://localhost:8080/shop/calcPrice",
+              type : "POST",
+              data : {'tempProductCount':countValue.value,"PRODUCT_ID":"${resultMap[0].PRODUCT_ID}"},
+              success : function(dataID, status) {
+                        let a= Number.parseInt(dataID.PRICE);
+                        let b= Number.parseInt(dataID.DISCOUNT_RATE);
+                        let c= Number.parseInt(a*((100-b)/100));
+                        let result = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+                        $("#product_TotalPrice").html(result+"원");
+                        // $("#product_TotalPrice").html("<div>"+(dataID.PRICE*((100-dataID.DISCOUNT_RATE)/100))+"</div>");
+                        // $("#product_TotalPrice").append(dataID.PRICE);
+                        // $("#dataID").append(typeof dataID);
+                        // 하나 하나 확인 표시
+                        // $("#dataID").append(dataID.paginations.blockScale);
+                        // $("#dataID").append(", ");
+                        // $("#dataID").append(dataID.resultList[1].NAME);
+                        // $("#dataID").append(", ");
+                        // each // 자바스크립트
+                        // $.each(dataID.resultList, function(index, item) {
+                        //     $("#dataID").append('<div>'+index+', '+item.NAME+'</div>');
+                        // });
+                    },
+     error:function(request,status,error){
+        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+       },
+              complete: function() {
+                        // remove progress bar
+                        // $("#complete_status").append("Done");
+                    },
+            })
+          });
+        });
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
