@@ -116,7 +116,7 @@ public class CoordinationService {
         int pageScale = (int) ((Map<String, Object>) dataMap).get("pageScale");
         Paginations paginations = new Paginations(totalCount, currentPage, pageScale);
         result.put("paginations", paginations);
-        ((Map<String, Object>) dataMap).put("pageBegin",paginations.getPageBegin()-1);
+        ((Map<String, Object>) dataMap).put("pageBegin",paginations.getPageBegin());
         result.put("resultList", this.getList(dataMap));
         return result;
     }
