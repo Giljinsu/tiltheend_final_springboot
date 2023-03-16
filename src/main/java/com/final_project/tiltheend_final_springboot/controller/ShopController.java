@@ -1,5 +1,6 @@
 package com.final_project.tiltheend_final_springboot.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,24 +20,34 @@ public class ShopController {
   @Autowired
   ShopService shopService;
 
-  @GetMapping("/{category}")
-  public ModelAndView productListWomen(@RequestParam Map<String, Object> params, @PathVariable String category,
-      ModelAndView modelAndView) {
-    params.put("category", category);
-    Object resultMap = shopService.getProductList(params);
-    Object resultMapBestProduct = shopService.getBestsellingProductList(params);
-    modelAndView.addObject("resultMap", resultMap);
-    modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
-    modelAndView.setViewName("/shop/shop");
-    return modelAndView;
-  }
+  // @GetMapping("/{category}")
+  // public ModelAndView productListWomen(@RequestParam Map<String, Object> params, @PathVariable String category,
+  //     ModelAndView modelAndView) {
+  //   params.put("category", category);
+  //   Map<String,Object> resultMap = new HashMap<String,Object>();
+  //   resultMap.put("resultList",shopService.getProductList(params));
+  //   resultMap.put("paginations",paginations);
 
-  @GetMapping("/shop")
-  public ModelAndView productList(ModelAndView modelAndView) {
-    String category = "all";
-    Object resultMap = shopService.getProductList();
-    Object resultMapBestProduct = shopService.getBestsellingProductList();
-    modelAndView.addObject("category", category);
+  //   Object resultMapBestProduct = shopService.getBestsellingProductList(params);
+
+    
+  //   modelAndView.addObject("resultMap", resultMap);
+  //   modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
+  //   modelAndView.setViewName("/shop/shop");
+  //   return modelAndView;
+  // }
+
+  @GetMapping("/{category}/{currentPage}")
+  public ModelAndView productList(@RequestParam Map<String, Object> params, @PathVariable String currentPage, @PathVariable String category, ModelAndView modelAndView) {
+    
+    params.put("currentPage", Integer.parseInt(currentPage));
+    params.put("pageScale", 8);
+    params.put("category", category);
+
+    Object resultMap = shopService.getListWithPagination(params); // products with pagination
+    // Object resultMap = shopService.getProductList(); all products
+    Object resultMapBestProduct = shopService.getBestsellingProductList(params);
+    // modelAndView.addObject("category", category);
     modelAndView.addObject("resultMap", resultMap);
     modelAndView.addObject("resultMapBestProduct", resultMapBestProduct);
     modelAndView.setViewName("/shop/shop");

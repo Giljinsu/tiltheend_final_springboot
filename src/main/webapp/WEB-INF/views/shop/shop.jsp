@@ -15,7 +15,7 @@
 		  crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="/css/main.css">
 		<style>
       * {
         /* border: 1px solid gray; */
@@ -59,17 +59,17 @@
 				
 				<!-- 사이드바 -->
 				<div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
-					<div><a href="/shop2/shop">전체</a></div>
-					<div><a href="/shop2/women">여성</a></div>
-					<div><a href="/shop2/men">남성</a></div>
-					<div><a href="/shop2/new">신상품</a></div>
-					<div><a href="/shop2/sale">세일중</a></div>
-					<div><a href="/shop2/top">상의</a></div>
-					<div><a href="/shop2/outer">아우터</a></div>
-					<div><a href="/shop2/pants">바지</a></div> 
-					<div><a href="/shop2/shoes">신발</a></div>
-					<div><a href="/shop2/hats">모자</a></div>
-					<div><a href="/shop2/bags">가방</a></div>
+					<div><a href="/shop2/all/1">전체</a></div>
+					<div><a href="/shop2/women/1">여성</a></div>
+					<div><a href="/shop2/men/1">남성</a></div>
+					<div><a href="/shop2/new/1">신상품</a></div>
+					<div><a href="/shop2/sale/1">세일중</a></div>
+					<div><a href="/shop2/top/1">상의</a></div>
+					<div><a href="/shop2/outer/1">아우터</a></div>
+					<div><a href="/shop2/pants/1">바지</a></div> 
+					<div><a href="/shop2/shoes/1">신발</a></div>
+					<div><a href="/shop2/hats/1">모자</a></div>
+					<div><a href="/shop2/bags/1">가방</a></div>
 				</div> 
 				<div id="right-column">
 						<div class="pt-4 pb-4">상품 > 
@@ -145,7 +145,7 @@
 					<!-- 일반 상품 리스트 -->
 					<div class="fs-5 mt-5 mb-3">상품 리스트</div>
 					<div class="row">
-						<c:forEach items="${resultMap}" var="item" varStatus="loop">
+						<c:forEach items="${resultMap.resultList}" var="item" varStatus="loop">
 							<a href="/shop/${item.PRODUCT_ID}" class="col-3 mb-3">
 								<div class="card" style="">
 									<%-- <img class="card-img-top" src="../refer/shop_img/shop1.jpg" alt="Card image cap"> --%>
@@ -167,17 +167,23 @@
 					<!-- pagination -->
 					<div class="container d-flex justify-content-center mt-4">
 						<nav aria-label="Page navigation example" class="">
+							<c:set var="_pagination" value="${resultMap.paginations}"/>
 							<ul class="pagination">
 								<li class="page-item">
-								<a class="page-link" href="#" aria-label="Previous">
+								<a class="page-link" href="/shop2/${category}/${_pagination.previousPage}" aria-label="Previous">
 									<span aria-hidden="true">&laquo;</span>
 								</a>
 								</li>
-								<li class="page-item"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<c:forEach var="i" begin="${_pagination.blockStart}" end="${_pagination.blockEnd}">
+									<c:if test="${_pagination.currentPage == i}">
+										<li class="page-item active"><a class="page-link" href="/shop2/${category}/${i}">${i}</a></li>
+									</c:if>
+									<c:if test="${_pagination.currentPage != i}">
+										<li class="page-item"><a class="page-link" href="/shop2/${category}/${i}">${i}</a></li>
+									</c:if>
+								</c:forEach>
 								<li class="page-item">
-								<a class="page-link" href="#" aria-label="Next">
+								<a class="page-link" href="/shop2/${category}/${_pagination.nextPage}" aria-label="Next">
 									<span aria-hidden="true">&raquo;</span>
 								</a>
 								</li>

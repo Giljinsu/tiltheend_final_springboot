@@ -276,17 +276,9 @@ VALUES
 INSERT INTO FAQ
 (`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
 VALUES
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}'),
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}'),
 ('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}');
-
-INSERT INTO FAQ
-(`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
-VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}');
-
-INSERT INTO FAQ
-(`POST_NO_FAQ`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`)
-VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}');
 
 -- PRODUCT_PICTURE
 
@@ -310,17 +302,23 @@ VALUES
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
+('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}','답변대기'),
+('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}','답변대기'),
 ('3','U0001','repair','반품시 유의사항','2023.01.05','{"ops":[{"insert":"test입니다"}]}','답변대기');
 
 INSERT INTO QNA
 (`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
 VALUES
-('2','U0001','ect','추석연휴 배송안내','2023.09.05','{"ops":[{"insert":"test입니다"}]}','답변대기');
-
-INSERT INTO QNA
-(`POST_NO_QNA`,`UID`,`CATEGORY`,`TITLE`,`DATE`,`CONTENT`,`STATUS`)
-VALUES
-('1','U0001','cancle','주문시 유의사항','2023.01.08','{"ops":[{"insert":"test입니다"}]}','답변대기');
+('4','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('5','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('6','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('7','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('8','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('9','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('10','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('11','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('12','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기'),
+('13','U0001','cancle','제품 배송 언제되요?','2023.01.05','{"ops":[{"insert":"제품배송 아직도 안 왔어요. 언제되요?"}]}','답변대기');
 
 -- REVIEW
 INSERT INTO REVIEW

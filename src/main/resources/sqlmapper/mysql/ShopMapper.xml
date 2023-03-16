@@ -2,6 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="shop">
+
+    <!-- shop.selectTotal -->
+    <select id="selectTotal" parameterType="Map" resultType="int">
+        SELECT count(*) as cnt
+        FROM PRODUCT
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
+        <if test="category == 'women'">WHERE CATEGORY LIKE "여자%"</if>
+        <if test="category == 'men'">WHERE CATEGORY LIKE "남자%"</if>
+        <if test="category == 'new'">WHERE CLOTHES_NAME LIKE "%[신상품★]%"</if>
+        <if test="category == 'sale'">WHERE DISCOUNT_RATE > 0 ORDER BY DISCOUNT_RATE DESC</if>
+        <if test="category == 'top'">WHERE CATEGORY LIKE "%상의"</if>
+        <if test="category == 'outer'">WHERE CATEGORY LIKE "%아우터"</if>
+        <if test="category == 'pants'">WHERE CATEGORY LIKE "%하의"</if>
+        <if test="category == 'shoes'">WHERE CATEGORY LIKE "%신발"</if>
+        <if test="category == 'hats'">WHERE CATEGORY LIKE "%모자"</if>
+        <if test="category == 'bags'">WHERE CATEGORY LIKE "%가방"</if>
+        ;
+    </select>
+
+    <!-- shop.selectList -->
+    <select id="selectList" parameterType="Map" resultType="Map">
+        SELECT * FROM PRODUCT
+        JOIN (SELECT * FROM CIP_ATTACHFILE
+		        GROUP BY SOURCE_UNIQUE_SEQ) AS CIP
+        ON PRODUCT_ID = SOURCE_UNIQUE_SEQ
+        ;
+    </select>
+
     <!-- shop.selectAll -->
     <select id="selectAll" parameterType="Map" resultType="Map">
         SELECT * FROM PRODUCT
@@ -34,6 +64,9 @@
         <if test="category == 'shoes'">WHERE CATEGORY LIKE "%신발"</if>
         <if test="category == 'hats'">WHERE CATEGORY LIKE "%모자"</if>
         <if test="category == 'bags'">WHERE CATEGORY LIKE "%가방"</if>
+        <if test="pageScale != null">
+        LIMIT #{pageBegin}, #{pageScale}
+        </if>
         ;
     </select>
     <!-- shop.selectBestsellingProductListCategory -->

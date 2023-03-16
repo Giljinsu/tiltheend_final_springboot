@@ -42,18 +42,19 @@
       <div id="wrapper" style="width: 1200px; margin-left: auto; margin-right: auto" class="d-flex">
         <!-- 사이드바 -->
         <div class="me-3 pe-3 border-end pt-4 pb-4" id="left-column">
-          <div><a href="/shop2/shop">전체</a></div>
-          <div><a href="/shop2/women">여성</a></div>
-          <div><a href="/shop2/men">남성</a></div>
-          <div><a href="/shop2/new">신상품</a></div>
-          <div><a href="/shop2/sale">세일중</a></div>
-          <div><a href="/shop2/top">상의</a></div>
-          <div><a href="/shop2/outer">아우터</a></div>
-          <div><a href="/shop2/pants">바지</a></div>
-          <div><a href="/shop2/shoes">신발</a></div>
-          <div><a href="/shop2/hats">모자</a></div>
-          <div><a href="/shop2/bags">가방</a></div>
-        </div>
+					<div><a href="/shop2/all/1">전체</a></div>
+					<div><a href="/shop2/women/1">여성</a></div>
+					<div><a href="/shop2/men/1">남성</a></div>
+					<div><a href="/shop2/new/1">신상품</a></div>
+					<div><a href="/shop2/sale/1">세일중</a></div>
+					<div><a href="/shop2/top/1">상의</a></div>
+					<div><a href="/shop2/outer/1">아우터</a></div>
+					<div><a href="/shop2/pants/1">바지</a></div> 
+					<div><a href="/shop2/shoes/1">신발</a></div>
+					<div><a href="/shop2/hats/1">모자</a></div>
+					<div><a href="/shop2/bags/1">가방</a></div>
+				</div> 
+        
           <form action="/shop/cart/${resultMap[0].PRODUCT_ID}" method="post">
           <div>
             <div id="info">

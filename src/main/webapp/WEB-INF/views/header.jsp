@@ -27,7 +27,7 @@
           <div class="short-div">
             <div style="width: 100%" class="d-flex justify-content-between align-items-center">
               <div class="navbar-nav">
-                <a class="nav-link ms-4 fs-5 text-dark"  href="/shop2/shop">상품</a>
+                <a class="nav-link ms-4 fs-5 text-dark"  href="/shop2/all/1">상품</a>
                 <!-- <div class="d-flex nav-item">
                   <a href="" class="nav-link fs-5 dropdown-toggle text-dark" data-bs-toggle="dropdown">게시판</a>
                   <div class="dropdown-menu">
