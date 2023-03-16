@@ -63,7 +63,7 @@ public class Paginations {
     }
 
     public void setPageRange() {
-        pageBegin = ((this.currentPage - 1)*this.pageScale+1);
+        pageBegin = ((this.currentPage - 1)*this.pageScale);
         if(pageBegin > totalCount) {
             pageBegin = totalCount-pageScale+1;
         }
