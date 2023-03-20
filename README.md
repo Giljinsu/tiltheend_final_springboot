@@ -52,7 +52,9 @@
 <img src="./refer/%EA%B4%80%EB%A6%AC%EC%9E%90%ED%99%94%EB%A9%B4.PNG" width="%" height=""></img>
 
 ### 링크
-- 서버 링크 : [끝까지버팀서버](http://yongbeom.mynetgear.com:8080/)
+- 서버 링크 : [끝까지버팀서버](http://yongbeom.mynetgear.com:8080/)   
+[관리자] = ID : admin PW : 1234  
+[일반회원] = ID : member PW : 1234
 - 동영상 링크 : [프로젝트 동작유튜브](https://youtu.be/3L9r1h21fWE)
 - 의뢰팀 의뢰서: [의뢰팀 의뢰서](./refer/PT_Requestment_%EB%A7%9D%EA%B3%A0.pdf)
 - 요구사항정의서 링크 : [프로젝트 요구사항정의서](./refer/%EB%81%9D%EA%B9%8C%EC%A7%80%EB%B2%84%ED%8C%80-%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%EC%A0%95%EC%9D%98%EC%84%9C.xlsx)
@@ -171,8 +173,8 @@ FrontEnd : 길진수 [링크](./src/main/webapp/WEB-INF/views/search/searchpage.
 BackEnd : 길진수 [링크](./src/main/java/com/final_project/tiltheend_final_springboot/controller/HomeController.java)
 
 
-### **느낀점**
-길진수 :   
+## **느낀점**
+길진수 : 실제처럼 의뢰팀에게 의뢰를 받고 의뢰 내용에 따라 프로그램을 작성하면서 혼자 할때 보다 많은점을 배울 수 있어서 좋았습니다. 여러가지 기능들을 배우고 사용하면서 한층더 성장한거 같습니다.
 
 김병근 : 프로젝트를 시작하기 전에는 코드를 하나하나 짜야한다고 생각했지만 프로젝트를 진행하다보니 비슷한 기능의 코드를 복사해서 붙여넣고 약간 수정해서 다른 기능을 구현할 수 있다는 것을 알았습니다. 협업을 통해 팀원들끼리 서로서로 부족한 부분을 보완해 줄 수 있는 점이 좋았습니다.
 
