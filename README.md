@@ -13,6 +13,7 @@
     <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=Bootstrap&logoColor=white">
     <img src="https://img.shields.io/badge/JSTL-000000?style=for-the-badge&logo=&logoColor=white">
     <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
+    <img src="https://img.shields.io/badge/AJAX-4F8DC6?style=for-the-badge&logo=&logoColor=white">
 
 - Back-end
 
