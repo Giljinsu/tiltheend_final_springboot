@@ -20,6 +20,7 @@
     <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
     <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Security&logoColor=white">
     <img src="https://img.shields.io/badge/Servlet-E11F21?style=for-the-badge&logo=&logoColor=white">
+    <img src="https://img.shields.io/badge/MYBATIS-000000?style=for-the-badge&logo=&logoColor=white">
 
 - Server
 
