@@ -347,7 +347,7 @@
         $(function(){ //위와 동일
         $("#upCount").click(function() {
             $.ajax({
-              url:"http://localhost:8080/shop/calcPrice",
+              url:"/shop/calcPrice",
               type : "POST",
               data : {'tempProductCount':countValue.value,"PRODUCT_ID":"${resultMap[0].PRODUCT_ID}"},
               success : function(dataID, status) {
